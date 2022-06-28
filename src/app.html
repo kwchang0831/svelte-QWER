@@ -4,9 +4,22 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%sveltekit.assets%/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     %sveltekit.head%
   </head>
   <body>
+    <script>
+      const themeLocalStorageKey = 'theme';
+      if (
+        !!localStorage.getItem(themeLocalStorageKey)
+          ? localStorage.getItem(themeLocalStorageKey) === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches
+      ) {
+        document.body.classList.add('dark');
+      } else {
+        document.body.classList.add('light');
+      }
+    </script>
     %sveltekit.body%
   </body>
 </html>

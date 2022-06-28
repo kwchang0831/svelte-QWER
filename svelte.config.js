@@ -1,3 +1,4 @@
+import path from 'path';
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
 import Unocss from 'unocss/vite';
@@ -21,6 +22,12 @@ const config = {
           transformers: [transformerDirective(), transformerVariantGroup(), transformerCompileClass()],
         }),
       ],
+      resolve: {
+        alias: {
+          $config: path.resolve('src/config'),
+          $types: path.resolve('src/types'),
+        },
+      },
     },
   },
 };

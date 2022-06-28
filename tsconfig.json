@@ -8,6 +8,15 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "strict": true
-  }
+    "strict": true,
+    "paths": {
+      "$lib": ["src/lib"],
+      "$lib/*": ["src/lib/*"],
+      "$config": ["src/config"],
+      "$config/*": ["src/config/*"],
+      "$types": ["src/types"],
+      "$types/*": ["src/types/*"]
+    }
+  },
+  "include": ["src/**/*"]
 }
