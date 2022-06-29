@@ -6,22 +6,17 @@
   import '@unocss/reset/tailwind.css';
   import 'uno.css';
 
-  // import SvelteTheme from 'svelte-themes/SvelteTheme.svelte';
   import Header from '$lib/header.svelte';
-  import Footer from '$lib/footer.svelte';
 </script>
 
 <Header />
-
 <slot />
-
-<Footer />
 
 <style>
   :global(body) {
-    @apply bg-white text-black;
+    @apply bg-[#E1E3DD]/[0.9] text-black;
   }
   :global(body.dark) {
-    @apply bg-black/[0.9] text-white;
+    @apply bg-[#181818]/[0.9] text-white;
   }
 </style>
