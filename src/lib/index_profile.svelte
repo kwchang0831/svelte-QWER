@@ -23,10 +23,10 @@
   </p>
 
   <div class="my-2 flex flex-row justify-end xl:w-full">
-    <a href="mailto:contact@kwchang0831.dev" class="btn btn-ghost">
+    <a href="mailto:contact@kwchang0831.dev" class="btn btn-ghost" aria-label="Email">
       <div class=":uno: !w-[1.75rem] !h-[1.75rem]  i-ic-baseline-mail" />
     </a>
-    <a href="https://github.com/kwchang0831" class="btn btn-ghost">
+    <a href="https://github.com/kwchang0831" class="btn btn-ghost" aria-label="Github">
       <div class=":uno: !w-[1.75rem] !h-[1.75rem]  i-carbon-logo-github" />
     </a>
   </div>
