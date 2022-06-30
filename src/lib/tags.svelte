@@ -20,7 +20,8 @@
     <h3 class:expanded>
       {name}
     </h3>
-    <div class="{expanded ? 'i-tabler-fold-down' : 'i-tabler-fold-up'} display-inline-block !w-[1.25rem] !h-[1.25rem] "></div>
+    <div
+      class="{expanded ? 'i-tabler-fold-down' : 'i-tabler-fold-up'} display-inline-block !w-[1.25rem] !h-[1.25rem] " />
   </div>
 
   {#if expanded}

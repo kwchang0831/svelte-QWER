@@ -5,6 +5,7 @@
   import { site } from '$config/site';
   import { theme } from '$lib/stores/themes';
   import { fly } from 'svelte/transition';
+  import Dropdown from '$lib/dropdown.svelte';
   let search: boolean = false;
 </script>
 
@@ -18,6 +19,7 @@
       <a sveltekit:prefetch href="/" target="_self" class="text-xl font-semibold normal-case mx-4 btn btn-ghost">
         {site.title}
       </a>
+      <Dropdown name="123" />
 
       <div class="ml-auto">
         <button aria-label="search" on:click={() => (search = !search)} tabindex="0" class="btn btn-ghost">

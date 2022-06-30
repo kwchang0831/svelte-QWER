@@ -13,9 +13,9 @@
   </figure> -->
 
   {#if cover_style && 'lr'.indexOf(cover_style) !== -1}
-    <div class="flex border-1 md:!border-none">
+    <div class="flex border-t-1 border-b-1  md:border-none">
       <div
-        class="ml-auto shrink-0 w-52 relative overflow-hidden rounded"
+        class="ml-auto shrink-0 w-52 relative overflow-hidden md:rounded"
         class:order-first={cover_style === 'l' || cover_style === 't'}
         class:order-last={cover_style === 'r'}>
         <a href="/" alt={title} class="cursor-pointer">
@@ -25,7 +25,7 @@
             alt={cover} />
         </a>
       </div>
-      <div class="px-8 py-8 grow">
+      <div class="px-8 py-6 grow">
         <div class="">{published}</div>
         <h2 class="text-2xl font-bold">
           <a href="/" class="title-link-orange-500-orange-500">{title}</a>
@@ -34,9 +34,9 @@
       </div>
     </div>
   {:else if cover_style && 'tb'.indexOf(cover_style) !== -1}
-    <div class="flex flex-col border-1 md:!border-none">
+    <div class="flex flex-col border-t-1 border-b-1 md:border-none">
       <div
-        class="shrink-0 h-64 relative rounded overflow-hidden"
+        class="shrink-0 h-64 relative overflow-hidden md:rounded "
         class:order-first={cover_style === 't'}
         class:order-last={cover_style === 'b'}>
         <a href="/" alt={title} class="cursor-pointer">
@@ -46,7 +46,7 @@
             alt={cover} />
         </a>
       </div>
-      <div class="px-8 py-8 grow">
+      <div class="px-8 py-6 grow flex flex-col gap-1">
         <div class="">{published}</div>
         <h2 class="text-2xl font-bold">
           <a href="/" class="title-link-orange-500-orange-500">{title}</a>
@@ -55,7 +55,7 @@
       </div>
     </div>
   {:else}
-    <div class="flex flex-col border-t-1 last:border-b-1 md:!border-none">
+    <div class="flex flex-col border-t-1 border-b-1 md:border-none">
       <div class="px-8 py-8 grow">
         <div class="">{published}</div>
         <h2 class="text-2xl font-bold">
