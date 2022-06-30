@@ -15,7 +15,9 @@
       class="flex items-center border-transparent backdrop-blur py-2"
       in:fly={{ x: -50, duration: 300, delay: 300 }}
       out:fly={{ x: -50, duration: 300 }}>
-      <a href="/" sveltekit:prefetch class="text-xl font-semibold normal-case mx-4 btn btn-ghost">{site.title}</a>
+      <a sveltekit:prefetch href="/" target="_self" class="text-xl font-semibold normal-case mx-4 btn btn-ghost">
+        {site.title}
+      </a>
 
       <div class="ml-auto">
         <button aria-label="search" on:click={() => (search = !search)} tabindex="0" class="btn btn-ghost">
