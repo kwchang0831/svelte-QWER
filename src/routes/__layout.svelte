@@ -17,6 +17,6 @@
     @apply bg-[#E1E3DD]/[0.9] text-black;
   }
   :global(body.dark) {
-    @apply bg-[#181818]/[0.9] text-white;
+    @apply bg-[#191919]/[0.9] text-white;
   }
 </style>

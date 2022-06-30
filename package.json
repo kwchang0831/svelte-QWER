@@ -16,6 +16,7 @@
     "@iconify-json/carbon": "^1.1.6",
     "@iconify-json/ic": "^1.1.6",
     "@iconify-json/mdi": "^1.1.24",
+    "@iconify-json/tabler": "^1.1.18",
     "@sveltejs/adapter-auto": "1.0.0-next.53",
     "@sveltejs/kit": "1.0.0-next.357",
     "@typescript-eslint/eslint-plugin": "^5.30.0",

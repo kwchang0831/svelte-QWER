@@ -11,7 +11,7 @@
       published: '05/25/2022',
       cover:
         'https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1778&q=80',
-      cover_style: 'l',
+      cover_style: 't',
     },
     {
       title: '第5天寫部落格',
@@ -19,7 +19,7 @@
       published: '05/24/2022',
       cover:
         'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      cover_style: 'r',
+      cover_style: 't',
     },
     {
       title: '第4天寫部落格',
@@ -35,7 +35,7 @@
       published: '05/22/2022',
       cover:
         'https://images.unsplash.com/photo-1557358070-ef6ae6f84629?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1566&q=80',
-      cover_style: 'b',
+      cover_style: 't',
     },
     {
       title: '第2天寫部落格',

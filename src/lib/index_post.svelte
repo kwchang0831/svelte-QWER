@@ -3,11 +3,11 @@
   export let published: string;
   export let summary: string;
   export let cover: string | null;
-  export let cover_style: 't' | 'b' | 'l' | 'r' | 'in' | null;
+  export let cover_style: string | null;
 </script>
 
 <article
-  class="flex flex-col gap-2 group hover:shadow-2xl w-screen transform transition duration-250 border-black md:(w-3xl rounded-lg !border-none border-transparent hover:(scale-105)) bg-[#FAF9F6]/[0.75]  dark:(bg-[#212121]/[0.75] border-white)">
+  class="flex flex-col gap-2 group hover:shadow-2xl w-screen transform transition duration-250 border-black md:(w-3xl rounded-lg !border-none border-transparent hover:(scale-105)) bg-[#FAF9F6]/[0.75]  dark:(bg-[#171717]/[0.75] border-white)">
   <!-- <figure class="">
     <img class="w-full" src={cover} alt={cover}/>
   </figure> -->
@@ -15,7 +15,7 @@
   {#if cover_style && 'lr'.indexOf(cover_style) !== -1}
     <div class="flex border-1 md:!border-none">
       <div
-        class="ml-auto shrink-0 w-48 relative overflow-hidden rounded"
+        class="ml-auto shrink-0 w-52 relative overflow-hidden rounded"
         class:order-first={cover_style === 'l' || cover_style === 't'}
         class:order-last={cover_style === 'r'}>
         <a href="/" alt={title} class="cursor-pointer">

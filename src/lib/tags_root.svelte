@@ -5,10 +5,10 @@
   let className: any = undefined;
   export { className as class };
 
-  export let rootExpaned = true;
+  export let expaned = true;
 
-  function rootToggle() {
-    rootExpaned = !rootExpaned;
+  function toggle() {
+    expaned = !expaned;
   }
 
   let data = [
@@ -70,9 +70,13 @@
 </script>
 
 <side id="index-tags" class={className}>
-  <h2 on:click={rootToggle} class="text-2xl border-b-2 py-1">Tags</h2>
 
-  {#if rootExpaned}
+  <div class="flex justify-between items-center border-b-2 py-2 cursor-pointer" on:click={toggle} >
+    <h2 class:expaned class="text-2xl">Tags</h2>
+    <div class="{expaned ? 'i-tabler-fold-down' : 'i-tabler-fold-up'} display-inline-block !w-[1.75rem] !h-[1.75rem]"></div>
+  </div>
+
+  {#if expaned}
     <div transition:slide={{ duration: 300 }} class="py-4 ">
       {#each data as d}
         <Tags {...d} expanded />
