@@ -31,9 +31,13 @@
       {/key}
     </div>
   {:else}
-    <div id="header-nav" class="flex items-center py-2" in:fly={{ x: 50, duration: 300, delay: 300 }} out:fly={{ x: 50, duration: 300 }}>
+    <div
+      id="header-nav"
+      class="flex items-center py-2"
+      in:fly={{ x: 50, duration: 300, delay: 300 }}
+      out:fly={{ x: 50, duration: 300 }}>
       <form accept-charset="UTF-8" class="grow flex">
-        <input type="text" name="index-search" id="index-search" class="grow my-2 mx-4 rounded  bg-transparent border-1">
+        <input type="text" name="q" id="index-search" class="grow my-2 mx-4 px-2 rounded  bg-transparent border-1" />
         <button class="btn btn-ghost">
           <div class="!w-[2rem] !h-[2rem] i-carbon-search" />
         </button>
