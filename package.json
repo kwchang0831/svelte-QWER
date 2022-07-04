@@ -33,6 +33,7 @@
     "eslint-plugin-svelte3": "^4.0.0",
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.7.0",
+    "sass": "^1.53.0",
     "svelte": "^3.48.0",
     "svelte-check": "^2.8.0",
     "svelte-preprocess": "^4.10.7",

@@ -9,10 +9,11 @@
   import { fly } from 'svelte/transition';
   import Dropdown from '$lib/dd.svelte';
 
+
   let search = false;
 
   /** Mockup data*/
-  let nav: Array<DD.Nav | DD.Link> = [
+  let nav: (DD.Nav | DD.Link)[] = [
     {
       name: 'About',
       orientation: 2,
@@ -38,14 +39,18 @@
             {
               name: 'Left',
               url: '/me-left',
-            }
+            },
           ],
-        }
+        },
       ],
     },
     {
       name: 'Projects',
       url: '/projects',
+    },
+    {
+      name: 'Post#1',
+      url: '/post/1',
     },
   ];
   let mobile_nav: DD.Nav = {
@@ -82,33 +87,35 @@
                 url: '/first-second-byte',
               },
             ],
-          }
+          },
         ],
       },
       {
-        name: 'Projects',
-        url: '/projects',
+        name: 'Post#1',
+        url: '/post/1',
+        target: '_self',
+        prefetch: true,
       },
     ],
   };
 </script>
 
-<header id="header" class="fixed w-screen all:(transition-500) ease-in-out border-transparent max-h-16 z-40">
+<header id="header" class="fixed w-screen ease-in-out border-transparent max-h-16 z-40">
   {#if !search}
     <div
       id="header-nav"
       class="flex items-center justify-items-center border-transparent backdrop-blur py-2 px-4"
       in:fly={{ x: -50, duration: 300, delay: 300 }}
       out:fly={{ x: -50, duration: 300 }}>
-      <div class="lg:hidden">
-        <Dropdown nav={mobile_nav} class="text-sm p2">
-          <button aria-label="nav menu" class="flex items-center">
+      <div class="lg:hidden rounded-lg light:(hover:bg-gray/[0.5]) dark:(hover:bg-gray/[0.25])">
+        <Dropdown nav={mobile_nav} class="text-sm p2 ">
+          <button aria-label="nav menu" class="flex items-center ">
             <div class="i-mdi-hamburger-menu !w-[1.5rem] !h-[1.5rem]" />
           </button>
         </Dropdown>
       </div>
 
-      <a sveltekit:prefetch href="/" target="_self" class="text-xl font-semibold normal-case btn btn-ghost">
+      <a sveltekit:prefetch href="/" class="text-xl font-semibold normal-case btn btn-ghost">
         {site.title}
       </a>
 
@@ -119,14 +126,23 @@
       </div>
 
       <div class="ml-auto">
-        <button aria-label="search" on:click={() => (search = !search)} tabindex="0" class="btn btn-ghost">
-          <div class="!w-[1.75rem] !h-[1.75rem] i-carbon-search" />
+        <button
+          aria-label="search"
+          on:click={() => (search = !search)}
+          tabindex="0"
+          class="btn btn-ghost active:translate-y-2 duration-500 ease-out group">
+          <div
+            class="!w-[1.75rem] !h-[1.75rem] i-carbon-search group-hover:delay-100 group-hover:transition group-hover:delay-100 group-hover:duration-500 group-hover:scale-[1.2]" />
         </button>
       </div>
       {#key $theme}
         <div>
-          <button aria-label="Dark Mode Switch" on:click={theme.toggle} class="btn btn-ghost">
-            <div class="!w-[1.75rem] !h-[1.75rem] i-carbon-sun dark:i-carbon-moon" />
+          <button
+            aria-label="Dark Mode Switch"
+            on:click={theme.toggle}
+            class="btn btn-ghost active:translate-y-2 duration-500 ease-out group">
+            <div
+              class="!w-[1.75rem] !h-[1.75rem] i-carbon-sun dark:i-carbon-moon group-hover:transition group-hover:delay-100 group-hover:duration-500 group-hover:scale-[1.2]" />
           </button>
         </div>
       {/key}
@@ -143,13 +159,17 @@
           name="q"
           id="index-search"
           class="grow mx-4 my-2 px-2 h-8 rounded  bg-transparent border-1" />
-        <button class="btn btn-ghost display-inline-block">
-          <div class="!w-[1.75rem] !h-[1.75rem] i-carbon-search" />
+        <button class="btn btn-ghost display-inline-block active:translate-y-2 duration-500 ease-out group">
+          <div
+            class="!w-[1.75rem] !h-[1.75rem] i-carbon-search group-hover:transition group-hover:delay-100 group-hover:duration-500 group-hover:scale-[1.2]" />
         </button>
       </form>
       <div class="mr-4">
-        <button on:click={() => (search = !search)} class="btn btn-ghost">
-          <div class="!w-[2rem] !h-[2rem] i-carbon-close" />
+        <button
+          on:click={() => (search = !search)}
+          class="btn btn-ghost active:translate-y-2 duration-500 ease-out group">
+          <div
+            class="!w-[2rem] !h-[2rem] i-carbon-close group-hover:transition group-hover:delay-100 group-hover:duration-500 group-hover:scale-[1.2]" />
         </button>
       </div>
     </div>

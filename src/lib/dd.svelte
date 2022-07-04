@@ -2,10 +2,13 @@
   import type { DD } from '$types/dd';
 
   /**
-   * TODO: page.url.pathname
+   * //TODO: page.url.pathname
    * For now, we teats all links as internal links
    * Need to make sure make account for external links
    *
+   * //TODO: CSS Version of dropdown instead of JS
+   *
+   * //TODO: Mobile: scroll away to hide
    */
   import { page } from '$app/stores';
 
@@ -28,9 +31,13 @@
 </script>
 
 {#if nav}
-  <div on:mouseenter={show} on:mouseleave={hide} class="relative {className}">
+  <div on:mouseenter={show} on:mouseleave={hide} class="relative cursor-pointer {className}">
     <slot>
-      <a href={nav.url} target={nav.target} class="flex items-center cursor-pointer gap-2">
+      <a
+
+        href={nav.url}
+        target={nav.target}
+        class="flex items-center cursor-pointer gap-2">
         {nav.name}
         {#if 'links' in nav && nav.links}
           <span
@@ -60,6 +67,10 @@
                   <a
                     href={link.url}
                     target={nav.target}
+
+                    on:click={() => {
+                      if (link.url) hide();
+                    }}
                     class="p4 flex items-center cursor-pointer {$page.url.pathname === link.url ? 'font-bold' : ''}">
                     {link.name}
                     {#if link.links}
@@ -83,6 +94,10 @@
                 <a
                   href={link.url}
                   target={nav.target}
+
+                  on:click={() => {
+                    if (link.url) hide();
+                  }}
                   class="flex items-center cursor-pointer">
                   {link.name}
                 </a>
