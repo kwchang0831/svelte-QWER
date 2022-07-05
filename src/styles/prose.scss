@@ -1,0 +1,73 @@
+.prose {
+  --at-apply: 'px[1.5rem]';
+  & > h1,
+  & > h2,
+  & > h3,
+  & > h4,
+  & > h5 {
+    --at-apply: 'after:(content-[#] px2 op10 hover:op100)';
+    a {
+      --at-apply: 'no-underline';
+    }
+  }
+}
+
+.code-block {
+  --at-apply: 'relative my4 mx-[-1.5rem] flex flex-col border-y-1 md:(rounded-lg border-1 mx0) border-black/[0.5] dark:border-white/[0.5] shadow-2xl';
+
+  h2 {
+    --at-apply: '!text-xl !m0';
+  }
+
+  code {
+    --at-apply: 'flex flex-col py4';
+  }
+
+  .code-title {
+    --at-apply: 'text-md font-semibold pl4 py2 border-b-1 border-black/[0.5] dark:border-white/[0.5]';
+  }
+
+  .code-line {
+    --at-apply: 'flex leading-[1.5rem] hover:(dark:!bg-white/[0.25] !bg-black/[0.25])';
+
+    &.line-highlight {
+      background-color: rgba(55, 65, 81, 0.5);
+
+      .line-number {
+        border-left-color: rgb(59, 130, 246);
+        border-left-width: 4px;
+      }
+    }
+
+    &.line-addition {
+      background-color: rgba(16, 185, 129, 0.3); 
+    }
+
+    &.line-subtraction {
+      background-color: rgba(239, 68, 68, 0.3); 
+    }
+
+    .code-content {
+      --at-apply: 'flex-1';
+    }
+  }
+
+  .line-number {
+    --at-apply: 'px2 w7 inline-block border-l-4 border-l-transparent border-r-1 border-r-black dark:border-r-white select-none';
+  }
+  .no-line-number {
+    --at-apply: 'px2 w2 inline-block select-none';
+  }
+
+  .line-diff {
+    --at-apply: 'px2 w6 inline-block select-none';
+  }
+
+  .no-line-diff {
+    --at-apply: 'px2 w2 inline-block select-none';
+  }
+}
+
+.inline-code-block {
+  --at-apply: 'rounded-lg bg-gray/[0.5] mx-1 px3 py1 hover:bg-black/[0.5]';
+}

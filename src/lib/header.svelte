@@ -9,7 +9,6 @@
   import { fly } from 'svelte/transition';
   import Dropdown from '$lib/dd.svelte';
 
-
   let search = false;
 
   /** Mockup data*/

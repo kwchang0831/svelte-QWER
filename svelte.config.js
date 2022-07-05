@@ -20,7 +20,22 @@ const config = {
       plugins: [
         Unocss({
           extractors: [extractorSvelte],
-          presets: [presetUno(), presetTypography(), presetIcons()],
+          presets: [
+            presetUno(),
+            presetIcons(),
+            presetTypography({
+              cssExtend: {
+                ':not(pre) > code::before,:not(pre) > code::after': {
+                  content: '',
+                },
+                pre: {
+                  'border-radius': 0,
+                  padding: 0,
+                  margin: 0,
+                },
+              },
+            }),
+          ],
           transformers: [transformerDirective(), transformerVariantGroup(), transformerCompileClass()],
           shortcuts: [
             {

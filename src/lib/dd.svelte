@@ -33,11 +33,7 @@
 {#if nav}
   <div on:mouseenter={show} on:mouseleave={hide} class="relative cursor-pointer {className}">
     <slot>
-      <a
-
-        href={nav.url}
-        target={nav.target}
-        class="flex items-center cursor-pointer gap-2">
+      <a href={nav.url} target={nav.target} class="flex items-center cursor-pointer gap-2">
         {nav.name}
         {#if 'links' in nav && nav.links}
           <span
@@ -67,7 +63,6 @@
                   <a
                     href={link.url}
                     target={nav.target}
-
                     on:click={() => {
                       if (link.url) hide();
                     }}
@@ -94,7 +89,6 @@
                 <a
                   href={link.url}
                   target={nav.target}
-
                   on:click={() => {
                     if (link.url) hide();
                   }}

@@ -7,7 +7,6 @@
   import '@unocss/reset/sanitize/assets.css';
   import '@unocss/reset/tailwind.css';
   import 'uno.css';
-  import '../prism.css'
 
   import Header from '$lib/header.svelte';
   import Footer from '$lib/footer.svelte';
@@ -19,7 +18,7 @@
 </div>
 <Footer />
 
-<style>
+<style lang="scss">
   :global(body) {
     @apply bg-[#E1E3DD]/[0.9] text-black;
   }

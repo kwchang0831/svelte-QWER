@@ -16,7 +16,9 @@
       "$config": ["src/config"],
       "$config/*": ["src/config/*"],
       "$types": ["src/types"],
-      "$types/*": ["src/types/*"]
+      "$types/*": ["src/types/*"],
+      "$styles": ["src/styles"],
+      "$styles/*": ["src/styles/*"]
     }
   },
   "include": ["src/**/*"]
