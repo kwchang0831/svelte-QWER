@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@giscus/svelte": "^2.0.6",
+    "@iconify-json/akar-icons": "^1.1.7",
     "@iconify-json/carbon": "^1.1.6",
     "@iconify-json/ic": "^1.1.6",
     "@iconify-json/mdi": "^1.1.24",

@@ -1,10 +1,49 @@
-<script>
+<script lang="ts">
   import Post from '$lib/post.svelte';
   import PostHeading from '$lib/post_heading.svelte';
-  import PostToc from '$lib/post_toc.svelte';
+  import PostToc from '$lib/toc.svelte';
 
   import Giscus from '@giscus/svelte';
   import { commentConfig } from '$config/site';
+
+  import type { TOC } from '$types/toc';
+
+  let tocData: TOC.Content[] = [
+    {
+      heading: '開頭',
+      slug: '#kai1-tou2',
+    },
+    {
+      heading: '環境配置',
+      slug: '#huan2-jing4',
+    },
+    {
+      heading: '開始操作',
+      slug: '#que4-ren4-kong1-jian1',
+      child: [
+        {
+          heading: '開始更新',
+          slug: '#kai1-shi3-geng4-xin1',
+        },
+        {
+          heading: '檢查升級',
+          slug: '#jian3-cha2-sheng1-ji2',
+        },
+        {
+          heading: '清除垃圾',
+          slug: '#qing1-chu2-la1-ji1',
+        },
+      ],
+    },
+    {
+      heading: '最後',
+      slug: '#zui4-hou4',
+    },
+    {
+      heading: '完結',
+      slug: '#wan2-jie2',
+    },
+  ];
 </script>
 
 <Post>
@@ -70,7 +109,7 @@
                 class="no-line-number" /><span class="no-line-diff" /></div><div
               class="code-content">Codename:       focal</div></div></code></pre>
     </div>
-    <h2 id="que4-ren4-kong1-jian1"><a href="#que4-ren4-kong1-jian1">確認空間</a></h2>
+    <h2 id="que4-ren4-kong1-jian1"><a href="#que4-ren4-kong1-jian1">開始操作</a></h2>
     <p>最好確認一下有足夠空間可供升級使用，最好能有 25GB 以上。</p>
     <div class="code-block  ">
       <pre><code class="language-shell"><div class="code-line"><div class="code-linenotation"><span
@@ -101,7 +140,7 @@
     </div>
     <p>
       確保有安裝 <code class="inline-code-block">updrate-manager-core</code>
-       套件
+      套件
     </p>
     <div class="code-block  ">
       <pre><code class="language-shell"><div class="code-line"><div class="code-linenotation"><span
@@ -139,7 +178,7 @@
     </div>
     <p>
       使用 <code class="inline-code-block">-d</code>
-       參數，繼續升級至最新開發版，即使 LTS 版本還沒出來。
+      參數，繼續升級至最新開發版，即使 LTS 版本還沒出來。
     </p>
     <div class="code-block  ">
       <pre><code class="language-shell"><div class="code-line"><div class="code-linenotation"><span
@@ -204,5 +243,5 @@
     <p>這樣就完成升級了。</p>
     <h2 id="wan2-jie2"><a href="#wan2-jie2">完結</a></h2>
   </article>
-  <PostToc slot="post_toc" />
+  <PostToc slot="post_toc" toc={tocData} />
 </Post>

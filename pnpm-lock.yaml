@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@giscus/svelte': ^2.0.6
+  '@iconify-json/akar-icons': ^1.1.7
   '@iconify-json/carbon': ^1.1.6
   '@iconify-json/ic': ^1.1.6
   '@iconify-json/mdi': ^1.1.24
@@ -33,6 +34,7 @@ specifiers:
 
 devDependencies:
   '@giscus/svelte': 2.0.6
+  '@iconify-json/akar-icons': 1.1.7
   '@iconify-json/carbon': 1.1.6
   '@iconify-json/ic': 1.1.6
   '@iconify-json/mdi': 1.1.24
@@ -115,6 +117,12 @@ packages:
 
   /@iarna/toml/2.2.5:
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
+    dev: true
+
+  /@iconify-json/akar-icons/1.1.7:
+    resolution: {integrity: sha512-25xWTnL+xaYiUPUTJMDEOAh+qc4CimVwauk+1yMWFoq57KPwWBzMqI73lITrBwfhPMnxbn+ueWJbnFum/U47xQ==}
+    dependencies:
+      '@iconify/types': 1.1.0
     dev: true
 
   /@iconify-json/carbon/1.1.6:
