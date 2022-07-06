@@ -5,15 +5,18 @@ import { browser } from '$app/env';
 export const ThemeLocalStorageKey = 'theme';
 export const DefaultTheme = 'dark';
 
-const SystemPreferTheme: Theme =
-  browser && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-const SavedTheme: Theme =
-  (browser && !!localStorage.getItem(ThemeLocalStorageKey) && localStorage.getItem(ThemeLocalStorageKey)) ||
-  SystemPreferTheme ||
-  DefaultTheme;
-
 function Theme() {
-  const { subscribe, set, update } = writable(SavedTheme);
+  const getSystemTheme = () => {
+    return browser && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+
+  const getTheme = () => {
+    return (
+      (browser && !!localStorage.getItem(ThemeLocalStorageKey) && localStorage.getItem(ThemeLocalStorageKey)) ||
+      getSystemTheme() ||
+      DefaultTheme
+    );
+  };
 
   const setTheme = (theme: Theme) => {
     if (browser) {
@@ -33,6 +36,8 @@ function Theme() {
     }
   };
 
+  const { subscribe, set, update } = writable(getTheme());
+
   return {
     subscribe,
     dark: () => {
@@ -40,6 +45,9 @@ function Theme() {
     },
     light: () => {
       setTheme('light');
+    },
+    current: () => {
+      return getTheme();
     },
     toggle: () =>
       update((theme) => {

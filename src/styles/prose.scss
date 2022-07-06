@@ -1,15 +1,16 @@
 .prose {
   --at-apply: 'px[1.5rem]';
-  & > h1,
-  & > h2,
-  & > h3,
-  & > h4,
-  & > h5 {
-    --at-apply: 'after:(content-[#] px2 op10 hover:op100)';
-    a {
-      --at-apply: 'no-underline';
+    h1:not(.code-title),
+    h2:not(.code-title),
+    h3:not(.code-title),
+    h4:not(.code-title),
+    h5:not(.code-title) {
+      --at-apply: 'after:(content-[#] px2 op10 hover:op100)';
+      a {
+        --at-apply: 'no-underline';
+      }
     }
-  }
+
 }
 
 .code-block {
@@ -40,11 +41,11 @@
     }
 
     &.line-addition {
-      background-color: rgba(16, 185, 129, 0.3); 
+      background-color: rgba(16, 185, 129, 0.3);
     }
 
     &.line-subtraction {
-      background-color: rgba(239, 68, 68, 0.3); 
+      background-color: rgba(239, 68, 68, 0.3);
     }
 
     .code-content {

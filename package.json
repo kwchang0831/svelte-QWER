@@ -13,6 +13,7 @@
     "format": "prettier --write --plugin-search-dir=. ."
   },
   "devDependencies": {
+    "@giscus/svelte": "^2.0.6",
     "@iconify-json/carbon": "^1.1.6",
     "@iconify-json/ic": "^1.1.6",
     "@iconify-json/mdi": "^1.1.24",

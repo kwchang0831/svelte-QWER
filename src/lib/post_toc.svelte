@@ -5,7 +5,7 @@
     <li>環境配置</li>
     <li>開始操作</li>
     <ul class="toc-level-2">
-      <li class="before:(content-[--] pr2)">開始更新</li>
+      <li>開始更新</li>
       <li>檢查升級</li>
       <li>清除垃圾</li>
     </ul>
@@ -22,13 +22,6 @@
     --at-apply: 'pb4';
   }
 
-  .toc-level-1 > li::before {
-    --at-apply: 'content-[-] pr2';
-  }
-
-  .toc-level-2 > li::before {
-    --at-apply: 'content-[--] pr2';
-  }
 
   .toc ul li {
     --at-apply: 'font-semibold text-black/[0.5] hover:text-black dark:(text-white/[0.5] hover:text-white)';
@@ -39,6 +32,6 @@
   }
 
   .toc > ul > ul {
-    --at-apply: 'ml2';
+    --at-apply: 'ml4';
   }
 </style>
