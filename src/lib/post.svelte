@@ -17,19 +17,33 @@
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            post.add_visiableTOC(`#${entry.target.id}`);
-            return;
+          const heading = entry.target.getAttribute('toc-heading')
+          if(heading){
+            if (entry.isIntersecting) {
+              post.add_visiableTOC(heading);
+              return;
+            }
+            post.remove_visiableTOC(heading);
           }
-          post.remove_visiableTOC(`#${entry.target.id}`);
         });
       },
-      { threshold: 0 },
+      { rootMargin: '-64px 0px -64px 0px' },
     );
-    const allHeading = document.querySelectorAll('[toc-heading]');
-    allHeading.forEach((elm) => {
-      observer.observe(elm);
-    });
+    
+    /**
+     * Sibilings right after heading are assigned the attribute to the heading
+    */
+    const allelements = document.querySelector('article')?.children;
+    if (allelements && allelements.length > 0) {
+      let curHeading = '';
+      for (let i = 0; i < allelements?.length; i += 1) {
+        if (/^h/i.test(allelements[i].tagName)) {
+          curHeading = `#${allelements[i].id}`;
+        }
+        allelements[i].setAttribute('toc-heading', curHeading);
+        observer.observe(allelements[i]);
+      }
+    }
   });
 </script>
 
@@ -87,7 +101,7 @@
 
   <div class="max-w-screen-md flex-1 relative">
     {#if $post && $post.toc}
-      <PostToc toc={$post.toc} toc_visiable={$post.toc_visiable} />
+      <PostToc toc={$post.toc} tocVisible={$post.tocVisible} />
     {/if}
   </div>
 </div>

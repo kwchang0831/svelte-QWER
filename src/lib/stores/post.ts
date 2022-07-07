@@ -11,26 +11,24 @@ const mockup: Post.Detail = {
       slug: '#kai1-tou2',
     },
     {
-      heading: '環境配置',
+      heading: '環境',
       slug: '#huan2-jing4',
     },
     {
-      heading: '開始操作',
+      heading: '確認空間',
       slug: '#que4-ren4-kong1-jian1',
-      child: [
-        {
-          heading: '開始更新',
-          slug: '#kai1-shi3-geng4-xin1',
-        },
-        {
-          heading: '檢查升級',
-          slug: '#jian3-cha2-sheng1-ji2',
-        },
-        {
-          heading: '清除垃圾',
-          slug: '#qing1-chu2-la1-ji1',
-        },
-      ],
+    },
+    {
+      heading: '開始更新',
+      slug: '#kai1-shi3-geng4-xin1',
+    },
+    {
+      heading: '檢查升級',
+      slug: '#jian3-cha2-sheng1-ji2',
+    },
+    {
+      heading: '清除垃圾',
+      slug: '#qing1-chu2-la1-ji1',
     },
     {
       heading: '最後',
@@ -41,7 +39,7 @@ const mockup: Post.Detail = {
       slug: '#wan2-jie2',
     },
   ],
-  toc_visiable: new Set([]),
+  tocVisible: new Map<string, number>(),
   next: {
     slug: '/post/0',
     title: '升級 Ubuntu 從 20.04 至 22.04 (Jammy Jellyfish)',
@@ -59,15 +57,27 @@ function Post() {
 
   return {
     subscribe,
+    desotry: () => {
+      update(() => {
+        return {}
+      })
+    },
     add_visiableTOC: (id: string) => {
       update((post_detail) => {
-        post_detail.toc_visiable?.add(id);
+        if(post_detail.tocVisible){
+          const cur = post_detail.tocVisible.get(id) || 0;
+          post_detail.tocVisible.set(id,  cur + 1);
+        }
         return post_detail;
       });
     },
     remove_visiableTOC: (id: string) => {
       update((post_detail) => {
-        post_detail.toc_visiable?.delete(id);
+        if(post_detail.tocVisible){
+          const cur = post_detail.tocVisible.get(id);
+          if(cur)
+            post_detail.tocVisible.set(id,  cur - 1);
+        }
         return post_detail;
       });
     },

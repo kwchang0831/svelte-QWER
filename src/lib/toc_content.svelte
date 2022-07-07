@@ -2,19 +2,25 @@
   import { slide } from 'svelte/transition';
   import type { TOC } from '$lib/types/toc';
   export let content: TOC.Content;
-  export let toc_visiable: Set<string> | undefined;
+  export let tocVisible: Map<string, number> | undefined;
   export let expanded = false;
   export let depth = 1;
 
-  let depth_padding = depth * 4;
+  $: cur = tocVisible?.get(content.slug)
+  $: isVisible = cur && cur > 0
 </script>
 
 <li>
   <div
     toc-link
-    class="flex items-center gap2 py2 pl{depth_padding} {toc_visiable?.has(content.slug)
+    class="flex items-center gap2 py2 { isVisible
       ? 'border-[#0096FF]'
-      : 'border-transparent'}">
+      : 'border-transparent'}"
+    class:pl4={depth===1}
+    class:pl8={depth===2}
+    class:pl12={depth===3}
+    class:pl16={depth===4}
+    class:pl18={depth===5}>
     {#if content.child && content.child.length > 0}
       <span
         on:click={() => {
@@ -34,7 +40,7 @@
     {#if expanded}
       <ul transition:slide={{ duration: 300 }} class="flex flex-col">
         {#each content.child as c}
-          <svelte:self content={c} {toc_visiable} depth={depth + 1} expanded />
+          <svelte:self content={c} {tocVisible} depth={depth + 1} expanded />
         {/each}
       </ul>
     {/if}

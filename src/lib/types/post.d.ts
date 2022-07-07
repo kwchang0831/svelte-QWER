@@ -9,7 +9,7 @@ export namespace Post {
 
   export interface Detail extends Info {
     toc?: TOC.Content[];
-    toc_visiable?: Set<string>;
+    tocVisible?: Map<string, number>;
     prev?: Info;
     next?: Info;
   }
