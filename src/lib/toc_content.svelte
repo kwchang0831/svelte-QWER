@@ -10,7 +10,7 @@
   $: isVisible = cur && cur > 0;
 </script>
 
-<li>
+<li class="group">
   <div
     toc-link
     class="flex items-center gap2 py2 {isVisible ? 'border-[#0096FF]' : 'border-transparent'}"
@@ -26,11 +26,11 @@
         }}
         class="!w-[1.25rem] !h-[1.25rem] inline-block duration-350 ease-out {expanded
           ? 'i-akar-icons-circle-chevron-up active:translate-y--1 hover:i-akar-icons-circle-chevron-up-fill'
-          : 'i-akar-icons-circle-chevron-down active:translate-y-1 hover:i-akar-icons-circle-chevron-down-fill'}" />
+          : 'i-akar-icons-circle-chevron-down active:translate-y-1 hover:i-akar-icons-circle-chevron-down-fill'} group-hover:i-akar-icons-circle-check" />
     {:else}
-      <span class="!w-[1.25rem] !h-[1.25rem] i-akar-icons-circle inline-block" />
+      <span class="!w-[1.25rem] !h-[1.25rem]  i-akar-icons-circle inline-block group-hover:i-akar-icons-circle-check" />
     {/if}
-    <a href={content.slug} class="text-black/[0.6] hover:text-black dark:(text-white/[0.6] hover:text-white) ">
+    <a href={content.slug} class="text-black/[0.6] group-hover:text-black dark:(text-white/[0.6] hover:text-white) ">
       {content.heading}
     </a>
   </div>
