@@ -11,9 +11,6 @@ import transformerCompileClass from '@unocss/transformer-compile-class';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   preprocess: preprocess(),
-  // css: css => {
-  //   css.write('public/bundle.css')
-  // },
   kit: {
     adapter: adapter(),
     vite: {

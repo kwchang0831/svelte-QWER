@@ -1,13 +1,11 @@
 .prose {
   --at-apply: 'px[1.5rem]';
-  h1:not(.code-title),
   h2:not(.code-title),
   h3:not(.code-title),
   h4:not(.code-title),
   h5:not(.code-title) {
-    --at-apply: 'after:(content-[#] px2 op10 hover:op100)';
     a {
-      --at-apply: 'no-underline';
+      --at-apply: 'no-underline after:(content-[#] px2 op10 hover:op100)';
     }
   }
 }

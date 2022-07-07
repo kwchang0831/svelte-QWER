@@ -1,4 +1,4 @@
-import type { Theme } from '$types/themes';
+import type { Theme } from '$lib/types/themes';
 import { writable } from 'svelte/store';
 import { browser } from '$app/env';
 
@@ -45,9 +45,6 @@ function Theme() {
     },
     light: () => {
       setTheme('light');
-    },
-    current: () => {
-      return getTheme();
     },
     toggle: () =>
       update((theme) => {

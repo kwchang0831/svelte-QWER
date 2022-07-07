@@ -1,5 +1,5 @@
-import type { Site } from '$types/site';
-import type { Giscus } from '$types/giscus';
+import type { Site } from '$lib/types/site';
+import type { Giscus } from '$lib/types/giscus';
 
 export const siteConfig: Site.Config = {
   url: 'http://localhost:3000',

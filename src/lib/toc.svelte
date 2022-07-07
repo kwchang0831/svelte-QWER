@@ -1,16 +1,17 @@
 <script lang="ts">
-  import type { TOC } from '$types/toc';
+  import type { TOC } from '$lib/types/toc';
   import TocContent from '$lib/toc_content.svelte';
-  export let toc: TOC.Content[];
+  export let toc: TOC.Content[] | undefined;
+  export let toc_visiable: Set<string> | undefined;
 </script>
 
-<div class="sticky top-[5rem] hidden xl:block pb8 max-h-80vh max-w-[20rem] overflow-auto">
+<aside class="sticky top-[5rem] hidden xl:block pb8 max-h-80vh overflow-auto">
   <h2 class="text-2xl font-bold p4">Table of Content</h2>
   {#if toc && toc.length > 0}
-    <ul class="text-base font-semibold flex flex-col gap-2 px4">
+    <ul class="text-base font-semibold flex flex-col">
       {#each toc as c}
-        <TocContent content={c} expanded />
+        <TocContent content={c} {toc_visiable} expanded />
       {/each}
     </ul>
   {/if}
-</div>
+</aside>

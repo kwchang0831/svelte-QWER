@@ -1,55 +1,10 @@
 <script lang="ts">
   import Post from '$lib/post.svelte';
-  import PostHeading from '$lib/post_heading.svelte';
-  import PostToc from '$lib/toc.svelte';
-
-  import Giscus from '@giscus/svelte';
-  import { commentConfig } from '$config/site';
-
-  import type { TOC } from '$types/toc';
-
-  let tocData: TOC.Content[] = [
-    {
-      heading: '開頭',
-      slug: '#kai1-tou2',
-    },
-    {
-      heading: '環境配置',
-      slug: '#huan2-jing4',
-    },
-    {
-      heading: '開始操作',
-      slug: '#que4-ren4-kong1-jian1',
-      child: [
-        {
-          heading: '開始更新',
-          slug: '#kai1-shi3-geng4-xin1',
-        },
-        {
-          heading: '檢查升級',
-          slug: '#jian3-cha2-sheng1-ji2',
-        },
-        {
-          heading: '清除垃圾',
-          slug: '#qing1-chu2-la1-ji1',
-        },
-      ],
-    },
-    {
-      heading: '最後',
-      slug: '#zui4-hou4',
-    },
-    {
-      heading: '完結',
-      slug: '#wan2-jie2',
-    },
-  ];
 </script>
 
 <Post>
-  <PostHeading slot="post_heading" />
   <article slot="post_content">
-    <h2 id="kai1-tou2"><a href="#kai1-tou2">開頭</a></h2>
+    <h2 toc-heading id="kai1-tou2"><a href="#kai1-tou2">開頭</a></h2>
     <p>這篇文章主要是紀錄一下從 Ubuntu 20.04 升級到 22.04 (Jammy Jellyfish) 的過程。</p>
     <p>家裡還有很多台需要升級一下。</p>
     <blockquote>
@@ -89,7 +44,7 @@
                 class="token string">'removed'</span><span
                 class="token punctuation">&rpar</span></div></div></code></pre>
     </div>
-    <h2 id="huan2-jing4"><a href="#huan2-jing4">環境</a></h2>
+    <h2 toc-heading id="huan2-jing4"><a href="#huan2-jing4">環境</a></h2>
     <p>本文所使用的系統環境。</p>
     <div class="code-block  ">
       <pre><code class="language-shell"><div class="code-line"><div class="code-linenotation"><span
@@ -109,14 +64,14 @@
                 class="no-line-number" /><span class="no-line-diff" /></div><div
               class="code-content">Codename:       focal</div></div></code></pre>
     </div>
-    <h2 id="que4-ren4-kong1-jian1"><a href="#que4-ren4-kong1-jian1">確認空間</a></h2>
+    <h2 toc-heading id="que4-ren4-kong1-jian1"><a href="#que4-ren4-kong1-jian1">確認空間</a></h2>
     <p>最好確認一下有足夠空間可供升級使用，最好能有 25GB 以上。</p>
     <div class="code-block  ">
       <pre><code class="language-shell"><div class="code-line"><div class="code-linenotation"><span
                 class="no-line-number" /><span class="no-line-diff" /></div><div class="code-content"><span
                 class="token function">df</span> -H</div></div></code></pre>
     </div>
-    <h2 id="kai1-shi3-geng4-xin1"><a href="#kai1-shi3-geng4-xin1">開始更新</a></h2>
+    <h2 toc-heading id="kai1-shi3-geng4-xin1"><a href="#kai1-shi3-geng4-xin1">開始更新</a></h2>
     <p>先把套件都更新與升級。</p>
     <div class="code-block  ">
       <pre><code class="language-shell"><div class="code-line"><div class="code-linenotation"><span
@@ -195,7 +150,7 @@
     <p>中間若有詢問其他問題，依個人需要決定 yes | no 。</p>
     <p>最後會詢問是否重開機，選擇 &#39;y&#39; 重開機。</p>
     <p><img src="https://kwchang0831.dev/dev-env/ubuntu/upgrade-from-20.04-to-22.04/fig03.avif" alt="fig03.avif" /></p>
-    <h2 id="jian3-cha2-sheng1-ji2"><a href="#jian3-cha2-sheng1-ji2">檢查升級</a></h2>
+    <h2 toc-heading id="jian3-cha2-sheng1-ji2"><a href="#jian3-cha2-sheng1-ji2">檢查升級</a></h2>
     <p>
       確認一下版本已經是 <code class="inline-code-block">22.04</code>
       。
@@ -226,7 +181,7 @@
                 class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span
                 class="token function">apt</span> upgrade -y</div></div></code></pre>
     </div>
-    <h2 id="qing1-chu2-la1-ji1"><a href="#qing1-chu2-la1-ji1">清除垃圾</a></h2>
+    <h2 toc-heading id="qing1-chu2-la1-ji1"><a href="#qing1-chu2-la1-ji1">清除垃圾</a></h2>
     <div class="code-block  ">
       <pre><code class="language-shell"><div class="code-line"><div class="code-linenotation"><span
                 class="no-line-number" /><span class="no-line-diff" /></div><div class="code-content"><span
@@ -239,9 +194,8 @@
                 class="token function">sudo</span> <span
                 class="token function">apt</span> autoclean</div></div></code></pre>
     </div>
-    <h2 id="zui4-hou4"><a href="#zui4-hou4">最後</a></h2>
+    <h2 toc-heading id="zui4-hou4"><a href="#zui4-hou4">最後</a></h2>
     <p>這樣就完成升級了。</p>
-    <h2 id="wan2-jie2"><a href="#wan2-jie2">完結</a></h2>
+    <h2 toc-heading id="wan2-jie2"><a href="#wan2-jie2">完結</a></h2>
   </article>
-  <PostToc slot="post_toc" toc={tocData} />
 </Post>

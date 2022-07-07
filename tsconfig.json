@@ -14,11 +14,7 @@
       "$lib": ["src/lib"],
       "$lib/*": ["src/lib/*"],
       "$config": ["src/config"],
-      "$config/*": ["src/config/*"],
-      "$types": ["src/lib/types"],
-      "$types/*": ["src/lib/types/*"],
-      "$styles": ["src/lib/styles"],
-      "$styles/*": ["src/lib/styles/*"]
+      "$config/*": ["src/config/*"]
     }
   },
   "include": ["src/**/*"]
