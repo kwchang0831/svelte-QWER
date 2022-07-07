@@ -1,6 +1,6 @@
 <script lang="ts">
-  import '../styles/prism.scss';
-  import '../styles/prose.scss';
+  import './styles/prism.scss';
+  import './styles/prose.scss';
 
   import GiscusSvelte from '@giscus/svelte';
   import { theme } from '$lib/stores/themes';

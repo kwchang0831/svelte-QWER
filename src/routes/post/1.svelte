@@ -100,7 +100,7 @@
                 class="no-line-number" /><span class="no-line-diff" /></div><div
               class="code-content">No LSB modules are available.</div></div><div class="code-line"><div
               class="code-linenotation"><span class="no-line-number" /><span class="no-line-diff" /></div><div
-              class="code-content">Distributor ID: Ubuntu</div></div><div class="code-line"><div
+              class="code-content">Distributor ID: Ubuntu</div></div><div class="code-line line-highlight"><div
               class="code-linenotation"><span class="no-line-number" /><span class="no-line-diff" /></div><div
               class="code-content">Description:    Ubuntu <span class="token number">20.04</span>.4 LTS</div></div><div
             class="code-line"><div class="code-linenotation"><span class="no-line-number" /><span
@@ -109,7 +109,7 @@
                 class="no-line-number" /><span class="no-line-diff" /></div><div
               class="code-content">Codename:       focal</div></div></code></pre>
     </div>
-    <h2 id="que4-ren4-kong1-jian1"><a href="#que4-ren4-kong1-jian1">開始操作</a></h2>
+    <h2 id="que4-ren4-kong1-jian1"><a href="#que4-ren4-kong1-jian1">確認空間</a></h2>
     <p>最好確認一下有足夠空間可供升級使用，最好能有 25GB 以上。</p>
     <div class="code-block  ">
       <pre><code class="language-shell"><div class="code-line"><div class="code-linenotation"><span

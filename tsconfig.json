@@ -15,10 +15,10 @@
       "$lib/*": ["src/lib/*"],
       "$config": ["src/config"],
       "$config/*": ["src/config/*"],
-      "$types": ["src/types"],
-      "$types/*": ["src/types/*"],
-      "$styles": ["src/styles"],
-      "$styles/*": ["src/styles/*"]
+      "$types": ["src/lib/types"],
+      "$types/*": ["src/lib/types/*"],
+      "$styles": ["src/lib/styles"],
+      "$styles/*": ["src/lib/styles/*"]
     }
   },
   "include": ["src/**/*"]
