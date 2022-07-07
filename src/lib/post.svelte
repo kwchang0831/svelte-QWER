@@ -1,3 +1,7 @@
+<script lang="ts" context="module">
+  export const prerender = true;
+</script>
+
 <script lang="ts">
   import './styles/prism.scss';
   import './styles/prose.scss';
@@ -11,50 +15,57 @@
 
   import { post } from '$lib/stores/post';
 
-  import { onMount } from 'svelte';
+  import { onDestroy, onMount } from 'svelte';
+
+  let postElement: HTMLElement;
 
   onMount(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const heading = entry.target.getAttribute('toc-heading');
-          if (heading) {
-            if (entry.isIntersecting) {
-              post.add_visiableTOC(heading);
-              return;
-            }
-            post.remove_visiableTOC(heading);
-          }
-        });
-      },
-      { rootMargin: '-64px 0px -64px 0px' },
-    );
 
-    /**
-     * Sibilings right after heading are assigned the attribute to the heading
-     */
-    const allelements = document.querySelector('article')?.children;
-    if (allelements && allelements.length > 0) {
-      let curHeading = '';
-      for (let i = 0; i < allelements?.length; i += 1) {
-        if (/^h/i.test(allelements[i].tagName)) {
-          curHeading = `#${allelements[i].id}`;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const heading = entry.target.getAttribute('toc-heading');
+            if (heading) {
+              if (entry.isIntersecting) {
+                post.add_visiableTOC(heading);
+                return;
+              }
+              post.remove_visiableTOC(heading);
+            }
+          });
+        },
+        { rootMargin: '-64px 0px -64px 0px' },
+      );
+
+      /**
+       * Sibilings right after heading are assigned the attribute to the heading
+       */
+      const allelements = postElement.querySelector('article')?.children;
+      if (allelements && allelements.length > 0) {
+        let curHeading = '';
+        for (let i = 0; i < allelements?.length; i += 1) {
+          if (/^h/i.test(allelements[i].tagName)) {
+            curHeading = `#${allelements[i].id}`;
+          }
+          allelements[i].setAttribute('toc-heading', curHeading);
+          observer.observe(allelements[i]);
         }
-        allelements[i].setAttribute('toc-heading', curHeading);
-        observer.observe(allelements[i]);
       }
-    }
   });
+
+  // onDestroy(()=>{
+  //   post.desotry()
+  // })
 </script>
 
 <div class="relative flex flex-nowrap justify-center">
   <div class="max-w-screen-md flex-1" />
 
   <div
-    class="flex-none max-w-[55rem] w-full prose prose-slate dark:prose-invert md:(rounded-2xl bg-white/[0.5] dark:bg-[#252525]/[0.5])">
+    class="flex-none max-w-[55rem] w-full prose prose-slate dark:prose-invert md:(rounded-2xl bg-white/[0.5] dark:bg-[#252525]/[0.5])" bind:this={postElement}>
     <PostHeading />
 
-    <slot name="post_content" />
+    <slot name="post_content"/>
 
     <div class="divider" />
 
