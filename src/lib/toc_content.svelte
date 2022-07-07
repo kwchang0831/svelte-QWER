@@ -6,21 +6,19 @@
   export let expanded = false;
   export let depth = 1;
 
-  $: cur = tocVisible?.get(content.slug)
-  $: isVisible = cur && cur > 0
+  $: cur = tocVisible?.get(content.slug);
+  $: isVisible = cur && cur > 0;
 </script>
 
 <li>
   <div
     toc-link
-    class="flex items-center gap2 py2 { isVisible
-      ? 'border-[#0096FF]'
-      : 'border-transparent'}"
-    class:pl4={depth===1}
-    class:pl8={depth===2}
-    class:pl12={depth===3}
-    class:pl16={depth===4}
-    class:pl18={depth===5}>
+    class="flex items-center gap2 py2 {isVisible ? 'border-[#0096FF]' : 'border-transparent'}"
+    class:pl4={depth === 1}
+    class:pl8={depth === 2}
+    class:pl12={depth === 3}
+    class:pl16={depth === 4}
+    class:pl18={depth === 5}>
     {#if content.child && content.child.length > 0}
       <span
         on:click={() => {

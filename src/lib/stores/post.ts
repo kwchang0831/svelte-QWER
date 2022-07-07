@@ -59,24 +59,23 @@ function Post() {
     subscribe,
     desotry: () => {
       update(() => {
-        return {}
-      })
+        return {};
+      });
     },
     add_visiableTOC: (id: string) => {
       update((post_detail) => {
-        if(post_detail.tocVisible){
+        if (post_detail.tocVisible) {
           const cur = post_detail.tocVisible.get(id) || 0;
-          post_detail.tocVisible.set(id,  cur + 1);
+          post_detail.tocVisible.set(id, cur + 1);
         }
         return post_detail;
       });
     },
     remove_visiableTOC: (id: string) => {
       update((post_detail) => {
-        if(post_detail.tocVisible){
+        if (post_detail.tocVisible) {
           const cur = post_detail.tocVisible.get(id);
-          if(cur)
-            post_detail.tocVisible.set(id,  cur - 1);
+          if (cur) post_detail.tocVisible.set(id, cur - 1);
         }
         return post_detail;
       });

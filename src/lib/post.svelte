@@ -17,8 +17,8 @@
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const heading = entry.target.getAttribute('toc-heading')
-          if(heading){
+          const heading = entry.target.getAttribute('toc-heading');
+          if (heading) {
             if (entry.isIntersecting) {
               post.add_visiableTOC(heading);
               return;
@@ -29,10 +29,10 @@
       },
       { rootMargin: '-64px 0px -64px 0px' },
     );
-    
+
     /**
      * Sibilings right after heading are assigned the attribute to the heading
-    */
+     */
     const allelements = document.querySelector('article')?.children;
     if (allelements && allelements.length > 0) {
       let curHeading = '';
