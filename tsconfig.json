@@ -9,13 +9,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "types": ["vite/client"],
-    "paths": {
-      "$lib": ["src/lib"],
-      "$lib/*": ["src/lib/*"],
-      "$config": ["src/config"],
-      "$config/*": ["src/config/*"]
-    }
+    "types": ["vite/client"]
   },
   "include": ["src/**/*"]
 }
