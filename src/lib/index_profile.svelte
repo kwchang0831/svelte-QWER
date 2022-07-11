@@ -1,30 +1,32 @@
 <script lang="ts">
-  import { fade } from 'svelte/transition';
-
   let className: any = undefined;
   export { className as class };
+
+  import { fly } from 'svelte/transition';
 </script>
 
-<section transition:fade={{ duration: 300 }} id="index-profile" class={className}>
-  <figure class="relative group my-2 flex flex-row justify-center xl:(w-full justify-end)">
-    <img
-      src="https://www.kwchang0831.dev/assets/maskable@192.webp"
-      alt="index profile avatar"
-      class="rounded-full shadow-xl w-32 h-32 hover:rotate-[360deg] transition-transform !duration-1000 ease-in-out" />
+<section id="index-profile" class={className}>
+  <div class="relative group">
+    <figure>
+      <img
+        src="https://www.kwchang0831.dev/assets/maskable@192.webp"
+        alt="index profile avatar"
+        class="rounded-full shadow-xl w-32 h-32 hover:rotate-[360deg] transition-transform !duration-1000 ease-in-out" />
+    </figure>
     <div
-      class="absolute rounded-full w-8 h-8 bottom-0 right-0 shadow-xl text-lg bg-white flex justify-center items-center animate-heart-beat dark:bg-[#212121]">
+      class="absolute rounded-full w-8 h-8 bottom-0 left-24 shadow-xl text-lg bg-white flex justify-center items-center animate-heart-beat dark:bg-[#212121]">
       ❤️
     </div>
-  </figure>
+  </div>
 
-  <h1 class="text-2xl font-bold my-2 w-full text-center xl:(text-right)">kwchang0831</h1>
-  <p class="op70 text-center xl:(text-right)">
+  <h1 class="text-2xl font-bold">kwchang0831</h1>
+  <p class="text-base op75">
     Do it. Just do it!
     <br />
     Don't let your dreams be dreams!
   </p>
 
-  <div class="my-2 flex flex-row justify-end xl:w-full">
+  <div class="flex flex-row">
     <a href="mailto:contact@kwchang0831.dev" class="btn btn-ghost" aria-label="Email">
       <div class=":uno: !w-[1.75rem] !h-[1.75rem]  i-ic-baseline-mail" />
     </a>

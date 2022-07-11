@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 import type { Post } from '$lib/types/post';
 
-const mockup: Post.Detail = {
+const mockup: Post.CurrentPost = {
   slug: 'post/1',
   title: '升級 Ubuntu 從 20.04 至 22.04 (Jammy Jellyfish)',
   cover: 'https://www.kwchang0831.dev/dev-env/ubuntu/upgrade-from-20.04-to-22.04/cover.webp',
@@ -52,8 +52,8 @@ const mockup: Post.Detail = {
   },
 };
 
-function Post() {
-  const { subscribe, update } = writable<Post.Detail>(mockup);
+export const CurPost = (() => {
+  const { subscribe, update } = writable<Post.CurrentPost>(mockup);
 
   return {
     subscribe,
@@ -81,6 +81,4 @@ function Post() {
       });
     },
   };
-}
-
-export const post = Post();
+})();

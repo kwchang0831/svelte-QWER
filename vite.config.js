@@ -1,4 +1,3 @@
-import path from 'path';
 import { sveltekit } from '@sveltejs/kit/vite';
 import Unocss from 'unocss/vite';
 import { presetTypography, presetIcons, presetUno } from 'unocss';
@@ -47,13 +46,7 @@ const config = {
       ],
     }),
     sveltekit(),
-  ],
-  resolve: {
-    alias: {
-      $config: path.resolve('src/config'),
-      $types: path.resolve('src/lib/types'),
-    },
-  },
+  ]
 };
 
 export default config;

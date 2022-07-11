@@ -3,17 +3,17 @@
 </script>
 
 <script lang="ts">
-  import './styles/prism.scss';
-  import './styles/prose.scss';
+  import '$lib/styles/prism.scss';
+  import '$lib/styles/prose.scss';
 
   import GiscusSvelte from '@giscus/svelte';
   import PostToc from '$lib/toc.svelte';
   import PostHeading from '$lib/post_heading.svelte';
 
   import { theme } from '$lib/stores/themes';
-  import { commentConfig } from '$config/site';
+  import { commentConfig } from '$lib/../config/site';
 
-  import { post } from '$lib/stores/post';
+  import { CurPost } from '$lib/stores/curPost';
 
   import { onDestroy, onMount } from 'svelte';
 
@@ -26,10 +26,10 @@
           const heading = entry.target.getAttribute('toc-heading');
           if (heading) {
             if (entry.isIntersecting) {
-              post.add_visiableTOC(heading);
+              CurPost.add_visiableTOC(heading);
               return;
             }
-            post.remove_visiableTOC(heading);
+            CurPost.remove_visiableTOC(heading);
           }
         });
       },
@@ -53,11 +53,11 @@
   });
 
   // onDestroy(()=>{
-  //   post.desotry()
+  //   CurPost.desotry()
   // })
 </script>
 
-<div class="relative flex flex-nowrap justify-center">
+<div class="flex flex-nowrap justify-center">
   <div class="max-w-screen-md flex-1" />
 
   <div
@@ -69,34 +69,34 @@
 
     <div class="divider" />
 
-    {#if $post}
+    {#if $CurPost}
       <nav class="flex flex-col mx-[-1.5rem] h-[20rem] md:(flex-row h-[10rem])">
-        {#if $post.next}
+        {#if $CurPost.next}
           <div id="next-post" class="relative flex-1 group overflow-hidden">
             <div class="absolute z-10 i-mdi-chevron-left !w-[1.5rem] !h-[1.5rem] top-[1.25rem] left-[0.75rem]" />
             <a
-              href={$post.next.slug}
-              alt={$post.next.title}
+              href={$CurPost.next.slug}
+              alt={$CurPost.next.title}
               class="absolute text-2xl font-bold z-10 !decoration-none !underline-none title-link-orange-500-orange-500 top-[3rem] left-[1rem] mr8">
-              {$post.next.title}
+              {$CurPost.next.title}
             </a>
             <img
-              src={$post.next.cover}
+              src={$CurPost.next.cover}
               alt=""
               class="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110) transition-transform duration-350 ease-in-out" />
           </div>
         {/if}
-        {#if $post.prev}
+        {#if $CurPost.prev}
           <div id="prev-post" class="relative flex-1 group overflow-hidden">
             <a
-              href={$post.prev.slug}
-              alt={$post.prev.title}
+              href={$CurPost.prev.slug}
+              alt={$CurPost.prev.title}
               class="absolute text-2xl font-bold z-10 !decoration-none !underline-none title-link-orange-500-orange-500 top-[3rem] right-[1rem] ml8">
-              {$post.prev.title}
+              {$CurPost.prev.title}
             </a>
             <div class="absolute z-10 i-mdi-chevron-right !w-[1.5rem] !h-[1.5rem] top-[6rem] right-[0.75rem]" />
             <img
-              src={$post.prev.cover}
+              src={$CurPost.prev.cover}
               alt=""
               class="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110) transition-transform duration-350 ease-in-out" />
           </div>
@@ -111,8 +111,8 @@
   </div>
 
   <div class="max-w-screen-md flex-1 relative">
-    {#if $post && $post.toc}
-      <PostToc toc={$post.toc} tocVisible={$post.tocVisible} />
+    {#if $CurPost && $CurPost.toc}
+      <PostToc toc={$CurPost.toc} tocVisible={$CurPost.tocVisible} />
     {/if}
   </div>
 </div>

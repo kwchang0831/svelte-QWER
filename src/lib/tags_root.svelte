@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { slide, fade } from 'svelte/transition';
+  import { slide, fly } from 'svelte/transition';
   import Tags from '$lib/tags.svelte';
 
   let className: any = undefined;
@@ -69,7 +69,7 @@
   ];
 </script>
 
-<side id="index-tags" class={className} transition:fade={{ duration: 300 }}>
+<side id="index-tags" class={className}>
   <div class="flex justify-between items-center border-b-2 py-2 cursor-pointer" on:click={toggle}>
     <h2 class:expaned class="text-2xl">Tags</h2>
     <div class="{expaned ? 'i-tabler-fold-down' : 'i-tabler-fold-up'} display-inline-block !w-[1.75rem] !h-[1.75rem]" />

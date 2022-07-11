@@ -2,9 +2,9 @@
 </script>
 
 <script lang="ts">
-  import type { DD } from '$types/dd';
+  import type { DD } from '$lib/types/dd';
   import { browser } from '$app/env';
-  import { siteConfig } from '$config/site';
+  import { siteConfig } from '$lib/../config/site';
   import { theme } from '$lib/stores/themes';
   import { fly } from 'svelte/transition';
   import Dropdown from '$lib/dd.svelte';
