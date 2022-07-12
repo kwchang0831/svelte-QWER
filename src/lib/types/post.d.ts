@@ -15,7 +15,6 @@ export namespace Post {
     next?: Info;
   }
 
-
   export interface Detail extends Info {
     order: number;
     summary?: string;
@@ -37,7 +36,7 @@ export namespace Post {
     coverStyle?: CoverStyle;
     toc: TOC.Content[];
     tags: Tag[];
-  }
+  };
 
   export enum CoverStyle {
     TOP = 'TOP',
@@ -46,4 +45,11 @@ export namespace Post {
     LEFT = 'LEFT',
     IN = 'IN',
   }
+
+  export type IndexPost = {
+    id: number;
+    post: Post.Post;
+    prev?: string;
+    next?: string;
+  };
 }

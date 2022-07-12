@@ -1,9 +1,9 @@
 export namespace DD {
   export enum Orientation {
-    Top = 0,
-    Left,
-    Bot,
-    Right,
+    TOP = 0,
+    RIGHT,
+    BOT,
+    LEFT,
   }
 
   export interface Link {

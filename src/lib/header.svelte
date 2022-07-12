@@ -2,9 +2,8 @@
 </script>
 
 <script lang="ts">
-  import type { DD } from '$lib/types/dd';
   import { browser } from '$app/env';
-  import { siteConfig } from '$lib/../config/site';
+  import { siteConfig, navConfig, mobilenavConfig } from '$lib/../config/site';
   import { theme } from '$lib/stores/themes';
   import { fly } from 'svelte/transition';
   import Dropdown from '$lib/dd.svelte';
@@ -22,93 +21,6 @@
           (scrollY / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 10000,
         ) / 100;
   }
-
-  /** Mockup data*/
-  let nav: (DD.Nav | DD.Link)[] = [
-    {
-      name: 'About',
-      orientation: 2,
-      links: [
-        {
-          name: 'QWER',
-          orientation: 1,
-          links: [
-            {
-              name: 'Svelte',
-              url: '/qwer-Svelte',
-            },
-            {
-              name: 'Introduction',
-              url: '/qwer-introduction',
-            },
-          ],
-        },
-        {
-          name: 'Me',
-          orientation: 3,
-          links: [
-            {
-              name: 'Left',
-              url: '/me-left',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: 'Projects',
-      url: '/projects',
-    },
-    {
-      name: 'Post#1',
-      url: '/post/1',
-    },
-  ];
-  let mobile_nav: DD.Nav = {
-    orientation: 2,
-    links: [
-      {
-        name: 'About Me',
-        orientation: 1,
-        links: [
-          {
-            name: 'first',
-            orientation: 1,
-            links: [
-              {
-                name: 'first-byte',
-                url: '/first-byte',
-              },
-              {
-                name: 'first-second-byte',
-                url: '/first-second-byte',
-              },
-            ],
-          },
-          {
-            name: 'second',
-            orientation: 1,
-            links: [
-              {
-                name: 'first-byte',
-                url: '/first-byte',
-              },
-              {
-                name: 'first-second-byte',
-                url: '/first-second-byte',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        name: 'Post#1',
-        url: '/post/1',
-        target: '_self',
-        prefetch: true,
-      },
-    ],
-  };
 </script>
 
 <svelte:window bind:scrollY />
@@ -121,7 +33,7 @@
       in:fly={{ x: -50, duration: 300, delay: 300 }}
       out:fly={{ x: -50, duration: 300 }}>
       <div class="lg:hidden rounded-lg light:(hover:bg-gray/[0.5]) dark:(hover:bg-gray/[0.25])">
-        <Dropdown nav={mobile_nav} class="text-sm p2 ">
+        <Dropdown nav={mobilenavConfig} class="text-sm p2 ">
           <button aria-label="nav menu" class="flex items-center ">
             <div class="i-mdi-hamburger-menu !w-[1.5rem] !h-[1.5rem]" />
           </button>
@@ -133,7 +45,7 @@
       </a>
 
       <div class="hidden lg:(flex)">
-        {#each nav as n}
+        {#each navConfig as n}
           <Dropdown class="text-lg px3 py2 btn btn-ghost " nav={n} />
         {/each}
       </div>

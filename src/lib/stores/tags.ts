@@ -1,55 +1,57 @@
-import { readable } from "svelte/store";
+import { readable } from 'svelte/store';
 import type { Tag } from '$lib/types/tag';
 
-const mockup : Tag[] = [{
-  name: 'year',
-  child: [
-    {
-      name: '2020',
-      parent: 'year',
-    },
-    {
-      name: '2021',
-      parent: 'year',
-    },
-    {
-      name: '2022',
-      parent: 'year',
-    }
-  ]},
+const mockup: Tag[] = [
+  {
+    name: 'year',
+    child: [
+      {
+        name: '2020',
+        parent: 'year',
+      },
+      {
+        name: '2021',
+        parent: 'year',
+      },
+      {
+        name: '2022',
+        parent: 'year',
+      },
+    ],
+  },
   {
     name: 'language',
     child: [
       {
         name: 'elixir',
-        parent: 'language'
+        parent: 'language',
       },
       {
         name: 'javascript',
-        parent: 'language'
+        parent: 'language',
       },
       {
         name: 'svelte',
-        parent: 'language'
+        parent: 'language',
       },
       {
         name: 'typescript',
-        parent: 'language'
+        parent: 'language',
       },
-    ]
+    ],
   },
   {
-    name: 'ubuntu'
+    name: 'ubuntu',
   },
   {
-    name: 'windows'
+    name: 'windows',
   },
   {
-    name: 'macOS'
+    name: 'macOS',
   },
   {
-    name: 'dev'
-  }
-]
+    name: 'dev',
+  },
+];
 
-export const Tags =  readable(mockup);
+export const Tags = readable(mockup);

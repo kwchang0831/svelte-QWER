@@ -1,0 +1,22 @@
+{
+  "name": "@kwchang0831/qwer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "kwchang0831",
+  "license": "MIT",
+  "devDependencies": {
+    "chalk": "^5.0.1",
+    "chokidar": "^3.5.3",
+    "fs-extra": "^10.1.0",
+    "gray-matter": "^4.0.3",
+    "html-to-text": "^8.2.0",
+    "limax": "^3.0.0",
+    "lz-string": "^1.4.4",
+    "marked": "^4.0.17",
+    "prismjs": "^1.28.0",
+    "to-vfile": "^7.2.3"
+  },
+  "type": "module"
+}

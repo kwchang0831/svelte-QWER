@@ -1,6 +1,5 @@
 export interface Tag {
-  name: string
-  parent?: string
-  child?: Array<Tag>
+  name: string;
+  parent?: string;
+  child?: Array<Tag>;
 }
-

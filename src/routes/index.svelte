@@ -13,10 +13,9 @@
   <Tags class="hidden xl:display-block w-72" />
 </div> -->
 
-
 <div class="flex flex-nowrap justify-center flex flex-col xl:(flex-row) ">
   <div class="max-w-screen-md flex-1 relative">
-    <IndexProfile class="sticky top-[5rem] flex flex-col gap2 items-center text-center xl:(items-end text-right)"/>
+    <IndexProfile class="sticky top-[5rem] flex flex-col gap2 items-center text-center xl:(items-end text-right)" />
   </div>
 
   <div class="flex-none max-w-[55rem] w-full md:(rounded-2xl)">

@@ -41,12 +41,12 @@ const mockup: Post.CurrentPost = {
   ],
   tocVisible: new Map<string, number>(),
   next: {
-    slug: '/post/0',
+    slug: '/p/1',
     title: '升級 Ubuntu 從 20.04 至 22.04 (Jammy Jellyfish)',
     cover: 'https://www.kwchang0831.dev/dev-env/ubuntu/upgrade-from-20.04-to-22.04/cover.webp',
   },
   prev: {
-    slug: '/post/2',
+    slug: '/p/2',
     title: '安裝新版 Oh My Posh 與插件來美化 PowerShell',
     cover: 'https://www.kwchang0831.dev/dev-env/pwsh/oh-my-posh/cover.webp',
   },

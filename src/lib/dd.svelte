@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { DD } from '$types/dd';
+  import type { DD } from '$lib/types/dd';
 
   /**
    * //TODO: page.url.pathname
