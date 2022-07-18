@@ -1,3 +1,5 @@
+import config from './config.json' assert { type: 'json' };
+
 export const allTags = (() => {
   let _alltags = new Map();
 
@@ -15,14 +17,14 @@ export const allTags = (() => {
      */
     set: (tags) => {
       if (!tags) return;
-      console.log(tags);
+
       tags.forEach((tag) => {
         if (Array.isArray(tag)) {
-          if (!_alltags.has('tags')) {
-            _alltags.set('tags', new Map());
+          if (!_alltags.has(config.DefaultTagName)) {
+            _alltags.set(config.DefaultTagName, new Map());
           }
           tag.forEach((t) => {
-            const _k = _alltags.get('tags');
+            const _k = _alltags.get(config.DefaultTagName);
             _k.set(t, (_k.get(t) ?? 0) + 1);
           });
         } else if (typeof tag === 'object') {
@@ -40,10 +42,10 @@ export const allTags = (() => {
             }
           });
         } else {
-          if (!_alltags.has('tags')) {
-            _alltags.set('tags', new Map());
+          if (!_alltags.has(config.DefaultTagName)) {
+            _alltags.set(config.DefaultTagName, new Map());
           }
-          const _k = _alltags.get('tags');
+          const _k = _alltags.get(config.DefaultTagName);
           _k.set(tag.toString(), (_k.get(tag) ?? 0) + 1);
         }
       });
@@ -54,7 +56,7 @@ export const allTags = (() => {
       tags.forEach((tag) => {
         if (Array.isArray(tag)) {
           tag.forEach((t) => {
-            const _k = _alltags.get('tags');
+            const _k = _alltags.get(config.DefaultTagName);
             if (!_k.get(t)) throw 'Tags were not generated correctly.';
 
             if (_k.get(t) > 1) {
@@ -63,8 +65,8 @@ export const allTags = (() => {
               _k.delete(t);
             }
           });
-          if (_alltags.get('tags').size === 0) {
-            _alltags.delete('tags');
+          if (_alltags.get(config.DefaultTagName).size === 0) {
+            _alltags.delete(config.DefaultTagName);
           }
         } else if (typeof tag === 'object') {
           Object.keys(tag).forEach((k) => {
@@ -100,7 +102,7 @@ export const allTags = (() => {
             }
           });
         } else {
-          const _k = _alltags.get('tags');
+          const _k = _alltags.get(config.DefaultTagName);
           const _t = tag.toString();
 
           if (!_k.get(_t)) throw 'Tags were not generated correctly.';
@@ -111,8 +113,8 @@ export const allTags = (() => {
             _k.delete(_t);
           }
 
-          if (_alltags.get('tags').size === 0) {
-            _alltags.delete('tags');
+          if (_alltags.get(config.DefaultTagName).size === 0) {
+            _alltags.delete(config.DefaultTagName);
           }
         }
       });
@@ -120,7 +122,7 @@ export const allTags = (() => {
     get: (k) => {
       return _alltags.get(k);
     },
-    getAll: () => {
+    raw: () => {
       return _alltags;
     },
     json: () => {
