@@ -1,15 +1,17 @@
 import config from './config.json' assert { type: 'json' };
 import * as mdify from './marked.js';
-import { log, error } from './logger.js';
+import { log } from './logger.js';
+import { allTags } from './allTags.js';
 import { firstLine } from './readFirstLine.js';
 import { writeSync, readSync } from 'to-vfile';
 import { cpSync, readdirSync, unlinkSync, rmSync, existsSync, statSync } from 'node:fs';
 import fs from 'fs-extra';
 import path from 'node:path';
 import matter from 'gray-matter';
-import { convert } from 'html-to-text';
 import { exec } from 'child_process';
 import chokidar from 'chokidar';
+import { convert } from 'html-to-text';
+import LZString from 'lz-string';
 
 const getAllFiles = (src, arrayFiles = []) => {
   if (!existsSync(src)) return [];
@@ -122,6 +124,21 @@ const rmEmptyFolders = (dir) => {
   }
 };
 
+const convertPathToSlug = (file) => {
+  const ext = path.extname(file);
+  const [, ...destPath] = file.split(path.sep);
+  let _p;
+  if (ext === '.md') {
+    if (destPath[destPath.length - 1].match(/index.md$/i)) {
+      destPath.pop();
+    } else {
+      destPath[destPath.length - 1] = destPath[destPath.length - 1].replace(/.md$/i, '');
+    }
+    _p = `/${destPath.join(path.sep)}`;
+  }
+  return _p;
+};
+
 const processFile = (file) => {
   const ext = path.extname(file);
   const [, ...destPath] = file.split(path.sep);
@@ -135,7 +152,6 @@ const processFile = (file) => {
     const md = mdify.mdify(content, slug);
     const html2text = convert(md.content);
 
-    console.log((md.imports && md.imports.join('\n')) || '');
     const tempalte = readSync(path.join(config.targetTemplateFolder, layout), 'utf8');
     const tempalteMap = [
       {
@@ -157,12 +173,25 @@ const processFile = (file) => {
     });
     log('green', 'File Processed', psvelte);
     exec(`prettier --write --plugin-search-dir=. ${psvelte}`);
-    return {};
+
+    return new Promise((resolve) => {
+      resolve({
+        slug: slug,
+        title: meta['title'],
+        description: meta['description'],
+        summary: meta['summary'],
+        content: html2text ? LZString.compressToBase64(html2text) : undefined,
+        published: meta['published'] || fs.statSync(file).birthtime,
+        cover: meta['cover'],
+        coverStyle: meta['coverStyle'] || meta['cover'] ? config.DefaultCoverStyle : undefined,
+        tags: meta['tags'],
+      });
+    });
   } else {
     const p = path.join(config.targetStaticFolder, destPath.join('/'));
     cpSync(file, p);
     log('green', 'File Copied', p);
-    return;
+    return undefined;
   }
 };
 
@@ -186,18 +215,38 @@ switch (process.argv[2]) {
       let watcher = chokidar.watch(config.targetDataFolder, {
         ignored: (file) => path.basename(file).startsWith('.'),
       });
+      let allPosts = new Map();
+
       watcher
         .on('add', (file) => {
           log('cyan', 'File Created', file);
-          processFile(file);
+          processFile(file)?.then((f) => {
+            allPosts.set(f['slug'], f);
+            allTags.set(f['tags']);
+          });
         })
         .on('change', (file) => {
           log('cyan', 'File Updated', file);
-          processFile(file);
+          const slug = convertPathToSlug(file);
+          if (slug) {
+            const tags2rm = allPosts.get(slug).tags;
+            allPosts.delete(slug);
+            allTags.delete(tags2rm);
+          }
+          processFile(file)?.then((f) => {
+            allPosts.set(f['slug'], f);
+            allTags.set(f['tags']);
+          });
         })
         .on('unlink', (file) => {
           log('cyan', 'File Unlinked', file);
           rmFile(convertFilePath(file));
+          const slug = convertPathToSlug(file);
+          if (slug) {
+            const tags2rm = allPosts.get(slug).tags;
+            allPosts.delete(slug);
+            allTags.delete(tags2rm);
+          }
         })
         .on('addDir', (dir) => {
           log('cyan', 'Dir Created', dir);
@@ -209,6 +258,18 @@ switch (process.argv[2]) {
         .on('error', (error) => log('red', 'error', error))
         .on('ready', () => {
           log('cyan', 'Init Scan Completed.');
+          // console.log(allTags.getAll());
+
+          // console.log(convertPathToSlug('data/p/2/index.md'));
+          // console.log();
+          // let d = [ 'GG', 22 ]
+          // allTags.delete(d)
+          // console.log(allTags.getAll())
+          // allTags.delete(d)
+          // console.log(allTags.getAll())
+
+          // console.log(allTags.json())
+          // allTags.read('{"tags":{"開發環境":2,"OS":2},"lang":{"中文":1},"os":{"Ubuntu":1,"Windows":1},"year":{"2022":1}}')
         });
 
       process
