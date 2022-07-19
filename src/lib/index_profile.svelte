@@ -1,8 +1,6 @@
 <script lang="ts">
   let className: any = undefined;
   export { className as class };
-
-  import { fly } from 'svelte/transition';
 </script>
 
 <section id="index-profile" class={className}>
@@ -28,10 +26,10 @@
 
   <div class="flex flex-row">
     <a href="mailto:contact@kwchang0831.dev" class="btn btn-ghost" aria-label="Email">
-      <div class=":uno: !w-[1.75rem] !h-[1.75rem]  i-ic-baseline-mail" />
+      <div class="!w-[1.75rem] !h-[1.75rem]  i-ic-baseline-mail" />
     </a>
     <a href="https://github.com/kwchang0831" class="btn btn-ghost" aria-label="Github">
-      <div class=":uno: !w-[1.75rem] !h-[1.75rem]  i-carbon-logo-github" />
+      <div class="!w-[1.75rem] !h-[1.75rem]  i-carbon-logo-github" />
     </a>
   </div>
 </section>

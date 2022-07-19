@@ -1,10 +1,13 @@
 <script lang="ts" context="module">
   export const prerender = true;
-  export const load = async ({ url }: { url: URL }) => ({
-    props: {
-      path: url.pathname,
-    },
-  });
+
+  export const load = async ({ url }: { url: URL }) => {
+    return {
+      props: {
+        path: url.pathname,
+      },
+    };
+  };
 </script>
 
 <script lang="ts">

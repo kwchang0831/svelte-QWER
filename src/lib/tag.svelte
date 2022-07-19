@@ -1,14 +1,14 @@
 <script lang="ts">
-  export let name: string;
-  export let bc: Array<string>;
+  import type { Tag } from '$lib/types/tag';
+  export let thisTag: Tag;
 
   function handleClick() {
-    console.log(bc);
+    console.log(thisTag);
   }
 </script>
 
 <button
-  class="text-sm m-1 normal-case border-2 border-dotted btn btn-ghost border-black/[0.5] dark:(border-white/[0.5])"
+  class="text-sm m-1 normal-case border-2 border-dotted btn btn-ghost border-black/[0.5] dark:(border-white/[0.5]) active:(scale-80 transition-transform duration-250 ease-in-out)"
   on:click={handleClick}>
-  {name}
+  {thisTag.name}
 </button>

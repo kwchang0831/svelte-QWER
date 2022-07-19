@@ -1,7 +1,6 @@
 <script lang="ts">
   import IndexProfile from '$lib/index_profile.svelte';
   import IndexPosts from '$lib/index_posts.svelte';
-
   import Tags from '$lib/tags_root.svelte';
 </script>
 

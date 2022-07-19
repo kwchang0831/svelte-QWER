@@ -6,7 +6,12 @@
   export { className as class };
 
   export let expaned = true;
+  import { AllTags } from '$lib/stores/allTags';
+  import { onMount } from 'svelte';
 
+  onMount(() => {
+    console.log($AllTags);
+  });
   function toggle() {
     expaned = !expaned;
   }
@@ -70,15 +75,15 @@
 </script>
 
 <side id="index-tags" class={className}>
-  <div class="flex justify-between items-center border-b-2 py-2 cursor-pointer" on:click={toggle}>
+  <div class="select-none flex justify-between items-center border-b-2 py-2 cursor-pointer" on:click={toggle}>
     <h2 class:expaned class="text-2xl">Tags</h2>
     <div class="{expaned ? 'i-tabler-fold-down' : 'i-tabler-fold-up'} display-inline-block !w-[1.75rem] !h-[1.75rem]" />
   </div>
 
   {#if expaned}
-    <div transition:slide={{ duration: 300 }} class="py-4 ">
-      {#each data as d}
-        <Tags {...d} expanded />
+    <div transition:slide={{ duration: 300 }} class="py-4 select-none">
+      {#each $AllTags as d}
+        <Tags thisTag={d} expanded />
       {/each}
     </div>
   {/if}

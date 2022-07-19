@@ -13,4 +13,4 @@ const map = new Map<string, Post.Post>(JSON.parse(mockup));
 
 export const AllPosts = readable(map);
 
-console.log(JSON.parse(mockup));
+// console.log(JSON.parse(mockup));

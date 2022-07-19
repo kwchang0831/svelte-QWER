@@ -5,6 +5,7 @@ import { extractorSvelte } from '@unocss/core';
 import transformerDirective from '@unocss/transformer-directives';
 import transformerVariantGroup from '@unocss/transformer-variant-group';
 import transformerCompileClass from '@unocss/transformer-compile-class';
+import path from 'node:path';
 
 /** @type {import('vite').UserConfig} */
 const config = {
@@ -47,6 +48,17 @@ const config = {
     }),
     sveltekit(),
   ],
+  resolve: {
+    alias: {
+      $QWER: path.resolve('.', 'QWER'),
+      $generated: path.resolve('.', 'src/generated'),
+    },
+  },
+  server: {
+    fs: {
+      allow: ['..'],
+    },
+  },
 };
 
 export default config;

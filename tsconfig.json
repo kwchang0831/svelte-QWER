@@ -9,7 +9,15 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "paths": {
+      "$QWER": ["QWER"],
+      "$QWER/*": ["QWER/*"],
+      "$lib": ["src/lib"],
+      "$lib/*": ["src/lib/*"],
+      "$generated": ["src/generated"],
+      "$generated/*": ["src/generated/*"]
+    }
   },
   "include": ["src/**/*"]
 }
