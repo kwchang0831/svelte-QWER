@@ -3,8 +3,12 @@
 </script>
 
 <script lang="ts">
+  import type { Post } from '$lib/types/post';
   import '$lib/styles/prism.scss';
   import '$lib/styles/prose.scss';
+  import { page } from '$app/stores';
+  import { AllPosts } from '$lib/stores/allPosts';
+  import { CurPost } from '$lib/stores/curPost';
 
   import GiscusSvelte from '@giscus/svelte';
   import PostToc from '$lib/toc.svelte';
@@ -13,13 +17,14 @@
   import { theme } from '$lib/stores/themes';
   import { commentConfig } from '$lib/../config/site';
 
-  import { CurPost } from '$lib/stores/curPost';
-
-  import { onDestroy, onMount } from 'svelte';
-
+  import { onMount } from 'svelte';
+  let postData: Post.Post | undefined;
   let postElement: HTMLElement;
 
   onMount(() => {
+    postData = $AllPosts.get($page.url.pathname);
+    CurPost.init();
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -51,10 +56,6 @@
       }
     }
   });
-
-  // onDestroy(()=>{
-  //   CurPost.desotry()
-  // })
 </script>
 
 <div class="flex flex-nowrap justify-center">
@@ -69,7 +70,7 @@
 
     <div class="divider" />
 
-    {#if $CurPost}
+    <!-- {#if $CurPost}
       <nav class="flex flex-col mx-[-1.5rem] h-[20rem] md:(flex-row h-[10rem])">
         {#if $CurPost.next}
           <div id="next-post" class="relative flex-1 group overflow-hidden">
@@ -102,7 +103,7 @@
           </div>
         {/if}
       </nav>
-    {/if}
+    {/if} -->
     {#key $theme}
       <div class="mt8">
         <GiscusSvelte {...commentConfig} theme={$theme} />
@@ -111,8 +112,8 @@
   </div>
 
   <div class="max-w-screen-md flex-1 relative">
-    {#if $CurPost && $CurPost.toc}
-      <PostToc toc={$CurPost.toc} tocVisible={$CurPost.tocVisible} />
+    {#if postData && postData.toc && $CurPost}
+      <PostToc toc={postData.toc} tocVisible={$CurPost.tocVisible} />
     {/if}
   </div>
 </div>

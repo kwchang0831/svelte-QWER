@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { TOC } from '$lib/types/toc';
   import TocContent from '$lib/toc_content.svelte';
-  export let toc: TOC.Content[] | undefined;
+  export let toc: TOC.Heading[] | undefined;
   export let tocVisible: Map<string, number> | undefined;
 </script>
 

@@ -1,14 +1,14 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
   import ATag from '$lib/tag.svelte';
-  import type { Tag } from '$lib/types/tag';
+  import type { Tags } from '$lib/types/tags';
 
   let className: any = undefined;
   export { className as class };
 
   export let expanded = false;
 
-  export let thisTag: Tag;
+  export let thisTag: Tags.AllTags;
 
   function toggle() {
     expanded = !expanded;

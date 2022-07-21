@@ -5,6 +5,8 @@ import 'prismjs/components/prism-shell-session.min.js';
 import 'prismjs/components/prism-powershell.min.js';
 import slug from 'limax';
 import path from 'node:path';
+import { toc } from './toc.js';
+let _toc;
 
 export const languages = {
   shell: 'bash',
@@ -22,7 +24,6 @@ export const languages = {
 };
 
 export const mdify = (data, basePath) => {
-  let _toc = [];
   let _imports = [];
   let _basePath = basePath;
 
@@ -185,11 +186,7 @@ export const mdify = (data, basePath) => {
 
     heading(text, level) {
       const slugurl = slug(text);
-      _toc.push({
-        level: level,
-        heading: text,
-        slug: `#${slugurl}`,
-      });
+      toc.add(_toc, level, text, slugurl);
       return `<h${level} id="${slugurl}"><a href="#${slugurl}">${text}</a></h${level}>\n`;
     },
 
@@ -244,6 +241,15 @@ export const mdify = (data, basePath) => {
     },
 
     codespan(text) {
+      const escapeTest = /[{|}|(|)]/g;
+      const toEscape = {
+        '{': '&lcub',
+        '}': '&rcub',
+        '(': '&lpar',
+        ')': '&rpar',
+      };
+      text = text.replace(escapeTest, (c) => toEscape[c]);
+
       return `<code class="inline-code-block">${text}</code>`;
     },
 
@@ -272,7 +278,7 @@ export const mdify = (data, basePath) => {
       }
 
       if (href.startsWith('./')) {
-        href = path.resolve(_basePath, href);
+        href = path.join(_basePath, href);
       }
 
       let output = `<img src="${href}" alt="${text}"/>\n${title ? `<figcaption>${title}</figcaption>\n` : ''}`;
@@ -284,6 +290,7 @@ export const mdify = (data, basePath) => {
     },
   };
 
+  _toc = [];
   marked.use({
     renderer: {
       ...default_renderer,

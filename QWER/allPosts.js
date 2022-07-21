@@ -5,6 +5,9 @@ export const allPosts = (() => {
     set: (slug, value) => {
       _allPosts.set(slug, value);
     },
+    get: (slug) => {
+      return _allPosts.get(slug);
+    },
     delete: (slug) => {
       _allPosts.delete(slug);
     },

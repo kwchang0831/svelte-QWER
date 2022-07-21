@@ -17,9 +17,10 @@
  * ]
  */
 export namespace TOC {
-  export interface Content {
+  export interface Heading {
+    level: number;
     heading: string;
     slug: string;
-    child?: Array<Content>;
+    child?: Array<Heading>;
   }
 }

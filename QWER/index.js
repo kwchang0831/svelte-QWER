@@ -140,6 +140,14 @@ const convertPathToSlug = (file) => {
   return _p;
 };
 
+const convertImagePath = (p, slug) => {
+  if (!p) return;
+  if (p.startsWith('./')) {
+    p = path.join(slug, p);
+  }
+  return p;
+};
+
 const processFile = (file) => {
   const ext = path.extname(file);
   const [, ...destPath] = file.split(path.sep);
@@ -183,9 +191,10 @@ const processFile = (file) => {
         summary: meta['summary'],
         content: html2text ? LZString.compressToBase64(html2text) : undefined,
         published: meta['published'] || fs.statSync(file).birthtime,
-        cover: meta['cover'],
+        cover: convertImagePath(meta['cover'], slug),
         coverStyle: meta['coverStyle'] || meta['cover'] ? config.DefaultCoverStyle : undefined,
         tags: meta['tags'],
+        toc: md.toc,
       });
     });
   } else {
@@ -194,6 +203,20 @@ const processFile = (file) => {
     log('green', 'File Copied', p);
     return undefined;
   }
+};
+
+const generateMetaFiles = () => {
+  fs.ensureDirSync(config.targetGeneratedFolder);
+  writeSync({
+    path: config.targetPostsJson,
+    value: allPosts.json(),
+  });
+  log('cyan', 'Meta File Updated', config.targetPostsJson);
+  writeSync({
+    path: config.targetTagsJson,
+    value: allTags.json(),
+  });
+  log('cyan', 'Meta File Updated', config.targetTagsJson);
 };
 
 const buildAll = () => {
@@ -224,6 +247,7 @@ switch (process.argv[2]) {
           processFile(file)?.then((f) => {
             allPosts.set(f['slug'], f);
             allTags.set(f['tags']);
+            if (inited) generateMetaFiles();
           });
         })
         .on('change', (file) => {
@@ -237,6 +261,7 @@ switch (process.argv[2]) {
           processFile(file)?.then((f) => {
             allPosts.set(f['slug'], f);
             allTags.set(f['tags']);
+            if (inited) generateMetaFiles();
           });
         })
         .on('unlink', (file) => {
@@ -262,15 +287,7 @@ switch (process.argv[2]) {
           log('cyan', 'Init Scan Completed.');
           console.log(allTags.raw());
           console.log(allPosts.raw());
-          fs.ensureDirSync(config.targetGeneratedFolder);
-          writeSync({
-            path: config.targetPostsJson,
-            value: allPosts.json(),
-          });
-          writeSync({
-            path: config.targetTagsJson,
-            value: allTags.json(),
-          });
+          generateMetaFiles();
           // console.log(convertPathToSlug('data/p/2/index.md'));
           // console.log();
           // let d = [ 'GG', 22 ]

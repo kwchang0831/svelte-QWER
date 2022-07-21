@@ -5,10 +5,8 @@ summary: 記錄一下過程，家裡還有很多台 Ubuntu 需要升級一下
 published: 2022-05-31
 cover: ./cover.webp
 tags:
-  - [
-  開發環境,
-  OS
-  ]
+  - 開發環境
+  - OS
   - lang: 中文
   - os: [Ubuntu, Windows]
   - year: 2022

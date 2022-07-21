@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Tag } from '$lib/types/tag';
-  export let thisTag: Tag;
+  import type { Tags } from '$lib/types/tags';
+  export let thisTag: Tags.AllTags;
 
   function handleClick() {
     console.log(thisTag);

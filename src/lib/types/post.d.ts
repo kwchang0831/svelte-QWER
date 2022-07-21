@@ -1,4 +1,5 @@
-import type { Tag } from '$lib/types/tag';
+import type Tags from '$lib/tags.svelte';
+import type { Tags } from '$lib/types/tags';
 import type { TOC } from '$lib/types/toc';
 
 export namespace Post {
@@ -8,11 +9,8 @@ export namespace Post {
     cover?: string;
   }
 
-  export interface CurrentPost extends Info {
-    toc?: TOC.Content[];
-    tocVisible?: Map<string, number>;
-    prev?: Info;
-    next?: Info;
+  export interface CurrentPost {
+    tocVisible: Map<string, number>;
   }
 
   export interface Detail extends Info {
@@ -23,19 +21,20 @@ export namespace Post {
     updated?: string;
     cover?: string;
     coverStyle?: CoverStyle;
-    toc?: TOC.Content[];
+    toc?: TOC.Heading[];
   }
 
   export type Post = {
     slug: string;
     title: stinrg;
     summary?: string;
+    content?: string;
     published: string;
     updated?: string;
     cover?: string;
-    coverStyle?: CoverStyle;
-    toc: TOC.Content[];
-    tags: Tag[];
+    coverStyle?: CoverStyle | string;
+    toc: TOC.Heading[];
+    tags: Tags.Tags;
   };
 
   export enum CoverStyle {
