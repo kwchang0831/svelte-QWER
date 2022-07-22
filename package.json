@@ -5,14 +5,17 @@
     "dev:sveltekit": "MODE=development vite dev --host",
     "dev:QWER": "node --no-warnings QWER watch",
     "dev": "npm-run-all -p -r dev:QWER dev:sveltekit",
-    "build": "vite build",
+    "build:sveltekit": "vite build",
+    "build:QWER": "node --no-warnings QWER build",
+    "build": "npm-run-all -s build:QWER build:sveltekit",
     "preview": "vite preview",
     "prepare": "svelte-kit sync",
     "clean": "node --no-warnings QWER clean",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check --plugin-search-dir=. . && eslint .",
-    "format": "prettier --write --plugin-search-dir=. ."
+    "format": "prettier --write --plugin-search-dir=. .",
+    "postinstall": "cd QWER && npm install"
   },
   "devDependencies": {
     "@giscus/svelte": "^2.0.6",

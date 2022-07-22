@@ -145,6 +145,9 @@ export const allTags = (() => {
     //   _set(output, tags)
     //   return output;
     // },
+    clear: () => {
+      _alltags.clear();
+    },
     raw: () => {
       return _alltags;
     },

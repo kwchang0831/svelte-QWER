@@ -220,7 +220,19 @@ const generateMetaFiles = () => {
 };
 
 const buildAll = () => {
-  getAllFiles(config.targetDataFolder).forEach(processFile);
+  new Promise((resolve) => {
+    getAllFiles(config.targetDataFolder).forEach((file, i, ar) => {
+      if (path.basename(file).startsWith('.')) return;
+      processFile(file)?.then((f) => {
+        allPosts.set(f['slug'], f);
+        allTags.set(f['tags']);
+      });
+
+      if (i === ar.length - 1) resolve();
+    });
+  }).then(() => {
+    generateMetaFiles();
+  });
 };
 
 const cleanAll = () => {
@@ -326,6 +338,12 @@ switch (process.argv[2]) {
   case 'clean':
     {
       cleanAll();
+    }
+    break;
+
+  case 'build':
+    {
+      buildAll();
     }
     break;
 }

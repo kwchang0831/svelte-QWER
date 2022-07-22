@@ -9,7 +9,6 @@
   "devDependencies": {
     "chalk": "^5.0.1",
     "chokidar": "^3.5.3",
-    "console-log-json": "^2.9.0",
     "fs-extra": "^10.1.0",
     "gray-matter": "^4.0.3",
     "html-to-text": "^8.2.0",

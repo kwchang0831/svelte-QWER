@@ -1,4 +1,4 @@
-import * as readline from 'node:readline/promises';
+import readline from 'node:readline';
 import fs from 'fs';
 
 export const firstLine = (file) => {
