@@ -8,6 +8,34 @@ export const siteConfig: Site.Config = {
   subtitle: 'QWER QWER',
   description: 'Learning Svelte',
   lang: 'en',
+  author: {
+    name: 'kwchang0831',
+    avator: 'https://www.kwchang0831.dev/assets/maskable@192.webp',
+    website: 'https://kwchang0831.dev',
+  },
+};
+
+export const dateConfig: Site.DateConfig = {
+  toPublishedString: {
+    locales: 'en-US',
+    options: {
+      year: 'numeric',
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric',
+      timeZone: 'Asia/Taipei',
+    },
+  },
+  toUpdatedString: {
+    locales: 'en-US',
+    options: {
+      year: 'numeric',
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric',
+      timeZone: 'Asia/Taipei',
+    },
+  },
 };
 
 export const commentConfig: Giscus.Config = {

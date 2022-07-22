@@ -10,5 +10,19 @@ export namespace Site {
     subtitle?: string;
     /** site lang. `<html lang={site.lang}>` */
     lang?: string;
+
+    author: Author;
   }
+
+  export interface Author {
+    name: string;
+    avator: string;
+    github?: string;
+    website?: string;
+  }
+
+  export type DateConfig = {
+    toPublishedString: { locales: string; options: Intl.DateTimeFormatOptions };
+    toUpdatedString: { locales: string; options: Intl.DateTimeFormatOptions };
+  };
 }

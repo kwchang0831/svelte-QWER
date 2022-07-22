@@ -16,7 +16,9 @@
       "$lib": ["src/lib"],
       "$lib/*": ["src/lib/*"],
       "$generated": ["src/generated"],
-      "$generated/*": ["src/generated/*"]
+      "$generated/*": ["src/generated/*"],
+      "$config": ["src/config"],
+      "$config/*": ["src/config/*"]
     }
   },
   "include": ["src/**/*"]

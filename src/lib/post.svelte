@@ -18,11 +18,10 @@
   import { commentConfig } from '$lib/../config/site';
 
   import { onMount } from 'svelte';
-  let postData: Post.Post | undefined;
+  let postData = $AllPosts.get($page.url.pathname) as Post.Post;
   let postElement: HTMLElement;
 
   onMount(() => {
-    postData = $AllPosts.get($page.url.pathname);
     CurPost.init();
 
     const observer = new IntersectionObserver(
@@ -64,7 +63,7 @@
   <div
     class="flex-none max-w-[55rem] w-full prose prose-slate dark:prose-invert md:(rounded-2xl bg-white/[0.5] dark:bg-[#252525]/[0.5])"
     bind:this={postElement}>
-    <PostHeading />
+    <PostHeading {postData} />
 
     <slot name="post_content" />
 
