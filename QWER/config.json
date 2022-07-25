@@ -11,5 +11,10 @@
 
   "DefaultLayout": "_article.svelte",
   "DefaultCoverStyle": "IN",
-  "DefaultTagName": "tags"
+  "DefaultTagName": "tags",
+  "PreserveFilesInRoutes": [
+    "src/routes/__error.svelte",
+    "src/routes/__layout.svelte",
+    "src/routes/index.svelte"
+  ]
 }

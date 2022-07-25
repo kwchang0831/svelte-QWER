@@ -153,6 +153,14 @@ const processFile = (file) => {
   const [, ...destPath] = file.split(path.sep);
 
   if (ext === '.md') {
+    //TODO: Don't process files that already presents in routes folder and is user-generated.
+    const pmd2html = path.join(config.targetRouteFolder, destPath.join('/'));
+    const psvelte = pmd2html.replace(/.md$/i, '.svelte');
+    if(config.PreserveFilesInRoutes.includes(psvelte)){
+      log('yellow', 'Preserve File Not Processed', psvelte)
+      return undefined;
+    }
+
     const slug = path2slug(file);
     const m = matter.read(file);
     const content = m.content;
@@ -173,8 +181,6 @@ const processFile = (file) => {
       },
     ];
 
-    const pmd2html = path.join(config.targetRouteFolder, destPath.join('/'));
-    const psvelte = pmd2html.replace(/.md$/i, '.svelte');
     fs.ensureDirSync(path.dirname(pmd2html));
     writeSync({
       path: psvelte,
