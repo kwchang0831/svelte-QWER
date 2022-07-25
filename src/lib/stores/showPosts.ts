@@ -1,36 +1,53 @@
-import type { Post } from '$lib/types/post';
 import { get, writable } from 'svelte/store';
 import { AllPosts } from '$lib/stores/allPosts';
+import type { Tags } from '$lib/types/tags';
+import type { Post } from '$lib/types/post';
 
 export const ShowPosts = (() => {
-  const sortByPublishedDateLatestFirst = (a: Post.Post, b: Post.Post): number => {
-    const da = new Date(a['published']);
-    const db = new Date(b['published']);
-    if (db == da) return 0;
-    if (db > da) return 1;
-    return -1;
-  };
-
   const getAllPosts = () => {
-    const allposts = Array.from(get(AllPosts).values()).sort(sortByPublishedDateLatestFirst);
-
-    const output = new Array<Post.IndexPost>();
-    for (let i = 0; i < allposts.length; i += 1) {
-      const prev = i + 1 < allposts.length ? allposts[i + 1].slug : undefined;
-      const next = i - 1 >= 0 ? allposts[i - 1].slug : undefined;
-      output.push({ id: i, post: allposts[i], prev: prev, next: next });
-    }
-    return output;
+    return Array.from(get(AllPosts).values())
   };
+  let _data = getAllPosts();
+  const _tags = new Set<Tags.Tag>();
 
-  const { subscribe } = writable<Post.IndexPost[]>(getAllPosts());
+  const _filter = (t: Tags.Tag)=> {
+    if(t.category === 'tags')
+      {
+        _data = _data.filter((e)=>{
+          return e.tags.includes(t.name)
+        })
+        set(_data)
+      }else {
+        _data = _data.filter((e)=>{
+          return e.tags.find((tag: {[key: string]: string} | {[key: string]: string[]})=> {
+            if(typeof tag === 'object' && tag[t.category] !== undefined) {
+                if(Array.isArray(tag[t.category])) {
+                  return tag[t.category].includes(t.name)
+                }
+                return tag[t.category] === t.name;
+            }
+            return false;
+          })
+        })
+        set(_data)
+      }
+  }
 
+  const { subscribe, set } = writable(_data);
+
+  // console.log(_data)
   return {
     subscribe,
+    addTag: (t: Tags.Tag)=> {
+      _tags.add(t);
+    },
+    getTags: () => {
+      return Array.from(_tags);
+    },
+    filter: ()=> {
+      _tags.forEach((e)=>{
+        _filter(e);
+      })
+    }
   };
 })();
-
-/***
- * [{id:, POST:, Prev:, Next:}
- * ]
- */

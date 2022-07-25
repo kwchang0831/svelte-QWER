@@ -1,9 +1,11 @@
 export namespace Tags {
-  export interface AllTags {
+  export interface Tag {
     name: string;
-    parent?: string;
-    child?: Array<Tag>;
+    category: string;
   }
 
-  export type Tags = Array<string | number | object | Array>;
+  export interface Category {
+    name: string;
+    tags?: Array<Tag>;
+  }
 }

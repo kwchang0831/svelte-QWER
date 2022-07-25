@@ -18,7 +18,9 @@
   import { commentConfig } from '$lib/../config/site';
 
   import { onMount } from 'svelte';
-  let postData = $AllPosts.get($page.url.pathname) as Post.Post;
+  const thisPost = $AllPosts.get($page.url.pathname) as Post.Post;
+  const prevPost = thisPost.prev ? $AllPosts.get(thisPost.prev) : undefined;
+  const nextPost = thisPost.next ? $AllPosts.get(thisPost.next) : undefined;
   let postElement: HTMLElement;
 
   onMount(() => {
@@ -54,6 +56,8 @@
         observer.observe(allelements[i]);
       }
     }
+
+    console.log(thisPost);
   });
 </script>
 
@@ -63,46 +67,47 @@
   <div
     class="flex-none max-w-[55rem] w-full prose prose-slate dark:prose-invert md:(rounded-2xl bg-white/[0.5] dark:bg-[#252525]/[0.5])"
     bind:this={postElement}>
-    <PostHeading {postData} />
+    <PostHeading postData={thisPost} />
 
     <slot name="post_content" />
 
     <div class="divider" />
 
-    <!-- {#if $CurPost}
+    {#if nextPost || prevPost}
       <nav class="flex flex-col mx-[-1.5rem] h-[20rem] md:(flex-row h-[10rem])">
-        {#if $CurPost.next}
+        {#if nextPost}
           <div id="next-post" class="relative flex-1 group overflow-hidden">
             <div class="absolute z-10 i-mdi-chevron-left !w-[1.5rem] !h-[1.5rem] top-[1.25rem] left-[0.75rem]" />
             <a
-              href={$CurPost.next.slug}
-              alt={$CurPost.next.title}
+              href={nextPost.slug}
+              alt={nextPost.slug}
               class="absolute text-2xl font-bold z-10 !decoration-none !underline-none title-link-orange-500-orange-500 top-[3rem] left-[1rem] mr8">
-              {$CurPost.next.title}
+              {nextPost.title}
             </a>
             <img
-              src={$CurPost.next.cover}
+              src={nextPost.cover}
               alt=""
               class="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110) transition-transform duration-350 ease-in-out" />
           </div>
         {/if}
-        {#if $CurPost.prev}
+        {#if prevPost}
           <div id="prev-post" class="relative flex-1 group overflow-hidden">
             <a
-              href={$CurPost.prev.slug}
-              alt={$CurPost.prev.title}
+              href={prevPost.slug}
+              alt={prevPost.slug}
               class="absolute text-2xl font-bold z-10 !decoration-none !underline-none title-link-orange-500-orange-500 top-[3rem] right-[1rem] ml8">
-              {$CurPost.prev.title}
+              {prevPost.title}
             </a>
             <div class="absolute z-10 i-mdi-chevron-right !w-[1.5rem] !h-[1.5rem] top-[6rem] right-[0.75rem]" />
             <img
-              src={$CurPost.prev.cover}
+              src={prevPost.cover}
               alt=""
               class="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110) transition-transform duration-350 ease-in-out" />
           </div>
         {/if}
       </nav>
-    {/if} -->
+    {/if}
+
     {#key $theme}
       <div class="mt8">
         <GiscusSvelte {...commentConfig} theme={$theme} />
@@ -111,8 +116,8 @@
   </div>
 
   <div class="max-w-screen-md flex-1 relative">
-    {#if postData && postData.toc && $CurPost}
-      <PostToc toc={postData.toc} tocVisible={$CurPost.tocVisible} />
+    {#if thisPost && thisPost.toc && $CurPost}
+      <PostToc toc={thisPost.toc} tocVisible={$CurPost.tocVisible} />
     {/if}
   </div>
 </div>

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
-  import ATag from '$lib/tag.svelte';
+  import Tag from '$lib/tag.svelte';
   import type { Tags } from '$lib/types/tags';
 
   let className: any = undefined;
@@ -8,33 +8,33 @@
 
   export let expanded = false;
 
-  export let thisTag: Tags.AllTags;
+  export let data: Tags.Category;
 
   function toggle() {
     expanded = !expanded;
   }
 </script>
 
-{#if thisTag.name !== 'tags'}
+{#if data.name !== 'tags'}
   <div class="flex justify-between items-center border-b-1 py-2 cursor-pointer {className}" on:click={toggle}>
     <h3 class:expanded>
-      {thisTag.name}
+      {data.name}
     </h3>
     <div
       class="{expanded ? 'i-tabler-fold-down' : 'i-tabler-fold-up'} display-inline-block !w-[1.25rem] !h-[1.25rem] " />
   </div>
 
-  {#if expanded && thisTag.child}
+  {#if expanded && data.tags}
     <div transition:slide={{ duration: 300 }} class="flex flex-row flex-wrap my-2">
-      {#each thisTag.child as c}
-        <ATag thisTag={c} />
+      {#each data.tags as t}
+        <Tag data={t} />
       {/each}
     </div>
   {/if}
-{:else if thisTag.child}
+{:else if data.tags}
   <div transition:slide={{ duration: 300 }} class="flex flex-row flex-wrap">
-    {#each thisTag.child as c}
-      <ATag thisTag={c} />
+    {#each data.tags as t}
+      <Tag data={t} />
     {/each}
   </div>
 {/if}

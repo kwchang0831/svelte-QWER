@@ -156,8 +156,8 @@ const processFile = (file) => {
     //TODO: Don't process files that already presents in routes folder and is user-generated.
     const pmd2html = path.join(config.targetRouteFolder, destPath.join('/'));
     const psvelte = pmd2html.replace(/.md$/i, '.svelte');
-    if(config.PreserveFilesInRoutes.includes(psvelte)){
-      log('yellow', 'Preserve File Not Processed', psvelte)
+    if (config.PreserveFilesInRoutes.includes(psvelte)) {
+      log('yellow', 'Preserve File Not Processed', psvelte);
       return undefined;
     }
 
@@ -165,6 +165,24 @@ const processFile = (file) => {
     const m = matter.read(file);
     const content = m.content;
     const meta = m.data;
+    // TODO: needs more testings
+    const tags = meta['tags'].map((e) => {
+      if (typeof e === 'number') return e.toString();
+      if (Array.isArray(e))
+        return e.map((e) => {
+          if (typeof e === 'number') return e.toString();
+          else return e;
+        });
+      if (typeof e === 'object') {
+        let u = Object.entries(e)[0].map((c) => {
+          if (typeof c === 'number') return c.toString();
+          else return c;
+        });
+        return Object.fromEntries([u]);
+      }
+      return e;
+    });
+
     const layout = meta.layout || config.DefaultLayout;
     const md = mdify.mdify(content, slug);
     const html2text = convert(md.content);
@@ -199,7 +217,7 @@ const processFile = (file) => {
         published: meta['published'] || fs.statSync(file).birthtime,
         cover: convertImagePath(meta['cover'], slug),
         coverStyle: meta['coverStyle'] || meta['cover'] ? config.DefaultCoverStyle : undefined,
-        tags: meta['tags'],
+        tags: tags,
         toc: md.toc,
       });
     });

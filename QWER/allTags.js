@@ -23,10 +23,10 @@ export const allTags = (() => {
           const _k = m.get(k);
           if (Array.isArray(tag[k])) {
             tag[k].forEach((v) => {
-              _k.set(v.toString(), (_k.get(v) ?? 0) + 1);
+              _k.set(v, (_k.get(v) ?? 0) + 1);
             });
           } else {
-            _k.set(tag[k].toString(), (_k.get(tag[k]) ?? 0) + 1);
+            _k.set(tag[k], (_k.get(tag[k]) ?? 0) + 1);
           }
         });
       } else {
@@ -34,7 +34,7 @@ export const allTags = (() => {
           m.set(config.DefaultTagName, new Map());
         }
         const _k = m.get(config.DefaultTagName);
-        _k.set(tag.toString(), (_k.get(tag) ?? 0) + 1);
+        _k.set(tag, (_k.get(tag) ?? 0) + 1);
       }
     });
   }
@@ -76,7 +76,7 @@ export const allTags = (() => {
             });
           } else {
             const _k = m.get(k);
-            const _kk = tag[k].toString();
+            const _kk = tag[k];
             const _v = _k.get(_kk);
             if (!_v) throw 'Tags were not generated correctly.';
             if (_v > 1) {
@@ -92,7 +92,7 @@ export const allTags = (() => {
         });
       } else {
         const _k = m.get(config.DefaultTagName);
-        const _t = tag.toString();
+        const _t = tag;
 
         if (!_k.get(_t)) throw 'Tags were not generated correctly.';
 

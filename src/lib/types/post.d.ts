@@ -1,5 +1,3 @@
-import type Tags from '$lib/tags.svelte';
-import type { Tags } from '$lib/types/tags';
 import type { TOC } from '$lib/types/toc';
 
 export namespace Post {
@@ -33,8 +31,10 @@ export namespace Post {
     updated?: string;
     cover?: string;
     coverStyle?: CoverStyle | string;
-    toc: TOC.Heading[];
-    tags: Tags.Tags;
+    prev?: string;
+    next?: string;
+    toc?: TOC.Heading[];
+    tags?: Array<>;
   };
 
   export enum CoverStyle {
