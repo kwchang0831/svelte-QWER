@@ -5,22 +5,20 @@
   import { CurTags } from '$lib/stores/curTags';
   import { ShowPosts } from './stores/showPosts';
 
-  let active = false;
-
   function handleClick() {
-    active = true;
     CurTags.toggle(data);
-    ShowPosts.addTag(data);
-    ShowPosts.filter();
+    ShowPosts.filter($CurTags);
   }
 </script>
 
-<button
-  class:btn_active={active}
-  class="text-sm m-1 normal-case border-2 border-dotted btn hover:(border-[#007300] border-solid) border-black/[0.5] dark:(border-white/[0.5]) active:(scale-80 transition-transform duration-250 ease-in-out)"
-  on:click={handleClick}>
-  {data.name}
-</button>
+{#key $CurTags}
+  <button
+    class:btn_active={$CurTags.has(data)}
+    class="text-sm m-1 normal-case border-2 border-dotted btn hover:(border-[#007300] border-solid) border-black/[0.5] dark:(border-white/[0.5]) active:(scale-80 transition-transform duration-250 ease-in-out)"
+    on:click={handleClick}>
+    {data.name}
+  </button>
+{/key}
 
 <style>
   .btn_active {

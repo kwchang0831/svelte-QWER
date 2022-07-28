@@ -13,9 +13,7 @@
     timeZone: 'Asia/Taipei',
   });
 
-  const postCoverPath = data.cover?.startsWith('./')
-    ? `${data.slug}/${data.cover.slice(2)}`
-    : `${data.cover}`;
+  const postCoverPath = data.cover?.startsWith('./') ? `${data.slug}/${data.cover.slice(2)}` : `${data.cover}`;
 </script>
 
 {#if data}
@@ -60,11 +58,7 @@
             <div class="px8 py6 flex flex-col gap1 grow">
               <div class="">{postPublishedStr}</div>
               <h2 class="text-2xl font-bold">
-                <a
-                  sveltekit:prefetch
-                  href={data.slug}
-                  alt={data.title}
-                  class="title-link-orange-500-orange-500">
+                <a sveltekit:prefetch href={data.slug} alt={data.title} class="title-link-orange-500-orange-500">
                   {data.title}
                 </a>
               </h2>
