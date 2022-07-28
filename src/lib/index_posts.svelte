@@ -7,22 +7,22 @@
   export { className as class };
 </script>
 
-{#key $ShowPosts}
-  <div id="index-posts" class="flex flex-col items-center mt-4 gap-4 {className}">
-    {#if $ShowPosts.length === 0}
-      <div
-        class="h-[20rem] flex items-center justify-center"
-        in:fade={{ duration: 300, delay: 300 }}
-        out:fade={{ duration: 300 }}>
-        <h2 class="text-3xl">No Post Found.</h2>
-      </div>
-    {:else}
+<div id="index-posts" class="flex flex-col items-center mt-4 gap-4 {className}">
+  {#if $ShowPosts.length === 0}
+    <div
+      class="h-[20rem] flex items-center justify-center"
+      in:fade={{ duration: 300, delay: 300 }}
+      out:fade={{ duration: 300 }}>
+      <h2 class="text-3xl">No Post Found.</h2>
+    </div>
+  {:else}
+    {#key $ShowPosts}
       {#each $ShowPosts as p, index}
         <IndexPost data={p} {index} />
       {/each}
-    {/if}
-  </div>
-{/key}
+    {/key}
+  {/if}
+</div>
 
 <style>
 </style>

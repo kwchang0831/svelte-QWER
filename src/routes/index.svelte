@@ -18,7 +18,7 @@
       });
     });
 
-    ShowPosts.filter($CurTags);
+    if ($CurTags.size) ShowPosts.filter($CurTags);
   });
 </script>
 
@@ -27,7 +27,7 @@
     <IndexProfile class="flex flex-col gap2 items-center text-center pl6 xl:(items-end text-right)" />
   </div>
 
-  <div class="flex-none max-w-[55rem] min-h-50vh w-full md:(rounded-2xl)">
+  <div class="flex-none max-w-[55rem] w-full md:(rounded-2xl)">
     <IndexPosts />
   </div>
 
