@@ -7,11 +7,7 @@
 
   export let expaned = true;
   import { AllTags } from '$lib/stores/allTags';
-  import { onMount } from 'svelte';
 
-  onMount(() => {
-    console.log($AllTags);
-  });
   function toggle() {
     expaned = !expaned;
   }

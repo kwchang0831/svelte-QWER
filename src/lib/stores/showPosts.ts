@@ -1,6 +1,5 @@
 import { get, writable } from 'svelte/store';
 import { AllPosts } from '$lib/stores/allPosts';
-import type { Tags } from '$lib/types/tags';
 import type { Post } from '$lib/types/post';
 
 export const ShowPosts = (() => {
@@ -9,36 +8,47 @@ export const ShowPosts = (() => {
   };
   let _data: Post.Post[] = getAllPosts();
 
-  const _filter = (t: Tags.Tag) => {
-    if (t.category === 'tags') {
-      _data = _data.filter((e) => {
-        return e.tags.includes(t.name);
-      });
-    } else {
-      _data = _data.filter((e) => {
-        return e.tags.find((tag: { [key: string]: string } | { [key: string]: string[] }) => {
-          if (typeof tag === 'object' && tag[t.category] !== undefined) {
-            if (Array.isArray(tag[t.category])) {
-              return tag[t.category].includes(t.name);
-            }
-            return tag[t.category] === t.name;
-          }
-          return false;
+  const _filter = (tags: Map<string, Set<string>>) => {
+    _data = getAllPosts();
+    tags.forEach((v, category) => {
+      if (category === 'tags') {
+        v.forEach((searchTag) => {
+          _data = _data.filter((e) => {
+            return e.tags.find(
+              (tagItem: string | string[] | { [key: string]: string } | { [key: string]: string[] }) => {
+                if (typeof tagItem === 'string') {
+                  return tagItem === searchTag;
+                }
+                if (Array.isArray(tagItem)) {
+                  return tagItem.includes(searchTag);
+                }
+                return false;
+              },
+            );
+          });
         });
-      });
-    }
+      } else {
+        v.forEach((searchTag) => {
+          _data = _data.filter((e) => {
+            return e.tags.find((tagItem: { [key: string]: string } | { [key: string]: string[] }) => {
+              if (typeof tagItem === 'object' && tagItem[category] !== undefined) {
+                if (Array.isArray(tagItem[category])) {
+                  return tagItem[category].includes(searchTag);
+                }
+                return tagItem[category] === searchTag;
+              }
+            });
+          });
+        });
+      }
+    });
+    set(_data);
   };
 
   const { subscribe, set } = writable<Post.Post[]>(_data);
 
   return {
     subscribe,
-    filter: (tags: Set<Tags.Tag>) => {
-      _data = getAllPosts();
-      tags.forEach((e) => {
-        _filter(e);
-      });
-      set(_data);
-    },
+    filter: _filter,
   };
 })();

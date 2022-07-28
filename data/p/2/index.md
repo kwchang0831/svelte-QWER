@@ -5,7 +5,7 @@ summary: 簡單好上手的 Shell，自帶自動完成功能，bash 或 zsh 用�
 published: 2022-05-20
 cover: ./cover.webp
 tags:
-  - 開發環境
+  - [開發環境, Fish]
   - os: [Linux]
 ---
 
