@@ -8,9 +8,7 @@
   import { page } from '$app/stores';
 
   function handleClick() {
-    console.log($CurTags);
     CurTags.toggle(data);
-    console.log($CurTags);
     ShowPosts.filter($CurTags);
     if (browser && window.location.pathname === '/') {
       let search = $page.url.searchParams.get('q');

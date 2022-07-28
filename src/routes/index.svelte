@@ -9,11 +9,15 @@
   import { onMount } from 'svelte';
 
   onMount(() => {
+    CurTags.init();
+    ShowPosts.init();
+
     $page.url.searchParams.forEach((v, k) => {
       v.split(',').forEach((v) => {
         CurTags.add(k, v);
       });
     });
+
     ShowPosts.filter($CurTags);
   });
 </script>

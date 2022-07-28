@@ -1,19 +1,17 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
   import type { TOC } from '$lib/types/toc';
-  export let content: TOC.Content;
-  export let tocVisible: Map<string, number> | undefined;
+  import { CurTOC } from '$lib/stores/curTOC';
+
+  export let content: TOC.Heading;
   export let expanded = false;
   export let depth = 1;
-
-  $: cur = tocVisible?.get(content.slug);
-  $: isVisible = cur && cur > 0;
 </script>
 
 <li class="group">
   <div
     toc-link
-    class="flex items-center gap2 py2 {isVisible ? 'border-[#0096FF]' : 'border-transparent'}"
+    class="flex items-center gap2 py2 {$CurTOC.get(content.slug) ? 'border-[#0096FF]' : 'border-transparent'}"
     class:pl4={depth === 1}
     class:pl8={depth === 2}
     class:pl12={depth === 3}
@@ -38,7 +36,7 @@
     {#if expanded}
       <ul transition:slide={{ duration: 300 }} class="flex flex-col">
         {#each content.child as c}
-          <svelte:self content={c} {tocVisible} depth={depth + 1} expanded />
+          <svelte:self content={c} depth={depth + 1} expanded />
         {/each}
       </ul>
     {/if}

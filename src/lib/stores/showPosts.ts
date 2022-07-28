@@ -8,6 +8,11 @@ export const ShowPosts = (() => {
   };
   let _data: Post.Post[] = getAllPosts();
 
+  const _init = () => {
+    _data = getAllPosts();
+    set(_data);
+  };
+
   const _filter = (tags: Map<string, Set<string>>) => {
     _data = getAllPosts();
     tags.forEach((v, category) => {
@@ -49,6 +54,7 @@ export const ShowPosts = (() => {
 
   return {
     subscribe,
+    init: _init,
     filter: _filter,
   };
 })();

@@ -7,6 +7,10 @@
   import { theme } from '$lib/stores/themes';
   import { fly } from 'svelte/transition';
   import Dropdown from '$lib/dd.svelte';
+  import { CurTags } from '$lib/stores/curTags';
+  import { ShowPosts } from './stores/showPosts';
+  import { page } from '$app/stores';
+  import { onMount } from 'svelte';
 
   let search = false;
   let pin: boolean = true;
@@ -20,6 +24,14 @@
         Math.round(
           (scrollY / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 10000,
         ) / 100;
+  }
+
+  function resetHome() {
+    if (browser && window.location.pathname === '/') {
+      window.history.replaceState({}, '', '/');
+      CurTags.init();
+      ShowPosts.init();
+    }
   }
 </script>
 
@@ -40,7 +52,7 @@
         </Dropdown>
       </div>
 
-      <a sveltekit:prefetch href="/" class="text-xl font-semibold normal-case btn btn-ghost">
+      <a href="/" class="text-xl font-semibold normal-case btn btn-ghost" on:click={resetHome}>
         {siteConfig.title}
       </a>
 

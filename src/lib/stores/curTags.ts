@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 import type { Tags } from '$lib/types/tags';
 
 export const CurTags = (() => {
-  const _data = new Map<string, Set<string>>();
+  let _data = new Map<string, Set<string>>();
   const { subscribe, set } = writable<Map<string, Set<string>>>(_data);
 
   const _addByTag = (t: Tags.Tag) => {
@@ -24,7 +24,8 @@ export const CurTags = (() => {
   return {
     subscribe,
     init: () => {
-      set(new Map<string, Set<string>>());
+      _data = new Map<string, Set<string>>();
+      set(_data);
     },
     add: (category: string, name: string) => {
       if (!_data.has(category)) _data.set(category, new Set<string>());
