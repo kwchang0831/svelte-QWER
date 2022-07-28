@@ -13,8 +13,7 @@
   import { theme } from '$lib/stores/themes';
   import { commentConfig } from '$lib/../config/site';
 
-  import { onDestroy, onMount } from 'svelte';
-  import { browser } from '$app/env';
+  import { onMount } from 'svelte';
 
   const thisPost = $AllPosts.get($page.url.pathname) as Post.Post;
   const prevPost = thisPost.prev ? $AllPosts.get(thisPost.prev) : undefined;
@@ -56,11 +55,6 @@
       }
     }
   });
-
-  // onDestroy(()=>{
-  //   if(observer) observer.disconnect()
-  //   console.log("DESTORY", thisPost)
-  // })
 </script>
 
 <div class="flex flex-nowrap justify-center">
@@ -76,7 +70,7 @@
     <div class="divider" />
 
     {#if nextPost || prevPost}
-      <nav class="flex flex-col mx-[-1.5rem] h-[20rem] md:(flex-row h-[10rem])">
+      <nav class="flex flex-col mx-[-1.5rem] h-[12rem] md:(flex-row)">
         {#if nextPost}
           <div id="next-post" class="relative flex-1 group overflow-hidden">
             <div class="absolute z-10 i-mdi-chevron-left !w-[1.5rem] !h-[1.5rem] top-[1.25rem] left-[0.75rem]" />
