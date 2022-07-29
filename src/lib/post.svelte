@@ -3,21 +3,21 @@
   import '$lib/styles/prism.scss';
   import '$lib/styles/prose.scss';
   import { page } from '$app/stores';
-  import { AllPosts } from '$lib/stores/allPosts';
-  import { CurTOC } from '$lib/stores/curTOC';
+  import { postsAll } from '$stores/posts';
+  import { CurTOC } from '$stores/curTOC';
 
   import GiscusSvelte from '@giscus/svelte';
   import PostToc from '$lib/toc.svelte';
   import PostHeading from '$lib/post_heading.svelte';
 
-  import { theme } from '$lib/stores/themes';
+  import { theme } from '$stores/themes';
   import { commentConfig } from '$lib/../config/site';
 
   import { onMount } from 'svelte';
 
-  const thisPost = $AllPosts.get($page.url.pathname) as Post.Post;
-  const prevPost = thisPost.prev ? $AllPosts.get(thisPost.prev) : undefined;
-  const nextPost = thisPost.next ? $AllPosts.get(thisPost.next) : undefined;
+  const thisPost = $postsAll.get($page.url.pathname) as Post.Post;
+  const prevPost = thisPost.prev ? $postsAll.get(thisPost.prev) : undefined;
+  const nextPost = thisPost.next ? $postsAll.get(thisPost.next) : undefined;
   let observer: IntersectionObserver;
   let postElement: HTMLElement;
 

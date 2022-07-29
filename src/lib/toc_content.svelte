@@ -1,7 +1,7 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
   import type { TOC } from '$lib/types/toc';
-  import { CurTOC } from '$lib/stores/curTOC';
+  import { CurTOC } from '$stores/curTOC';
 
   export let content: TOC.Heading;
   export let expanded = false;

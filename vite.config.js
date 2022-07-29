@@ -53,6 +53,7 @@ const config = {
       $QWER: path.resolve('.', 'QWER'),
       $generated: path.resolve('.', 'src/generated'),
       $config: path.resolve('.', 'src/config'),
+      $stores: path.resolve('.', 'src/lib/stores'),
     },
   },
   server: {

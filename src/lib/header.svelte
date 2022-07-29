@@ -4,13 +4,11 @@
 <script lang="ts">
   import { browser } from '$app/env';
   import { siteConfig, navConfig, mobilenavConfig } from '$lib/../config/site';
-  import { theme } from '$lib/stores/themes';
+  import { theme } from '$stores/themes';
   import { fly } from 'svelte/transition';
   import Dropdown from '$lib/dd.svelte';
-  import { CurTags } from '$lib/stores/curTags';
-  import { ShowPosts } from './stores/showPosts';
-  import { page } from '$app/stores';
-  import { onMount } from 'svelte';
+  import { tagsCur } from '$stores/tags';
+  import { postsShow } from '$stores/posts';
 
   let search = false;
   let pin: boolean = true;
@@ -29,8 +27,8 @@
   function resetHome() {
     if (browser && window.location.pathname === '/') {
       window.history.replaceState({}, '', '/');
-      CurTags.init();
-      ShowPosts.init();
+      tagsCur.init();
+      postsShow.init();
     }
   }
 </script>

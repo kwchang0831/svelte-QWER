@@ -6,7 +6,7 @@
   export { className as class };
 
   export let expaned = true;
-  import { AllTags } from '$lib/stores/allTags';
+  import { tagsAll } from '$stores/tags';
 
   function toggle() {
     expaned = !expaned;
@@ -24,7 +24,7 @@
 
   {#if expaned}
     <div transition:slide={{ duration: 300 }} class="py-4 select-none">
-      {#each $AllTags as c}
+      {#each $tagsAll as c}
         <TagsCategory data={c} expanded />
       {/each}
     </div>

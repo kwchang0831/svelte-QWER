@@ -1,14 +1,14 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
   import IndexPost from '$lib/index_post.svelte';
-  import { ShowPosts } from '$lib/stores/showPosts';
+  import { postsShow } from '$stores/posts';
 
   let className: any = undefined;
   export { className as class };
 </script>
 
 <div id="index-posts" class="flex flex-col items-center mt-4 gap-4 {className}">
-  {#if $ShowPosts.length === 0}
+  {#if $postsShow.length === 0}
     <div
       class="h-[20rem] flex items-center justify-center"
       in:fade={{ duration: 300, delay: 300 }}
@@ -16,8 +16,8 @@
       <h2 class="text-3xl">No Post Found.</h2>
     </div>
   {:else}
-    {#key $ShowPosts}
-      {#each $ShowPosts as p, index}
+    {#key $postsShow}
+      {#each $postsShow as p, index}
         <IndexPost data={p} {index} />
       {/each}
     {/key}

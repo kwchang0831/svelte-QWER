@@ -1,7 +1,19 @@
-import { writable } from 'svelte/store';
+import { readable, writable } from 'svelte/store';
 import type { Tags } from '$lib/types/tags';
 
-export const CurTags = (() => {
+import tagsjson from '$generated/tags.json';
+const tags = Object.entries(tagsjson).map((e: [string, object]) => {
+  return {
+    name: e[0],
+    tags: Object.entries(e[1]).map((c) => {
+      return { name: c[0], category: e[0] };
+    }),
+  };
+});
+
+export const tagsAll = readable(tags);
+
+export const tagsCur = (() => {
   let _data = new Map<string, Set<string>>();
   const { subscribe, set } = writable<Map<string, Set<string>>>(_data);
 
