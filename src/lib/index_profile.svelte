@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { siteConfig } from '$config/site';
+
   let className: any = undefined;
   export { className as class };
 </script>
@@ -7,7 +9,7 @@
   <div class="relative group">
     <figure>
       <img
-        src="https://www.kwchang0831.dev/assets/maskable@192.webp"
+        src={siteConfig.author.avator}
         alt="index profile avatar"
         class="rounded-full shadow-xl w-32 h-32 hover:rotate-[360deg] transition-transform !duration-1000 ease-in-out" />
     </figure>
@@ -17,18 +19,16 @@
     </div>
   </div>
 
-  <h1 class="text-2xl font-bold">kwchang0831</h1>
+  <h1 class="text-2xl font-bold">{siteConfig.author.name}</h1>
   <p class="text-base op75">
-    Do it. Just do it!
-    <br />
-    Don't let your dreams be dreams!
+    {@html siteConfig.author.bio}
   </p>
 
   <div class="flex flex-row">
-    <a href="mailto:contact@kwchang0831.dev" class="btn btn-ghost" aria-label="Email">
+    <a href="mailto:{siteConfig.author.email}" class="btn btn-ghost" aria-label="Email">
       <div class="!w-[1.75rem] !h-[1.75rem]  i-ic-baseline-mail" />
     </a>
-    <a href="https://github.com/kwchang0831" class="btn btn-ghost" aria-label="Github">
+    <a href={siteConfig.author.github} class="btn btn-ghost" aria-label="Github">
       <div class="!w-[1.75rem] !h-[1.75rem]  i-carbon-logo-github" />
     </a>
   </div>

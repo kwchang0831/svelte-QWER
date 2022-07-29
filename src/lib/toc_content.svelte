@@ -32,7 +32,7 @@
       <span class="!w-[1.25rem] !h-[1.25rem]  i-akar-icons-circle inline-block" />
     {/if}
     <span
-      class="select-none text-black/[0.6] group-hover:(text-black) dark:(text-white/[0.6] group-hover:(text-white) group-active:(text-black))">
+      class="select-none text-black/[0.6] group-hover:(text-black) dark:(text-white/[0.6] group-hover:(text-white) group-active:(!text-black))">
       {content.heading}
     </span>
   </div>

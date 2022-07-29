@@ -4,14 +4,20 @@ import type { DD } from '$lib/types/dd';
 
 export const siteConfig: Site.Config = {
   url: 'http://localhost:3000',
-  title: 'Svelte-QWER',
-  subtitle: 'QWER QWER',
-  description: 'Learning Svelte',
+  title: 'QWER',
+  subtitle: 'Simple Blog Starter',
+  description: 'Full-Featured Blog Starter Built with Svelte & SvelteKit',
   lang: 'en',
   author: {
     name: 'kwchang0831',
     avator: 'https://www.kwchang0831.dev/assets/maskable@192.webp',
     website: 'https://kwchang0831.dev',
+    email: 'contact@kwchang0831.dev',
+    bio: `
+    Do it. Just do it!
+    <br />
+    Don't let your dreams be dreams!
+    `,
   },
 };
 
@@ -62,12 +68,10 @@ export const navConfig: (DD.Nav | DD.Link)[] = [
         orientation: 1,
         links: [
           {
-            name: 'Svelte',
-            url: '/qwer-Svelte',
+            name: 'Introduction',
           },
           {
-            name: 'Introduction',
-            url: '/qwer-introduction',
+            name: 'Post Example',
           },
         ],
       },
@@ -76,16 +80,16 @@ export const navConfig: (DD.Nav | DD.Link)[] = [
         orientation: 3,
         links: [
           {
-            name: 'Left',
-            url: '/me-left',
+            name: 'Author',
           },
         ],
       },
     ],
   },
   {
-    name: 'Post#1',
-    url: '/p/1',
+    name: 'Github',
+    url: 'https://github.com/kwchang0831/svelte-QWER',
+    target: '_blank',
   },
 ];
 
@@ -93,40 +97,30 @@ export const mobilenavConfig: DD.Nav = {
   orientation: 2,
   links: [
     {
-      name: 'About Me',
+      name: 'QWER',
       orientation: 1,
       links: [
         {
-          name: 'first',
-          orientation: 1,
-          links: [
-            {
-              name: 'first-byte',
-            },
-            {
-              name: 'first-second-byte',
-            },
-          ],
+          name: 'Introduction',
         },
         {
-          name: 'second',
-          orientation: 1,
-          links: [
-            {
-              name: 'first-byte',
-            },
-            {
-              name: 'first-second-byte',
-            },
-          ],
+          name: 'Post Example',
         },
       ],
     },
     {
-      name: 'Post#1',
-      url: '/p/1',
-      target: '_self',
-      prefetch: true,
+      name: 'Me',
+      orientation: 1,
+      links: [
+        {
+          name: 'Author',
+        },
+      ],
+    },
+    {
+      name: 'Github',
+      url: 'https://github.com/kwchang0831/svelte-QWER',
+      target: '_blank',
     },
   ],
 };

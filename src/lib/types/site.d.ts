@@ -19,6 +19,8 @@ export namespace Site {
     avator: string;
     github?: string;
     website?: string;
+    email?: string;
+    bio?: string;
   }
 
   export type DateConfig = {
