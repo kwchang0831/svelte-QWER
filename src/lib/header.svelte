@@ -3,7 +3,7 @@
 
 <script lang="ts">
   import { browser } from '$app/env';
-  import { siteConfig, navConfig, mobilenavConfig } from '$lib/../config/site';
+  import { siteConfig, navConfig, mobilenavConfig } from '$config/site';
   import { theme } from '$stores/themes';
   import { fly } from 'svelte/transition';
   import Dropdown from '$lib/dd.svelte';

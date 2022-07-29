@@ -4,14 +4,14 @@
   import '$lib/styles/prose.scss';
   import { page } from '$app/stores';
   import { postsAll } from '$stores/posts';
-  import { CurTOC } from '$stores/curTOC';
+  import { tocCur } from '$stores/toc';
 
   import GiscusSvelte from '@giscus/svelte';
   import PostToc from '$lib/toc.svelte';
   import PostHeading from '$lib/post_heading.svelte';
 
   import { theme } from '$stores/themes';
-  import { commentConfig } from '$lib/../config/site';
+  import { commentConfig } from '$config/site';
 
   import { onMount } from 'svelte';
 
@@ -28,10 +28,10 @@
           const heading = entry.target.getAttribute('toc-heading');
           if (heading) {
             if (entry.isIntersecting) {
-              CurTOC.addTOC(heading);
+              tocCur.addTOC(heading);
               return;
             }
-            CurTOC.delTOC(heading);
+            tocCur.delTOC(heading);
           }
         });
       },

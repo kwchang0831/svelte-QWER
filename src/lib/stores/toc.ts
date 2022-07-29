@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-export const CurTOC = (() => {
+export const tocCur = (() => {
   let _data = new Map<string, number>();
   const { subscribe, update, set } = writable<Map<string, number>>(_data);
 

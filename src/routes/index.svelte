@@ -18,10 +18,10 @@
     if ($tagsCur.size) postsShow.filter($tagsCur);
   });
 
-  onDestroy(()=>{
+  onDestroy(() => {
     tagsCur.init();
     postsShow.init();
-  })
+  });
 </script>
 
 <div class="flex flex-nowrap justify-center flex-col items-center xl:(flex-row items-stretch)">
