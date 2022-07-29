@@ -65,9 +65,9 @@
           aria-label="search"
           on:click={() => (search = !search)}
           tabindex="0"
-          class="btn btn-ghost active:translate-y-2 duration-500 ease-out group">
+          class="btn active:translate-y-2 duration-500 ease-out group">
           <div
-            class="!w-[1.75rem] !h-[1.75rem] i-carbon-search group-hover:delay-100 group-hover:transition group-hover:delay-100 group-hover:duration-500 group-hover:scale-[1.2]" />
+            class="!w-[1.75rem] !h-[1.75rem] i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
         </button>
       </div>
       {#key $theme}
@@ -75,9 +75,9 @@
           <button
             aria-label="Dark Mode Switch"
             on:click={theme.toggle}
-            class="btn btn-ghost active:translate-y-2 duration-500 ease-out group">
+            class="btn active:translate-y-2 duration-500 ease-out group">
             <div
-              class="!w-[1.75rem] !h-[1.75rem] i-carbon-sun dark:i-carbon-moon group-hover:transition group-hover:delay-100 group-hover:duration-500 group-hover:scale-[1.2]" />
+              class="!w-[1.75rem] !h-[1.75rem] i-carbon-sun dark:i-carbon-moon group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
           </button>
         </div>
       {/key}
@@ -90,17 +90,15 @@
       out:fly={{ x: 50, duration: 300 }}>
       <form accept-charset="UTF-8" class="grow flex">
         <input type="text" name="q" id="index-search" class="grow mx-4 my-2 px-2 h-8 rounded bg-transparent border-1" />
-        <button class="btn btn-ghost display-inline-block active:translate-y-2 duration-500 ease-out group">
+        <button class="btn display-inline-block active:translate-y-2 duration-500 ease-out group">
           <div
-            class="!w-[1.75rem] !h-[1.75rem] i-carbon-search group-hover:transition group-hover:delay-100 group-hover:duration-500 group-hover:scale-[1.2]" />
+            class="!w-[1.75rem] !h-[1.75rem] i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
         </button>
       </form>
       <div class="mr-4">
-        <button
-          on:click={() => (search = !search)}
-          class="btn btn-ghost active:translate-y-2 duration-500 ease-out group">
+        <button on:click={() => (search = !search)} class="btn active:translate-y-2 duration-500 ease-out group">
           <div
-            class="!w-[2rem] !h-[2rem] i-carbon-close group-hover:transition group-hover:delay-100 group-hover:duration-500 group-hover:scale-[1.2]" />
+            class="!w-[2rem] !h-[2rem] i-carbon-close group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
         </button>
       </div>
     </div>
