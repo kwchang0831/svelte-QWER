@@ -111,7 +111,6 @@
   id="totop"
   on:click={() => {
     window.scrollTo(0, 0);
-    console.log('clicked');
   }}
   class:translate-y-24={!pin || scrollY === 0}
   aria-label="scroll to top"
