@@ -23,7 +23,7 @@
         decoding="async"
         loading="lazy" />
       <span>
-        Article by <a rel="author" class="" href={siteConfig.author.website}>{siteConfig.author.name}</a>
+        <a rel="author" class="" href={siteConfig.author.website}>{siteConfig.author.name}</a>
       </span>
     </div>
     <div>{publishedDate}</div>

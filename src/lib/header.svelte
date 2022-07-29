@@ -35,7 +35,7 @@
 
 <svelte:window bind:scrollY />
 
-<header id="header" class="fixed w-screen ease-in-out border-transparent max-h-16 z-40">
+<header tabindex="0" id="header" class="fixed w-screen ease-in-out border-transparent max-h-16 z-40">
   {#if !search}
     <div
       id="header-nav"

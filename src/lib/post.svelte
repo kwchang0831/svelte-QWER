@@ -23,6 +23,7 @@
   let postElement: HTMLElement;
 
   onMount(() => {
+    console.log(thisPost);
     observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -73,7 +74,7 @@
     {#if nextPost || prevPost}
       <nav class="flex flex-col mx-[-1.5rem] h-[12rem] md:(flex-row)">
         {#if nextPost}
-          <div id="next-post" class="relative flex-1 group overflow-hidden">
+          <div id="next-post" class="relative flex-1 group overflow-hidden bg-black/[0.5]">
             <div class="absolute z-10 i-mdi-chevron-left !w-[1.5rem] !h-[1.5rem] top-[1.25rem] left-[0.75rem]" />
             <a
               sveltekit:prefetch
@@ -83,14 +84,16 @@
               class="absolute text-2xl font-bold z-10 !decoration-none !underline-none title-link-orange-500-orange-500 top-[3rem] left-[1rem] mr8">
               {nextPost.title}
             </a>
-            <img
-              src={nextPost.cover}
-              alt=""
-              class="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110) transition-transform duration-350 ease-in-out" />
+            {#if nextPost.cover}
+              <img
+                src={nextPost.cover}
+                alt={nextPost.cover}
+                class="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110 transition-transform duration-350 ease-in-out)" />
+            {/if}
           </div>
         {/if}
         {#if prevPost}
-          <div id="prev-post" class="relative flex-1 group overflow-hidden">
+          <div id="prev-post" class="relative flex-1 group overflow-hidden bg-black/[0.5]">
             <a
               sveltekit:prefetch
               rel="prev"
@@ -100,10 +103,12 @@
               {prevPost.title}
             </a>
             <div class="absolute z-10 i-mdi-chevron-right !w-[1.5rem] !h-[1.5rem] top-[6rem] right-[0.75rem]" />
-            <img
-              src={prevPost.cover}
-              alt=""
-              class="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110) transition-transform duration-350 ease-in-out" />
+            {#if prevPost.cover}
+              <img
+                src={prevPost.cover}
+                alt={prevPost.cover}
+                class="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110 transition-transform duration-350 ease-in-out)" />
+            {/if}
           </div>
         {/if}
       </nav>

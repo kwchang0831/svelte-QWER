@@ -20,7 +20,7 @@
   <article
     in:fly={{ x: index % 2 ? 100 : -100, duration: 300, delay: 300 }}
     out:fly={{ x: index % 2 ? -100 : 100, duration: 300 }}
-    class="min-h-[12rem] overflow-hidden group hover:shadow-2xl w-full transform transition duration-250 border-t-1 border-b-1 border-black md:(min-h-[9rem] w-3xl rounded-lg !border-none border-transparent hover:(scale-105)) bg-[#FAF9F6]/[0.75]  dark:(bg-[#171717]/[0.75] border-white)">
+    class="min-h-[12rem] overflow-hidden group hover:shadow-2xl w-full transform transition duration-250 border-t-1 border-b-1 border-black md:(min-h-[9rem] w-3xl rounded-lg !border-none border-transparent hover:(scale-105)) bg-[#FAF9F6]/[0.75] dark:(bg-[#171717]/[0.75] border-white)">
     {#if data.cover}
       {#if data.coverStyle !== undefined}
         {#if data.coverStyle === 'IN'}
@@ -68,7 +68,7 @@
         {/if}
       {/if}
     {:else}
-      <div class="flex flex-col border-t-1 border-b-1 md:border-none">
+      <div class="flex flex-col border-t-1 border-b-1 md:border-none bg-[#FAF9F6]/[0.75] dark:(bg-[#171717]/[0.75])">
         <div class="px-8 py-8 grow">
           <div class="">{postPublishedStr}</div>
           <h2 class="text-2xl font-bold">

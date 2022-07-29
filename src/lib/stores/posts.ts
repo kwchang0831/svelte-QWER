@@ -2,37 +2,16 @@ import { readable, writable } from 'svelte/store';
 import type { Post } from '$lib/types/post';
 import postsjson from '$generated/posts.json';
 
-const getPosts = () => {
-  const sortByPublishedDateLatestFirst = (a: [string, Post.Post], b: [string, Post.Post]): number => {
-    const da = new Date(a[1]['published']);
-    const db = new Date(b[1]['published']);
-    if (db == da) return 0;
-    if (db > da) return 1;
-    return -1;
-  };
+const _allposts = postsjson as [string, Post.Post][];
 
-  let _posts = Array.from(Object.entries(postsjson));
-  _posts = _posts.filter((e: [string, Post.Post]) => {
-    return !e[1]['options']?.includes('unlisted');
-  });
-  _posts = _posts.sort(sortByPublishedDateLatestFirst);
-
-  const _output = new Map<string, Post.Post>();
-  for (let i = 0; i < _posts.length; i += 1) {
-    const prev = i + 1 < _posts.length ? _posts[i + 1][1].slug : undefined;
-    const next = i - 1 >= 0 ? _posts[i - 1][1].slug : undefined;
-    _output.set(_posts[i][0], { ..._posts[i][1], prev: prev, next: next });
-  }
-
-  return _output;
-};
-
-const _allposts: Map<string, Post.Post> = getPosts();
-
-export const postsAll = readable<Map<string, Post.Post>>(_allposts);
+export const postsAll = readable<Map<string, Post.Post>>(new Map(_allposts));
 
 export const postsShow = (() => {
-  const _default = Array.from(_allposts.values());
+  const _default = _allposts
+    .filter((e) => {
+      return !(e[1]['options'] && e[1]['options'].includes('unlisted'));
+    })
+    .flatMap((e) => e[1]);
 
   let _data: Post.Post[] = _default;
   const { subscribe, set } = writable<Post.Post[]>(_data);
