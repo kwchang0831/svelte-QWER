@@ -1,13 +1,14 @@
 <script lang="ts">
-  import type { Post } from '$lib/types/post';
   import '$lib/styles/prism.scss';
   import '$lib/styles/prose.scss';
+
+  import type { Post } from '$lib/types/post';
   import { page } from '$app/stores';
   import { postsAll } from '$stores/posts';
   import { tocCur } from '$stores/toc';
 
   import GiscusSvelte from '@giscus/svelte';
-  import PostToc from '$lib/toc.svelte';
+  import PostToc from '$lib/toc_root.svelte';
   import PostHeading from '$lib/post_heading.svelte';
 
   import { theme } from '$stores/themes';
@@ -75,6 +76,7 @@
           <div id="next-post" class="relative flex-1 group overflow-hidden">
             <div class="absolute z-10 i-mdi-chevron-left !w-[1.5rem] !h-[1.5rem] top-[1.25rem] left-[0.75rem]" />
             <a
+              sveltekit:prefetch
               rel="next"
               href={nextPost.slug}
               alt={nextPost.slug}
@@ -90,6 +92,7 @@
         {#if prevPost}
           <div id="prev-post" class="relative flex-1 group overflow-hidden">
             <a
+              sveltekit:prefetch
               rel="prev"
               href={prevPost.slug}
               alt={prevPost.slug}
@@ -123,5 +126,9 @@
 <style>
   .divider {
     --at-apply: 'border-b-2 m8 border-gray op70';
+  }
+
+  :global(h2[toc-heading], h3[toc-heading], h4[toc-heading], h5[toc-heading], h6[toc-heading]) {
+    scroll-margin-top: 4em;
   }
 </style>
