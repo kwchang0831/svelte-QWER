@@ -60,18 +60,16 @@
         {/each}
       </div>
 
-      <div class="ml-auto">
-        <button
+      <div class="ml-auto flex">
+        <!-- <button
           aria-label="search"
           on:click={() => (search = !search)}
           tabindex="0"
           class="btn active:translate-y-2 duration-500 ease-out group">
           <div
             class="!w-[1.75rem] !h-[1.75rem] i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
-        </button>
-      </div>
-      {#key $theme}
-        <div>
+        </button> -->
+        {#key $theme}
           <button
             aria-label="Dark Mode Switch"
             on:click={theme.toggle}
@@ -79,8 +77,8 @@
             <div
               class="!w-[1.75rem] !h-[1.75rem] i-carbon-sun dark:i-carbon-moon group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
           </button>
-        </div>
-      {/key}
+        {/key}
+      </div>
     </div>
   {:else}
     <div
@@ -88,13 +86,13 @@
       class="flex border-transparent backdrop-blur items-center py-2"
       in:fly={{ x: 50, duration: 300, delay: 300 }}
       out:fly={{ x: 50, duration: 300 }}>
-      <form accept-charset="UTF-8" class="grow flex">
+      <!-- <form accept-charset="UTF-8" class="grow flex">
         <input type="text" name="q" id="index-search" class="grow mx-4 my-2 px-2 h-8 rounded bg-transparent border-1" />
         <button class="btn display-inline-block active:translate-y-2 duration-500 ease-out group">
           <div
             class="!w-[1.75rem] !h-[1.75rem] i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
         </button>
-      </form>
+      </form> -->
       <div class="mr-4">
         <button on:click={() => (search = !search)} class="btn active:translate-y-2 duration-500 ease-out group">
           <div
