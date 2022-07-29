@@ -11,14 +11,19 @@ const getPosts = () => {
     return -1;
   };
 
-  const _posts = Array.from(Object.entries(postsjson)).sort(sortByPublishedDateLatestFirst);
-  const _output = new Map<string, Post.Post>();
+  let _posts = Array.from(Object.entries(postsjson));
+  _posts = _posts.filter((e: [string, Post.Post]) => {
+    return !e[1]['options']?.includes('unlisted');
+  });
+  _posts = _posts.sort(sortByPublishedDateLatestFirst);
 
+  const _output = new Map<string, Post.Post>();
   for (let i = 0; i < _posts.length; i += 1) {
     const prev = i + 1 < _posts.length ? _posts[i + 1][1].slug : undefined;
     const next = i - 1 >= 0 ? _posts[i - 1][1].slug : undefined;
     _output.set(_posts[i][0], { ..._posts[i][1], prev: prev, next: next });
   }
+
   return _output;
 };
 

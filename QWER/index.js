@@ -165,6 +165,7 @@ const processFile = (file) => {
     const m = matter.read(file);
     const content = m.content;
     const meta = m.data;
+
     // TODO: needs more testings
     const tags = meta['tags'].map((e) => {
       if (typeof e === 'number') return e.toString();
@@ -204,8 +205,8 @@ const processFile = (file) => {
       path: psvelte,
       value: mapReplace(String(tempalte), tempalteMap),
     });
-    log('green', 'File Processed', psvelte);
     exec(`prettier --write --plugin-search-dir=. ${psvelte}`);
+    log('green', 'File Processed', psvelte);
 
     return new Promise((resolve) => {
       resolve({
@@ -217,6 +218,7 @@ const processFile = (file) => {
         published: meta['published'] || fs.statSync(file).birthtime,
         cover: convertImagePath(meta['cover'], slug),
         coverStyle: meta['coverStyle'] || meta['cover'] ? config.DefaultCoverStyle : undefined,
+        options: meta['options'],
         tags: tags,
         toc: md.toc,
       });
@@ -321,27 +323,7 @@ switch (process.argv[2]) {
         .on('ready', () => {
           inited = true;
           log('cyan', 'Init Scan Completed.');
-          console.log(allTags.raw());
-          console.log(allPosts.raw());
           generateMetaFiles();
-          // console.log(convertPathToSlug('data/p/2/index.md'));
-          // console.log();
-          // let d = [ 'GG', 22 ]
-          // allTags.delete(d)
-          // console.log(allTags.getAll())
-          // allTags.delete(d)
-          // console.log(allTags.getAll())
-
-          // console.log(allTags.json())
-          // console.log(allPosts.json())
-          // console.log(allPosts.raw());
-          // allPosts.clear();
-          // console.log(allPosts.raw());
-          // allPosts.read(
-          //   '{"/p/1":{"slug":"/p/1","title":"升級 Ubuntu 從 20.04 至 22.04 (Jammy Jellyfish)","description":"升級 Ubuntu 從 20.04 至 22.04 (Jammy Jellyfish)","summary":"記錄一下過程，家裡還有很多台 Ubuntu 需要升級一下","content":"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","published":"2022-05-31T00:00:00.000Z","cover":"./cover.webp","coverStyle":"IN","tags":[["開發環境","OS"],{"lang":"中文"},{"os":["Ubuntu","Windows"]},{"year":2022}]},"/p/2":{"slug":"/p/2","content":"tGploMo=","published":"2022-07-12T07:50:11.241Z","tags":["GG"]}}',
-          // );
-          // console.log(allPosts.raw());
-          // allTags.read('{"tags":{"開發環境":2,"OS":2},"lang":{"中文":1},"os":{"Ubuntu":1,"Windows":1},"year":{"2022":1}}')
         });
 
       process
