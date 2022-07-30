@@ -11,13 +11,13 @@ export namespace Site {
     /** site lang. `<html lang={site.lang}>` */
     lang?: string;
     /** site published since year. */
-    since?: number
+    since?: number;
 
     author: Author;
   }
 
   export interface Head {
-    custom?: (params: { dev: boolean }) => string[]
+    custom?: (params: { dev: boolean }) => string[];
   }
 
   export interface Author {

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type {Post} from '$lib/types/post'
-  import { siteConfig } from '$config/site'
-  export let post: Post.Post
+  import type { Post } from '$lib/types/post';
+  import { siteConfig } from '$config/site';
+  export let post: Post.Post;
 </script>
 
 <svelte:head>

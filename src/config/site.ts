@@ -24,10 +24,7 @@ export const siteConfig: Site.Config = {
 };
 
 export const headConfig: Site.Head = {
-  custom: ({ dev }) =>
-    dev
-      ? []
-      : [],
+  custom: ({ dev }) => (dev ? [] : []),
 };
 
 export const dateConfig: Site.DateConfig = {

@@ -10,7 +10,7 @@
   import GiscusSvelte from '@giscus/svelte';
   import PostToc from '$lib/components/toc_root.svelte';
   import PostHeading from '$lib/components/post_heading.svelte';
-  import SEO from '$lib/layouts/post_SEO.svelte'
+  import SEO from '$lib/layouts/post_SEO.svelte';
 
   import { theme } from '$stores/themes';
   import { commentConfig } from '$config/site';
@@ -59,7 +59,7 @@
   });
 </script>
 
-<SEO post={thisPost}/>
+<SEO post={thisPost} />
 
 <div class="flex flex-nowrap justify-center">
   <div class="max-w-screen-md flex-1" />
