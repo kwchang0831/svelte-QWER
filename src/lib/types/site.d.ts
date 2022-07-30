@@ -16,7 +16,7 @@ export namespace Site {
 
   export interface Author {
     name: string;
-    avator: string;
+    avator?: string;
     github?: string;
     website?: string;
     email?: string;

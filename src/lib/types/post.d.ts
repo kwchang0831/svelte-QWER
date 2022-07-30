@@ -5,8 +5,10 @@ export namespace Post {
     title: stinrg;
     summary?: string;
     content?: string;
+    html?: string;
     published: string;
-    updated?: string;
+    updated: string;
+    created: string;
     cover?: string;
     coverStyle?: CoverStyle | string;
     options?: Array<string>;

@@ -17,12 +17,6 @@ export const toc = (() => {
     ar.push(toPush);
   };
 
-  // interface Heading {
-  //   level: number;
-  //   heading: string;
-  //   slug: string;
-  //   child?: Array<Heading>;
-  // }
   return {
     add: (ar, level, heading, slug) => {
       _push(ar, {
