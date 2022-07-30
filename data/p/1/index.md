@@ -4,8 +4,6 @@ description: 升級 Ubuntu 從 20.04 至 22.04 (Jammy Jellyfish)
 summary: 記錄一下過程，家裡還有很多台 Ubuntu 需要升級一下
 published: 2022-05-31
 cover: ./cover.webp
-options:
-  - unlisted
 tags:
   - 開發環境
   - OS

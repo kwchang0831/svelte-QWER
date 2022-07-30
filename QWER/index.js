@@ -167,22 +167,24 @@ const processFile = (file) => {
     const meta = m.data;
 
     // TODO: needs more testings
-    const tags = meta['tags'].map((e) => {
-      if (typeof e === 'number') return e.toString();
-      if (Array.isArray(e))
-        return e.map((e) => {
+    const tags = !(meta.options && meta.options.includes('unlisted'))
+      ? meta['tags']?.map((e) => {
           if (typeof e === 'number') return e.toString();
-          else return e;
-        });
-      if (typeof e === 'object') {
-        let u = Object.entries(e)[0].map((c) => {
-          if (typeof c === 'number') return c.toString();
-          else return c;
-        });
-        return Object.fromEntries([u]);
-      }
-      return e;
-    });
+          if (Array.isArray(e))
+            return e.map((e) => {
+              if (typeof e === 'number') return e.toString();
+              else return e;
+            });
+          if (typeof e === 'object') {
+            let u = Object.entries(e)[0].map((c) => {
+              if (typeof c === 'number') return c.toString();
+              else return c;
+            });
+            return Object.fromEntries([u]);
+          }
+          return e;
+        })
+      : undefined;
 
     const layout = meta.layout || config.DefaultLayout;
     const md = mdify.mdify(content, slug);

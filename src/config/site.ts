@@ -12,6 +12,7 @@ export const siteConfig: Site.Config = {
     name: 'kwchang0831',
     avator: 'https://www.kwchang0831.dev/assets/maskable@192.webp',
     website: 'https://kwchang0831.dev',
+    github: 'https://github.com/kwchang0831',
     email: 'contact@kwchang0831.dev',
     bio: `
     Do it. Just do it!
