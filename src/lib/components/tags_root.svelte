@@ -1,7 +1,7 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
   import TagsCategory from '$lib/components/tags_category.svelte';
-
+  let scrollY = 0;
   let className: any = undefined;
   export { className as class };
 
@@ -13,13 +13,12 @@
   }
 </script>
 
-<aside id="index-tags" class={className}>
+<svelte:window bind:scrollY />
+
+<aside id="index-tags" class="{className} {scrollY > 0 ? 'sticky top-[4rem]' : ''}">
   <div class="select-none flex justify-between items-center border-b-2 cursor-pointer" on:click={toggle}>
     <h2 class:expaned class="text-2xl my2">Tags</h2>
-    <div>
-      <div
-        class="{expaned ? 'i-tabler-fold-down' : 'i-tabler-fold-up'} display-inline-block !w-[1.75rem] !h-[1.75rem]" />
-    </div>
+    <div class="{expaned ? 'i-tabler-fold-down' : 'i-tabler-fold-up'} display-inline-block !w-[1.75rem] !h-[1.75rem]" />
   </div>
 
   {#if expaned}

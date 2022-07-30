@@ -25,7 +25,7 @@
 <Header />
 
 {#key path}
-  <div in:fly={{ y: 100, duration: 300, delay: 300 }} out:fly={{ y: -100, duration: 300 }} class="pt-[4rem]">
+  <div in:fly={{ y: 100, duration: 300, delay: 300 }} out:fly={{ y: -100, duration: 300 }} class="pt-[4rem] min-h-80vh">
     <slot />
   </div>
 {/key}
