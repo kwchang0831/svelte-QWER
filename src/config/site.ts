@@ -8,6 +8,7 @@ export const siteConfig: Site.Config = {
   subtitle: 'Simple Blog Starter',
   description: 'Full-Featured Blog Starter Built with Svelte & SvelteKit',
   lang: 'en',
+  since: 2022,
   author: {
     name: 'kwchang0831',
     avator: 'https://www.kwchang0831.dev/assets/maskable@192.webp',
@@ -20,6 +21,13 @@ export const siteConfig: Site.Config = {
     Don't let your dreams be dreams!
     `,
   },
+};
+
+export const headConfig: Site.Head = {
+  custom: ({ dev }) =>
+    dev
+      ? []
+      : [],
 };
 
 export const dateConfig: Site.DateConfig = {

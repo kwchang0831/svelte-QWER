@@ -1,6 +1,6 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
-  import Tag from '$lib/tag.svelte';
+  import Tag from '$lib/components/tag.svelte';
   import type { Tags } from '$lib/types/tags';
 
   let className: any = undefined;

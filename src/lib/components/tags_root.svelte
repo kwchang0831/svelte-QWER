@@ -1,6 +1,6 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
-  import TagsCategory from '$lib/tags_category.svelte';
+  import TagsCategory from '$lib/components/tags_category.svelte';
 
   let className: any = undefined;
   export { className as class };

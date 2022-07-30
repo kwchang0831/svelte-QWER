@@ -4,7 +4,7 @@
 </script>
 
 <script lang="ts">
-  import Post from '$lib/post.svelte';
+  import Post from '$lib/layouts/post.svelte';
   /*<!-- :QWER IMPORTS: -->*/
 </script>
 

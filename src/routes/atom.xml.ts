@@ -23,7 +23,7 @@ ${
 }
 <icon>${siteConfig.url}/favicon.png</icon>
 <link href="${siteConfig.url}"/>
-<link href="${siteConfig.url}/atom.xml" rel="self" type="application/atom+xml"/>
+<link href="${siteConfig.url}atom.xml" rel="self" type="application/atom+xml"/>
 <updated>${new Date().toJSON()}</updated>
 <author>
   <name><![CDATA[${siteConfig.author.name}]]></name>

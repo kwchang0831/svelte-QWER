@@ -1,6 +1,6 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
-  import IndexPost from '$lib/index_post.svelte';
+  import IndexPost from '$lib/components/index_post.svelte';
   import { postsShow } from '$stores/posts';
 
   let className: any = undefined;

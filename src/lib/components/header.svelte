@@ -6,7 +6,7 @@
   import { siteConfig, navConfig, mobilenavConfig } from '$config/site';
   import { theme } from '$stores/themes';
   import { fly } from 'svelte/transition';
-  import Dropdown from '$lib/dd.svelte';
+  import Dropdown from '$lib/components/dd.svelte';
   import { tagsCur } from '$stores/tags';
   import { postsShow } from '$stores/posts';
 

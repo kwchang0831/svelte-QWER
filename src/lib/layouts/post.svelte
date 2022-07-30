@@ -8,8 +8,9 @@
   import { tocCur } from '$stores/toc';
 
   import GiscusSvelte from '@giscus/svelte';
-  import PostToc from '$lib/toc_root.svelte';
-  import PostHeading from '$lib/post_heading.svelte';
+  import PostToc from '$lib/components/toc_root.svelte';
+  import PostHeading from '$lib/components/post_heading.svelte';
+  import SEO from '$lib/layouts/post_SEO.svelte'
 
   import { theme } from '$stores/themes';
   import { commentConfig } from '$config/site';
@@ -23,7 +24,6 @@
   let postElement: HTMLElement;
 
   onMount(() => {
-    console.log(thisPost);
     observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -58,6 +58,8 @@
     }
   });
 </script>
+
+<SEO post={thisPost}/>
 
 <div class="flex flex-nowrap justify-center">
   <div class="max-w-screen-md flex-1" />

@@ -14,17 +14,22 @@
   import '@unocss/reset/tailwind.css';
   import 'uno.css';
   import { fly } from 'svelte/transition';
-  import Header from '$lib/header.svelte';
-  import Footer from '$lib/footer.svelte';
+  import Head from '$lib/components/head.svelte';
+  import Header from '$lib/components/header.svelte';
+  import Footer from '$lib/components/footer.svelte';
   export let path: string;
 </script>
 
+<Head />
+
 <Header />
+
 {#key path}
-  <div in:fly={{ y: 100, duration: 300, delay: 300 }} out:fly={{ y: -100, duration: 300 }} class="pt-[4rem] min-h-80vh">
+  <div in:fly={{ y: 100, duration: 300, delay: 300 }} out:fly={{ y: -100, duration: 300 }} class="pt-[4rem]">
     <slot />
   </div>
 {/key}
+
 <Footer />
 
 <style lang="scss">
