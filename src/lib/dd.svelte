@@ -33,17 +33,31 @@
 {#if nav}
   <div on:mouseenter={show} on:mouseleave={hide} class="relative cursor-pointer {className}">
     <slot>
-      <a href={nav.url} target={nav.target} class="flex items-center cursor-pointer gap-2">
-        {nav.name}
-        {#if 'links' in nav && nav.links}
-          <span
-            class="!w-[1.5rem] !h-[1.5rem] display-inline-block "
-            class:i-mdi-chevron-up={nav.orientation === 0}
-            class:i-mdi-chevron-right={nav.orientation === 1}
-            class:i-mdi-chevron-down={nav.orientation === 2}
-            class:i-mdi-chevron-left={nav.orientation === 3} />
-        {/if}
-      </a>
+      {#if nav.url}
+        <a href={nav.url} target={nav.target} class="flex items-center cursor-pointer gap-2">
+          {nav.name}
+          {#if 'links' in nav && nav.links}
+            <span
+              class="!w-[1.5rem] !h-[1.5rem] display-inline-block "
+              class:i-mdi-chevron-up={nav.orientation === 0}
+              class:i-mdi-chevron-right={nav.orientation === 1}
+              class:i-mdi-chevron-down={nav.orientation === 2}
+              class:i-mdi-chevron-left={nav.orientation === 3} />
+          {/if}
+        </a>
+      {:else}
+        <span class="flex items-center cursor-pointer gap-2">
+          {nav.name}
+          {#if 'links' in nav && nav.links}
+            <span
+              class="!w-[1.5rem] !h-[1.5rem] display-inline-block "
+              class:i-mdi-chevron-up={nav.orientation === 0}
+              class:i-mdi-chevron-right={nav.orientation === 1}
+              class:i-mdi-chevron-down={nav.orientation === 2}
+              class:i-mdi-chevron-left={nav.orientation === 3} />
+          {/if}
+        </span>
+      {/if}
     </slot>
 
     {#if active && 'links' in nav && nav.links}
@@ -86,15 +100,25 @@
                 link.url
                   ? 'font-bold'
                   : ''}">
-                <a
-                  href={link.url}
-                  target={nav.target}
-                  on:click={() => {
-                    if (link.url) hide();
-                  }}
-                  class="flex items-center cursor-pointer">
-                  {link.name}
-                </a>
+                {#if link.url}
+                  <a
+                    href={link.url}
+                    target={nav.target}
+                    on:click={() => {
+                      if (link.url) hide();
+                    }}
+                    class="flex items-center cursor-pointer">
+                    {link.name}
+                  </a>
+                {:else}
+                  <span
+                    on:click={() => {
+                      if (link.url) hide();
+                    }}
+                    class="flex items-center cursor-pointer">
+                    {link.name}
+                  </span>
+                {/if}
               </li>
             {/if}
           {/each}

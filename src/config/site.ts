@@ -3,7 +3,7 @@ import type { Giscus } from '$lib/types/giscus';
 import type { DD } from '$lib/types/dd';
 
 export const siteConfig: Site.Config = {
-  url: 'http://localhost:3000',
+  url: 'https://svelte-qwer.vercel.app/',
   title: 'QWER',
   subtitle: 'Simple Blog Starter',
   description: 'Full-Featured Blog Starter Built with Svelte & SvelteKit',
