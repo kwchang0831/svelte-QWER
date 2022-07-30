@@ -188,6 +188,7 @@ const processFile = (file) => {
 
     const layout = meta.layout || config.DefaultLayout;
     const md = mdify.mdify(content, slug);
+    const html2text = md.content ? convert(md.content) : undefined;
 
     const tempalte = readSync(path.join(config.targetTemplateFolder, layout), 'utf8');
     const tempalteMap = [
@@ -215,8 +216,8 @@ const processFile = (file) => {
         title: meta['title'],
         description: meta['description'],
         summary: meta['summary'],
-        content: LZString.compressToBase64(convert(md.content)),
-        html: LZString.compressToBase64(md.content),
+        content: html2text ? LZString.compressToBase64(html2text) : undefined,
+        html: md.content ? LZString.compressToBase64(md.content) : undefined,
         created: meta['created'] || fs.statSync(file).ctime,
         published: meta['published'] || fs.statSync(file).birthtime,
         updated: meta['updated'] || fs.statSync(file).mtime,

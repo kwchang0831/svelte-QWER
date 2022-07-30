@@ -3,9 +3,10 @@ import { siteConfig } from '$config/site';
 import type { Post } from '$lib/types/post';
 import postsjson from '$generated/posts.json';
 import LZString from 'lz-string';
-import slug from 'limax';
 
-const _allposts = postsjson as [string, Post.Post][];
+const _allposts = (postsjson as [string, Post.Post][]).filter((e) => {
+  return !(e[1].options && e[1].options.includes('unlisted'));
+});
 
 const render = async () => {
   return {
