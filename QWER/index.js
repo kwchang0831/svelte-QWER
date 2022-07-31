@@ -1,4 +1,4 @@
-import config from './config.json' assert { type: 'json' };
+import config from '../config/QWER.config.json' assert { type: 'json' };
 import * as mdify from './marked.js';
 import { log } from './logger.js';
 import { allTags } from './allTags.js';

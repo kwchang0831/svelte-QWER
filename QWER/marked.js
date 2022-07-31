@@ -6,6 +6,7 @@ import 'prismjs/components/prism-powershell.min.js';
 import slug from 'limax';
 import path from 'node:path';
 import { toc } from './toc.js';
+
 let _toc;
 
 export const languages = {

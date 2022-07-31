@@ -52,8 +52,8 @@ const config = {
     alias: {
       $QWER: path.resolve('.', 'QWER'),
       $generated: path.resolve('.', 'src/generated'),
-      $config: path.resolve('.', 'src/config'),
       $stores: path.resolve('.', 'src/lib/stores'),
+      $config: path.resolve('.', 'config'),
     },
   },
   server: {

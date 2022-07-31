@@ -1,4 +1,4 @@
-import config from './config.json' assert { type: 'json' };
+import config from '../config/QWER.config.json' assert { type: 'json' };
 
 export const allTags = (() => {
   let _alltags = new Map();
