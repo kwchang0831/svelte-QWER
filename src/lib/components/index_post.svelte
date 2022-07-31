@@ -1,19 +1,22 @@
 <script lang="ts">
   import type { Post } from '$lib/types/post';
   import { fly } from 'svelte/transition';
+  import { dateConfig } from '$config/site';
+  import { assets } from '$generated/assets';
+  import { onMount } from 'svelte';
 
   export let data: Post.Post;
   export let index: number;
 
-  const postPublishedStr = new Date(data.published).toLocaleString('en-US', {
-    year: 'numeric',
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-    timeZone: 'Asia/Taipei',
-  });
+  const postPublishedStr = new Date(data.published).toLocaleString(
+    dateConfig.toPublishedString.locales,
+    dateConfig.toPublishedString.options,
+  );
 
-  const postCoverPath = data.cover?.startsWith('./') ? `${data.slug}/${data.cover.slice(2)}` : `${data.cover}`;
+  // onMount(()=>{
+  //   console.log($assets)
+  //   console.log($assets.get(data.cover)?.banner)
+  // })
 </script>
 
 {#if data}
@@ -35,8 +38,8 @@
           </div>
           <img
             class="z-1 op50 group-hover:scale-105 absolute w-full h-full transition-all duration-500 ease-in-out transform object-cover"
-            src={postCoverPath}
-            alt={postCoverPath} />
+            src={$assets.get(data.cover)?.banner[0]}
+            alt={data.cover} />
         {:else}
           <div class:flex-col={['TOP', 'BOT'].indexOf(data.coverStyle) !== -1} class="flex md:border-none relative">
             <div
@@ -48,8 +51,8 @@
               <a sveltekit:prefetch href={data.slug} alt={data.title} class="cursor-pointer">
                 <img
                   class="op90 group-hover:scale-110 transition-all duration-500 ease-in-out transform object-cover w-full h-full"
-                  src={postCoverPath}
-                  alt={postCoverPath} />
+                  src={data.cover}
+                  alt={data.cover} />
               </a>
             </div>
             <div class="px8 py6 flex flex-col gap1 grow">

@@ -2,24 +2,24 @@
   import type { Post } from '$lib/types/post';
   import { dateConfig, siteConfig } from '$config/site';
 
-  export let postData: Post.Post | undefined;
-  let publishedDate: string | undefined = postData
-    ? new Date(postData.published).toLocaleString(
-        dateConfig.toPublishedString.locales,
-        dateConfig.toPublishedString.options,
-      )
-    : undefined;
+  export let title: string;
+  export let published: string;
+
+  let publishedDate: string = new Date(published).toLocaleString(
+    dateConfig.toPublishedString.locales,
+    dateConfig.toPublishedString.options,
+  );
 </script>
 
 <div class="flex flex-col pt8">
-  <div class="flex justify-between">
-    <div class="gap-1 pl-0 font-bold  shrink-0">
+  <div class="flex justify-between my4">
+    <div class="flex gap-1 pl-0 font-bold shrink-0">
       <img
         class="inline-block w-6 h-6 mr-1 rounded-full"
         src={siteConfig.author.avator}
         alt={siteConfig.author.name}
-        width="192"
-        height="192"
+        width="32"
+        height="32"
         decoding="async"
         loading="lazy" />
       <span>
@@ -29,19 +29,12 @@
     <div>{publishedDate}</div>
   </div>
 
-  <h1 class="!text-3xl">{postData?.title}</h1>
+  <h1 class="text-3xl my4">{title}</h1>
 
-  <figure class="flex flex-col w-auto mx-4 md:mx-0">
-    <picture>
-      <img
-        data-zoomable
-        src={postData?.cover}
-        alt={postData?.cover}
-        itemprop="image"
-        class="w-full z-50 rounded-2xl shadow-xl h-auto"
-        loading="eager"
-        decoding="async" />
-    </picture>
-    <figcaption class="italic" />
+  <figure class="flex flex-col md:(mx6) mx--6">
+    <slot name="cover" />
+    <figcaption class="text-center italic op75">
+      <slot name="cover_caption" />
+    </figcaption>
   </figure>
 </div>

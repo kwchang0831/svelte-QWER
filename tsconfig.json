@@ -17,10 +17,14 @@
       "$lib/*": ["src/lib/*"],
       "$generated": ["src/generated"],
       "$generated/*": ["src/generated/*"],
+      "$stores": ["src/lib/stores"],
+      "$stores/*": ["src/lib/stores/*"],
       "$config": ["config"],
       "$config/*": ["config/*"],
-      "$stores": ["src/lib/stores"],
-      "$stores/*": ["src/lib/stores/*"]
+      "$assets": ["assets"],
+      "$assets/*": ["assets/*"],
+      "$static": ["static"],
+      "$static/*": ["static/*"]
     }
   },
   "include": ["src/**/*"]

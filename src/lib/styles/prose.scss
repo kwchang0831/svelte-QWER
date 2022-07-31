@@ -1,12 +1,22 @@
 .prose {
   --at-apply: 'px[1.5rem]';
+
   h2:not(.code-title),
   h3:not(.code-title),
   h4:not(.code-title),
-  h5:not(.code-title) {
+  h5:not(.code-title),
+  h6:not(.code-title) {
     a {
       --at-apply: 'no-underline after:(content-[#] px2 op10 hover:op100)';
     }
+  }
+
+  pre {
+    --at-apply: 'overflow-hidden';
+  }
+
+  img {
+    --at-apply: 'w-full';
   }
 }
 
@@ -64,7 +74,7 @@ body.dark {
   }
 
   code {
-    --at-apply: 'flex flex-col py4';
+    --at-apply: 'flex flex-col py4 scrollbar scrollbar-track-color-gray-800 scrollbar-thumb-color-teal-700 scrollbar-rounded scrollbar-h-0.2rem';
   }
 
   .code-title {

@@ -4,6 +4,7 @@ description: 本篇文章紀錄安裝 Fish Shell 與各種好用插件讓開發�
 summary: 簡單好上手的 Shell，自帶自動完成功能，bash 或 zsh 用膩了可以來試試看
 published: 2022-05-20
 cover: ./cover.webp
+coverCaption: 'credits: <a href="https://google.com">@123</a> '
 tags:
   - [開發環境, Fish]
   - os: [Linux]
@@ -15,9 +16,9 @@ tags:
   import Infobox from '$lib/components/extra/infobox.svelte'
 </script> -->
 
-[Slant](https://www.slant.co/topics/513/~best-unix-shells) 2022 年票選第一推薦的 Unix Shell 是 Fish Shell。 如果你剛好 Zsh 也用膩了，不如一起來嘗試看看 Fish Shell。
-
 ## 開頭
+
+[Slant](https://www.slant.co/topics/513/~best-unix-shells) 2022 年票選第一推薦的 Unix Shell 是 Fish Shell。 如果你剛好 Zsh 也用膩了，不如一起來嘗試看看 Fish Shell。
 
 本篇文章會安裝以下：
 
@@ -36,13 +37,13 @@ tags:
 
 安裝完，你會得到一個簡單好上手的指令介面。
 
-![fig01.avif](./fig01.avif)
+![fig01](fig01.avif)
 
 ## 環境配置
 
 我的使用環境為 Windows 10 的 Windows Terminal + pwsh 連進 Ubuntu 22.04 LTS 使用。
 
-![fig02.avif](./fig02.avif)
+![fig02](fig02.avif)
 
 ## 安裝 必要套件
 

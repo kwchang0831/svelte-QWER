@@ -2,9 +2,11 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import Unocss from 'unocss/vite';
 import { presetTypography, presetIcons, presetUno } from 'unocss';
 import { extractorSvelte } from '@unocss/core';
+import { presetScrollbar } from 'unocss-preset-scrollbar';
 import transformerDirective from '@unocss/transformer-directives';
 import transformerVariantGroup from '@unocss/transformer-variant-group';
 import transformerCompileClass from '@unocss/transformer-compile-class';
+import { imagetools } from 'vite-imagetools';
 import path from 'node:path';
 
 /** @type {import('vite').UserConfig} */
@@ -16,6 +18,7 @@ const config = {
       extractors: [extractorSvelte],
       presets: [
         presetUno(),
+        presetScrollbar(),
         presetIcons(),
         presetTypography({
           cssExtend: {
@@ -47,6 +50,7 @@ const config = {
       ],
     }),
     sveltekit(),
+    imagetools(),
   ],
   resolve: {
     alias: {
@@ -54,6 +58,8 @@ const config = {
       $generated: path.resolve('.', 'src/generated'),
       $stores: path.resolve('.', 'src/lib/stores'),
       $config: path.resolve('.', 'config'),
+      $assets: path.resolve('.', 'assets'),
+      $static: path.resolve('.', 'static'),
     },
   },
   server: {

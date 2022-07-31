@@ -33,6 +33,7 @@ specifiers:
   tslib: ^2.4.0
   typescript: ^4.7.4
   unocss: ^0.45.1
+  unocss-preset-scrollbar: ^0.2.1
   vite: ^3.0.4
   vite-imagetools: ^4.0.4
 
@@ -69,6 +70,7 @@ devDependencies:
   tslib: 2.4.0
   typescript: 4.7.4
   unocss: 0.45.1_vite@3.0.4
+  unocss-preset-scrollbar: 0.2.1_unocss@0.45.1
   vite: 3.0.4_sass@1.54.0
   vite-imagetools: 4.0.4
 
@@ -526,6 +528,10 @@ packages:
       unconfig: 0.3.5
     dev: true
 
+  /@unocss/core/0.31.17:
+    resolution: {integrity: sha512-DJ3Uk2ePVXvV1qQmgoLK44aqB6f0s+naOEvouI97nzVXDZgxDQPBxIPB/L4vvE4U+gQxEiHwwE3gJ75iPqVzXw==}
+    dev: true
+
   /@unocss/core/0.45.1:
     resolution: {integrity: sha512-PRbpgWtXs+GnU8Mi6MAG3l/VCqmzn6s5k/QvQLG9J27AzN+ps651YKBfWKiGYrjMtt+0B41iq0w9fcNd8vQUpg==}
     dev: true
@@ -551,6 +557,12 @@ packages:
       ohmyfetch: 0.4.18
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@unocss/preset-mini/0.31.17:
+    resolution: {integrity: sha512-gVgMTOKLt3O1ym348QIBmR5sS9W0Ozkk5xelhH6e0VXcpg0dXDPDrl4hFErMy4x6IB86yyJG6Dz5JhcwQB13Ig==}
+    dependencies:
+      '@unocss/core': 0.31.17
     dev: true
 
   /@unocss/preset-mini/0.45.1:
@@ -3076,6 +3088,15 @@ packages:
   /undici/5.8.0:
     resolution: {integrity: sha512-1F7Vtcez5w/LwH2G2tGnFIihuWUlc58YidwLiCv+jR2Z50x0tNXpRRw7eOIJ+GvqCqIkg9SB7NWAJ/T9TLfv8Q==}
     engines: {node: '>=12.18'}
+    dev: true
+
+  /unocss-preset-scrollbar/0.2.1_unocss@0.45.1:
+    resolution: {integrity: sha512-7ubHdOaUwr7xBn1glPpICNNsM2SZGjvWK5uRPNiQYsrZ9YFjsCGHk9x5S2R8pTkuMDQeiaSa/UQbYhjC8Fra5g==}
+    peerDependencies:
+      unocss: '>= 0.31.13 < 1'
+    dependencies:
+      '@unocss/preset-mini': 0.31.17
+      unocss: 0.45.1_vite@3.0.4
     dev: true
 
   /unocss/0.45.1_vite@3.0.4:

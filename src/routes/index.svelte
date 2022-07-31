@@ -33,7 +33,7 @@
 
 <div class="flex flex-nowrap justify-center flex-col items-center xl:(flex-row items-stretch)">
   <div class="max-w-screen-md flex-1 relative ml6">
-    <IndexProfile class="flex flex-col gap2 items-start text-center xl:(items-end text-right sticky top-[5rem])" />
+    <IndexProfile class="flex flex-col gap2 items-center text-center xl:(items-end text-right sticky top-[5rem])" />
   </div>
 
   <div class="max-w-[55rem] flex-none w-full md:(rounded-2xl) overflow-hidden ">

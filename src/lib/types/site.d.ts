@@ -9,7 +9,7 @@ export namespace Site {
     /** site subtitle. */
     subtitle?: string;
     /** site lang. `<html lang={site.lang}>` */
-    lang?: string;
+    lang: string;
     /** site published since year. */
     since?: number;
 

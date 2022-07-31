@@ -11,6 +11,7 @@ export namespace Post {
     updated: string;
     created: string;
     cover?: string;
+    coverCaption?: string;
     coverStyle?: CoverStyle | string;
     options?: Array<string>;
     prev?: string;
@@ -25,5 +26,15 @@ export namespace Post {
     BOT = 'BOT',
     LEFT = 'LEFT',
     IN = 'IN',
+  }
+
+  export interface Asset {
+    320: string | [];
+    400: string | [];
+    640: string | [];
+    960: string | [];
+    1280: string | [];
+    original: string | [];
+    banner: string | [];
   }
 }

@@ -10,7 +10,7 @@
   import GiscusSvelte from '@giscus/svelte';
   import PostToc from '$lib/components/toc_root.svelte';
   import PostHeading from '$lib/components/post_heading.svelte';
-  import SEO from '$lib/layouts/post_SEO.svelte';
+  import SEO from '$lib/components/post_SEO.svelte';
 
   import { theme } from '$stores/themes';
   import { commentConfig } from '$config/site';
@@ -65,16 +65,21 @@
   <div class="max-w-screen-md flex-1" />
 
   <div
-    class="flex-none max-w-[55rem] w-full prose prose-slate dark:prose-invert md:(rounded-2xl bg-white/[0.5] dark:bg-[#252525]/[0.5])"
+    class="flex-none flex flex-col max-w-[55rem] w-full md:(rounded-2xl bg-white/[0.5] dark:bg-[#252525]/[0.5])"
     bind:this={postElement}>
-    <PostHeading postData={thisPost} />
+    <!-- <div class="prose prose-slate dark:prose-invert max-w-[55rem]">
+      <PostHeading postData={thisPost} />
+    </div> -->
 
-    <slot name="post_content" />
+    <div class="prose prose-slate dark:prose-invert max-w-[55rem]">
+      <slot name="post_heading" />
+      <slot name="post_content" />
+    </div>
 
     <div class="divider" />
 
     {#if nextPost || prevPost}
-      <nav class="flex flex-col mx-[-1.5rem] h-[12rem] md:(flex-row)">
+      <nav class="flex flex-col h-[12rem] md:(flex-row) ">
         {#if nextPost}
           <div id="next-post" class="relative flex-1 group overflow-hidden bg-black/[0.5]">
             <div class="absolute z-10 i-mdi-chevron-left !w-[1.5rem] !h-[1.5rem] top-[1.25rem] left-[0.75rem]" />
@@ -90,7 +95,7 @@
               <img
                 src={nextPost.cover}
                 alt={nextPost.cover}
-                class="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110 transition-transform duration-350 ease-in-out)" />
+                class="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110) transition-transform duration-350 ease-in-out" />
             {/if}
           </div>
         {/if}
@@ -109,7 +114,7 @@
               <img
                 src={prevPost.cover}
                 alt={prevPost.cover}
-                class="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110 transition-transform duration-350 ease-in-out)" />
+                class="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110) transition-transform duration-350 ease-in-out" />
             {/if}
           </div>
         {/if}
@@ -117,7 +122,7 @@
     {/if}
 
     {#key $theme}
-      <div class="mt8">
+      <div class="my8 mx6">
         <GiscusSvelte {...commentConfig} theme={$theme} />
       </div>
     {/key}
