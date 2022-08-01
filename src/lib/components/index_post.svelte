@@ -14,9 +14,7 @@
     dateConfig.toPublishedString.options,
   );
 
-  onMount(() => {
-    data.coverStyle = 'IN';
-  });
+  onMount(() => {});
 </script>
 
 {#if data}
@@ -44,7 +42,7 @@
             <div
               class="overflow-hidden
             {['TOP', 'BOT'].indexOf(data.coverStyle) !== -1 ? 'h-[16rem]' : ''}
-            {['RIGHT', 'LEFT'].indexOf(data.coverStyle) !== -1 ? 'w-[12rem]' : ''}"
+            {['RIGHT', 'LEFT'].indexOf(data.coverStyle) !== -1 ? 'w-[9rem] md:(w-[12rem])' : ''}"
               class:order-first={data.coverStyle === 'TOP' || data.coverStyle === 'LEFT'}
               class:order-last={data.coverStyle === 'BOT' || data.coverStyle === 'RIGHT'}>
               <a sveltekit:prefetch href={data.slug} alt={data.title} class="cursor-pointer">

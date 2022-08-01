@@ -12,7 +12,7 @@
   }
 
   pre {
-    --at-apply: 'overflow-hidden scrollbar scrollbar-track-color-gray-800 scrollbar-thumb-color-teal-700 scrollbar-rounded scrollbar-h-0.2rem';
+    --at-apply: 'overflow-hidden scrollbar scrollbar-track-color-gray-800 scrollbar-thumb-color-teal-700 scrollbar-rounded scrollbar-h-0.25rem';
   }
 
   img {
@@ -95,7 +95,7 @@ body.dark {
       }
     }
     .code-content {
-      --at-apply: 'flex-1 grow';
+      --at-apply: 'flex-1 grow pr4';
     }
   }
 
