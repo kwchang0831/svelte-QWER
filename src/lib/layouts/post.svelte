@@ -1,19 +1,23 @@
 <script lang="ts">
   import '$lib/styles/prism.scss';
   import '$lib/styles/prose.scss';
+  import 'plyr/dist/plyr.css';
+  import Plyr from 'plyr';
 
   import type { Post } from '$lib/types/post';
   import { page } from '$app/stores';
   import { postsAll } from '$stores/posts';
   import { tocCur } from '$stores/toc';
 
+  import ImgR from '$lib/components/image_responsive.svelte';
   import GiscusSvelte from '@giscus/svelte';
   import PostToc from '$lib/components/toc_root.svelte';
   import PostHeading from '$lib/components/post_heading.svelte';
   import SEO from '$lib/components/post_SEO.svelte';
+  import mediumZoom from 'medium-zoom';
 
   import { theme } from '$stores/themes';
-  import { commentConfig } from '$config/site';
+  import { commentConfig, videoplayerConfig } from '$config/site';
 
   import { onMount } from 'svelte';
 
@@ -56,6 +60,16 @@
         }
       }
     }
+
+    mediumZoom('[data-zoomable]', {
+      scrollOffset: 0,
+      background: 'rgba(25, 18, 25, .9)',
+    });
+
+    Plyr.setup('.videoplayer', {
+      seekTime: videoplayerConfig.seekTime,
+      controls: videoplayerConfig.controls,
+    });
   });
 </script>
 
@@ -67,7 +81,7 @@
   <div
     class="flex-none flex flex-col max-w-[55rem] w-full md:(rounded-2xl bg-white/[0.5] dark:bg-[#252525]/[0.5])"
     bind:this={postElement}>
-    <div class="prose prose-slate dark:prose-invert max-w-[55rem]">
+    <div class="max-w-[55rem]">
       <PostHeading postData={thisPost} />
     </div>
 
@@ -77,7 +91,7 @@
 
     <div class="divider" />
 
-    <!-- {#if nextPost || prevPost}
+    {#if nextPost || prevPost}
       <nav class="flex flex-col h-[12rem] md:(flex-row) ">
         {#if nextPost}
           <div id="next-post" class="relative flex-1 group overflow-hidden bg-black/[0.5]">
@@ -91,9 +105,8 @@
               {nextPost.title}
             </a>
             {#if nextPost.cover}
-              <img
+              <ImgR
                 src={nextPost.cover}
-                alt={nextPost.cover}
                 class="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110) transition-transform duration-350 ease-in-out" />
             {/if}
           </div>
@@ -110,15 +123,14 @@
             </a>
             <div class="absolute z-10 i-mdi-chevron-right !w-[1.5rem] !h-[1.5rem] top-[6rem] right-[0.75rem]" />
             {#if prevPost.cover}
-              <img
+              <ImgR
                 src={prevPost.cover}
-                alt={prevPost.cover}
                 class="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110) transition-transform duration-350 ease-in-out" />
             {/if}
           </div>
         {/if}
       </nav>
-    {/if} -->
+    {/if}
 
     {#key $theme}
       <div class="my8 mx6">
@@ -134,7 +146,7 @@
   </div>
 </div>
 
-<style>
+<style lang="scss">
   .divider {
     --at-apply: 'border-b-2 m8 border-gray op70';
   }

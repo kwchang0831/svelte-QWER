@@ -1,3 +1,4 @@
+import config from '../config/QWER.config.json' assert { type: 'json' };
 import { marked } from 'marked';
 import PrismJS from 'prismjs';
 import 'prismjs/components/prism-bash.min.js';
@@ -6,6 +7,8 @@ import 'prismjs/components/prism-powershell.min.js';
 import slug from 'limax';
 import path from 'node:path';
 import { toc } from './toc.js';
+import probe from 'probe-image-size';
+import { existsSync, readFileSync } from 'node:fs';
 
 let _toc;
 
@@ -147,7 +150,7 @@ export const mdify = (data, basePath) => {
           `<div class="code-content">${lines[i]}</div>` +
           `</div>`;
       }
-      // ${options['showLineNumber'] ? `<span class="line-number">${i + lineStart}</span>`:'<span class="no-line-number"></span>'}${options['diff']? `<span class="line-diff">${lineStatus[i]}</span>` : '<span class="no-line-diff"></span>'}
+
       lines = lines.join('');
 
       const escapeTest = /[{|}|(|)]/g;
@@ -272,19 +275,46 @@ export const mdify = (data, basePath) => {
       }>${text}</a>`;
     },
 
-    image(href, title, text) {
-      // console.log(process.cwd())
+    image(href, text, alt) {
       if (href === null) {
-        return text;
+        return alt;
       }
 
+      const ext = path.extname(href).substring(1);
+
       try {
+        // Network File
         href = new URL(href).href;
+        if (alt === '') alt = href;
+        if (config.SupportedImageFormat.includes(ext)) {
+          return `<ImgZ src="${href}" alt="${alt}">${text ? `${text}` : ''}</ImgZ>`;
+        }
+        if (config.SupportedVideoFormat.includes(ext)) {
+          if (ext === 'mp4') return `<Video mp4="${href}" id="${alt}" ${text ? `title="${text}"` : ''}/>`;
+          if (ext === 'webm') return `<Video webm="${href}" id="${alt}" ${text ? `title="${text}"` : ''}/>`;
+        }
       } catch (_) {
         href = path.join(_basePath, href);
+        if (alt === '') alt = href;
+
+        if (config.SupportedImageFormat.includes(ext)) {
+          let imgPath = `${process.cwd()}/${path.join(config.targetDataFolder, href)}`;
+          let imgMeta;
+          if (existsSync(imgPath)) {
+            imgMeta = probe.sync(readFileSync(imgPath));
+            return `<ImgZ src="${href}" alt="${alt}" width="${imgMeta.width}" height="${imgMeta.height}">${
+              text ? `${text}` : ''
+            }</ImgZ>`;
+          }
+          return `<ImgZ src="${href}" alt="${alt}">${text ? `${text}` : ''}</ImgZ>`;
+        }
+        if (config.SupportedVideoFormat.includes(ext)) {
+          if (ext === 'mp4') return `<Video mp4="${href}" id="${alt}" ${text ? `title="${text}"` : ''}/>`;
+          if (ext === 'webm') return `<Video webm="${href}" id="${alt}" ${text ? `title="${text}"` : ''}/>`;
+        }
       }
-      return `<img alt="${text}"/>\n${title ? `<figcaption>${title}</figcaption>\n` : ''}`;
-      // return `<img src="${href}" alt="${text}"/>\n${title ? `<figcaption>${title}</figcaption>\n` : ''}`;
+
+      return `<figure><img src="${href}" alt="${alt}"></img>${text ? `<figcaption>${text}</figcaption>` : ''}</figure>`;
     },
 
     text(text) {

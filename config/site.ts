@@ -1,6 +1,12 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 import type { Site } from '$lib/types/site';
 import type { Giscus } from '$lib/types/giscus';
 import type { DD } from '$lib/types/dd';
+
+import Avator from '$assets/avator.png';
+import Avator_32 from '$assets/avator.png?w=32&h=32&format=wepb;avif';
+import Avator_128 from '$assets/avator.png?w=128&h=128&format=wepb;avif';
 
 export const siteConfig: Site.Config = {
   url: 'https://svelte-qwer.vercel.app/',
@@ -10,15 +16,15 @@ export const siteConfig: Site.Config = {
   lang: 'en',
   since: 2022,
   author: {
-    name: 'kwchang0831',
+    name: 'John Doe',
+    status: '❤️',
+    avator: Avator,
+    avator_32: Avator_32,
+    avator_128: Avator_128,
     website: 'https://kwchang0831.dev',
     github: 'https://github.com/kwchang0831',
     email: 'contact@kwchang0831.dev',
-    bio: `
-    Do it. Just do it!
-    <br />
-    Don't let your dreams be dreams!
-    `,
+    bio: `lorem ipsum! <br/> dolor sit amet!`,
   },
 };
 
@@ -128,4 +134,9 @@ export const mobilenavConfig: DD.Nav = {
       target: '_blank',
     },
   ],
+};
+
+export const videoplayerConfig = {
+  seekTime: 2,
+  controls: ['play', 'restart', 'progress', 'current-time', 'duration', 'fullscreen'],
 };

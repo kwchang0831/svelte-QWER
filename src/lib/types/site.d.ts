@@ -22,7 +22,10 @@ export namespace Site {
 
   export interface Author {
     name: string;
+    status?: string;
     avator?: string;
+    avator_32?: [string, string];
+    avator_128?: [string, string];
     github?: string;
     website?: string;
     email?: string;

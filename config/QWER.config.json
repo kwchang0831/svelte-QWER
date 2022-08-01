@@ -18,5 +18,6 @@
   "DefaultCoverStyle": "IN",
   "DefaultTagName": "tags",
   "PreserveFilesInRoutes": ["src/routes/__error.svelte", "src/routes/__layout.svelte", "src/routes/index.svelte"],
-  "SupportedImageFormat": ["avif", "png", "jpg", "jpeg", "heif", "heic", "tiff", "gif", "webp"]
+  "SupportedImageFormat": ["avif", "png", "jpg", "jpeg", "heif", "heic", "tiff", "gif", "webp"],
+  "SupportedVideoFormat": ["webm", "mp4"]
 }

@@ -158,6 +158,8 @@ PatrickF1/fzf.fish
 <!-- https://github.com/IlanCosman/tide/raw/assets/animations/configuration_wizard.gif -->
 <!-- <Webm webm="fish/w1.webm" title="Tide #Configuration Wizard"  w="1142" h="742"/> -->
 
+![](w1.webm 'Tide #Configuration Wizard')
+
 安裝，shell 輸入
 
 ```shell

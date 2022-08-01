@@ -1,6 +1,6 @@
 <script lang="ts">
   import { siteConfig } from '$config/site';
-
+  let avatar: string;
   let className: any = undefined;
   export { className as class };
 </script>
@@ -8,11 +8,17 @@
 <section id="index-profile" class={className}>
   <div class="relative group">
     <figure>
-      {#if siteConfig.author.avator}
-        <img
-          src={siteConfig.author.avator}
-          alt="index profile avatar"
-          class="rounded-full shadow-xl w-32 h-32 hover:rotate-[360deg] transition-transform !duration-1000 ease-in-out" />
+      {#if siteConfig.author.avator && siteConfig.author.avator_128}
+        <picture>
+          <source srcset={siteConfig.author.avator_128[1]} type="image/avif" />
+          <source srcset={siteConfig.author.avator_128[0]} type="image/webp" />
+          <img
+            decoding="async"
+            loading="lazy"
+            src={siteConfig.author.avator}
+            alt={siteConfig.author.avator}
+            class="rounded-full shadow-xl w-32 h-32 aspect-auto object-cover hover:rotate-[360deg] transition-transform !duration-1000 ease-in-out" />
+        </picture>
       {:else}
         <div
           class="i-akar-icons-question !h-32 !w-32 hover:rotate-[360deg] transition-transform !duration-1000 ease-in-out" />
@@ -20,7 +26,7 @@
     </figure>
     <div
       class="absolute rounded-full w-8 h-8 bottom-0 left-24 shadow-xl text-lg bg-white flex justify-center items-center animate-heart-beat dark:bg-[#212121]">
-      ❤️
+      {siteConfig.author.status ?? ''}
     </div>
   </div>
 

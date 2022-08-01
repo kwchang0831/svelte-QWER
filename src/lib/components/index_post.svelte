@@ -42,13 +42,15 @@
               class="z-1 op50 group-hover:scale-105 absolute w-full h-full transition-all duration-500 ease-in-out transform object-cover">
               <source srcset={assetCover.banner[1]} type="image/avif" />
               <source srcset={assetCover.banner[0]} type="image/webp" />
-              <img src={assetCover.original} alt={data.cover} />
+              <img src={assetCover.original} alt={data.cover} width="800" height="150" />
             </picture>
           {:else}
             <img
               class="z-1 op50 group-hover:scale-105 absolute w-full h-full transition-all duration-500 ease-in-out transform object-cover"
               src={data.cover}
-              alt={data.cover} />
+              alt={data.cover}
+              width="180"
+              height="150" />
           {/if}
         {:else}
           <div class:flex-col={['TOP', 'BOT'].indexOf(data.coverStyle) !== -1} class="flex md:border-none relative">
