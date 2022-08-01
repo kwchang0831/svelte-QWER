@@ -1,11 +1,13 @@
 <script lang="ts">
   import type { Post } from '$lib/types/post';
   import { dateConfig, siteConfig } from '$config/site';
+  import { assets } from '$generated/assets';
+  import Post from '$lib/layouts/post.svelte';
 
-  export let title: string;
-  export let published: string;
+  export let postData: Post.Post;
 
-  let publishedDate: string = new Date(published).toLocaleString(
+  let coverFromAsset = postData.cover && $assets.get(postData.cover);
+  let publishedDate: string = new Date(postData.published).toLocaleString(
     dateConfig.toPublishedString.locales,
     dateConfig.toPublishedString.options,
   );
@@ -14,27 +16,68 @@
 <div class="flex flex-col pt8">
   <div class="flex justify-between my4">
     <div class="flex gap-1 pl-0 font-bold shrink-0">
-      <img
-        class="inline-block w-6 h-6 mr-1 rounded-full"
-        src={siteConfig.author.avator}
-        alt={siteConfig.author.name}
-        width="32"
-        height="32"
-        decoding="async"
-        loading="lazy" />
+      {#if siteConfig.author.avator}
+        <img
+          class="inline-block w-6 h-6 mr-1 rounded-full hover:rotate-[360deg] transition-transform !duration-1000 ease-in-out"
+          src={siteConfig.author.avator}
+          alt={siteConfig.author.name}
+          width="32"
+          height="32"
+          decoding="async"
+          loading="lazy" />
+      {:else}
+        <div
+          class="i-akar-icons-question !h-6 !w-6 hover:rotate-[360deg] transition-transform !duration-1000 ease-in-out" />
+      {/if}
       <span>
-        <a rel="author" class="" href={siteConfig.author.website}>{siteConfig.author.name}</a>
+        <a rel="author" href={siteConfig.author.github}>{siteConfig.author.name}</a>
       </span>
     </div>
     <div>{publishedDate}</div>
   </div>
 
-  <h1 class="text-3xl my4">{title}</h1>
+  <h1 class="text-3xl my4">{postData.title}</h1>
 
-  <figure class="flex flex-col md:(mx6) mx--6">
-    <slot name="cover" />
-    <figcaption class="text-center italic op75">
-      <slot name="cover_caption" />
-    </figcaption>
-  </figure>
+  {#if postData.cover}
+    <figure class="flex flex-col gap4 md:(mx0) mx--10">
+      {#if coverFromAsset}
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcset="{coverFromAsset[1280][1]} 2x, {coverFromAsset[1024][1]}"
+            type="image/avif" />
+          <source
+            media="(min-width: 768px)"
+            srcset="{coverFromAsset[1280][0]} 2x, {coverFromAsset[1024][0]}"
+            type="image/webp" />
+          <source
+            media="(min-width: 640px)"
+            srcset="{coverFromAsset[800][1]} 2x, {coverFromAsset[640][1]}"
+            type="image/avif" />
+          <source
+            media="(min-width: 640px)"
+            srcset="{coverFromAsset[800][0]} 2x, {coverFromAsset[640][0]}"
+            type="image/webp" />
+          <img
+            class="w-full h-auto aspect-video object-cover md:(rounded-2xl shadow-xl)"
+            decoding="async"
+            loading="lazy"
+            src={coverFromAsset.original}
+            alt={postData.cover} />
+        </picture>
+      {:else}
+        <img
+          class="w-full h-auto aspect-video object-cover md:(rounded-2xl shadow-xl)"
+          decoding="async"
+          loading="lazy"
+          src={postData.cover}
+          alt={postData.cover} />
+      {/if}
+      {#if postData.coverCaption}
+        <figcaption class="text-center italic op75">
+          {@html postData.coverCaption}
+        </figcaption>
+      {/if}
+    </figure>
+  {/if}
 </div>

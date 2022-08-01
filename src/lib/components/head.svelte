@@ -5,9 +5,14 @@
 
 <svelte:head>
   <meta charset="utf-8" />
-  <link rel="icon" href="/favicon.png" />
+  <meta name="generator" content="gh:kwchang0831/svelte-QWER" />
   <meta name="author" content="kwchang0831" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="alternate" type="application/feed+json" href="/feed.json" />
+  <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="icon" href="/favicon.png" />
 
   {#if headConfig.custom}
     {#each headConfig.custom({ dev }) as tag}

@@ -67,18 +67,17 @@
   <div
     class="flex-none flex flex-col max-w-[55rem] w-full md:(rounded-2xl bg-white/[0.5] dark:bg-[#252525]/[0.5])"
     bind:this={postElement}>
-    <!-- <div class="prose prose-slate dark:prose-invert max-w-[55rem]">
+    <div class="prose prose-slate dark:prose-invert max-w-[55rem]">
       <PostHeading postData={thisPost} />
-    </div> -->
+    </div>
 
     <div class="prose prose-slate dark:prose-invert max-w-[55rem]">
-      <slot name="post_heading" />
       <slot name="post_content" />
     </div>
 
     <div class="divider" />
 
-    {#if nextPost || prevPost}
+    <!-- {#if nextPost || prevPost}
       <nav class="flex flex-col h-[12rem] md:(flex-row) ">
         {#if nextPost}
           <div id="next-post" class="relative flex-1 group overflow-hidden bg-black/[0.5]">
@@ -119,7 +118,7 @@
           </div>
         {/if}
       </nav>
-    {/if}
+    {/if} -->
 
     {#key $theme}
       <div class="my8 mx6">

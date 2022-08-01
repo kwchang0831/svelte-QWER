@@ -4,7 +4,7 @@ description: 本篇文章紀錄安裝 Fish Shell 與各種好用插件讓開發�
 summary: 簡單好上手的 Shell，自帶自動完成功能，bash 或 zsh 用膩了可以來試試看
 published: 2022-05-20
 cover: ./cover.webp
-coverCaption: 'credits: <a href="https://google.com">@123</a> '
+coverCaption: 'credits: @test'
 tags:
   - [開發環境, Fish]
   - os: [Linux]

@@ -1,5 +1,5 @@
 .prose {
-  --at-apply: 'px[1.5rem]';
+  --at-apply: 'px8';
 
   h2:not(.code-title),
   h3:not(.code-title),
@@ -12,7 +12,7 @@
   }
 
   pre {
-    --at-apply: 'overflow-hidden';
+    --at-apply: 'overflow-hidden scrollbar scrollbar-track-color-gray-800 scrollbar-thumb-color-teal-700 scrollbar-rounded scrollbar-h-0.2rem';
   }
 
   img {
@@ -67,14 +67,14 @@ body.dark {
 }
 
 .code-block {
-  --at-apply: 'relative my4 mx-[-1.5rem] flex flex-col border-y-1 md:(rounded-lg border-1 mx0) border-black/[0.5] dark:border-white/[0.5] shadow-2xl';
+  --at-apply: 'relative my4 mx--8 flex flex-col border-y-1 md:(rounded-lg border-1 mx0) border-black/[0.5] dark:border-white/[0.5] shadow-2xl';
 
   h2 {
     --at-apply: '!text-xl !m0';
   }
 
   code {
-    --at-apply: 'flex flex-col py4 scrollbar scrollbar-track-color-gray-800 scrollbar-thumb-color-teal-700 scrollbar-rounded scrollbar-h-0.2rem';
+    --at-apply: 'flex flex-col py4 min-w-min';
   }
 
   .code-title {
@@ -82,7 +82,7 @@ body.dark {
   }
 
   .code-line {
-    --at-apply: 'flex leading-[1.5rem] hover:(dark:!bg-white/[0.25] !bg-black/[0.25])';
+    --at-apply: 'flex min-w-min overflow-visable leading-[1.5rem] hover:(dark:!bg-white/[0.25] !bg-black/[0.25])';
 
     .code-linenotation {
       --at-apply: 'flex';
@@ -95,7 +95,7 @@ body.dark {
       }
     }
     .code-content {
-      --at-apply: 'flex-1';
+      --at-apply: 'flex-1 grow';
     }
   }
 

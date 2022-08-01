@@ -7,16 +7,17 @@
 
   export let data: Post.Post;
   export let index: number;
+  let assetCover = data.cover && $assets.get(data.cover);
 
   const postPublishedStr = new Date(data.published).toLocaleString(
     dateConfig.toPublishedString.locales,
     dateConfig.toPublishedString.options,
   );
 
-  // onMount(()=>{
-  //   console.log($assets)
-  //   console.log($assets.get(data.cover)?.banner)
-  // })
+  // onMount(() => {
+  //   console.log(data);
+  //   console.log(assetCover);
+  // });
 </script>
 
 {#if data}
@@ -36,10 +37,19 @@
             </h2>
             <p class="font-medium">{data.summary}</p>
           </div>
-          <img
-            class="z-1 op50 group-hover:scale-105 absolute w-full h-full transition-all duration-500 ease-in-out transform object-cover"
-            src={$assets.get(data.cover)?.banner[0]}
-            alt={data.cover} />
+          {#if assetCover}
+            <picture
+              class="z-1 op50 group-hover:scale-105 absolute w-full h-full transition-all duration-500 ease-in-out transform object-cover">
+              <source srcset={assetCover.banner[1]} type="image/avif" />
+              <source srcset={assetCover.banner[0]} type="image/webp" />
+              <img src={assetCover.original} alt={data.cover} />
+            </picture>
+          {:else}
+            <img
+              class="z-1 op50 group-hover:scale-105 absolute w-full h-full transition-all duration-500 ease-in-out transform object-cover"
+              src={data.cover}
+              alt={data.cover} />
+          {/if}
         {:else}
           <div class:flex-col={['TOP', 'BOT'].indexOf(data.coverStyle) !== -1} class="flex md:border-none relative">
             <div

@@ -280,12 +280,11 @@ export const mdify = (data, basePath) => {
 
       try {
         href = new URL(href).href;
-        return `<img src="${href}" alt="${text}"/>\n${title ? `<figcaption>${title}</figcaption>\n` : ''}`;
       } catch (_) {
         href = path.join(_basePath, href);
-        _imports.push(`import ${text}_ORG from '$generated/assets${href}'`);
-        return `<img src="{${text}_ORG}" alt="${text}"/>\n${title ? `<figcaption>${title}</figcaption>\n` : ''}`;
       }
+      return `<img alt="${text}"/>\n${title ? `<figcaption>${title}</figcaption>\n` : ''}`;
+      // return `<img src="${href}" alt="${text}"/>\n${title ? `<figcaption>${title}</figcaption>\n` : ''}`;
     },
 
     text(text) {

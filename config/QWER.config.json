@@ -4,6 +4,7 @@
   "targetAssetsFolder": "src/generated/assets",
   "targetTemplateFolder": "src/lib/template",
   "targetGeneratedFolder": "src/generated",
+  "targetBuildFolder": "build",
   "targetPublicFolder": "public",
   "targetPostsJson": "src/generated/posts.json",
   "targetTagsJson": "src/generated/tags.json",

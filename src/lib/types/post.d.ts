@@ -29,12 +29,11 @@ export namespace Post {
   }
 
   export interface Asset {
-    320: string | [];
-    400: string | [];
-    640: string | [];
-    960: string | [];
-    1280: string | [];
-    original: string | [];
-    banner: string | [];
+    original: string;
+    banner: string[];
+    1280: string[];
+    1024: string[];
+    800: string[];
+    640: string[];
   }
 }

@@ -9,10 +9,9 @@ export const allAssets = (() => {
         original: `$generated/assets${e}`,
         banner: `$generated/assets${e}?w=800&h=150&format=webp;avif`,
         1280: `$generated/assets${e}?w=1280&format=webp;avif`,
-        960: `$generated/assets${e}?w=960&format=webp;avif`,
+        1024: `$generated/assets${e}?w=1024&format=webp;avif`,
+        800: `$generated/assets${e}?w=800&format=webp;avif`,
         640: `$generated/assets${e}?w=640&format=webp;avif`,
-        400: `$generated/assets${e}?w=400&format=webp;avif`,
-        320: `$generated/assets${e}?w=320&format=webp;avif`,
       });
     });
 

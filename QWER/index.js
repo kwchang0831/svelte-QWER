@@ -8,13 +8,12 @@ import { firstLine } from './readFirstLine.js';
 import { writeSync, readSync } from 'to-vfile';
 import { cpSync, readdirSync, unlinkSync, rmSync, existsSync, statSync } from 'node:fs';
 import fs from 'fs-extra';
-import path, { resolve } from 'node:path';
+import path from 'node:path';
 import matter from 'gray-matter';
 import { exec } from 'child_process';
 import chokidar from 'chokidar';
 import { convert } from 'html-to-text';
 import LZString from 'lz-string';
-import { type } from 'node:os';
 
 const getAllFiles = (src, arrayFiles = []) => {
   if (!existsSync(src)) return [];
@@ -219,31 +218,11 @@ const processFile = (file) => {
       toc: md.toc,
     };
 
-    if (postData.cover) {
-      md.imports.push(`import Cover from '$generated/assets${postData.cover}'`);
-    }
-
     const tempalte = readSync(path.join(config.targetTemplateFolder, layout), 'utf8');
     const tempalteMap = [
       {
         match: /<!-- :QWER CONTENT: -->/,
         replace: md.content,
-      },
-      {
-        match: /<!-- :QWER POST_TITLE: -->/,
-        replace: postData.title,
-      },
-      {
-        match: /<!-- :QWER POST_PUBLISHED: -->/,
-        replace: postData.published,
-      },
-      {
-        match: /<!-- :QWER POST_COVER: -->/,
-        replace: postData.cover,
-      },
-      {
-        match: /<!-- :QWER POST_COVER_CAPTION: -->/,
-        replace: postData.coverCaption,
       },
       {
         match: /\/\*<!-- :QWER IMPORTS: -->\*\//,
@@ -331,6 +310,11 @@ const buildAll = () => {
       if (i === ar.length - 1) resolve();
     });
   }).then(() => {
+    getAllFiles(config.targetPublicFolder).forEach((file) => {
+      const [, ...destPath] = file.split(path.sep);
+      const p = path.join(config.targetStaticFolder, destPath.join('/'));
+      cpSync(file, p);
+    });
     generateMetaFiles();
     generateAssetFile();
   });
@@ -339,6 +323,7 @@ const buildAll = () => {
 const cleanAll = () => {
   rmDir(config.targetStaticFolder);
   rmDir(config.targetGeneratedFolder);
+  rmDir(config.targetBuildFolder);
 
   getAllFiles(config.targetRouteFolder).forEach((f) => {
     rmGeneratedFiles(f).then(() => {
@@ -375,7 +360,7 @@ switch (process.argv[2]) {
           log('cyan', '[DATA] File Updated', file);
           const slug = convertPathToSlug(file);
           if (slug) {
-            const tags2rm = allPosts.get(slug).tags;
+            const tags2rm = allPosts.get(slug)?.tags;
             allPosts.delete(slug);
             allTags.delete(tags2rm);
           }
