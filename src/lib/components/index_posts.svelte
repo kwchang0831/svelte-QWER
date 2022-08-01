@@ -7,7 +7,7 @@
   export { className as class };
 </script>
 
-<div id="index-posts" class="flex flex-col items-center mt-4 gap-4 {className}">
+<div id="index-posts" class="flex flex-col items-center mt4 gap4 {className}">
   {#if $postsShow.length === 0}
     <div
       class="h-[20rem] flex items-center justify-center"
@@ -23,6 +23,3 @@
     {/key}
   {/if}
 </div>
-
-<style>
-</style>

@@ -7,7 +7,6 @@ export const allAssets = (() => {
     Array.from(_allAssets).map((e) => {
       m.set(e, {
         original: `$generated/assets${e}`,
-        banner: `$generated/assets${e}?w=800&h=150&format=webp;avif`,
         1280: `$generated/assets${e}?w=1280&format=webp;avif`,
         1024: `$generated/assets${e}?w=1024&format=webp;avif`,
         800: `$generated/assets${e}?w=800&format=webp;avif`,

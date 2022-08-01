@@ -2,8 +2,8 @@
   import type { Post } from '$lib/types/post';
   import { assets } from '$generated/assets';
 
-  let className: string | undefined = undefined;
-  export { className as class };
+  export let pictureClass: string | undefined = undefined;
+  export let imgClass: string | undefined = undefined;
 
   export let src: string;
   export let alt: string = src;
@@ -14,23 +14,17 @@
 </script>
 
 {#if asset}
-  <picture>
-    <source media="(min-width: 768px)" srcset="{asset[1280][1]} 2x, {asset[1024][1]}" type="image/avif" />
-    <source media="(min-width: 768px)" srcset="{asset[1280][0]} 2x, {asset[1024][0]}" type="image/webp" />
-    <source media="(min-width: 640px)" srcset="{asset[800][1]} 2x, {asset[640][1]}" type="image/avif" />
-    <source media="(min-width: 640px)" srcset="{asset[800][0]} 2x, {asset[640][0]}" type="image/webp" />
-    <img
-      class={className ?? 'w-full h-auto aspect-video object-cover md:(rounded-2xl shadow-xl)'}
-      {decoding}
-      {loading}
-      src={asset.original}
-      {alt} />
+  <picture class={pictureClass}>
+    <source media="(min-width: 1280px)" srcset={asset[1280][1]} width="1280" type="image/avif" />
+    <source media="(min-width: 1280px)" srcset={asset[1280][0]} width="1280" type="image/webp" />
+    <source media="(min-width: 1024px)" srcset={asset[1024][1]} width="1024" type="image/avif" />
+    <source media="(min-width: 1024px)" srcset={asset[1024][0]} width="1024" type="image/webp" />
+    <source media="(min-width: 768px)" srcset={asset[800][1]} width="800" type="image/avif" />
+    <source media="(min-width: 768px)" srcset={asset[800][0]} width="800" type="image/webp" />
+    <source media="(min-width: 360px)" srcset={asset[640][1]} width="640" type="image/avif" />
+    <source media="(min-width: 360px)" srcset={asset[640][0]} width="640" type="image/webp" />
+    <img itemprop="image" class={imgClass} {decoding} {loading} src={asset.original} {alt} />
   </picture>
 {:else}
-  <img
-    class={className ? className : 'w-full h-auto aspect-video object-cover md:(rounded-2xl shadow-xl)'}
-    {decoding}
-    {loading}
-    {src}
-    {alt} />
+  <img class={imgClass} {decoding} {loading} {src} {alt} />
 {/if}
