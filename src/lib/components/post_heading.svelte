@@ -12,7 +12,7 @@
 </script>
 
 <div class="flex flex-col pt8 mx8">
-  <div class="flex justify-between items-center mx--6 md:mx0">
+  <div class="flex justify-between items-center mx--4 md:mx0">
     <div class="flex items-center gap-1 pl-0 font-bold shrink-0">
       {#if siteConfig.author.avator && siteConfig.author.avator_32}
         <picture>
@@ -36,7 +36,7 @@
     <div>{publishedDate}</div>
   </div>
 
-  <h1 class="text-3xl my4 mx--6 md:mx0">{postData.title}</h1>
+  <h1 class="text-3xl my4 mx--4 md:mx0">{postData.title}</h1>
 
   <div class="mx--8 md:mx0">
     {#if postData.cover}

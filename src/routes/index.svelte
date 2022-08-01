@@ -36,7 +36,7 @@
     <IndexProfile class="flex flex-col gap2 items-center text-center xl:(items-end text-right sticky top-[5rem])" />
   </div>
 
-  <div class="max-w-[55rem] flex-none w-full md:(rounded-2xl) overflow-hidden">
+  <div class="max-w-[55rem] flex-none w-full md:(rounded-2xl)">
     <IndexPosts />
   </div>
 

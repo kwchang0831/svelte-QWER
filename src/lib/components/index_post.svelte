@@ -2,23 +2,21 @@
   import type { Post } from '$lib/types/post';
   import { fly } from 'svelte/transition';
   import { dateConfig } from '$config/site';
-  import { assets } from '$generated/assets';
+
   import ImgR from '$lib/components/image_responsive.svelte';
-  // import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
 
   export let data: Post.Post;
   export let index: number;
-  let assetCover = data.cover && $assets.get(data.cover);
 
   const postPublishedStr = new Date(data.published).toLocaleString(
     dateConfig.toPublishedString.locales,
     dateConfig.toPublishedString.options,
   );
 
-  // onMount(() => {
-  //   console.log(data);
-  //   console.log(assetCover);
-  // });
+  onMount(() => {
+    data.coverStyle = 'IN';
+  });
 </script>
 
 {#if data}
@@ -39,31 +37,30 @@
                 {data.title}
               </a>
             </h2>
-            <p class="font-medium">{data.summary}</p>
+            <p class="font-medium line-clamp-2">{data.summary}</p>
           </div>
         {:else}
           <div class:flex-col={['TOP', 'BOT'].indexOf(data.coverStyle) !== -1} class="flex md:border-none relative">
             <div
               class="overflow-hidden
-              {['TOP', 'BOT'].indexOf(data.coverStyle) !== -1 ? 'h-[16rem]' : ''}
-              {['RIGHT', 'LEFT'].indexOf(data.coverStyle) !== -1 ? 'w-[16rem]' : ''}"
+            {['TOP', 'BOT'].indexOf(data.coverStyle) !== -1 ? 'h-[16rem]' : ''}
+            {['RIGHT', 'LEFT'].indexOf(data.coverStyle) !== -1 ? 'w-[12rem]' : ''}"
               class:order-first={data.coverStyle === 'TOP' || data.coverStyle === 'LEFT'}
               class:order-last={data.coverStyle === 'BOT' || data.coverStyle === 'RIGHT'}>
               <a sveltekit:prefetch href={data.slug} alt={data.title} class="cursor-pointer">
-                <img
-                  class="op90 group-hover:scale-110 transition-all duration-500 ease-in-out transform object-cover w-full h-full"
+                <ImgR
                   src={data.cover}
-                  alt={data.cover} />
+                  imgClass="op90 group-hover:scale-110 transition transform duration-300 ease-in-out object-cover w-full h-full" />
               </a>
             </div>
-            <div class="px8 py6 flex flex-col gap1 grow">
+            <div class="px8 py6 flex flex-col gap1 flex-1">
               <div class="">{postPublishedStr}</div>
               <h2 class="text-2xl font-bold">
                 <a sveltekit:prefetch href={data.slug} alt={data.title} class="title-link-orange-500-orange-500">
                   {data.title}
                 </a>
               </h2>
-              <p class="font-medium">{data.summary}</p>
+              <p class="font-medium line-clamp-2">{data.summary}</p>
             </div>
           </div>
         {/if}
@@ -76,7 +73,7 @@
             {data.title}
           </a>
         </h2>
-        <p class="font-medium truncate">{data.summary}</p>
+        <p class="font-medium line-clamp-2">{data.summary}</p>
       </div>
     {/if}
   </article>
