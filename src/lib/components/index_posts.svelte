@@ -11,7 +11,7 @@
   {#if $postsShow.length === 0}
     <div
       class="h-[20rem] flex items-center justify-center"
-      in:fade={{ duration: 300, delay: 300 }}
+      in:fade={{ duration: 300, delay: 600 }}
       out:fade={{ duration: 300 }}>
       <h2 class="text-3xl">No Post Found.</h2>
     </div>

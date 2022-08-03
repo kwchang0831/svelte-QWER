@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { fade } from 'svelte/transition';
   import { siteConfig } from '$config/site';
   import tippy from '$lib/components/tippy';
 
@@ -6,7 +7,7 @@
   export { className as class };
 </script>
 
-<section id="index-profile" class={className}>
+<section in:fade={{ duration: 300, delay: 600 }} out:fade={{ duration: 300 }} id="index-profile" class={className}>
   <div class="relative group">
     <figure>
       {#if siteConfig.author.avator && siteConfig.author.avator_128}

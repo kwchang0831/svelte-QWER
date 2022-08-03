@@ -14,8 +14,8 @@
 
 {#key $postsShow}
   <footer
-    in:fly={{ y: 100, duration: 1200, delay: 750 }}
-    out:fly={{ y: 100, duration: 500 }}
+    in:fly={{ y: 100, duration: 1200, delay: 900 }}
+    out:fly={{ y: 100, duration: 300 }}
     class="flex flex-col justify-center items-center flex-none w-full mx-auto xl:mx-0  {className}">
     <main
       class="my4 gap1 md:(border-t-2 w-3xl mt-8 border-black border-opacity-20 dark:(border-white border-opacity-10)) flex flex-col justify-center items-center">

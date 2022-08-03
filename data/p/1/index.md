@@ -12,10 +12,6 @@ tags:
   - year: 2022
 ---
 
-<!-- <script lang="ts">
-  import Img from '$lib/components/extra/zoom.svelte'
-</script> -->
-
 ## 開頭
 
 這篇文章主要是紀錄一下從 Ubuntu 20.04 升級到 22.04 (Jammy Jellyfish) 的過程。

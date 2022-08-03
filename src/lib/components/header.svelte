@@ -1,5 +1,6 @@
 <script lang="ts">
   import { browser } from '$app/env';
+  import { fade } from 'svelte/transition';
   import { siteConfig, navConfig, mobilenavConfig } from '$config/site';
   import { theme } from '$stores/themes';
   import { fly } from 'svelte/transition';
@@ -111,22 +112,49 @@
   class:opacity-100={scrollY}>
   <div
     class="backdrop-blur rounded-full col-start-1 row-start-1 transition-all duration-500 ease-in-out scale-75 relative bg-transparent">
-    <div class="absolute z-50 top-[2rem] left-[1.9rem] i-mdi-chevron-up !h-[2.5rem] !w-[2.5rem]" />
+    <div
+      class="absolute z-50 top-[2rem] left-[1.9rem] i-mdi-chevron-up !h-[2.5rem] !w-[2.5rem] group-hover:text-black" />
     <svg
       height="100"
       width="100"
-      class="fill-none group-hover:fill-stone-300"
+      class="fill-none group-hover:fill-gray-500/[0.5]"
       style="transform: rotate(-90deg);stroke-dasharray: 251;">
       <circle
         cx="50"
         cy="50"
         r="40"
-        stroke="#428bca"
         stroke-width="6"
+        class="stroke-emerald"
         style="stroke-dashoffset: {251 - (251 * Math.trunc(percent)) / 100};" />
     </svg>
   </div>
 </button>
 
-<style lang="scss">
-</style>
+<button
+  id="tobotoom"
+  on:click={() => {
+    window.scrollTo(0, document.body.scrollHeight);
+  }}
+  class:translate-y-24={pin || percent > 95}
+  aria-label="scroll to bottom"
+  class="fixed grid group border-none bottom-2 right-2 z-50 duration-500 ease-in-out rounded-full bg-transparent"
+  class:opacity-100={scrollY}>
+  <div
+    class="backdrop-blur rounded-full col-start-1 row-start-1 transition-all duration-500 ease-in-out scale-75 relative bg-transparent">
+    <div
+      class="absolute z-50 top-[2rem] left-[1.9rem] i-mdi-chevron-down !h-[2.5rem] !w-[2.5rem] group-hover:text-black" />
+    <svg
+      height="100"
+      width="100"
+      class="fill-none group-hover:fill-gray-500/[0.5]"
+      style="transform: rotate(-90deg);stroke-dasharray: 251;">
+      <circle
+        cx="50"
+        cy="50"
+        r="40"
+        stroke-width="6"
+        class="stroke-emerald"
+        style="stroke-dashoffset: {251 - (251 * Math.trunc(percent)) / 100};" />
+    </svg>
+  </div>
+</button>

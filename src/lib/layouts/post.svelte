@@ -14,6 +14,7 @@
   import PostToc from '$lib/components/toc_root.svelte';
   import PostHeading from '$lib/components/post_heading.svelte';
   import SEO from '$lib/components/post_SEO.svelte';
+  import TagsSection from '$lib/components/post_tags.svelte';
   import mediumZoom from 'medium-zoom';
 
   import { theme } from '$stores/themes';
@@ -88,6 +89,10 @@
     <div class="prose prose-slate dark:prose-invert max-w-[55rem]">
       <slot name="post_content" />
     </div>
+
+    <div class="divider" />
+
+    <TagsSection tags={thisPost.tags} />
 
     <div class="divider" />
 
