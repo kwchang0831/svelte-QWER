@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { fly, fade } from 'svelte/transition';
   import type { TOC } from '$lib/types/toc';
   import TocContent from '$lib/components/toc_content.svelte';
   export let toc: TOC.Heading[] | undefined;
@@ -46,6 +47,8 @@
 </script>
 
 <aside
+  in:fly={{ x: 200, duration: 300, delay: 300 }}
+  out:fade={{ duration: 300 }}
   id="post-toc"
   aria-label="Table Of Content"
   on:mousedown={mouseDownHandler}
