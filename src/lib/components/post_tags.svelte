@@ -5,7 +5,7 @@
   export let tags: [];
   let formattedTags: { category: string; name: string; url: string }[];
 
-  onMount(() => {
+  onMount(async () => {
     formattedTags = tags
       ?.map((c: string | string[] | { string: string } | { string: string[] }) => {
         if (typeof c === 'string') return { category: 'tags', name: c, url: `/?tags=${c}` };

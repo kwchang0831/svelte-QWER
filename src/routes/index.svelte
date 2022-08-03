@@ -9,7 +9,7 @@
   import { page } from '$app/stores';
   import { onMount, onDestroy } from 'svelte';
 
-  onMount(() => {
+  onMount(async () => {
     $page.url.searchParams.forEach((v, k) => {
       v.split(',').forEach((v) => {
         tagsCur.add(k, v);

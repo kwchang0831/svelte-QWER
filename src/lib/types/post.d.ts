@@ -12,7 +12,7 @@ export namespace Post {
     created: string;
     cover?: string;
     coverCaption?: string;
-    coverStyle?: CoverStyle | string;
+    coverStyle: CoverStyle;
     options?: Array<string>;
     prev?: string;
     next?: string;
@@ -26,9 +26,12 @@ export namespace Post {
     BOT = 'BOT',
     LEFT = 'LEFT',
     IN = 'IN',
+    NONE = 'NONE',
   }
 
   export interface Asset {
+    width: string;
+    height: string;
     original: string;
     banner: string[];
     1280: string[];

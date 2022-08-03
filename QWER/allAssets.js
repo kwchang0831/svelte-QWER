@@ -1,3 +1,8 @@
+import config from '../config/QWER.config.json' assert { type: 'json' };
+import path from 'node:path';
+import probe from 'probe-image-size';
+import { existsSync, readFileSync } from 'node:fs';
+
 export const allAssets = (() => {
   let _allAssets = new Set();
 
@@ -47,6 +52,15 @@ export const allAssets = (() => {
           imports.push(`import ASSETS_${id} from '${value}';`);
           mapData[mapData.length - 1][1][key] = `ASSETS_${id}`;
           id += 1;
+        }
+
+        let imgPath = `${process.cwd()}/${path.join(config.targetDataFolder, e[0])}`;
+
+        let imgMeta;
+        if (existsSync(imgPath)) {
+          imgMeta = probe.sync(readFileSync(imgPath));
+          mapData[mapData.length - 1][1]['width'] = imgMeta.width;
+          mapData[mapData.length - 1][1]['height'] = imgMeta.height;
         }
       });
 

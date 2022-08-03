@@ -7,8 +7,6 @@ import 'prismjs/components/prism-powershell.min.js';
 import slug from 'limax';
 import path from 'node:path';
 import { toc } from './toc.js';
-import probe from 'probe-image-size';
-import { existsSync, readFileSync } from 'node:fs';
 
 let _toc;
 
@@ -298,14 +296,6 @@ export const mdify = (data, basePath) => {
         if (alt === '') alt = href;
 
         if (config.SupportedImageFormat.includes(ext)) {
-          let imgPath = `${process.cwd()}/${path.join(config.targetDataFolder, href)}`;
-          let imgMeta;
-          if (existsSync(imgPath)) {
-            imgMeta = probe.sync(readFileSync(imgPath));
-            return `<ImgZ src="${href}" alt="${alt}" width="${imgMeta.width}" height="${imgMeta.height}">${
-              text ? `${text}` : ''
-            }</ImgZ>`;
-          }
           return `<ImgZ src="${href}" alt="${alt}">${text ? `${text}` : ''}</ImgZ>`;
         }
         if (config.SupportedVideoFormat.includes(ext)) {

@@ -28,7 +28,7 @@
   let observer: IntersectionObserver;
   let postElement: HTMLElement;
 
-  onMount(() => {
+  onMount(async () => {
     observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -111,6 +111,7 @@
             </a>
             {#if nextPost.cover}
               <ImgR
+                max_width="900"
                 src={nextPost.cover}
                 imgClass="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110) transition-transform duration-350 ease-in-out" />
             {/if}
@@ -129,6 +130,7 @@
             <div class="absolute z-10 i-mdi-chevron-right !w-[1.5rem] !h-[1.5rem] top-[6rem] right-[0.75rem]" />
             {#if prevPost.cover}
               <ImgR
+                max_width="900"
                 src={prevPost.cover}
                 imgClass="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110) transition-transform duration-350 ease-in-out" />
             {/if}

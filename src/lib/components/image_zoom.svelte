@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Post } from '$lib/types/post';
   import { assets } from '$generated/assets';
+  import { onMount } from 'svelte';
 
   let className: string | undefined = undefined;
   export { className as class };
@@ -15,6 +16,11 @@
   export let height: string | undefined = undefined;
 
   let asset: Post.Asset | undefined = $assets.get(src);
+
+  onMount(async () => {
+    width = $assets.get(src)?.width;
+    height = $assets.get(src)?.height;
+  });
 </script>
 
 <figure class="flex flex-col gap2">
