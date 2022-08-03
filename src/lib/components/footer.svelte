@@ -45,10 +45,10 @@
       <span>
         Powered by <a
           use:tippy
-          aria-label="🚀 [α] - Made with Svelte & SvelteKit ❤"
+          aria-label="🚀 QWER [α] - Built using Svelte with ❤"
           rel="noopener external"
           target="_blank"
-          href="https://github.com/kwcng0831/svelte-QWER"
+          href="https://github.com/kwchang0831/svelte-QWER"
           class="hover:(text-sky-500)">
           QWER
         </a>
