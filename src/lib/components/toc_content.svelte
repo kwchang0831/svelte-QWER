@@ -25,14 +25,14 @@
         on:click|stopPropagation={() => {
           expanded = !expanded;
         }}
-        class="z10 !w-[1.25rem] !h-[1.25rem] inline-block transition-transform duration-350 ease-out {expanded
+        class="cursor-pointer z10 !w-[1.25rem] !h-[1.25rem] inline-block transition-transform duration-350 ease-out {expanded
           ? 'i-akar-icons-circle-chevron-up active:translate-y--1 hover:i-akar-icons-circle-chevron-up-fill'
           : 'i-akar-icons-circle-chevron-down active:translate-y-1 hover:i-akar-icons-circle-chevron-down-fill'}" />
     {:else}
       <span class="!w-[1.25rem] !h-[1.25rem]  i-akar-icons-circle inline-block" />
     {/if}
     <span
-      class="select-none text-black/[0.6] group-hover:(text-black) dark:(text-white/[0.6] group-hover:(text-white) group-active:(!text-black))">
+      class="cursor-pointer select-none text-black/[0.6] group-hover:(text-black) dark:(text-white/[0.6] group-hover:(text-white) group-active:(!text-black))">
       {content.heading}
     </span>
   </div>
