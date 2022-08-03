@@ -13,10 +13,15 @@
   import '@unocss/reset/sanitize/assets.css';
   import '@unocss/reset/tailwind.css';
   import 'uno.css';
+  import 'tippy.js/dist/tippy.css';
+  import 'tippy.js/themes/material.css';
+  import 'tippy.js/animations/shift-away.css';
+
   import { fly } from 'svelte/transition';
   import Head from '$lib/components/head.svelte';
   import Header from '$lib/components/header.svelte';
   import Footer from '$lib/components/footer.svelte';
+
   export let path: string;
 </script>
 
@@ -25,7 +30,7 @@
 <Header />
 
 {#key path}
-  <div in:fly={{ y: 100, duration: 300, delay: 300 }} out:fly={{ y: -100, duration: 300 }} class="pt-[4rem] min-h-80vh">
+  <div in:fly={{ y: 100, duration: 300, delay: 300 }} out:fly={{ y: -100, duration: 300 }} class="pt-[4rem] min-h-75vh">
     <slot />
   </div>
 {/key}
@@ -38,5 +43,9 @@
   }
   :global(body.dark) {
     @apply bg-[#191919]/[0.9] text-white;
+  }
+
+  :global(.tippy-box) {
+    --at-apply: 'text-base text-center';
   }
 </style>

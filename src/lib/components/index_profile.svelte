@@ -1,6 +1,7 @@
 <script lang="ts">
   import { siteConfig } from '$config/site';
-  let avatar: string;
+  import tippy from '$lib/components/tippy';
+
   let className: any = undefined;
   export { className as class };
 </script>
@@ -37,12 +38,12 @@
 
   <div class="flex flex-row">
     {#if siteConfig.author.email}
-      <a href="mailto:{siteConfig.author.email}" class="btn btn-ghost" aria-label="Email">
+      <a use:tippy href="mailto:{siteConfig.author.email}" class="btn btn-ghost" aria-label="Email">
         <div class="!w-[1.75rem] !h-[1.75rem]  i-ic-baseline-mail" />
       </a>
     {/if}
     {#if siteConfig.author.github}
-      <a href={siteConfig.author.github} class="btn btn-ghost" aria-label="Github">
+      <a use:tippy href={siteConfig.author.github} class="btn btn-ghost" aria-label="Github">
         <div class="!w-[1.75rem] !h-[1.75rem]  i-carbon-logo-github" />
       </a>
     {/if}

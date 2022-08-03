@@ -1,7 +1,8 @@
 <script lang="ts">
   import { siteConfig } from '$config/site';
-  import { fly, fade } from 'svelte/transition';
+  import { fly } from 'svelte/transition';
   import { postsShow } from '$stores/posts';
+  import tippy from '$lib/components/tippy';
 
   let className: any = undefined;
   export { className as class };
@@ -19,10 +20,10 @@
     <main
       class="my4 gap1 md:(border-t-2 w-3xl mt-8 border-black border-opacity-20 dark:(border-white border-opacity-10)) flex flex-col justify-center items-center">
       <div class="flex justify-center mt-4">
-        <a href="/atom.xml" class="btn btn-ghost" aria-label="Atom Feed">
+        <a use:tippy href="/atom.xml" class="btn btn-ghost" aria-label="Atom Feed">
           <div class="!w-[1.75rem] !h-[1.75rem] i-ic-baseline-rss-feed" />
         </a>
-        <a href="/sitemap.xml" class="btn btn-ghost" aria-label="Sitemap">
+        <a use:tippy href="/sitemap.xml" class="btn btn-ghost" aria-label="Sitemap">
           <div class="!w-[1.75rem] !h-[1.75rem] i-mdi-sitemap-outline" />
         </a>
       </div>
@@ -34,6 +35,7 @@
       </p>
       <a
         href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1"
+        aria-label="Creative Commons License"
         target="_blank"
         rel="license noopener noreferrer"
         style="display:inline-block;"
@@ -42,6 +44,8 @@
       </a>
       <span>
         Powered by <a
+          use:tippy
+          aria-label="🚀 [α] - Made with Svelte & SvelteKit ❤"
           rel="noopener external"
           target="_blank"
           href="https://github.com/kwcng0831/svelte-QWER"

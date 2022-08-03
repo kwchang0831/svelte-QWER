@@ -35,6 +35,7 @@ specifiers:
   svelte: ^3.49.0
   svelte-check: ^2.8.0
   svelte-preprocess: ^4.10.7
+  tippy.js: ^6.3.7
   tslib: ^2.4.0
   typescript: ^4.7.4
   unocss: ^0.45.1
@@ -77,6 +78,7 @@ devDependencies:
   svelte: 3.49.0
   svelte-check: 2.8.0_sass@1.54.1+svelte@3.49.0
   svelte-preprocess: 4.10.7_4rm3dya3yiyrh2c36qahwx3qae
+  tippy.js: 6.3.7
   tslib: 2.4.0
   typescript: 4.7.4
   unocss: 0.45.1_vite@3.0.4
@@ -272,6 +274,10 @@ packages:
 
   /@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
+    dev: true
+
+  /@popperjs/core/2.11.5:
+    resolution: {integrity: sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==}
     dev: true
 
   /@rollup/pluginutils/4.2.1:
@@ -3042,6 +3048,12 @@ packages:
     dependencies:
       globalyzer: 0.1.0
       globrex: 0.1.2
+    dev: true
+
+  /tippy.js/6.3.7:
+    resolution: {integrity: sha512-E1d3oP2emgJ9dRQZdf3Kkn0qJgI6ZLpyS5z6ZkY1DF3kaQaBsGZsndEpHwx+eC+tYM41HaSNvNtLx8tU57FzTQ==}
+    dependencies:
+      '@popperjs/core': 2.11.5
     dev: true
 
   /to-regex-range/5.0.1:

@@ -1,6 +1,3 @@
-<script context="module">
-</script>
-
 <script lang="ts">
   import { browser } from '$app/env';
   import { siteConfig, navConfig, mobilenavConfig } from '$config/site';
