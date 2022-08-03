@@ -167,9 +167,9 @@ export const mdify = (data, basePath) => {
           options['showLineNumber'] ? 'showLineNumber' : ''
         }">` +
         `${options['title'] ? `<h2 class="code-title">${options['title']}</h2>` : ''}` +
-        `<pre><code${language ? ` class="language-${language}"` : ''}>` +
+        `<CodeCopy><pre><code${language ? ` class="language-${language}"` : ''}>` +
         `${lines}` +
-        '</code></pre>' +
+        '</code></pre></CodeCopy>' +
         '</div>\n'
       );
     },

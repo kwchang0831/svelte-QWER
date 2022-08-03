@@ -3,6 +3,7 @@
   import Post from '$lib/layouts/post.svelte';
   import ImgZ from '$lib/components/image_zoom.svelte';
   import Video from '$lib/components/video.svelte';
+  import CodeCopy from '$lib/components/code_copybtn.svelte';
 
   /*<!-- :QWER IMPORTS: -->*/
 </script>

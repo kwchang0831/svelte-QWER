@@ -9,7 +9,6 @@
     "build:QWER": "node --no-warnings QWER build",
     "build": "npm-run-all -s build:QWER build:sveltekit",
     "preview": "vite preview",
-    "prepare": "svelte-kit sync",
     "clean:sveltekit": "rm .svelte-kit -rf",
     "clean:node_modules": "rm node_modules -rf && cd QWER && rm node_modules -rf",
     "clean": "node --no-warnings QWER clean",
