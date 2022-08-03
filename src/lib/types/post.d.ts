@@ -34,9 +34,9 @@ export namespace Post {
     height: string;
     original: string;
     banner: string[];
-    1280: string[];
-    1024: string[];
-    800: string[];
-    640: string[];
+    1280?: string[];
+    1024?: string[];
+    854?: string[];
+    640?: string[];
   }
 }

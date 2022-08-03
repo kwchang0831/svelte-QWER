@@ -3,7 +3,7 @@
   import { fly } from 'svelte/transition';
   import { dateConfig } from '$config/site';
 
-  import ImgR from '$lib/components/image_responsive.svelte';
+  import ImgBanner from '$lib/components/image_banner.svelte';
 
   export let data: Post.Post;
   export let index: number;
@@ -21,9 +21,7 @@
     class="flex flex-col relative w-full overflow-hidden group shadow-xl hover:(shadow-2xl) transform transition duration-250 min-h-[12rem] md:(min-h-[9rem] w-3xl rounded-lg !border-none hover:(scale-105)) light:(border-t-1 border-b-1 border-black) ">
     {#if data.cover && data.coverStyle !== 'NONE'}
       {#if data.coverStyle === 'IN'}
-        <ImgR
-          loading="eager"
-          max_width="800"
+        <ImgBanner
           src={data.cover}
           imgClass="z1 blur-sm op50 absolute object-cover w-full h-full transition transform duration-250 ease-in-out group-hover:(scale-110 blur-none)" />
         <div class="z2 px-8 py-6 flex flex-col gap1 flex-1 dark:(bg-black/[0.5]) bg-white/[0.25]">
@@ -44,7 +42,7 @@
             class:order-first={data.coverStyle === 'TOP' || data.coverStyle === 'LEFT'}
             class:order-last={data.coverStyle === 'BOT' || data.coverStyle === 'RIGHT'}>
             <a sveltekit:prefetch href={data.slug} alt={data.title} class="cursor-pointer">
-              <ImgR
+              <ImgBanner
                 src={data.cover}
                 imgClass="op90 group-hover:scale-110 transition transform duration-300 ease-in-out object-cover w-full h-full" />
             </a>
