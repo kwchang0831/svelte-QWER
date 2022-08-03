@@ -33,16 +33,7 @@
           {siteConfig.author.name}
         </a>
       </p>
-      <a
-        href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1"
-        aria-label="Creative Commons License"
-        target="_blank"
-        rel="license noopener noreferrer"
-        style="display:inline-block;"
-        class="hover:(text-sky-500)">
-        CC BY-NC-SA 4.0
-      </a>
-      <span>
+      <div>
         Powered by <a
           use:tippy
           aria-label="🚀 QWER [α] - Built using Svelte with ❤"
@@ -52,7 +43,16 @@
           class="hover:(text-sky-500)">
           QWER
         </a>
-      </span>
+      </div>
+      <a
+        href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1"
+        aria-label="Creative Commons License"
+        target="_blank"
+        rel="license noopener noreferrer"
+        style="display:inline-block;"
+        class="hover:(text-sky-500)">
+        CC BY-NC-SA 4.0
+      </a>
     </main>
   </footer>
 {/key}
