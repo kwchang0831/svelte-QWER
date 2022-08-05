@@ -41,7 +41,7 @@
       in:fly={{ y: -25, duration: 300, delay: 150 }}
       out:fly={{ y: -25, duration: 300 }}
       on:click={handleCopy}
-      class="group absolute z-40 right-2 top-2 p2 h-10 w-10 rounded border-2 bg-gray-700  dark:bg-gray-800 {copied
+      class="group absolute z-40 right-2 top-2 p2 h-10 w-10 rounded-xl border-2 bg-gray-700 dark:bg-gray-800 {copied
         ? 'border-green-400 focus:border-green-500 focus:outline-none'
         : 'border-gray-300 hover:border-sky-500'}">
       {#key copied}

@@ -2,7 +2,7 @@
   import { siteConfig } from '$config/site';
   import { fly } from 'svelte/transition';
   import { postsShow } from '$stores/posts';
-  import tippy from '$lib/components/tippy';
+  import tippy from '$lib/actions/tippy';
 
   let className: any = undefined;
   export { className as class };

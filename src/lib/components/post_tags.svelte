@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import tippy from '$lib/components/tippy';
+  import tippy from '$lib/actions/tippy';
 
   export let tags: [];
   let formattedTags: { category: string; name: string; url: string }[];

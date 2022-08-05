@@ -1,7 +1,7 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
   import { siteConfig } from '$config/site';
-  import tippy from '$lib/components/tippy';
+  import tippy from '$lib/actions/tippy';
 
   let className: any = undefined;
   export { className as class };
