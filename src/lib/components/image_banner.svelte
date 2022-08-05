@@ -28,5 +28,5 @@
     <img itemprop="image" class={imgClass} {decoding} {loading} src={asset.original} {alt} {width} {height} />
   </picture>
 {:else}
-  <img class={imgClass} {decoding} {loading} {src} {alt} {width} {height} />
+  <img itemprop="image" class={imgClass} {decoding} {loading} {src} {alt} {width} {height} />
 {/if}

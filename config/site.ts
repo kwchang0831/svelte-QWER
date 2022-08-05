@@ -29,7 +29,14 @@ export const siteConfig: Site.Config = {
 };
 
 export const headConfig: Site.Head = {
-  custom: ({ dev }) => (dev ? [] : []),
+  custom: ({ dev }) =>
+    dev
+      ? []
+      : [
+          '<link rel="preconnect" href="https://umami.kwchang0831.dev" />',
+          // Umami Analytics
+          '<script defer data-website-id="2622af6c-7111-408f-bbc7-489e40256206" src="https://umami.kwchang0831.dev/umami.js" data-cache="true" data-domains="svelte-qwer.vercel.app"></script>',
+        ],
 };
 
 export const dateConfig: Site.DateConfig = {
