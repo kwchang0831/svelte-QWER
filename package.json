@@ -23,10 +23,10 @@
     "up": "npm-run-all -s up:deps up:QWER-deps"
   },
   "devDependencies": {
-    "@giscus/svelte": "^2.2.0",
     "@iconify-json/akar-icons": "^1.1.8",
     "@iconify-json/carbon": "^1.1.7",
     "@iconify-json/ic": "^1.1.8",
+    "@iconify-json/line-md": "^1.1.13",
     "@iconify-json/mdi": "^1.1.29",
     "@iconify-json/tabler": "^1.1.21",
     "@sveltejs/adapter-netlify": "1.0.0-next.71",

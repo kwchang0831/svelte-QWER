@@ -39,5 +39,4 @@ export namespace Post {
   //   854?: string[];
   //   640?: string[];
   // }
-
 }

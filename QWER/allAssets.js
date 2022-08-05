@@ -1,4 +1,4 @@
-import { Config, ImageConfig} from '../config/QWER.confitg.js';
+import { Config, ImageConfig } from '../config/QWER.confitg.js';
 import path from 'node:path';
 import probe from 'probe-image-size';
 import { existsSync, readFileSync } from 'node:fs';
@@ -10,18 +10,21 @@ export const allAssets = (() => {
     let m = new Map();
 
     Array.from(_allAssets).map((e) => {
-
-      let original = `${ImageConfig.OriginalImageFolder}${e}`
-      let banner = `${original}?w=${ImageConfig.BannerImage.width}${ImageConfig.BannerImage.height? `&h=${ImageConfig.BannerImage.height}`: ''}&format=${ImageConfig.BannerImage.format.join(';')}`
+      let original = `${ImageConfig.OriginalImageFolder}${e}`;
+      let banner = `${original}?w=${ImageConfig.BannerImage.width}${
+        ImageConfig.BannerImage.height ? `&h=${ImageConfig.BannerImage.height}` : ''
+      }&format=${ImageConfig.BannerImage.format.join(';')}`;
 
       let output = {
         original: original,
         banner: banner,
-      }
+      };
 
-      Object.entries(ImageConfig.ExtraResolutions).map(([k, v])=> {
-        output[k] = `$generated/assets${e}?w=${v.width}${v.height? `&h=${v.height}`:''}&format=${v.format.join(';')}`
-      })
+      Object.entries(ImageConfig.ExtraResolutions).map(([k, v]) => {
+        output[k] = `$generated/assets${e}?w=${v.width}${v.height ? `&h=${v.height}` : ''}&format=${v.format.join(
+          ';',
+        )}`;
+      });
 
       m.set(e, output);
     });

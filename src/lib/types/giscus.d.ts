@@ -1,5 +1,6 @@
 export namespace Giscus {
   export type Config = {
+    src?: string;
     id?: string;
     /** a public GitHub repository. this repo is where the discussions will be linked to. */
     repo: `${string}/${string}`;

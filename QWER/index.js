@@ -273,10 +273,12 @@ const generateMetaFiles = () => {
 const generateAssetFile = () => {
   fs.ensureDirSync(Config.GeneratedFolder);
 
-  let type_data = `banner: ${ImageConfig.BannerImage.format.length > 1? 'string[]': 'string'};\n`
-  type_data += Object.entries(ImageConfig.ExtraResolutions).map(([k,v])=>{
-    return `${k}?: ${v.format.length > 1? 'string[]': 'string'};`
-  }).join('\n')
+  let type_data = `banner: ${ImageConfig.BannerImage.format.length > 1 ? 'string[]' : 'string'};\n`;
+  type_data += Object.entries(ImageConfig.ExtraResolutions)
+    .map(([k, v]) => {
+      return `${k}?: ${v.format.length > 1 ? 'string[]' : 'string'};`;
+    })
+    .join('\n');
 
   const type_tempalte = readSync(path.join(Config.TemplateFolder, ImageConfig.AssetTypeTemplatePath), 'utf8');
   const type_tempalteMap = [

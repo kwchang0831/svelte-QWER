@@ -1,10 +1,10 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@giscus/svelte': ^2.2.0
   '@iconify-json/akar-icons': ^1.1.8
   '@iconify-json/carbon': ^1.1.7
   '@iconify-json/ic': ^1.1.8
+  '@iconify-json/line-md': ^1.1.13
   '@iconify-json/mdi': ^1.1.29
   '@iconify-json/tabler': ^1.1.21
   '@sveltejs/adapter-netlify': 1.0.0-next.71
@@ -44,10 +44,10 @@ specifiers:
   vite-imagetools: ^4.0.4
 
 devDependencies:
-  '@giscus/svelte': 2.2.0
   '@iconify-json/akar-icons': 1.1.8
   '@iconify-json/carbon': 1.1.7
   '@iconify-json/ic': 1.1.8
+  '@iconify-json/line-md': 1.1.13
   '@iconify-json/mdi': 1.1.29
   '@iconify-json/tabler': 1.1.21
   '@sveltejs/adapter-netlify': 1.0.0-next.71
@@ -124,12 +124,6 @@ packages:
       - supports-color
     dev: true
 
-  /@giscus/svelte/2.2.0:
-    resolution: {integrity: sha512-dxomf0m8bkRf1wFZwCm2brG8m//5OiddCUXDvHKynWkoRtbWjGsTxOY3/gxDGCHDSidxVwvmpDGNdWMj3E/FDA==}
-    dependencies:
-      giscus: 1.2.0
-    dev: true
-
   /@humanwhocodes/config-array/0.10.4:
     resolution: {integrity: sha512-mXAIHxZT3Vcpg83opl1wGlVZ9xydbfZO3r5YfRSH6Gpp2J/PfdBP0wbDa2sO6/qRbcalpoevVyW6A/fI6LfeMw==}
     engines: {node: '>=10.10.0'}
@@ -167,6 +161,12 @@ packages:
 
   /@iconify-json/ic/1.1.8:
     resolution: {integrity: sha512-z7wF/a4wldA+6LVShp8rDCTd3zK/IovKCIdHuiTe5xgxzi9GdnexmZCZbMFol5JqgE1cFDveygTE9wtpfGq3tw==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: true
+
+  /@iconify-json/line-md/1.1.13:
+    resolution: {integrity: sha512-LEyIQBAb4wdSnWayI+RuX9aIDZcpnlak4Zz9sBUR59u7Tcz7aVQcNpIzlS1YbZlufWgh84cs+0F9PfNYOacoZg==}
     dependencies:
       '@iconify/types': 1.1.0
     dev: true
@@ -227,10 +227,6 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
-    dev: true
-
-  /@lit/reactive-element/1.3.4:
-    resolution: {integrity: sha512-I1wz4uxOA52zSBhKmv4KQWLJpCyvfpnDg+eQR6mjpRgV+Ldi14HLPpSUpJklZRldz0fFmGCC/kVmuc/3cPFqCg==}
     dev: true
 
   /@mapbox/node-pre-gyp/1.0.9:
@@ -381,10 +377,6 @@ packages:
     resolution: {integrity: sha512-BPdoIt1lfJ6B7rw35ncdwBZrAssjcwzI5LByIrYs+tpXlj/CAkuVdRsgZDdP4lq5EjyWzwxZCqAoFyHKFwp32g==}
     dependencies:
       '@types/node': 18.6.3
-    dev: true
-
-  /@types/trusted-types/2.0.2:
-    resolution: {integrity: sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==}
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.32.0_iosr3hrei2tubxveewluhu5lhy:
@@ -1650,12 +1642,6 @@ packages:
       get-intrinsic: 1.1.2
     dev: true
 
-  /giscus/1.2.0:
-    resolution: {integrity: sha512-IpfWvU0/hYbMGQKuoPlED8wWmluRYIOjtrBCnL7logsWjMpPRxiAC2pUIC0+SC0pDMOqXrk1onTYMHgwgRpRzg==}
-    dependencies:
-      lit: 2.2.8
-    dev: true
-
   /github-from-package/0.0.0:
     resolution: {integrity: sha1-l/tdlr/eiXMxPyDoKI75oWf6ZM4=}
     dev: true
@@ -2009,27 +1995,6 @@ packages:
     dependencies:
       prelude-ls: 1.2.1
       type-check: 0.4.0
-    dev: true
-
-  /lit-element/3.2.2:
-    resolution: {integrity: sha512-6ZgxBR9KNroqKb6+htkyBwD90XGRiqKDHVrW/Eh0EZ+l+iC+u+v+w3/BA5NGi4nizAVHGYvQBHUDuSmLjPp7NQ==}
-    dependencies:
-      '@lit/reactive-element': 1.3.4
-      lit-html: 2.2.7
-    dev: true
-
-  /lit-html/2.2.7:
-    resolution: {integrity: sha512-JhqiAwO1l03kRe68uBZ0i2x4ef2S5szY9vvP411nlrFZIpKK4/hwnhA/15bqbvxe1lV3ipBdhaOzHmyOk7QIRg==}
-    dependencies:
-      '@types/trusted-types': 2.0.2
-    dev: true
-
-  /lit/2.2.8:
-    resolution: {integrity: sha512-QjeNbi/H9LVIHR+u0OqsL+hs62a16m02JlJHYN48HcBuXyiPYR8JvzsTp5dYYS81l+b9Emp3UaGo82EheV0pog==}
-    dependencies:
-      '@lit/reactive-element': 1.3.4
-      lit-element: 3.2.2
-      lit-html: 2.2.7
     dev: true
 
   /load-json-file/4.0.0:

@@ -55,7 +55,7 @@ export const dateConfig: Site.DateConfig = {
   },
 };
 
-export const commentConfig: Giscus.Config = {
+export const giscusConfig: Giscus.Config = {
   id: 'giscus-comment',
   repo: 'kwchang0831/svelte-QWER',
   repoId: 'R_kgDOHiLP-g',

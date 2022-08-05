@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Asset } from '$generated/asset';
-  import { ImageConfig } from '$config/QWER.confitg'
+  import { ImageConfig } from '$config/QWER.confitg';
   import { assets } from '$generated/assets';
   import { onMount } from 'svelte';
 
@@ -17,9 +17,11 @@
   export let height: string | undefined = undefined;
 
   let asset: Asset.Image | undefined = $assets.get(src);
-  const resolutions = Object.entries(ImageConfig.ExtraResolutions).filter(e=>asset&&asset[e[0] as keyof Asset.Image]).sort((a, b)=>{
-    return +b[0] - +a[0]
-  })
+  const resolutions = Object.entries(ImageConfig.ExtraResolutions)
+    .filter((e) => asset && asset[e[0] as keyof Asset.Image])
+    .sort((a, b) => {
+      return +b[0] - +a[0];
+    });
 
   onMount(async () => {
     width = asset?.width;
@@ -33,7 +35,11 @@
       {#if resolutions}
         {#each resolutions as [res, meta]}
           {#each meta.format as format, index}
-            <source media={`(min-width: ${meta.minWidth})`} srcset={asset[res][index]} width={meta.width} type={`image/${format}`} />
+            <source
+              media={`(min-width: ${meta.minWidth})`}
+              srcset={asset[res][index]}
+              width={meta.width}
+              type={`image/${format}`} />
           {/each}
         {/each}
       {/if}

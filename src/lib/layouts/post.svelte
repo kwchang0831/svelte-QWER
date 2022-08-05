@@ -10,7 +10,8 @@
   import { tocCur } from '$stores/toc';
 
   import ImgBanner from '$lib/components/image_banner.svelte';
-  import GiscusSvelte from '@giscus/svelte';
+  // import GiscusSvelte from '@giscus/svelte';
+  import Giscuss from '$lib/components/giscus.svelte';
   import PostToc from '$lib/components/toc_root.svelte';
   import PostHeading from '$lib/components/post_heading.svelte';
   import SEO from '$lib/components/post_SEO.svelte';
@@ -18,7 +19,7 @@
   import mediumZoom from 'medium-zoom';
 
   import { theme } from '$stores/themes';
-  import { commentConfig, videoplayerConfig } from '$config/site';
+  import { giscusConfig, videoplayerConfig } from '$config/site';
 
   import { onMount } from 'svelte';
 
@@ -97,7 +98,7 @@
     <div class="divider" />
 
     {#if nextPost || prevPost}
-      <nav class="flex flex-col h-[12rem] md:(flex-row) ">
+      <nav class="flex flex-col h-[12rem] md:(flex-row) my8">
         {#if nextPost}
           <div id="next-post" class="relative flex-1 group overflow-hidden bg-white/[0.5] dark:bg-black/[0.5]">
             <div class="absolute z-10 i-mdi-chevron-left !w-[1.5rem] !h-[1.5rem] top-[1.25rem] left-[0.75rem]" />
@@ -139,7 +140,7 @@
 
     {#key $theme}
       <div class="my8 mx6">
-        <GiscusSvelte {...commentConfig} theme={$theme} />
+        <Giscuss theme={$theme} />
       </div>
     {/key}
   </div>
