@@ -12,8 +12,8 @@
     <figure>
       {#if siteConfig.author.avator && siteConfig.author.avator_128}
         <picture>
-          <source srcset={siteConfig.author.avator_128[1]} type="image/avif" />
-          <source srcset={siteConfig.author.avator_128[0]} type="image/webp" />
+          <source srcset={siteConfig.author.avator_128[0]} type="image/avif" />
+          <source srcset={siteConfig.author.avator_128[1]} type="image/webp" />
           <img
             decoding="async"
             loading="lazy"
@@ -46,6 +46,11 @@
     {#if siteConfig.author.github}
       <a use:tippy href={siteConfig.author.github} class="btn btn-ghost" aria-label="Github">
         <div class="!w-[1.75rem] !h-[1.75rem]  i-carbon-logo-github" />
+      </a>
+    {/if}
+    {#if siteConfig.author.twitter}
+      <a use:tippy href={siteConfig.author.github} class="btn btn-ghost" aria-label="Twitter">
+        <div class="!w-[1.75rem] !h-[1.75rem]  i-carbon-logo-twitter" />
       </a>
     {/if}
   </div>

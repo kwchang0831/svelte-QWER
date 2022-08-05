@@ -10,7 +10,6 @@
   import { tocCur } from '$stores/toc';
 
   import ImgBanner from '$lib/components/image_banner.svelte';
-  // import GiscusSvelte from '@giscus/svelte';
   import Giscuss from '$lib/components/giscus.svelte';
   import PostToc from '$lib/components/toc_root.svelte';
   import PostHeading from '$lib/components/post_heading.svelte';
@@ -19,7 +18,7 @@
   import mediumZoom from 'medium-zoom';
 
   import { theme } from '$stores/themes';
-  import { giscusConfig, videoplayerConfig } from '$config/site';
+  import { videoplayerConfig } from '$config/site';
 
   import { onMount } from 'svelte';
 
@@ -77,14 +76,15 @@
 
 <SEO post={thisPost} />
 
-<div class="flex flex-nowrap justify-center">
+<main class="flex flex-nowrap justify-center">
   <div class="max-w-screen-md flex-1" />
 
-  <div
+  <article
+    itemprop="articleBody"
     class="flex-none flex flex-col max-w-[55rem] w-full md:(rounded-2xl bg-white/[0.5] dark:bg-[#252525]/[0.5])"
     bind:this={postElement}>
     <div class="max-w-[55rem]">
-      <PostHeading postData={thisPost} />
+      <PostHeading data={thisPost} />
     </div>
 
     <div class="prose prose-slate dark:prose-invert max-w-[55rem]">
@@ -143,14 +143,14 @@
         <Giscuss theme={$theme} />
       </div>
     {/key}
-  </div>
+  </article>
 
-  <div class="max-w-screen-md flex-1 relative">
+  <aside class="max-w-screen-md flex-1 relative">
     {#if thisPost && thisPost.toc}
       <PostToc toc={thisPost.toc} />
     {/if}
-  </div>
-</div>
+  </aside>
+</main>
 
 <style lang="scss">
   .divider {

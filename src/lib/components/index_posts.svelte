@@ -7,7 +7,12 @@
   export { className as class };
 </script>
 
-<div id="index-posts" class="flex flex-col items-center py4 gap6 {className}">
+<main
+  id="index-posts"
+  class="flex flex-col items-center py4 gap6 {className}"
+  itemprop="mainEntityOfPage"
+  itemscope
+  itemtype="https://schema.org/Blog">
   {#if $postsShow.length === 0}
     <div
       class="h-[20rem] flex items-center justify-center"
@@ -22,4 +27,4 @@
       {/each}
     {/key}
   {/if}
-</div>
+</main>

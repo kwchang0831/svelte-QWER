@@ -5,8 +5,8 @@ import type { Giscus } from '$lib/types/giscus';
 import type { DD } from '$lib/types/dd';
 
 import Avator from '$assets/avator.png';
-import Avator_32 from '$assets/avator.png?w=32&h=32&format=wepb;avif';
-import Avator_128 from '$assets/avator.png?w=128&h=128&format=wepb;avif';
+import Avator_32 from '$assets/avator.png?w=32&h=32&format=avif;wepb';
+import Avator_128 from '$assets/avator.png?w=128&h=128&format=avif;wepb';
 
 export const siteConfig: Site.Config = {
   url: 'https://svelte-qwer.vercel.app/',
@@ -33,8 +33,8 @@ export const headConfig: Site.Head = {
     dev
       ? []
       : [
-          '<link rel="preconnect" href="https://umami.kwchang0831.dev" />',
           // Umami Analytics
+          '<link rel="preconnect" href="https://umami.kwchang0831.dev" />',
           '<script defer data-website-id="2622af6c-7111-408f-bbc7-489e40256206" src="https://umami.kwchang0831.dev/umami.js" data-cache="true" data-domains="svelte-qwer.vercel.app"></script>',
         ],
 };

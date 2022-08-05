@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Post } from '$lib/types/post';
+  import type { Asset } from '$generated/asset';
   import { assets } from '$generated/assets';
   import { onMount } from 'svelte';
 
@@ -13,7 +13,7 @@
   export let width: string | undefined = undefined;
   export let height: string | undefined = undefined;
 
-  let asset: Post.Asset | undefined = $assets.get(src);
+  let asset: Asset.Image | undefined = $assets.get(src);
 
   onMount(async () => {
     width = asset?.width;

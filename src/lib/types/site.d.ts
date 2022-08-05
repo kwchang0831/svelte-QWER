@@ -24,11 +24,12 @@ export namespace Site {
     name: string;
     status?: string;
     avator?: string;
-    avator_32?: [string, string];
-    avator_128?: [string, string];
+    avator_32?: string[];
+    avator_128?: string[];
     github?: string;
     website?: string;
     email?: string;
+    twitter?: string;
     bio?: string;
   }
 

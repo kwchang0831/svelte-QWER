@@ -40,6 +40,9 @@ function Theme() {
 
   return {
     subscribe,
+    get: () => {
+      return getTheme();
+    },
     dark: () => {
       setTheme('dark');
     },
