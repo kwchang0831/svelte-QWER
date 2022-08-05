@@ -33,9 +33,13 @@
 
 <svelte:window bind:scrollY />
 
-<header tabindex="0" id="header" class="fixed w-screen ease-in-out border-transparent max-h-16 z-40">
+<header
+  tabindex="0"
+  id="header"
+  class="fixed w-screen ease-in-out border-transparent max-h-16 z-40"
+  aria-label="Header Nav">
   {#if !search}
-    <div
+    <nav
       id="header-nav"
       class="flex items-center justify-items-center border-transparent backdrop-blur py-2 px-4"
       in:fly={{ x: -50, duration: 300, delay: 300 }}
@@ -77,9 +81,9 @@
           </button>
         {/key}
       </div>
-    </div>
+    </nav>
   {:else}
-    <div
+    <nav
       id="header-nav"
       class="flex border-transparent backdrop-blur items-center py-2"
       in:fly={{ x: 50, duration: 300, delay: 300 }}
@@ -97,7 +101,7 @@
             class="!w-[2rem] !h-[2rem] i-carbon-close group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
         </button>
       </div>
-    </div>
+    </nav>
   {/if}
 </header>
 

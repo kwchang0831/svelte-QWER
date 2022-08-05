@@ -8,12 +8,16 @@
 
   import { page } from '$app/stores';
   import { onMount, onDestroy } from 'svelte';
+  import Post from '$lib/layouts/post.svelte';
 
   onMount(async () => {
     $page.url.searchParams.forEach((v, k) => {
-      v.split(',').forEach((v) => {
-        tagsCur.add(k, v);
-      });
+      if (k.match(/^tags(-.*)?/)) {
+        k = k.replace(/^tags-/, '');
+        v.split(',').forEach((v) => {
+          tagsCur.add(k, v);
+        });
+      }
     });
 
     if ($tagsCur.size) postsShow.filter($tagsCur);

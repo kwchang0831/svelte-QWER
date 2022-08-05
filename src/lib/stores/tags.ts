@@ -57,12 +57,12 @@ export const tagsCur = (() => {
       }
     },
     toString: () => {
-      let _output = '';
+      const _output: string[] = [];
       _data.forEach((v, k) => {
-        _output += `${k}=${Array.from(v).toString()}&`;
+        _output.push(`${k === 'tags' ? k : `tags-${k}`}=${Array.from(v).toString()}`);
       });
 
-      return _output.slice(0, -1);
+      return _output.join('&');
     },
   };
 })();

@@ -11,11 +11,14 @@
     tagsCur.toggle(data);
     postsShow.filter($tagsCur);
     if (browser && window.location.pathname === '/') {
-      let search = $page.url.searchParams.get('q');
-      let newParams = $tagsCur.size
-        ? `${search ? `?q=${search}&` : '?'}${tagsCur.toString()}`
-        : `${search ? `?q=${search}` : '/'}`;
-      window.history.replaceState({}, '', newParams);
+      let output = new URLSearchParams();
+      $page.url.searchParams.forEach((v, k) => {
+        if (k.match(/^(?!(tags(-.*)?))/)) output.append(k, v);
+      });
+      $tagsCur.forEach((v, k) => {
+        output.append(k === 'tags' ? k : `tags-${k}`, Array.from(v).join(','));
+      });
+      window.history.replaceState({}, '', `?${output.toString().replaceAll('%2C', ',')}`);
     }
   }
 </script>
