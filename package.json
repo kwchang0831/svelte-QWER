@@ -1,6 +1,12 @@
 {
-  "name": "svelte-qwer",
+  "name": "@kwchang0831/svelte-qwer",
   "version": "0.0.1",
+  "type": "module",
+  "license": "MIT",
+  "repository": "kwchang0831/svelte-qwer",
+  "homepage": "https://github.com/kwchang0831/svelte-qwer",
+  "bugs": "https://github.com/kwchang0831/svelte-qwer/issues",
+  "author": "kwchang0831",
   "scripts": {
     "dev:sveltekit": "MODE=development vite dev --host",
     "dev:QWER": "node --no-warnings QWER watch",
@@ -64,6 +70,5 @@
     "unocss-preset-scrollbar": "^0.2.1",
     "vite": "^3.0.4",
     "vite-imagetools": "^4.0.4"
-  },
-  "type": "module"
+  }
 }

@@ -145,11 +145,11 @@
     {/key}
   </article>
 
-  <aside class="max-w-screen-md flex-1 relative">
+  <div class="max-w-screen-md flex-1 relative">
     {#if thisPost && thisPost.toc}
       <PostToc toc={thisPost.toc} />
     {/if}
-  </aside>
+  </div>
 </main>
 
 <style lang="scss">
