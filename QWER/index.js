@@ -1,4 +1,4 @@
-import config from '../config/QWER.config.json' assert { type: 'json' };
+import { Config, ImageConfig } from '../config/QWER.confitg.js';
 import * as mdify from './marked.js';
 import { log } from './logger.js';
 import { allTags } from './allTags.js';
@@ -61,11 +61,11 @@ const convertFilePath = (file) => {
   let p2Rm;
   if (ext === 'md') {
     destPath[destPath.length - 1] = destPath[destPath.length - 1].replace(/.md$/i, '.svelte');
-    p2Rm = path.resolve(config.targetRouteFolder, destPath.join(path.sep));
-  } else if (config.SupportedImageFormat.includes(ext)) {
-    p2Rm = path.join(config.targetAssetsFolder, destPath.join('/'));
+    p2Rm = path.resolve(Config.RouteFolder, destPath.join(path.sep));
+  } else if (ImageConfig.SupportedImageFormat.includes(ext)) {
+    p2Rm = path.join(Config.targetAssetsFolder, destPath.join('/'));
   } else {
-    p2Rm = path.resolve(config.targetStaticFolder, destPath.join(path.sep));
+    p2Rm = path.resolve(Config.StaticFolder, destPath.join(path.sep));
   }
   return p2Rm;
 };
@@ -78,8 +78,8 @@ const rmFile = (path) => {
 };
 
 const processRmDir = (dir) => {
-  let routeDir = dir.replace(config.targetDataFolder, config.targetRouteFolder);
-  let resourceDir = dir.replace(config.targetDataFolder, config.targetStaticFolder);
+  let routeDir = dir.replace(Config.DataFolder, Config.RouteFolder);
+  let resourceDir = dir.replace(Config.DataFolder, Config.StaticFolder);
   if (existsSync(routeDir)) {
     rmDir(routeDir);
   }
@@ -101,7 +101,7 @@ const rmDir = (dir) => {
 const rmGeneratedFiles = (file) => {
   return new Promise((resolve) => {
     firstLine(file).then((s) => {
-      if (s.match(config.pattern4GeneratedFiles)) {
+      if (s.match(Config.PrefixGeneratedFileTemplate)) {
         rmFile(file);
         resolve(true);
       }
@@ -144,8 +144,8 @@ const convertPathToSlug = (file) => {
       destPath[destPath.length - 1] = destPath[destPath.length - 1].replace(/.md$/i, '');
     }
     _p = `/${destPath.join(path.sep)}`;
-  } else if (config.SupportedImageFormat.includes(ext)) {
-    _p = path.join(config.targetAssetsFolder, destPath.join('/'));
+  } else if (Config.ImageConfig.SupportedImageFormat.includes(ext)) {
+    _p = path.join(Config.AssetsFolder, destPath.join('/'));
   }
   return [ext, _p];
 };
@@ -164,9 +164,9 @@ const processFile = (file) => {
 
   if (ext === 'md') {
     //TODO: Don't process files that already presents in routes folder and is user-generated.
-    const pmd2html = path.join(config.targetRouteFolder, destPath.join('/'));
+    const pmd2html = path.join(Config.RouteFolder, destPath.join('/'));
     const psvelte = pmd2html.replace(/.md$/i, '.svelte');
-    if (config.PreserveFilesInRoutes.includes(psvelte)) {
+    if (Config.PreserveFilesInRoutes.includes(psvelte)) {
       log('yellow', 'Preserve File Not Processed', psvelte);
       return undefined;
     }
@@ -196,7 +196,7 @@ const processFile = (file) => {
         })
       : undefined;
 
-    const layout = meta.layout || config.DefaultLayout;
+    const layout = meta.layout || Config.DefaultLayout;
     const md = mdify.mdify(content, slug);
     const html2text = md.content ? convert(md.content) : undefined;
 
@@ -212,13 +212,13 @@ const processFile = (file) => {
       updated: meta['updated'] || fs.statSync(file).mtime,
       cover: convertImagePath(meta['cover'], slug),
       coverCaption: meta['coverCaption'],
-      coverStyle: meta['coverStyle'] || meta['cover'] ? config.DefaultCoverStyle : undefined,
+      coverStyle: meta['coverStyle'] || meta['cover'] ? Config.DefaultCoverStyle : undefined,
       options: meta['options'],
       tags: tags,
       toc: md.toc,
     };
 
-    const tempalte = readSync(path.join(config.targetTemplateFolder, layout), 'utf8');
+    const tempalte = readSync(path.join(Config.TemplateFolder, layout), 'utf8');
     const tempalteMap = [
       {
         match: /<!-- :QWER CONTENT: -->/,
@@ -241,8 +241,8 @@ const processFile = (file) => {
     return new Promise((resolve) => {
       resolve(postData);
     });
-  } else if (config.SupportedImageFormat.includes(ext)) {
-    const a = path.join(config.targetAssetsFolder, destPath.join('/'));
+  } else if (ImageConfig.SupportedImageFormat.includes(ext)) {
+    const a = path.join(Config.AssetsFolder, destPath.join('/'));
     cpSync(file, a);
     log('green', 'File Copied', a);
     allAssets.set(`/${destPath.join('/')}`);
@@ -250,33 +250,54 @@ const processFile = (file) => {
       resolve(true);
     });
   } else {
-    const s = path.join(config.targetStaticFolder, destPath.join('/'));
+    const s = path.join(Config.StaticFolder, destPath.join('/'));
     cpSync(file, s);
     log('green', 'File Copied', s);
   }
 };
 
 const generateMetaFiles = () => {
-  fs.ensureDirSync(config.targetGeneratedFolder);
+  fs.ensureDirSync(Config.GeneratedFolder);
   writeSync({
-    path: config.targetPostsJson,
+    path: Config.PostsJsonPath,
     value: allPosts.json(),
   });
-  log('cyan', 'Meta File Updated', config.targetPostsJson);
+  log('cyan', 'Meta File Updated', Config.PostsJsonPath);
   writeSync({
-    path: config.targetTagsJson,
+    path: Config.TagsJsonPath,
     value: allTags.json(),
   });
-  log('cyan', 'Meta File Updated', config.targetTagsJson);
+  log('cyan', 'Meta File Updated', Config.TagsJsonPath);
 };
 
 const generateAssetFile = () => {
-  fs.ensureDirSync(config.targetGeneratedFolder);
+  fs.ensureDirSync(Config.GeneratedFolder);
+
+  let type_data = `banner: ${ImageConfig.BannerImage.format.length > 1? 'string[]': 'string'};\n`
+  type_data += Object.entries(ImageConfig.ExtraResolutions).map(([k,v])=>{
+    return `${k}?: ${v.format.length > 1? 'string[]': 'string'};`
+  }).join('\n')
+
+  const type_tempalte = readSync(path.join(Config.TemplateFolder, ImageConfig.AssetTypeTemplatePath), 'utf8');
+  const type_tempalteMap = [
+    {
+      match: ImageConfig.PrefixImageTypeTemplate,
+      replace: type_data,
+    },
+  ];
+
+  writeSync({
+    path: ImageConfig.AssetTypePath,
+    value: mapReplace(String(type_tempalte), type_tempalteMap),
+  });
+
+  exec(`prettier --write --plugin-search-dir=. ${ImageConfig.AssetTypePath}`);
+  log('cyan', 'Meta File Updated', ImageConfig.AssetTypePath);
 
   let store_data = allAssets.generate_store();
 
-  const tempalte = readSync(path.join(config.targetTemplateFolder, config.DefaultAssetStoreTemplate), 'utf8');
-  const tempalteMap = [
+  const store_tempalte = readSync(path.join(Config.TemplateFolder, Config.AssetStoreTemplatePath), 'utf8');
+  const store_tempalteMap = [
     {
       match: /\/\*<!-- :QWER IMPORTS: -->\*\//,
       replace: store_data.imports,
@@ -288,17 +309,17 @@ const generateAssetFile = () => {
   ];
 
   writeSync({
-    path: config.targetAssetsStore,
-    value: mapReplace(String(tempalte), tempalteMap),
+    path: Config.AssetsStorePath,
+    value: mapReplace(String(store_tempalte), store_tempalteMap),
   });
 
-  exec(`prettier --write --plugin-search-dir=. ${config.targetAssetsStore}`);
-  log('cyan', 'Meta File Updated', config.targetAssetsStore);
+  exec(`prettier --write --plugin-search-dir=. ${Config.AssetsStorePath}`);
+  log('cyan', 'Meta File Updated', Config.AssetsStorePath);
 };
 
 const buildAll = () => {
   new Promise((resolve) => {
-    getAllFiles(config.targetDataFolder).forEach((file, i, ar) => {
+    getAllFiles(Config.DataFolder).forEach((file, i, ar) => {
       if (path.basename(file).startsWith('.')) return;
 
       processFile(file)?.then((f) => {
@@ -310,9 +331,9 @@ const buildAll = () => {
       if (i === ar.length - 1) resolve();
     });
   }).then(() => {
-    getAllFiles(config.targetPublicFolder).forEach((file) => {
+    getAllFiles(Config.PublicFolder).forEach((file) => {
       const [, ...destPath] = file.split(path.sep);
-      const p = path.join(config.targetStaticFolder, destPath.join('/'));
+      const p = path.join(Config.StaticFolder, destPath.join('/'));
       cpSync(file, p);
     });
     generateMetaFiles();
@@ -321,11 +342,11 @@ const buildAll = () => {
 };
 
 const cleanAll = () => {
-  rmDir(config.targetStaticFolder);
-  rmDir(config.targetGeneratedFolder);
-  rmDir(config.targetBuildFolder);
+  rmDir(Config.StaticFolder);
+  rmDir(Config.GeneratedFolder);
+  rmDir(Config.BuildFolder);
 
-  getAllFiles(config.targetRouteFolder).forEach((f) => {
+  getAllFiles(Config.RouteFolder).forEach((f) => {
     rmGeneratedFiles(f).then(() => {
       rmEmptyFolders(path.dirname(f));
     });
@@ -335,7 +356,7 @@ const cleanAll = () => {
 switch (process.argv[2]) {
   case 'watch':
     {
-      let dataFolderwatcher = chokidar.watch(config.targetDataFolder, {
+      let dataFolderwatcher = chokidar.watch(Config.DataFolder, {
         ignored: (file) => path.basename(file).startsWith('.'),
       });
       let inited = false;
@@ -409,28 +430,28 @@ switch (process.argv[2]) {
           generateAssetFile();
         });
 
-      const publicFolderwatcher = chokidar.watch(config.targetPublicFolder, {
+      const publicFolderwatcher = chokidar.watch(Config.PublicFolder, {
         ignored: (file) => path.basename(file).startsWith('.'),
       });
       publicFolderwatcher
         .on('add', (file) => {
           log('cyan', '[Public] File Created', file);
           const [, ...destPath] = file.split(path.sep);
-          const p = path.join(config.targetStaticFolder, destPath.join('/'));
+          const p = path.join(Config.StaticFolder, destPath.join('/'));
           cpSync(file, p);
           log('green', 'File Copied', p);
         })
         .on('change', (file) => {
           log('cyan', '[Public] File Updated', file);
           const [, ...destPath] = file.split(path.sep);
-          const p = path.join(config.targetStaticFolder, destPath.join('/'));
+          const p = path.join(Config.StaticFolder, destPath.join('/'));
           cpSync(file, p);
           log('green', 'File Copied', p);
         })
         .on('unlink', (file) => {
           log('cyan', '[Public] File Unlinked', file);
           const [, ...destPath] = file.split(path.sep);
-          const p = path.join(config.targetStaticFolder, destPath.join('/'));
+          const p = path.join(Config.StaticFolder, destPath.join('/'));
           rmFile(p);
         })
         .on('addDir', (dir) => {
@@ -439,7 +460,7 @@ switch (process.argv[2]) {
         .on('unlinkDir', (dir) => {
           log('cyan', '[Public] Dir Unlinked', dir);
           const [, ...destPath] = dir.split(path.sep);
-          const p = path.join(config.targetStaticFolder, destPath.join('/'));
+          const p = path.join(Config.StaticFolder, destPath.join('/'));
           rmDir(p);
         })
         .on('error', (error) => log('red', '[DATA] error', error))

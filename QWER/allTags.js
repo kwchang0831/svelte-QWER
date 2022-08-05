@@ -1,4 +1,4 @@
-import config from '../config/QWER.config.json' assert { type: 'json' };
+import { Config } from '../config/QWER.confitg.js';
 
 export const allTags = (() => {
   let _alltags = new Map();
@@ -8,11 +8,11 @@ export const allTags = (() => {
 
     tags.forEach((tag) => {
       if (Array.isArray(tag)) {
-        if (!m.has(config.DefaultTagName)) {
-          m.set(config.DefaultTagName, new Map());
+        if (!m.has(Config.DefaultTagName)) {
+          m.set(Config.DefaultTagName, new Map());
         }
         tag.forEach((t) => {
-          const _k = m.get(config.DefaultTagName);
+          const _k = m.get(Config.DefaultTagName);
           _k.set(t, (_k.get(t) ?? 0) + 1);
         });
       } else if (typeof tag === 'object') {
@@ -30,10 +30,10 @@ export const allTags = (() => {
           }
         });
       } else {
-        if (!m.has(config.DefaultTagName)) {
-          m.set(config.DefaultTagName, new Map());
+        if (!m.has(Config.DefaultTagName)) {
+          m.set(Config.DefaultTagName, new Map());
         }
-        const _k = m.get(config.DefaultTagName);
+        const _k = m.get(Config.DefaultTagName);
         _k.set(tag, (_k.get(tag) ?? 0) + 1);
       }
     });
@@ -45,7 +45,7 @@ export const allTags = (() => {
     tags.forEach((tag) => {
       if (Array.isArray(tag)) {
         tag.forEach((t) => {
-          const _k = m.get(config.DefaultTagName);
+          const _k = m.get(Config.DefaultTagName);
           if (!_k.get(t)) throw 'Tags were not generated correctly.';
 
           if (_k.get(t) > 1) {
@@ -54,8 +54,8 @@ export const allTags = (() => {
             _k.delete(t);
           }
         });
-        if (m.get(config.DefaultTagName).size === 0) {
-          m.delete(config.DefaultTagName);
+        if (m.get(Config.DefaultTagName).size === 0) {
+          m.delete(Config.DefaultTagName);
         }
       } else if (typeof tag === 'object') {
         Object.keys(tag).forEach((k) => {
@@ -91,7 +91,7 @@ export const allTags = (() => {
           }
         });
       } else {
-        const _k = m.get(config.DefaultTagName);
+        const _k = m.get(Config.DefaultTagName);
         const _t = tag;
 
         if (!_k.get(_t)) throw 'Tags were not generated correctly.';
@@ -102,8 +102,8 @@ export const allTags = (() => {
           _k.delete(_t);
         }
 
-        if (m.get(config.DefaultTagName).size === 0) {
-          m.delete(config.DefaultTagName);
+        if (m.get(Config.DefaultTagName).size === 0) {
+          m.delete(Config.DefaultTagName);
         }
       }
     });
@@ -120,17 +120,6 @@ export const allTags = (() => {
   }
 
   return {
-    /**
-     * Example Input:
-     * [
-     *   GG,
-     *   123,
-     *   [ '開發環境', 'OS' ],
-     *   { lang: '中文' },
-     *   { os: [ 'Ubuntu', 'Windows' ] },
-     *   { year: 2022 }
-     * ]
-     */
     set: (tags) => {
       _set(_alltags, tags);
     },
@@ -140,11 +129,6 @@ export const allTags = (() => {
     get: (k) => {
       return _alltags.get(k);
     },
-    // convert: (tags) => {
-    //   let output = new Map();
-    //   _set(output, tags)
-    //   return output;
-    // },
     clear: () => {
       _alltags.clear();
     },

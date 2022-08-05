@@ -1,4 +1,4 @@
-import config from '../config/QWER.config.json' assert { type: 'json' };
+import { Config, ImageConfig } from '../config/QWER.confitg.js';
 import { marked } from 'marked';
 import PrismJS from 'prismjs';
 import 'prismjs/components/prism-bash.min.js';
@@ -284,10 +284,10 @@ export const mdify = (data, basePath) => {
         // Network File
         href = new URL(href).href;
         if (alt === '') alt = href;
-        if (config.SupportedImageFormat.includes(ext)) {
+        if (ImageConfig.SupportedImageFormat.includes(ext)) {
           return `<ImgZ src="${href}" alt="${alt}">${text ? `${text}` : ''}</ImgZ>`;
         }
-        if (config.SupportedVideoFormat.includes(ext)) {
+        if (ImageConfig.SupportedVideoFormat.includes(ext)) {
           if (ext === 'mp4') return `<Video mp4="${href}" id="${alt}" ${text ? `title="${text}"` : ''}/>`;
           if (ext === 'webm') return `<Video webm="${href}" id="${alt}" ${text ? `title="${text}"` : ''}/>`;
         }
@@ -295,10 +295,10 @@ export const mdify = (data, basePath) => {
         href = path.join(_basePath, href);
         if (alt === '') alt = href;
 
-        if (config.SupportedImageFormat.includes(ext)) {
+        if (ImageConfig.SupportedImageFormat.includes(ext)) {
           return `<ImgZ src="${href}" alt="${alt}">${text ? `${text}` : ''}</ImgZ>`;
         }
-        if (config.SupportedVideoFormat.includes(ext)) {
+        if (ImageConfig.SupportedVideoFormat.includes(ext)) {
           if (ext === 'mp4') return `<Video mp4="${href}" id="${alt}" ${text ? `title="${text}"` : ''}/>`;
           if (ext === 'webm') return `<Video webm="${href}" id="${alt}" ${text ? `title="${text}"` : ''}/>`;
         }

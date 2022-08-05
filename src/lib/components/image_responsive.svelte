@@ -1,5 +1,6 @@
 <script lang="ts">
-  import type { Post } from '$lib/types/post';
+  import type { Asset } from '$generated/asset';
+  import { ImageConfig } from '$config/QWER.confitg';
   import { assets } from '$generated/assets';
   import { onMount } from 'svelte';
 
@@ -13,7 +14,12 @@
   export let width: string | undefined = undefined;
   export let height: string | undefined = undefined;
 
-  let asset: Post.Asset | undefined = $assets.get(src);
+  let asset: Asset.Image | undefined = $assets.get(src);
+  const resolutions = Object.entries(ImageConfig.ExtraResolutions)
+    .filter((e) => asset && asset[e[0] as keyof Asset.Image])
+    .sort((a, b) => {
+      return +b[0] - +a[0];
+    });
 
   onMount(async () => {
     width = asset?.width;
@@ -23,21 +29,16 @@
 
 {#if asset}
   <picture class={pictureClass}>
-    {#if asset[1280]}
-      <source media="(min-width: 1280px)" srcset={asset[1280][1]} width="1280" type="image/avif" />
-      <source media="(min-width: 1280px)" srcset={asset[1280][0]} width="1280" type="image/webp" />
-    {/if}
-    {#if asset[1024]}
-      <source media="(min-width: 1024px)" srcset={asset[1024][1]} width="1024" type="image/avif" />
-      <source media="(min-width: 1024px)" srcset={asset[1024][0]} width="1024" type="image/webp" />
-    {/if}
-    {#if asset[854]}
-      <source media="(min-width: 768px)" srcset={asset[854][1]} width="854" type="image/avif" />
-      <source media="(min-width: 768px)" srcset={asset[854][0]} width="854" type="image/webp" />
-    {/if}
-    {#if asset[640]}
-      <source media="(min-width: 360px)" srcset={asset[640][1]} width="640" type="image/avif" />
-      <source media="(min-width: 360px)" srcset={asset[640][0]} width="640" type="image/webp" />
+    {#if resolutions}
+      {#each resolutions as [res, meta]}
+        {#each meta.format as format, index}
+          <source
+            media={`(min-width: ${meta.minWidth})`}
+            srcset={asset[res][index]}
+            width={meta.width}
+            type={`image/${format}`} />
+        {/each}
+      {/each}
     {/if}
     <img itemprop="image" class={imgClass} {decoding} {loading} src={asset.original} {alt} {width} {height} />
   </picture>

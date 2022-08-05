@@ -29,14 +29,15 @@ export namespace Post {
     NONE = 'NONE',
   }
 
-  export interface Asset {
-    width: string;
-    height: string;
-    original: string;
-    banner: string[];
-    1280?: string[];
-    1024?: string[];
-    854?: string[];
-    640?: string[];
-  }
+  // export interface Asset {
+  //   width: string;
+  //   height: string;
+  //   original: string;
+  //   banner: string[];
+  //   1280?: string[];
+  //   1024?: string[];
+  //   854?: string[];
+  //   640?: string[];
+  // }
+
 }
