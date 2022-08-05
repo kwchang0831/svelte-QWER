@@ -24,8 +24,12 @@ export namespace Site {
     name: string;
     status?: string;
     avator?: string;
-    avator_32?: string[];
-    avator_128?: string[];
+    avator_32: string[];
+    avator_128: string[];
+    avator_48_png: string;
+    avator_96_png: string;
+    avator_192_png: string;
+    avator_512_png: string;
     github?: string;
     website?: string;
     email?: string;

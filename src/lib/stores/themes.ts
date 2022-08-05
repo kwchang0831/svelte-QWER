@@ -43,6 +43,18 @@ function Theme() {
     get: () => {
       return getTheme();
     },
+    get_color: () => {
+      const curTheme = getTheme();
+
+      switch (curTheme) {
+        case 'light':
+          return 'white';
+        case 'dark':
+          return 'black';
+        default:
+          return '#FFFFFF';
+      }
+    },
     dark: () => {
       setTheme('dark');
     },

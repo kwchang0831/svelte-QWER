@@ -8,11 +8,16 @@ import Avator from '$assets/avator.png';
 import Avator_32 from '$assets/avator.png?w=32&h=32&format=avif;wepb';
 import Avator_128 from '$assets/avator.png?w=128&h=128&format=avif;wepb';
 
+import Avator_48_PNG from '$assets/avator.png?w=48&h=48&format=png';
+import Avator_96_PNG from '$assets/avator.png?w=96&h=96&format=png';
+import Avator_192_PNG from '$assets/avator.png?w=192&h=192&format=png';
+import Avator_512_PNG from '$assets/avator.png?w=512&h=512&format=png';
+
 export const siteConfig: Site.Config = {
   url: 'https://svelte-qwer.vercel.app/',
   title: 'QWER',
-  subtitle: 'Simple Blog Starter',
-  description: 'Full-Featured Blog Starter Built with Svelte & SvelteKit',
+  subtitle: '🚀 QWER - Built using Svelte with ❤',
+  description: '🚀 QWER - Full-Featured Blog Starter, Built using Svelte with ❤',
   lang: 'en',
   since: 2022,
   author: {
@@ -21,7 +26,11 @@ export const siteConfig: Site.Config = {
     avator: Avator,
     avator_32: Avator_32,
     avator_128: Avator_128,
-    website: 'https://kwchang0831.dev',
+    avator_48_png: Avator_48_PNG,
+    avator_96_png: Avator_96_PNG,
+    avator_192_png: Avator_192_PNG,
+    avator_512_png: Avator_512_PNG,
+    website: 'https://github.com/kwchang0831/svelte-QWER',
     github: 'https://github.com/kwchang0831',
     email: 'contact@kwchang0831.dev',
     bio: `lorem ipsum! <br/> dolor sit amet!`,

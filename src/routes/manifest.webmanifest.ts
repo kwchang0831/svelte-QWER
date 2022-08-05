@@ -4,11 +4,6 @@ import type { RequestHandler } from '@sveltejs/kit';
 import { siteConfig } from '$config/site';
 import { theme } from '$stores/themes';
 
-import Avator_48 from '$assets/avator.png?w=48&h=48&format=png';
-import Avator_96 from '$assets/avator.png?w=96&h=96&format=png';
-import Avator_192 from '$assets/avator.png?w=192&h=192&format=png';
-import Avator_512 from '$assets/avator.png?w=512&h=512&format=png';
-
 export const GET: RequestHandler = () => ({
   headers: {
     'Content-Type': 'application/manifest+json; charset=utf-8',
@@ -25,28 +20,56 @@ export const GET: RequestHandler = () => ({
       display: 'standalone',
       orientation: 'portrait',
       categories: ['education', 'blog'],
-      background_color: theme.get(),
-      theme_color: theme.get(),
+      background_color: theme.get_color(),
+      theme_color: theme.get_color(),
       icons: [
         {
-          src: Avator_48,
+          src: new URL(siteConfig.author.avator_48_png, siteConfig.url).href,
           size: '48x48',
           type: 'image/png',
+          purpose: 'any',
         },
         {
-          src: Avator_96,
+          src: new URL(siteConfig.author.avator_48_png, siteConfig.url).href,
+          size: '48x48',
+          type: 'image/png',
+          purpose: 'maskable',
+        },
+        {
+          src: new URL(siteConfig.author.avator_96_png, siteConfig.url).href,
           size: '96x96',
           type: 'image/png',
+          purpose: 'any',
         },
         {
-          src: Avator_192,
+          src: new URL(siteConfig.author.avator_96_png, siteConfig.url).href,
+          size: '96x96',
+          type: 'image/png',
+          purpose: 'maskable',
+        },
+        {
+          src: new URL(siteConfig.author.avator_192_png, siteConfig.url).href,
           size: '192x192',
           type: 'image/png',
+          purpose: 'any',
         },
         {
-          src: Avator_512,
+          src: new URL(siteConfig.author.avator_192_png, siteConfig.url).href,
+          size: '192x192',
+          type: 'image/png',
+          purpose: 'maskable',
+        },
+        {
+          src: new URL(siteConfig.author.avator_512_png, siteConfig.url).href,
           size: '512x512',
           type: 'image/png',
+          purpose: 'any',
+        },
+        {
+          src: new URL(siteConfig.author.avator_512_png, siteConfig.url).href,
+          size: '512x512',
+          type: 'image/png',
+          purpose: 'maskable',
         },
       ],
     },
