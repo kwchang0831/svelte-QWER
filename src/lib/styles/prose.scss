@@ -112,6 +112,10 @@ body.dark {
   }
 }
 
+li .code-block {
+  --at-apply: 'ml--14 md:(mx0)';
+}
+
 .code-block {
   --at-apply: 'relative my4 mx--8 flex flex-col border-y-1 md:(rounded-lg border-1 mx0) border-black/[0.5] dark:border-white/[0.5] shadow-2xl';
 

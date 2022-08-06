@@ -40,10 +40,10 @@ npx degit kwchang0831/svelte-QWER my-blog
 1. Sever is running. Open browser to see the result.
 
    ```shell
-     VITE v3.0.4  ready in 1080 ms
+   VITE v3.0.4  ready in 1080 ms
 
-     ➜  Local:   http://localhost:5173/
-     ➜  Network: use --host to expose
+   ➜  Local:   http://localhost:5173/
+   ➜  Network: use --host to expose
    ```
 
 ## To Build
@@ -63,8 +63,8 @@ npx degit kwchang0831/svelte-QWER my-blog
 1. Preview server is running. Open browser to see the result.
 
    ```shell
-     ➜  Local:   http://localhost:4173/
-     ➜  Network: use --host to expose
+   ➜  Local:   http://localhost:4173/
+   ➜  Network: use --host to expose
    ```
 
 ## To Deploy
