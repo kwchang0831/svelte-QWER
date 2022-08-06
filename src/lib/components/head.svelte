@@ -11,7 +11,7 @@
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
 
   <link rel="shortcut icon" href="/favicon.png" type="image/png" />
-  <link rel="apple-touch-icon" href={siteConfig.author.avator_192_png} sizes="192x192" type="image/png" />
+  <link rel="apple-touch-icon" href={siteConfig.author.avatar_192_png} sizes="192x192" type="image/png" />
 
   <link rel="manifest" crossorigin="use-credentials" href="/manifest.webmanifest" />
   <link rel="alternate" type="application/feed+json" href="/feed.json" />

@@ -23,13 +23,13 @@ export namespace Site {
   export interface Author {
     name: string;
     status?: string;
-    avator?: string;
-    avator_32: string[];
-    avator_128: string[];
-    avator_48_png: string;
-    avator_96_png: string;
-    avator_192_png: string;
-    avator_512_png: string;
+    avatar?: string;
+    avatar_32: string[];
+    avatar_128: string[];
+    avatar_48_png: string;
+    avatar_96_png: string;
+    avatar_192_png: string;
+    avatar_512_png: string;
     github?: string;
     website?: string;
     email?: string;

@@ -10,15 +10,15 @@
 <section in:fade={{ duration: 300, delay: 600 }} out:fade={{ duration: 300 }} id="index-profile" class={className}>
   <div class="relative group">
     <figure>
-      {#if siteConfig.author.avator && siteConfig.author.avator_128}
+      {#if siteConfig.author.avatar && siteConfig.author.avatar_128}
         <picture>
-          <source srcset={siteConfig.author.avator_128[0]} type="image/avif" />
-          <source srcset={siteConfig.author.avator_128[1]} type="image/webp" />
+          <source srcset={siteConfig.author.avatar_128[0]} type="image/avif" />
+          <source srcset={siteConfig.author.avatar_128[1]} type="image/webp" />
           <img
             decoding="async"
             loading="lazy"
-            src={siteConfig.author.avator}
-            alt={siteConfig.author.avator}
+            src={siteConfig.author.avatar}
+            alt={siteConfig.author.avatar}
             class="rounded-full shadow-xl w-32 h-32 aspect-auto object-cover hover:rotate-[360deg] transition-transform !duration-1000 ease-in-out" />
         </picture>
       {:else}

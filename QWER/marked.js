@@ -25,6 +25,27 @@ export const languages = {
   '': '',
 };
 
+const footnoteMatch = /^\[\^([^\]]+)\]:([\s\S]*)$/;
+const referenceMatch = /\[\^([^\]]+)\](?!\()/g;
+const referencePrefix = 'marked-fnref';
+const footnotePrefix = 'marked-fn';
+const footnoteTemplate = (ref, text) => {
+  return `<sup id="${footnotePrefix}:${ref}">${ref}</sup>${text}`;
+};
+const referenceTemplate = (ref) => {
+  return `<sup id="${referencePrefix}:${ref}"><a href="#${footnotePrefix}:${ref}">${ref}</a></sup>`;
+};
+const interpolateReferences = (text) => {
+  return text.replace(referenceMatch, (_, ref) => {
+    return referenceTemplate(ref);
+  });
+};
+const interpolateFootnotes = (text) => {
+  return text.replace(footnoteMatch, (_, value, text) => {
+    return footnoteTemplate(value, text);
+  });
+};
+
 export const mdify = (data, basePath) => {
   let _imports = [];
   let _basePath = basePath;
@@ -213,8 +234,9 @@ export const mdify = (data, basePath) => {
     paragraph(text) {
       // let isTeXInline     = /\$(.*)\$/g.test(text)
       // let isTeXLine       = /^\$\$(\s*.*\s*)\$\$$/.test(text)
+      return marked.Renderer.prototype.paragraph.apply(null, [interpolateReferences(interpolateFootnotes(text))]);
 
-      return `<p>${text}</p>\n`;
+      // return `<p>${text}</p>\n`;
     },
 
     table(header, body) {

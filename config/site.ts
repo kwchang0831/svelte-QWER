@@ -4,14 +4,14 @@ import type { Site } from '$lib/types/site';
 import type { Giscus } from '$lib/types/giscus';
 import type { DD } from '$lib/types/dd';
 
-import Avator from '$assets/avator.png';
-import Avator_32 from '$assets/avator.png?w=32&h=32&format=avif;wepb';
-import Avator_128 from '$assets/avator.png?w=128&h=128&format=avif;wepb';
+import Avator from '$assets/avatar.png';
+import Avator_32 from '$assets/avatar.png?w=32&h=32&format=avif;wepb';
+import Avator_128 from '$assets/avatar.png?w=128&h=128&format=avif;wepb';
 
-import Avator_48_PNG from '$assets/avator.png?w=48&h=48&format=png';
-import Avator_96_PNG from '$assets/avator.png?w=96&h=96&format=png';
-import Avator_192_PNG from '$assets/avator.png?w=192&h=192&format=png';
-import Avator_512_PNG from '$assets/avator.png?w=512&h=512&format=png';
+import Avator_48_PNG from '$assets/avatar.png?w=48&h=48&format=png';
+import Avator_96_PNG from '$assets/avatar.png?w=96&h=96&format=png';
+import Avator_192_PNG from '$assets/avatar.png?w=192&h=192&format=png';
+import Avator_512_PNG from '$assets/avatar.png?w=512&h=512&format=png';
 
 export const siteConfig: Site.Config = {
   url: 'https://svelte-qwer.vercel.app/',
@@ -23,13 +23,13 @@ export const siteConfig: Site.Config = {
   author: {
     name: 'John Doe',
     status: '❤️',
-    avator: Avator,
-    avator_32: Avator_32,
-    avator_128: Avator_128,
-    avator_48_png: Avator_48_PNG,
-    avator_96_png: Avator_96_PNG,
-    avator_192_png: Avator_192_PNG,
-    avator_512_png: Avator_512_PNG,
+    avatar: Avator,
+    avatar_32: Avator_32,
+    avatar_128: Avator_128,
+    avatar_48_png: Avator_48_PNG,
+    avatar_96_png: Avator_96_PNG,
+    avatar_192_png: Avator_192_PNG,
+    avatar_512_png: Avator_512_PNG,
     website: 'https://github.com/kwchang0831/svelte-QWER',
     github: 'https://github.com/kwchang0831',
     email: 'contact@kwchang0831.dev',

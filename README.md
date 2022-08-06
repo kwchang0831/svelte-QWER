@@ -1,3 +1,5 @@
 # svelte-QWER
 
 WIP
+
+## CREDITS

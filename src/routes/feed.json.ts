@@ -15,13 +15,13 @@ const render = async () => {
     home_page_url: siteConfig.url,
     feed_url: `${siteConfig.url}/feed.json`,
     description: siteConfig.description,
-    icon: siteConfig.author.avator,
+    icon: siteConfig.author.avatar,
     favicon: `${siteConfig.url}/favicon.png`,
     authors: [
       {
         name: siteConfig.author.name,
         url: siteConfig.author.github,
-        avatar: siteConfig.author.avator,
+        avatar: siteConfig.author.avatar,
       },
     ],
     language: siteConfig.lang ?? 'en',
