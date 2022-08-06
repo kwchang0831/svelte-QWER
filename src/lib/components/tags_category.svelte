@@ -9,7 +9,9 @@
   export let expanded = false;
 
   export let data: Tags.Category;
-  const tags = data.tags?.sort((a, b) => String(a.name).localeCompare(String(b.name), 'zh-u-co-zhuyin'));
+  const tags = data.tags?.sort((a, b) => {
+    return String(a.name).localeCompare(String(b.name), 'zh-u-co-zhuyin');
+  });
 </script>
 
 {#if data.name !== 'tags'}

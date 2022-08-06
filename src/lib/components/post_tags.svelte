@@ -17,10 +17,10 @@
         const [key, value] = Object.entries(c)[0];
         if (Array.isArray(value)) {
           return value.map((v) => {
-            return { category: key, name: v, url: `/?${key}=${v}` };
+            return { category: key, name: v, url: `/?tags-${key}=${v}` };
           });
         }
-        return { category: key, name: value, url: `/?${key}=${value}` };
+        return { category: key, name: value, url: `/?tags-${key}=${value}` };
       })
       .flat();
   });

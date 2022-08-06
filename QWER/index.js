@@ -63,7 +63,7 @@ const convertFilePath = (file) => {
     destPath[destPath.length - 1] = destPath[destPath.length - 1].replace(/.md$/i, '.svelte');
     p2Rm = path.resolve(Config.RouteFolder, destPath.join(path.sep));
   } else if (ImageConfig.SupportedImageFormat.includes(ext)) {
-    p2Rm = path.join(Config.targetAssetsFolder, destPath.join('/'));
+    p2Rm = path.join(Config.AssetsFolder, destPath.join('/'));
   } else {
     p2Rm = path.resolve(Config.StaticFolder, destPath.join(path.sep));
   }
@@ -144,7 +144,7 @@ const convertPathToSlug = (file) => {
       destPath[destPath.length - 1] = destPath[destPath.length - 1].replace(/.md$/i, '');
     }
     _p = `/${destPath.join(path.sep)}`;
-  } else if (Config.ImageConfig.SupportedImageFormat.includes(ext)) {
+  } else if (ImageConfig.SupportedImageFormat.includes(ext)) {
     _p = path.join(Config.AssetsFolder, destPath.join('/'));
   }
   return [ext, _p];
@@ -360,6 +360,10 @@ switch (process.argv[2]) {
     {
       let dataFolderwatcher = chokidar.watch(Config.DataFolder, {
         ignored: (file) => path.basename(file).startsWith('.'),
+        awaitWriteFinish: {
+          stabilityThreshold: 1000,
+          pollInterval: 100,
+        },
       });
       let inited = false;
       dataFolderwatcher
@@ -382,10 +386,12 @@ switch (process.argv[2]) {
         .on('change', (file) => {
           log('cyan', '[DATA] File Updated', file);
           const slug = convertPathToSlug(file);
-          if (slug) {
-            const tags2rm = allPosts.get(slug)?.tags;
-            allPosts.delete(slug);
-            allTags.delete(tags2rm);
+          if (slug[1]) {
+            if (slug[0] === 'md') {
+              const tags2rm = allPosts.get(slug)?.tags;
+              allPosts.delete(slug);
+              allTags.delete(tags2rm);
+            }
           }
           processFile(file)?.then((f) => {
             if (typeof f === 'object') {
@@ -393,6 +399,10 @@ switch (process.argv[2]) {
               allTags.set(f['tags']);
               if (inited) {
                 generateMetaFiles();
+              }
+            } else if (typeof f === 'boolean') {
+              if (inited) {
+                generateAssetFile();
               }
             }
           });
@@ -434,6 +444,10 @@ switch (process.argv[2]) {
 
       const publicFolderwatcher = chokidar.watch(Config.PublicFolder, {
         ignored: (file) => path.basename(file).startsWith('.'),
+        awaitWriteFinish: {
+          stabilityThreshold: 1000,
+          pollInterval: 100,
+        },
       });
       publicFolderwatcher
         .on('add', (file) => {

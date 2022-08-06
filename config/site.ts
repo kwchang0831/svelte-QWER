@@ -17,7 +17,7 @@ export const siteConfig: Site.Config = {
   url: 'https://svelte-qwer.vercel.app/',
   title: 'QWER',
   subtitle: '🚀 QWER - Built using Svelte with ❤',
-  description: '🚀 QWER - Full-Featured Blog Starter, Built using Svelte with ❤',
+  description: '🚀 QWER - Awesome Blog Starter, Built using Svelte with ❤',
   lang: 'en',
   since: 2022,
   author: {

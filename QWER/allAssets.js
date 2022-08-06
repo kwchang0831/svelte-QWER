@@ -56,7 +56,7 @@ export const allAssets = (() => {
       output.map((e) => {
         mapData.push([e[0], {}]);
 
-        let imgPath = `${process.cwd()}/${path.join(Config.DataFolder, e[0])}`;
+        let imgPath = path.join(process.cwd(), path.join(Config.DataFolder, e[0]));
         let imgMeta;
         if (existsSync(imgPath)) {
           imgMeta = probe.sync(readFileSync(imgPath));

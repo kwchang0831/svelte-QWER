@@ -1,7 +1,7 @@
 {
   "extends": "./.svelte-kit/tsconfig.json",
   "compilerOptions": {
-    "target": "es2020",
+    "outDir": "build",
     "allowJs": true,
     "checkJs": true,
     "esModuleInterop": true,
@@ -28,5 +28,6 @@
       "$static/*": ["static/*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build/**/*"]
 }

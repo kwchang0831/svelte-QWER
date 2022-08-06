@@ -66,7 +66,7 @@
       {width}
       {height} />
   {/if}
-  <figcaption class={captionClass ?? 'italic op75 text-center'}>
+  <figcaption class={captionClass ?? 'italic op70 text-center'}>
     <slot />
   </figcaption>
 </figure>

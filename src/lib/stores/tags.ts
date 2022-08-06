@@ -2,14 +2,23 @@ import { readable, writable } from 'svelte/store';
 import type { Tags } from '$lib/types/tags';
 
 import tagsjson from '$generated/tags.json';
-const tags = Object.entries(tagsjson).map((e: [string, object]) => {
-  return {
-    name: e[0],
-    tags: Object.entries(e[1]).map((c) => {
-      return { name: c[0], category: e[0] };
-    }),
-  };
-});
+const tags = Object.entries(tagsjson)
+  .map((e: [string, object]) => {
+    return {
+      name: e[0],
+      tags: Object.entries(e[1]).map((c) => {
+        return { name: c[0], category: e[0] };
+      }),
+    };
+  })
+  .sort((a, b) => {
+    const aIsTags = a.name === 'tags';
+    const bIsTags = b.name === 'tags';
+    if (aIsTags && bIsTags) return 0;
+    if (aIsTags) return -1;
+    if (bIsTags) return 1;
+    return String(a.name).localeCompare(String(b.name), 'zh-u-co-zhuyin');
+  });
 
 export const tagsAll = readable(tags);
 

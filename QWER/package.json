@@ -15,6 +15,7 @@
     "limax": "^3.0.0",
     "lz-string": "^1.4.4",
     "marked": "^4.0.18",
+    "prism-svelte": "^0.5.0",
     "prismjs": "^1.28.0",
     "probe-image-size": "^7.2.3",
     "to-vfile": "^7.2.3"

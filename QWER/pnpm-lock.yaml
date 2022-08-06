@@ -9,6 +9,7 @@ specifiers:
   limax: ^3.0.0
   lz-string: ^1.4.4
   marked: ^4.0.18
+  prism-svelte: ^0.5.0
   prismjs: ^1.28.0
   probe-image-size: ^7.2.3
   to-vfile: ^7.2.3
@@ -22,6 +23,7 @@ devDependencies:
   limax: 3.0.0
   lz-string: 1.4.4
   marked: 4.0.18
+  prism-svelte: 0.5.0
   prismjs: 1.28.0
   probe-image-size: 7.2.3
   to-vfile: 7.2.3
@@ -529,6 +531,10 @@ packages:
   /picomatch/2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
+    dev: true
+
+  /prism-svelte/0.5.0:
+    resolution: {integrity: sha512-db91Bf3pRGKDPz1lAqLFSJXeW13mulUJxhycysFpfXV5MIK7RgWWK2E5aPAa71s8TCzQUXxF5JOV42/iOs6QkA==}
     dev: true
 
   /prismjs/1.28.0:

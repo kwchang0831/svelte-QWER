@@ -1,18 +1,19 @@
-import { Config, ImageConfig } from '../config/QWER.confitg.js';
+import { ImageConfig } from '../config/QWER.confitg.js';
 import { marked } from 'marked';
 import PrismJS from 'prismjs';
 import 'prismjs/components/prism-bash.min.js';
-import 'prismjs/components/prism-shell-session.min.js';
 import 'prismjs/components/prism-powershell.min.js';
+import 'prism-svelte';
 import slug from 'limax';
 import path from 'node:path';
 import { toc } from './toc.js';
+import { footnotes } from './footnotes.js';
 
 let _toc;
 
 export const languages = {
   shell: 'bash',
-  sh: 'shell-session',
+  sh: 'bash',
   powershell: 'powershell',
   bash: 'bash',
   env: 'bash',
@@ -23,27 +24,6 @@ export const languages = {
   diff: 'diff',
   ts: 'typescript',
   '': '',
-};
-
-const footnoteMatch = /^\[\^([^\]]+)\]:([\s\S]*)$/;
-const referenceMatch = /\[\^([^\]]+)\](?!\()/g;
-const referencePrefix = 'marked-fnref';
-const footnotePrefix = 'marked-fn';
-const footnoteTemplate = (ref, text) => {
-  return `<sup id="${footnotePrefix}:${ref}">${ref}</sup>${text}`;
-};
-const referenceTemplate = (ref) => {
-  return `<sup id="${referencePrefix}:${ref}"><a href="#${footnotePrefix}:${ref}">${ref}</a></sup>`;
-};
-const interpolateReferences = (text) => {
-  return text.replace(referenceMatch, (_, ref) => {
-    return referenceTemplate(ref);
-  });
-};
-const interpolateFootnotes = (text) => {
-  return text.replace(footnoteMatch, (_, value, text) => {
-    return footnoteTemplate(value, text);
-  });
 };
 
 export const mdify = (data, basePath) => {
@@ -152,6 +132,7 @@ export const mdify = (data, basePath) => {
 
       lines = lines.split(/\n/);
 
+      // TODO: Could potentially break HTML tag open and close sequences, needs fix
       for (let i = 0; i < lines.length; i += 1) {
         const classes = [...linesClass[i]].join(' ');
         lines[i] =
@@ -234,9 +215,9 @@ export const mdify = (data, basePath) => {
     paragraph(text) {
       // let isTeXInline     = /\$(.*)\$/g.test(text)
       // let isTeXLine       = /^\$\$(\s*.*\s*)\$\$$/.test(text)
-      return marked.Renderer.prototype.paragraph.apply(null, [interpolateReferences(interpolateFootnotes(text))]);
 
-      // return `<p>${text}</p>\n`;
+      text = footnotes.parseReferences(footnotes.parseFootnotes(text));
+      return `<p>${text}</p>\n`;
     },
 
     table(header, body) {

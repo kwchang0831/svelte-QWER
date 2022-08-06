@@ -80,10 +80,16 @@
         <div class="">{postPublishedStr}</div>
         <h2 class="text-2xl font-bold" itemprop="name headline">
           <a sveltekit:prefetch href={data.slug} class="title-link-orange-500-orange-500" itemprop="url">
-            {data.title}
+            {#if data.title}
+              {data.title}
+            {:else}
+              No Title
+            {/if}
           </a>
         </h2>
-        <p class="font-medium line-clamp-2" itemprop="description">{data.summary}</p>
+        {#if data.summary}
+          <p class="font-medium line-clamp-2" itemprop="description">{data.summary}</p>
+        {/if}
       </div>
     {/if}
   </article>
