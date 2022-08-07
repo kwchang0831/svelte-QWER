@@ -8,6 +8,7 @@ import slug from 'limax';
 import path from 'node:path';
 import { toc } from './toc.js';
 import { footnotes } from './footnotes.js';
+import { spoiler } from './spoiler.js';
 
 let _toc;
 
@@ -216,6 +217,7 @@ export const mdify = (data, basePath) => {
       // let isTeXInline     = /\$(.*)\$/g.test(text)
       // let isTeXLine       = /^\$\$(\s*.*\s*)\$\$$/.test(text)
 
+      text = spoiler.parseSpoiler(text);
       text = footnotes.parseReferences(footnotes.parseFootnotes(text));
       return `<p>${text}</p>\n`;
     },

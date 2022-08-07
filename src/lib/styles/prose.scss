@@ -87,6 +87,10 @@ body {
       transform: scaleX(1);
     }
   }
+
+  .spoiler {
+    --at-apply: 'blur-sm hover:blur-none active:blur-none transition-all select-all';
+  }
 }
 
 body.dark {

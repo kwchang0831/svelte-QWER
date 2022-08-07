@@ -1,7 +1,7 @@
 ---
 title: Hello World 👋
-description: A blogpost demonstrates basics of 🚀 QWER - an Awesome Blog Starter, Built using Svelte with ❤
-summary: 🎉 Let's start a brand new and awesome blog...
+description: Demonstrates basics of 🚀 QWER - an Awesome Blog Starter, Built using Svelte with ❤
+summary: 🎉 Let's start a brand new awesome blog...
 published: 2022-08-07
 cover: ./cover.jpg
 coverCaption: Photo by <a href="https://unsplash.com/@justinveenema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Justin Veenema</a> on <a href="https://unsplash.com/s/photos/motivation?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
@@ -12,6 +12,8 @@ tags:
 ---
 
 ## Begining
+
+||Spoiler||
 
 [QWER](https://www.github.com/kwchang0831/svelte-QWER) is an awesoem blog starter. Built using Svelte with ❤.
 
