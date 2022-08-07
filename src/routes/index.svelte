@@ -8,7 +8,9 @@
 
   import { page } from '$app/stores';
   import { onMount, onDestroy } from 'svelte';
-  import Post from '$lib/layouts/post.svelte';
+
+  // @ts-ignore
+  import DefaultOGCard_512_512 from '$assets/default_og_card.jpg?w=512&h=512&format=webp';
 
   onMount(async () => {
     $page.url.searchParams.forEach((v, k) => {
@@ -33,6 +35,24 @@
   <title>{siteConfig.title}</title>
   <meta name="description" content={siteConfig.description} />
   <link rel="canonical" href={siteConfig.url} />
+
+  <!-- OpenGraph -->
+  <meta property="og:site_name" content={siteConfig.title} />
+  <meta property="og:locale" content={siteConfig.lang} />
+
+  <meta property="og:title" content={siteConfig.title} />
+  <meta property="og:description" content={siteConfig.description} />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={siteConfig.url} />
+
+  {#if siteConfig.author.avatar}
+    <meta property="og:image" content={siteConfig.author.avatar} />
+    <meta name="twitter:card" content="summary_large_image" />
+  {:else}
+    <meta property="og:image" content={new URL(DefaultOGCard_512_512, $page.url.origin).href} />
+    <meta name="twitter:card" content="summary" />
+  {/if}
 </svelte:head>
 
 <div class="flex flex-nowrap justify-center flex-col items-center xl:(flex-row items-stretch)">

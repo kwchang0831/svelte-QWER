@@ -23,7 +23,8 @@
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check --plugin-search-dir=. . && eslint .",
     "format": "prettier --write --plugin-search-dir=. .",
-    "postinstall": "cd QWER && pnpm i",
+    "postinstall:QWER": "cd QWER && pnpm i",
+    "postinstall": "npm-run-all -s postinstall:QWER",
     "up:deps": "pnpm up -L -i",
     "up:QWER-deps": "cd QWER && pnpm up -L -i",
     "up": "npm-run-all -s up:deps up:QWER-deps"

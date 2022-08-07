@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import { assets } from '$generated/assets';
   import type { Post } from '$lib/types/post';
   import { siteConfig } from '$config/site';
 
@@ -28,7 +29,7 @@
   <meta property="article:modified_time" content={post.updated} />
 
   {#if post.cover}
-    <meta property="og:image" content={new URL(post.cover, siteConfig.url).href} />
+    <meta property="og:image" content={$assets.get(post.cover)?.original} />
     <meta name="twitter:card" content="summary_large_image" />
   {:else}
     <meta property="og:image" content={new URL(DefaultOGCard_512_512, $page.url.origin).href} />
