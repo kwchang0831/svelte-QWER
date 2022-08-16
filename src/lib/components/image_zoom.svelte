@@ -46,7 +46,7 @@
       <img
         data-zoomable
         itemprop="image"
-        class="z-50 m-auto md:(rounded-2xl shadow-xl) {className ?? 'w-full h-auto aspect-auto object-cover'}"
+        class="z-50 m-auto md:(rounded-2xl shadow-xl) {className ?? 'h-full w-auto aspect-auto object-cover'}"
         {decoding}
         {loading}
         src={asset.original}
@@ -58,7 +58,7 @@
     <img
       data-zoomable
       itemprop="image"
-      class="z-50 m-auto md:(rounded-2xl shadow-xl) {className ?? 'w-full h-auto aspect-auto object-cover'}"
+      class="z-50 m-auto md:(rounded-2xl shadow-xl) {className ?? 'h-full w-auto aspect-auto object-cover'}"
       {decoding}
       {loading}
       {src}

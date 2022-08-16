@@ -5,10 +5,10 @@ summary: 🎉 Let's start a brand new awesome blog...
 published: 2022-08-07
 cover: ./cover.jpg
 coverCaption: Photo by <a href="https://unsplash.com/@justinveenema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Justin Veenema</a> on <a href="https://unsplash.com/s/photos/motivation?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags:
-  - Language: English
-  - Tech Stack: [Svelte, SvelteKit]
-  - [QWER]
+# tags:
+#   - Language: English
+#   - Tech Stack: [Svelte, SvelteKit]
+#   - [QWER]
 ---
 
 ## Beginning

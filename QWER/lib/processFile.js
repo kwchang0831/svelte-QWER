@@ -177,7 +177,7 @@ const _processImageAssets = (file, generateMeta) => {
 };
 
 const _processStaticAseets = (file) => {
-  const _targetPath = join(Config.StaticFolder, file);
+  const _targetPath = convertPathForInternalUse(file);
   cpSync(file, _targetPath);
   log('green', 'Static File Copied', _targetPath);
 

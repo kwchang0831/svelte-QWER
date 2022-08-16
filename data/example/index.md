@@ -5,11 +5,15 @@ summary: 📝 Showcase basic syntax of Markdown and HTML
 published: 2022-08-08
 cover: ./cover.jpg
 coverCaption: Photo by <a href="https://unsplash.com/@etiennegirardet?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Etienne Girardet</a> on <a href="https://unsplash.com/s/photos/motivation?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags:
-  - Language: English
-  - Tech Stack: [Markdown]
-  - [QWER]
+# tags:
+#   - Language: English
+#   - Tech Stack: [Markdown]
+#   - [QWER]
 ---
+
+<script lang="ts">
+  import Youtube from '$lib/custom/youtube.svelte'
+</script>
 
 ## Headings
 
@@ -71,14 +75,6 @@ Here is a footnote reference. [^1]
 
 This is a long note. [^longnote]
 
-## Image
-
-![Example1](./example1.jpg)
-
-<ImgZ src="example/example1.jpg" alt="Example1" class="h-full object-cover">
-Photo by <a href="https://unsplash.com/@willy24?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ioana Tabarcea</a> on <a href="https://unsplash.com/s/photos/morning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-</ImgZ>
-
 ## Paragraphs
 
 **Lorem Ipsum** dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -122,6 +118,34 @@ class Greeter {
 + var str = greeter.greet();
 - console.log("Test");
 ```
+
+## Image
+
+![Example1](./example1.jpg)
+
+<ImgZ src="example/example1.jpg" alt="Example1" class="h-full object-cover">
+Photo by <a href="https://unsplash.com/@willy24?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ioana Tabarcea</a> on <a href="https://unsplash.com/s/photos/morning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</ImgZ>
+
+## GIF & Videos
+
+![MP4 Example](./example2.mp4)
+
+![GIF/WEBP Example](./example3.webp)
+
+## Youtube / Custom Svelte Component
+
+<Youtube id="ZXsQAXx_ao0"/>
+
+## Keyboard
+
+<kbd>↑</kbd> <kbd>↑</kbd> <kbd>↓</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> <kbd>←</kbd> <kbd>→</kbd> <kbd>B</kbd> <kbd>A</kbd> <kbd>Start</kbd>
+
+<kbd>Ctl + C</kbd> <kbd>Ctl + V</kbd>
+
+## Misc
+
+<sup>Lorem</sup> <sub>ipsum</sub> <cite>dolor sit amet</cite>, <acronym title="Consectetur Adipiscing Elit">consectetur adipiscing elit</acronym>, <abbr title="Aliqua">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</abbr>. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 ---
 

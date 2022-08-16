@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { fade } from 'svelte/transition';
+  import { fly } from 'svelte/transition';
   import { siteConfig } from '$config/site';
   import tippy from '$lib/actions/tippy';
 
@@ -7,7 +7,11 @@
   export { className as class };
 </script>
 
-<section in:fade={{ duration: 300, delay: 600 }} out:fade={{ duration: 300 }} id="index-profile" class={className}>
+<section
+  in:fly={{ x: 25, duration: 300, delay: 300 }}
+  out:fly={{ x: 25, duration: 300 }}
+  id="index-profile"
+  class={className}>
   <div class="relative group">
     <figure>
       {#if siteConfig.author.avatar && siteConfig.author.avatar_128}
