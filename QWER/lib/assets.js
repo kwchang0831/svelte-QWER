@@ -1,15 +1,15 @@
-import { Config, ImageConfig } from '../config/QWER.confitg.js';
+import { Config, ImageConfig } from '../../config/QWER.confitg.js';
 import path from 'node:path';
 import probe from 'probe-image-size';
 import { existsSync, readFileSync } from 'node:fs';
 
-export const allAssets = (() => {
-  let _allAssets = new Set();
+export const assets = (() => {
+  let _assets = new Set();
 
   const _gen_images = () => {
     let m = new Map();
 
-    Array.from(_allAssets).map((e) => {
+    Array.from(_assets).map((e) => {
       let original = `${ImageConfig.OriginalImageFolder}${e}`;
       let banner = `${original}?w=${ImageConfig.BannerImage.width}${
         ImageConfig.BannerImage.height ? `&h=${ImageConfig.BannerImage.height}` : ''
@@ -33,19 +33,19 @@ export const allAssets = (() => {
   };
   return {
     set: (slug) => {
-      _allAssets.add(slug);
+      _assets.add(slug);
     },
     has: (slug) => {
-      return _allAssets.has(slug);
+      return _assets.has(slug);
     },
     delete: (slug) => {
-      _allAssets.delete(slug);
+      _assets.delete(slug);
     },
     raw: () => {
-      return _allAssets;
+      return _assets;
     },
     clear: () => {
-      _allAssets.clear();
+      _assets.clear();
     },
     generate_store: () => {
       let id = 0;
@@ -53,7 +53,7 @@ export const allAssets = (() => {
       const imports = [];
       let mapData = [];
 
-      output.map((e) => {
+      output.forEach((e) => {
         mapData.push([e[0], {}]);
 
         let imgPath = path.join(process.cwd(), path.join(Config.DataFolder, e[0]));

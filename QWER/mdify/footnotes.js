@@ -1,8 +1,8 @@
 export const footnotes = (() => {
   const footnoteMatch = /^\[\^([^\]]+)\]:([\s\S]*)$/;
   const referenceMatch = /\[\^([^\]]+)\](?!\()/g;
-  const referencePrefix = 'marked-fnref';
-  const footnotePrefix = 'marked-fn';
+  const referencePrefix = 'fnref';
+  const footnotePrefix = 'fn';
 
   const _footnoteTemplate = (ref, text) => {
     return `<sup id="${footnotePrefix}:${ref}">${ref}</sup>${text}`;

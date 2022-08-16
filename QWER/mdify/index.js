@@ -1,14 +1,20 @@
-import { ImageConfig } from '../config/QWER.confitg.js';
+import { ImageConfig } from '../../config/QWER.confitg.js';
 import { marked } from 'marked';
 import PrismJS from 'prismjs';
 import 'prismjs/components/prism-bash.min.js';
 import 'prismjs/components/prism-powershell.min.js';
+import 'prismjs/components/prism-markdown.min.js';
+import 'prismjs/components/prism-typescript.min.js';
 import 'prism-svelte';
 import slug from 'limax';
 import path from 'node:path';
 import { toc } from './toc.js';
 import { footnotes } from './footnotes.js';
 import { spoiler } from './spoiler.js';
+
+import probe from 'probe-image-size';
+import { existsSync, readFileSync } from 'node:fs';
+import { Config } from '../../config/QWER.confitg.js';
 
 let _toc;
 
@@ -21,9 +27,10 @@ export const languages = {
   html: 'markup',
   svelte: 'svelte',
   js: 'javascript',
+  ts: 'typescript',
   css: 'css',
   diff: 'diff',
-  ts: 'typescript',
+  md: 'markdown',
   '': '',
 };
 
@@ -60,6 +67,14 @@ export const mdify = (data, basePath) => {
   }
 
   const default_renderer = {
+    /**
+     * Options:
+     *  - title
+     *  - diff
+     *  - lineStart
+     *  - hlLines: 1-3, 5
+     *  - showLineNumber
+     */
     code(code, infostring) {
       const options = {};
       let output = code;
@@ -95,11 +110,11 @@ export const mdify = (data, basePath) => {
 
         lineStatus[i] = ' ';
         if (options['diff']) {
-          lines[i] = lines[i].replace(/^[+|-]/, (match) => {
-            if (match === '+') {
+          lines[i] = lines[i].replace(/^[+|-] /, (match) => {
+            if (match === '+ ') {
               linesClass[i].add('line-addition');
               lineStatus[i] = '+';
-            } else if (match === '-') {
+            } else if (match === '- ') {
               linesClass[i].add('line-subtraction');
               lineStatus[i] = '-';
             }
@@ -154,13 +169,11 @@ export const mdify = (data, basePath) => {
 
       lines = lines.join('');
 
-      const escapeTest = /[{|}|(|)]/g;
+      const escapeTest = /[`]/g;
       const toEscape = {
-        '{': '&lcub',
-        '}': '&rcub',
-        '(': '&lpar',
-        ')': '&rpar',
+        '`': '&#96;',
       };
+
       lines = lines.replace(escapeTest, (c) => toEscape[c]);
 
       return (
@@ -169,9 +182,9 @@ export const mdify = (data, basePath) => {
         }">` +
         `${options['title'] ? `<h2 class="code-title">${options['title']}</h2>` : ''}` +
         `<CodeCopy><pre><code${language ? ` class="language-${language}"` : ''}>` +
-        `${lines}` +
-        '</code></pre></CodeCopy>' +
-        '</div>\n'
+        `{@html \`${lines}\`}` +
+        `</code></pre></CodeCopy>` +
+        `</div>\n`
       );
     },
 
@@ -206,11 +219,11 @@ export const mdify = (data, basePath) => {
     },
 
     listitem(text) {
-      return '<li>' + text + '</li>\n';
+      return `<li>${text}</li>\n`;
     },
 
     checkbox(checked) {
-      return '<input ' + (checked ? 'checked="" ' : '') + 'disabled="" type="checkbox"' + '' + '> ';
+      return `<input type="checkbox" ${checked ? 'checked' : ''}>`;
     },
 
     paragraph(text) {
@@ -234,8 +247,7 @@ export const mdify = (data, basePath) => {
 
     tablecell(content, flags) {
       const type = flags.header ? 'th' : 'td';
-      const tag = flags.align ? '<' + type + ' align="' + flags.align + '">' : '<' + type + '>';
-      return tag + content + '</' + type + '>\n';
+      return `<${type} ${flags.align ? `class="text-${flags.align}"` : ''}>${content}</${type}>\n`;
     },
 
     // span level renderer
@@ -278,7 +290,7 @@ export const mdify = (data, basePath) => {
       }>${text}</a>`;
     },
 
-    image(href, text, alt) {
+    image(href, title, alt) {
       if (href === null) {
         return alt;
       }
@@ -290,26 +302,36 @@ export const mdify = (data, basePath) => {
         href = new URL(href).href;
         if (alt === '') alt = href;
         if (ImageConfig.SupportedImageFormat.includes(ext)) {
-          return `<ImgZ src="${href}" alt="${alt}">${text ? `${text}` : ''}</ImgZ>`;
+          return `<ImgZ src="${href}" alt="${alt}">${title ? `${title}` : ''}</ImgZ>`;
         }
         if (ImageConfig.SupportedVideoFormat.includes(ext)) {
-          if (ext === 'mp4') return `<Video mp4="${href}" id="${alt}" ${text ? `title="${text}"` : ''}/>`;
-          if (ext === 'webm') return `<Video webm="${href}" id="${alt}" ${text ? `title="${text}"` : ''}/>`;
+          if (ext === 'mp4') return `<Video mp4="${href}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
+          if (ext === 'webm') return `<Video webm="${href}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
         }
       } catch (_) {
         href = path.join(_basePath, href);
         if (alt === '') alt = href;
 
         if (ImageConfig.SupportedImageFormat.includes(ext)) {
-          return `<ImgZ src="${href}" alt="${alt}">${text ? `${text}` : ''}</ImgZ>`;
+          let imgPath = path.join(process.cwd(), path.join(Config.DataFolder, href));
+          let imgMeta;
+          if (existsSync(imgPath)) {
+            imgMeta = probe.sync(readFileSync(imgPath));
+            return `<ImgZ src="${href}" alt="${alt}" width="${imgMeta?.width}" height="${imgMeta?.height}">${
+              title ? `${title}` : ''
+            }</ImgZ>`;
+          }
+          return `<ImgZ src="${href}" alt="${alt}">${title ? `${title}` : ''}</ImgZ>`;
         }
         if (ImageConfig.SupportedVideoFormat.includes(ext)) {
-          if (ext === 'mp4') return `<Video mp4="${href}" id="${alt}" ${text ? `title="${text}"` : ''}/>`;
-          if (ext === 'webm') return `<Video webm="${href}" id="${alt}" ${text ? `title="${text}"` : ''}/>`;
+          if (ext === 'mp4') return `<Video mp4="${href}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
+          if (ext === 'webm') return `<Video webm="${href}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
         }
       }
 
-      return `<figure><img src="${href}" alt="${alt}"></img>${text ? `<figcaption>${text}</figcaption>` : ''}</figure>`;
+      return `<figure><img src="${href}" alt="${alt}"></img>${
+        title ? `<figcaption>${title}</figcaption>` : ''
+      }</figure>`;
     },
 
     text(text) {

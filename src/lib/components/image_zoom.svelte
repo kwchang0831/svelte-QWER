@@ -29,7 +29,7 @@
   });
 </script>
 
-<figure class="flex flex-col gap2">
+<figure class="mx8 my6">
   {#if asset}
     <picture>
       {#if resolutions}
@@ -46,7 +46,7 @@
       <img
         data-zoomable
         itemprop="image"
-        class="z-50 {className ?? 'w-full h-auto aspect-auto object-cover md:(rounded-2xl shadow-xl)'}"
+        class="z-50 m-auto md:(rounded-2xl shadow-xl) {className ?? 'w-full h-auto aspect-auto object-cover'}"
         {decoding}
         {loading}
         src={asset.original}
@@ -58,7 +58,7 @@
     <img
       data-zoomable
       itemprop="image"
-      class="z-50 {className ?? 'w-full h-auto aspect-auto object-cover md:(rounded-2xl shadow-xl)'}"
+      class="z-50 m-auto md:(rounded-2xl shadow-xl) {className ?? 'w-full h-auto aspect-auto object-cover'}"
       {decoding}
       {loading}
       {src}
@@ -66,7 +66,7 @@
       {width}
       {height} />
   {/if}
-  <figcaption class={captionClass ?? 'italic op70 text-center'}>
+  <figcaption class={captionClass ?? 'italic op70 text-center mt2'}>
     <slot />
   </figcaption>
 </figure>

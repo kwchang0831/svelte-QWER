@@ -8,7 +8,7 @@
   "bugs": "https://github.com/kwchang0831/svelte-qwer/issues",
   "author": "kwchang0831",
   "scripts": {
-    "dev:sveltekit": "MODE=development vite dev",
+    "dev:sveltekit": "MODE=development vite dev --host",
     "dev:QWER": "node --no-warnings QWER watch",
     "dev": "npm-run-all -p -r dev:QWER dev:sveltekit",
     "build:sveltekit": "vite build",

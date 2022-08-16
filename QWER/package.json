@@ -1,11 +1,11 @@
 {
   "name": "@kwchang0831/qwer",
   "version": "1.0.0",
-  "description": "",
+  "description": "Convert markdwon and asset files for svelte-qwer internel use.",
   "main": "index.js",
-  "keywords": [],
   "author": "kwchang0831",
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
     "chalk": "^5.0.1",
     "chokidar": "^3.5.3",
@@ -19,6 +19,5 @@
     "prismjs": "^1.28.0",
     "probe-image-size": "^7.2.3",
     "to-vfile": "^7.2.3"
-  },
-  "type": "module"
+  }
 }

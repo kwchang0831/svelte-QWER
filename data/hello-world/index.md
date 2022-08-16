@@ -11,9 +11,7 @@ tags:
   - [QWER]
 ---
 
-## Begining
-
-||Spoiler||
+## Beginning
 
 [QWER](https://www.github.com/kwchang0831/svelte-QWER) is an awesoem blog starter. Built using Svelte with ❤.
 

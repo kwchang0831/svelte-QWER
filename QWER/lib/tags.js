@@ -1,7 +1,7 @@
-import { Config } from '../config/QWER.confitg.js';
+import { Config } from '../../config/QWER.confitg.js';
 
-export const allTags = (() => {
-  let _alltags = new Map();
+export const tags = (() => {
+  let _tags = new Map();
 
   function _set(m, tags) {
     if (!tags) return;
@@ -121,22 +121,22 @@ export const allTags = (() => {
 
   return {
     set: (tags) => {
-      _set(_alltags, tags);
+      _set(_tags, tags);
     },
     delete: (tags) => {
-      _del(_alltags, tags);
+      _del(_tags, tags);
     },
     get: (k) => {
-      return _alltags.get(k);
+      return _tags.get(k);
     },
     clear: () => {
-      _alltags.clear();
+      _tags.clear();
     },
     raw: () => {
-      return _alltags;
+      return _tags;
     },
     json: () => {
-      return _json(_alltags);
+      return _json(_tags);
     },
     read: (str) => {
       const _input = JSON.parse(str, (_, v) => {
@@ -145,8 +145,8 @@ export const allTags = (() => {
         }
         return v;
       });
-      _alltags.clear();
-      _alltags = _input;
+      _tags.clear();
+      _tags = _input;
     },
   };
 })();
