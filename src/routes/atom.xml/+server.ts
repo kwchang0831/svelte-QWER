@@ -77,9 +77,10 @@ ${_allposts
 </feed>
 `;
 
-export const GET: RequestHandler = async () => ({
-  headers: {
-    'Content-Type': 'application/atom+xml; charset=utf-8',
-  },
-  body: await render(),
-});
+export const GET: RequestHandler = async () => {
+  return new Response(await render(), {
+    headers: {
+      'Content-Type': 'application/atom+xml; charset=utf-8',
+    },
+  });
+};

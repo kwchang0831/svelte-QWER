@@ -72,7 +72,7 @@ export const dateConfig: Site.DateConfig = {
 };
 
 export const giscusConfig: Giscus.Config = {
-  src: 'https://giscus.kwchang0831.dev/client.js',
+  // src: 'https://giscus.kwchang0831.dev/client.js',
   id: 'giscus-comment',
   repo: 'kwchang0831/svelte-QWER',
   repoId: 'R_kgDOHiLP-g',
@@ -96,19 +96,25 @@ export const navConfig: (DD.Nav | DD.Link)[] = [
         orientation: 1,
         links: [
           {
-            name: 'Introduction',
+            name: 'Hello World',
+            url: '/hello-world',
+            prefetch: true,
           },
           {
-            name: 'Post Example',
+            name: 'Example',
+            url: '/example',
+            prefetch: true,
           },
         ],
       },
       {
         name: 'Me',
-        orientation: 3,
+        orientation: 1,
         links: [
           {
-            name: 'Author',
+            name: '@kwchang0831',
+            url: 'https://github.com/kwchang0831/',
+            target: '_blank',
           },
         ],
       },
@@ -129,10 +135,14 @@ export const mobilenavConfig: DD.Nav = {
       orientation: 1,
       links: [
         {
-          name: 'Introduction',
+          name: 'Hello World',
+          url: '/hello-world',
+          prefetch: true,
         },
         {
-          name: 'Post Example',
+          name: 'Example',
+          url: '/example',
+          prefetch: true,
         },
       ],
     },
@@ -141,7 +151,9 @@ export const mobilenavConfig: DD.Nav = {
       orientation: 1,
       links: [
         {
-          name: 'Author',
+          name: '@kwchang0831',
+          url: 'https://github.com/kwchang0831/',
+          target: '_blank',
         },
       ],
     },

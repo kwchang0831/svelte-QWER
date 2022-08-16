@@ -58,9 +58,9 @@ const render = async () => {
   };
 };
 
-export const GET: RequestHandler = async () => ({
-  headers: {
-    'Content-Type': 'application/feed+json; charset=utf-8',
-  },
-  body: JSON.stringify(await render(), null, 2),
-});
+export const GET: RequestHandler = async () =>
+  new Response(JSON.stringify(await render(), null, 2), {
+    headers: {
+      'Content-Type': 'application/feed+json; charset=utf-8',
+    },
+  });

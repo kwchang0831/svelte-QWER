@@ -102,6 +102,7 @@
                   : ''}">
                 {#if link.url}
                   <a
+                    sveltekit:prefetch={link.prefetch}
                     href={link.url}
                     target={nav.target}
                     on:click={() => {

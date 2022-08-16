@@ -29,7 +29,7 @@
   });
 </script>
 
-<figure class="mx8 my6">
+<figure class="my6">
   {#if asset}
     <picture>
       {#if resolutions}

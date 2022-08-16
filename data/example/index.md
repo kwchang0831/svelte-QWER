@@ -75,7 +75,7 @@ This is a long note. [^longnote]
 
 ![Example1](./example1.jpg)
 
-<ImgZ src="/example/example1.jpg" alt="Example1" class="h-full object-cover">
+<ImgZ src="example/example1.jpg" alt="Example1" class="h-full object-cover">
 Photo by <a href="https://unsplash.com/@willy24?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ioana Tabarcea</a> on <a href="https://unsplash.com/s/photos/morning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 </ImgZ>
 

@@ -22,7 +22,7 @@
 
   import { onMount } from 'svelte';
 
-  const thisPost = $postsAll.get($page.url.pathname) as Post.Post;
+  const thisPost = $postsAll.get($page.routeId ?? '') as Post.Post;
   const prevPost = thisPost.prev ? $postsAll.get(thisPost.prev) : undefined;
   const nextPost = thisPost.next ? $postsAll.get(thisPost.next) : undefined;
   let observer: IntersectionObserver;

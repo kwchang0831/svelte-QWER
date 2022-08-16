@@ -1,14 +1,6 @@
-<script lang="ts" context="module">
-  export const load = async ({ url }: { url: URL }) => {
-    return {
-      props: {
-        path: url.pathname,
-      },
-    };
-  };
-</script>
-
 <script lang="ts">
+  import { page } from '$app/stores';
+
   import '@unocss/reset/sanitize/sanitize.css';
   import '@unocss/reset/sanitize/assets.css';
   import '@unocss/reset/tailwind.css';
@@ -21,15 +13,14 @@
   import Head from '$lib/components/head.svelte';
   import Header from '$lib/components/header.svelte';
   import Footer from '$lib/components/footer.svelte';
-
-  export let path: string;
 </script>
 
 <Head />
 
 <Header />
 
-{#key path}
+<!-- {#key data && data['props']['path']} -->
+{#key $page.url.pathname}
   <div in:fly={{ y: 100, duration: 300, delay: 300 }} out:fly={{ y: -100, duration: 300 }} class="pt-[4rem] min-h-75vh">
     <slot />
   </div>

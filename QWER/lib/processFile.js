@@ -36,25 +36,7 @@ export const processImagePath = (path, slug) => {
   return path;
 };
 
-export const convertPathForInternalUse = (file) => {
-  const _ext = extname(file);
-  const [, ..._destPath] = file.split(sep);
-
-  let _path;
-
-  if (_ext === '.md') {
-    _destPath[_destPath.length - 1] = _destPath[_destPath.length - 1].replace(/.md$/i, '.svelte');
-    _path = resolve(Config.RouteFolder, _destPath.join(sep));
-  } else if (ImageConfig.SupportedImageFormat.includes(_ext.substring(1))) {
-    _path = join(Config.AssetsFolder, _destPath.join('/'));
-  } else {
-    _path = resolve(Config.StaticFolder, _destPath.join(sep));
-  }
-
-  return _path;
-};
-
-export const convertPath = (file) => {
+export const convertPathToSlug = (file) => {
   const _ext = extname(file);
   const [, ..._destPath] = file.split(sep);
 
@@ -65,12 +47,25 @@ export const convertPath = (file) => {
     } else {
       _destPath[_destPath.length - 1] = _destPath[_destPath.length - 1].replace(/.md$/i, '');
     }
-    _slug = `/${_destPath.join(sep)}`;
-  } else if (ImageConfig.SupportedImageFormat.includes(_ext.substring(1))) {
-    _slug = join(Config.AssetsFolder, _destPath.join(sep));
   }
+  _slug = `${_destPath.join(sep)}`;
 
   return [_ext, _slug];
+};
+
+export const convertPathForInternalUse = (file) => {
+  const [_ext, _slug] = convertPathToSlug(file);
+  let _path;
+
+  if (_ext === '.md') {
+    _path = resolve(Config.RouteFolder, _slug, '+page.svelte');
+  } else if (ImageConfig.SupportedImageFormat.includes(_ext.substring(1))) {
+    _path = join(Config.AssetsFolder, _slug);
+  } else {
+    _path = resolve(Config.StaticFolder, _slug);
+  }
+
+  return _path;
 };
 
 const _processMD = (file, generateMeta) => {
@@ -85,7 +80,7 @@ const _processMD = (file, generateMeta) => {
     return true;
   }
 
-  const _slug = convertPath(file)[1];
+  const _slug = convertPathToSlug(file)[1];
   const _matter = matter.read(file);
   const _content = _matter.content;
   const _meta = _matter.data;
@@ -162,16 +157,14 @@ const _processMD = (file, generateMeta) => {
 };
 
 const _processImageAssets = (file, generateMeta) => {
-  const _ext = extname(file);
+  const [_ext, _slug] = convertPathToSlug(file);
 
   if (ImageConfig.SupportedImageFormat.includes(_ext.substring(1))) {
-    const [, ..._destPath] = file.split(sep);
-    const _slug = _destPath.join(sep);
     const _targetPath = join(Config.AssetsFolder, _slug);
     cpSync(file, _targetPath);
     log('green', 'Image File Copied', _targetPath);
 
-    assets.set(`/${_slug}`);
+    assets.set(_slug);
 
     if (generateMeta) {
       genAssetFile();
@@ -196,7 +189,7 @@ export const addDataFolderFile = (file, generateMeta) => {
 };
 
 export const rmDataFolderFile = (file, generateMeta) => {
-  const [_ext, _slug] = convertPath(file);
+  const [_ext, _slug] = convertPathToSlug(file);
 
   if (_ext === '.md') {
     const _tags2Rm = posts.get(_slug)?.tags;
@@ -206,10 +199,7 @@ export const rmDataFolderFile = (file, generateMeta) => {
       genMetaFiles();
     }
   } else if (ImageConfig.SupportedImageFormat.includes(_ext.substring(1))) {
-    const [, ..._destPath] = file.split(sep);
-    const _slug = _destPath.join(sep);
-
-    assets.delete(`/${_slug}`);
+    assets.delete(_slug);
 
     if (generateMeta) {
       genAssetFile();
