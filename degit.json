@@ -1,6 +1,6 @@
 [
   {
     "action": "remove",
-    "files": ["degit.json"]
+    "files": ["degit.json", "netlify.toml", "vercel.json"]
   }
 ]
