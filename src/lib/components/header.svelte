@@ -38,7 +38,9 @@
   let postUpdatedSince: number;
 
   $: curPost = $postsAll.get($page.routeId ?? '');
-  $: postUpdatedSince = new Date(curPost?.updated ?? '').getDate() - new Date(curPost?.published ?? '').getDate();
+  $: postUpdatedSince = Math.ceil(
+    (new Date(curPost?.updated ?? '').getTime() - new Date(curPost?.published ?? '').getTime()) / 86400000,
+  );
 </script>
 
 <svelte:window bind:scrollY />

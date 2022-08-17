@@ -2,7 +2,7 @@
 title: Example Post
 description: Getting started writing with 🚀 QWER - an Awesome Blog Starter, Built using Svelte with ❤
 summary: 📝 Showcase basic syntax of Markdown and HTML
-published: 2022-08-08
+published: 2021-08-08
 cover: ./cover.jpg
 coverCaption: Photo by <a href="https://unsplash.com/@etiennegirardet?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Etienne Girardet</a> on <a href="https://unsplash.com/s/photos/motivation?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags:

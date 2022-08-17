@@ -2,6 +2,7 @@
   import type { Post } from '$lib/types/post';
   import { dateConfig, siteConfig } from '$config/site';
   import ImgZ from '$lib/components/image_zoom.svelte';
+  import tippy from '$lib/actions/tippy';
 
   export let data: Post.Post;
 
@@ -13,11 +14,12 @@
     dateConfig.toUpdatedString.locales,
     dateConfig.toUpdatedString.options,
   );
+  const lastUpdated = Math.ceil((new Date(data.updated).getTime() - new Date(data.published).getTime()) / 86400000);
 </script>
 
 <div class="flex flex-col pt8 mx8">
   <div class="flex justify-between items-center mx--4 md:mx0">
-    <div class="flex items-center gap-1 pl-0 font-bold shrink-0">
+    <div class="flex items-center gap-1 pl-0 shrink-0">
       {#if siteConfig.author.avatar && siteConfig.author.avatar_32}
         <picture>
           <source srcset={siteConfig.author.avatar_32[0]} type="image/avif" />
@@ -33,16 +35,40 @@
         <div
           class="i-akar-icons-question !h-6 !w-6 hover:rotate-[360deg] transition-transform !duration-1000 ease-in-out" />
       {/if}
-      <span>
-        <a rel="author" href={siteConfig.author.github}>{siteConfig.author.name}</a>
+      <span class="font-bold text-base">
+        <a use:tippy aria-label="{siteConfig.author.name}'s Github Page" rel="author" href={siteConfig.author.github}>
+          {siteConfig.author.name}
+        </a>
       </span>
     </div>
-    <time class="dt-published" datetime={data.published} itemprop="datePublished">
-      {postPublishedStr}
-    </time>
-    <time class="hidden dt-updated" datetime={data.updated} itemprop="dateModified">
-      {postUpdatedStr}
-    </time>
+    <div class="flex flex-col gap1 text-right text-sm font-semibold op80">
+      <time
+        use:tippy
+        class="dt-published"
+        aria-label="First published at {new Date(data.published).toLocaleString(dateConfig.toPublishedString.locales, {
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+          timeZone: 'Asia/Taipei',
+        })}"
+        datetime={data.published}
+        itemprop="datePublished">
+        {postPublishedStr}
+      </time>
+      <time class="hidden dt-updated" datetime={data.updated} itemprop="dateModified">
+        {postUpdatedStr}
+      </time>
+      <span
+        use:tippy
+        aria-label="Last updated at {new Date(data.updated).toLocaleString(dateConfig.toPublishedString.locales, {
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+          timeZone: 'Asia/Taipei',
+        })}">
+        Updated: {lastUpdated === 0 ? 'just today' : lastUpdated === 1 ? '1 day ago' : `${lastUpdated} days ago`}
+      </span>
+    </div>
   </div>
 
   <h1 itemprop="name headline" class="text-3xl my4 mx--4 md:mx0">{data.title}</h1>
