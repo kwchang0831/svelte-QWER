@@ -5,7 +5,7 @@
 <br/>
 <h1 align="center">QWER</h1>
 <p align="center">
-使用 Svelte 與用心打造的簡單好用的靜態網站生成器
+使用 Svelte 打造之簡單好用的靜態網站/部落格生成器
 </p>
 <p align="center">
 <a href="README.md"><img src="https://img.shields.io/badge/README-ENGLISH-lightgreen" alt="Readme"></a>
