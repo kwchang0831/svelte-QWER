@@ -1,4 +1,12 @@
-<h1 align="center"> Svelte-QWER </h1>
+<br/>
+<div align="center">
+<a href="https://github.com/kwchang0831/svelte-qwer"><img src="./assets/qwer.webp" alt="qwer" /></a>
+</div>
+<br/>
+<h1 align="center">QWER</h1>
+<p align="center">
+使用 Svelte 與用心打造的簡單好用的靜態網站生成器
+</p>
 <p align="center">
 <a href="README.md"><img src="https://img.shields.io/badge/README-ENGLISH-lightgreen" alt="Readme"></a>
 <img src="https://img.shields.io/github/languages/top/kwchang0831/svelte-QWER?color=%23ff3e00" alt="Language" />
@@ -6,7 +14,7 @@
 <a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 示範網站-Vercel-informational" alt="Readme"></a>
 <a href="https://github.com/kwchang0831/svelte-QWER/discussions"><img src="https://img.shields.io/badge/💬 討論版-F&Q-informational" alt="F&Q"></a>
 </p>
-</p>
+<br/>
 
 ## 🎉 馬上嘗試看看
 
@@ -60,3 +68,7 @@ vercel --prod
 vercel build --prod
 vercel deploy --prebuilt --prod
 ```
+
+## 🙏 特別感謝
+
+- 封面圖片來自 <a href="https://unsplash.com/@jessbaileydesigns?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jess Bailey</a> 從 <a href="https://unsplash.com/s/photos/note?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
