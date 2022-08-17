@@ -18,35 +18,35 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 1. Install all the dependcies.
 
-    ```bash
-    pnpm i
-    ```
+   ```bash
+   pnpm i
+   ```
 
 1. Run local dev server
 
-    ```bash
-    pnpm dev
-    ```
+   ```bash
+   pnpm dev
+   ```
 
 1. Clean and run auto-format before committing
 
-    ```bash
-    pnpm clean && pnpm format
-    ```
+   ```bash
+   pnpm clean && pnpm format
+   ```
 
 ## 🚀 Deploy on Vercel
 
 1. Install vercle CLI
 
-    ```bash
-    pnpm i -g vercel
-    ```
+   ```bash
+   pnpm i -g vercel
+   ```
 
 1. Login
 
-    ```bash
-    vercel login
-    ```
+   ```bash
+   vercel login
+   ```
 
 ### Remote build
 

@@ -18,35 +18,35 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 1. 安裝所有依賴套件
 
-    ```bash
-    pnpm i
-    ```
+   ```bash
+   pnpm i
+   ```
 
 1. 啟動本地端測試伺服器
 
-    ```bash
-    pnpm dev
-    ```
+   ```bash
+   pnpm dev
+   ```
 
-1. 在上傳到Github前，記得先清理與自動校正格式
+1. 在上傳到 Github 前，記得先清理與自動校正格式
 
-    ```bash
-    pnpm clean && pnpm format
-    ```
+   ```bash
+   pnpm clean && pnpm format
+   ```
 
 ## 🚀 部署至 Vercel
 
 1. 安裝 Vercel CLI
 
-    ```bash
-    pnpm i -g vercel
-    ```
+   ```bash
+   pnpm i -g vercel
+   ```
 
 1. 登入 Vercel 帳號
 
-    ```bash
-    vercel login
-    ```
+   ```bash
+   vercel login
+   ```
 
 ### 遠端建置與部署
 
