@@ -22,6 +22,7 @@ specifiers:
   '@unocss/transformer-compile-class': ^0.45.7
   '@unocss/transformer-directives': ^0.45.7
   '@unocss/transformer-variant-group': ^0.45.7
+  cross-env: ^7.0.3
   eslint: ^8.22.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-svelte3: ^4.0.0
@@ -65,6 +66,7 @@ devDependencies:
   '@unocss/transformer-compile-class': 0.45.7
   '@unocss/transformer-directives': 0.45.7
   '@unocss/transformer-variant-group': 0.45.7
+  cross-env: 7.0.3
   eslint: 8.22.0
   eslint-config-prettier: 8.5.0_eslint@8.22.0
   eslint-plugin-svelte3: 4.0.0_laaqauvsmoyypsiqkozwyi2fn4
@@ -954,6 +956,14 @@ packages:
   /core-js/3.24.1:
     resolution: {integrity: sha512-0QTBSYSUZ6Gq21utGzkfITDylE8jWC9Ne1D2MrhvlsZBI1x39OdDIVbzSqtgMndIy6BlHxBXpMGqzZmnztg2rg==}
     requiresBuild: true
+    dev: true
+
+  /cross-env/7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
     dev: true
 
   /cross-spawn/6.0.5:

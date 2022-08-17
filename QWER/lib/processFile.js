@@ -2,7 +2,7 @@ import { Config, ImageConfig } from '../../config/QWER.confitg.js';
 import { existsSync, statSync, cpSync } from 'node:fs';
 import { genMetaFiles, genAssetFile, genAssetTypeDefinition } from './metaGenerate.js';
 import { rmDir, getAllFilesInDir, rmGeneratedFiles, rmEmptyFolders, strReplaceMatchWith } from '../utli/fsHelper.js';
-import { join, isAbsolute, basename, extname, sep, resolve, dirname } from 'node:path';
+import { join, isAbsolute, basename, extname, sep, resolve, dirname, posix } from 'node:path';
 import { ensureDirSync } from 'fs-extra';
 import { log } from '../utli/logger.js';
 import { tags } from '../lib/tags.js';
@@ -33,6 +33,8 @@ export const processImagePath = (path, slug) => {
     path = join(slug, path);
   }
 
+  // Internally uses posix style backslashes
+  path = path.split(sep).join(posix.sep);
   return path;
 };
 
@@ -48,7 +50,7 @@ export const convertPathToSlug = (file) => {
       _destPath[_destPath.length - 1] = _destPath[_destPath.length - 1].replace(/.md$/i, '');
     }
   }
-  _slug = `${_destPath.join(sep)}`;
+  _slug = `${_destPath.join('/')}`;
 
   return [_ext, _slug];
 };
@@ -143,7 +145,7 @@ const _processMD = (file, generateMeta) => {
     value: strReplaceMatchWith(String(_tempalte), _tempalteMap),
   });
 
-  execSync(`prettier --write --plugin-search-dir=. '${_targetPath}'`);
+  execSync(`prettier --write --plugin-search-dir=. "${_targetPath}"`);
   log('green', 'MD File Processed', _targetPath);
 
   posts.set(_postData['slug'], _postData);
@@ -219,7 +221,7 @@ export const buildAll = () => {
   }).then(() => {
     getAllFilesInDir(Config.PublicFolder).forEach((file) => {
       const [, ..._destPath] = file.split(sep);
-      const _targetPath = join(Config.StaticFolder, _destPath.join(sep));
+      const _targetPath = join(Config.StaticFolder, _destPath.join('/'));
       cpSync(file, _targetPath);
       log('green', 'Public File Copied', _targetPath);
     });
@@ -230,13 +232,14 @@ export const buildAll = () => {
 };
 
 export const cleanAll = () => {
+  getAllFilesInDir(Config.RouteFolder).map((f) => {
+    rmGeneratedFiles(f, Config.PrefixGeneratedFileTemplate);
+  });
   rmDir(Config.StaticFolder);
   rmDir(Config.GeneratedFolder);
   rmDir(Config.BuildFolder);
+};
 
-  getAllFilesInDir(Config.RouteFolder).forEach((f) => {
-    rmGeneratedFiles(f, Config.PrefixGeneratedFileTemplate).then(() => {
-      rmEmptyFolders(dirname(f));
-    });
-  });
+export const cleanEmptyFoldersInRoute = () => {
+  rmEmptyFolders(Config.RouteFolder);
 };

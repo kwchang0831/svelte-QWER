@@ -1,5 +1,5 @@
 import { readdirSync, statSync, existsSync, unlinkSync, rmSync, rmdirSync } from 'node:fs';
-import { join } from 'node:path';
+import path from 'node:path';
 import { log } from './logger.js';
 import { firstLine } from './readFirstLine.js';
 
@@ -28,9 +28,9 @@ export const getAllFilesInDir = (src, arrayFiles = []) => {
 
   files.forEach((file) => {
     if (file.isDirectory()) {
-      arrayFiles = getAllFilesInDir(join(src, file.name), arrayFiles);
+      arrayFiles = getAllFilesInDir(path.join(src, file.name), arrayFiles);
     } else {
-      arrayFiles.push(join(src, file.name));
+      arrayFiles.push(path.join(src, file.name));
     }
   });
 
@@ -55,27 +55,25 @@ export const rmDir = (dir) => {
 };
 
 export const rmGeneratedFiles = (file, matchString) => {
-  return new Promise((resolve) => {
-    firstLine(file).then((s) => {
-      if (s.match(matchString)) {
-        rmFile(file);
-        resolve(true);
-      }
-      resolve(false);
-    });
+  firstLine(file).then((s) => {
+    if (s.match(matchString)) {
+      rmFile(file);
+    }
   });
 };
 
 export const rmEmptyFolders = (dir) => {
-  var isDir = statSync(dir).isDirectory();
+  var isDir = existsSync(dir) && statSync(dir).isDirectory();
+
   if (!isDir) {
     return;
   }
 
   var files = readdirSync(dir);
+
   if (files.length > 0) {
     files.forEach(function (file) {
-      var fullPath = join(dir, file);
+      var fullPath = path.resolve(dir, file);
       rmEmptyFolders(fullPath);
     });
 

@@ -35,6 +35,10 @@ This is **bold text**.
 
 This is _italicized text_.
 
+## Spoiler
+
+This is ||Spoiler Text||.
+
 ## Blockquote
 
 > Lorem ipsum began as scrambled, nonsensical Latin derived from Cicero's 1st-century BC text De Finibus Bonorum et Malorum.

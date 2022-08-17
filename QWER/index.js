@@ -9,6 +9,7 @@ import {
   processRmDir,
   buildAll,
   cleanAll,
+  cleanEmptyFoldersInRoute,
   convertPathForInternalUse,
 } from './lib/processFile.js';
 import { rmFile, rmDir } from './utli/fsHelper.js';
@@ -121,6 +122,12 @@ switch (process.argv[2]) {
   case 'clean':
     {
       cleanAll();
+    }
+    break;
+
+  case 'cleanEmptyFolders':
+    {
+      cleanEmptyFoldersInRoute();
     }
     break;
 

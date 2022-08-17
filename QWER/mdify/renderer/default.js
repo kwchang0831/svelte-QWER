@@ -315,6 +315,8 @@ export const default_renderer = (basePath) => {
             let imgMeta;
             if (existsSync(imgPath)) {
               imgMeta = probe.sync(readFileSync(imgPath));
+              // Internally uses posix style backslashes
+              href = href.split(path.sep).join(path.posix.sep);
               return `<ImgZ src="${href}" alt="${alt}" width="${imgMeta?.width}" height="${imgMeta?.height}">${
                 title ? `${title}` : ''
               }</ImgZ>`;

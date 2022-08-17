@@ -48,7 +48,7 @@ export const genAssetTypeDefinition = () => {
     value: strReplaceMatchWith(String(type_tempalte), type_tempalteMap),
   });
 
-  execSync(`prettier --write --plugin-search-dir=. '${ImageConfig.AssetTypePath}'`);
+  execSync(`prettier --write --plugin-search-dir=. "${ImageConfig.AssetTypePath}"`);
   log('cyan', '[Generated] Meta File Updated', ImageConfig.AssetTypePath);
 };
 
@@ -74,6 +74,6 @@ export const genAssetFile = () => {
     value: strReplaceMatchWith(String(store_tempalte), store_tempalteMap),
   });
 
-  execSync(`prettier --write --plugin-search-dir=. '${Config.AssetsStorePath}'`);
+  execSync(`prettier --write --plugin-search-dir=. "${Config.AssetsStorePath}"`);
   log('cyan', '[Generated] Meta File Updated', Config.AssetsStorePath);
 };
