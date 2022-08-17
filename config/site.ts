@@ -121,7 +121,7 @@ export const navConfig: (DD.Nav | DD.Link)[] = [
     ],
   },
   {
-    name: 'Github',
+    name: 'Get QWER 🚀',
     url: 'https://github.com/kwchang0831/svelte-QWER',
     target: '_blank',
   },
@@ -158,7 +158,7 @@ export const mobilenavConfig: DD.Nav = {
       ],
     },
     {
-      name: 'Github',
+      name: 'Get QWER 🚀',
       url: 'https://github.com/kwchang0831/svelte-QWER',
       target: '_blank',
     },
