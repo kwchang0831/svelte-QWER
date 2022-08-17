@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="og: https://ogp.me/ns#">
+    %sveltekit.head%
+  </head>
+  <body itemscope itemtype="https://schema.org/WebPage">
+    <script>
+      const themeLocalStorageKey = 'theme';
+      if (
+        !!localStorage.getItem(themeLocalStorageKey)
+          ? localStorage.getItem(themeLocalStorageKey) === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches
+      ) {
+        document.body.classList.add('dark');
+      } else {
+        document.body.classList.add('light');
+      }
+    </script>
+    %sveltekit.body%
+  </body>
+</html>
