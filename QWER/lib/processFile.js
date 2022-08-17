@@ -143,7 +143,7 @@ const _processMD = (file, generateMeta) => {
     value: strReplaceMatchWith(String(_tempalte), _tempalteMap),
   });
 
-  execSync(`prettier --write --plugin-search-dir=. ${_targetPath}`);
+  execSync(`prettier --write --plugin-search-dir=. '${_targetPath}'`);
   log('green', 'MD File Processed', _targetPath);
 
   posts.set(_postData['slug'], _postData);

@@ -1,5 +1,5 @@
 ---
-title: Example
+title: Example Post
 description: Getting started writing with 🚀 QWER - an Awesome Blog Starter, Built using Svelte with ❤
 summary: 📝 Showcase basic syntax of Markdown and HTML
 published: 2022-08-08

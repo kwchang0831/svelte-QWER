@@ -38,7 +38,7 @@
           <time class="hidden dt-updated" datetime={data.updated} itemprop="dateModified">
             {postUpdatedStr}
           </time>
-          <h2 class="text-2xl font-bold" itemprop="name headline">
+          <h2 class="text-2xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
             <a sveltekit:prefetch href={data.slug} class="title-link-orange-500-orange-500" itemprop="url">
               {data.title}
             </a>
@@ -61,7 +61,7 @@
           </div>
           <div class="px8 py6 flex flex-col gap1 flex-1">
             <div class="">{postPublishedStr}</div>
-            <h2 class="text-2xl font-bold" itemprop="name headline">
+            <h2 class="text-2xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
               <a
                 sveltekit:prefetch
                 href={data.slug}
@@ -78,7 +78,7 @@
     {:else}
       <div class="flex flex-col flex-1 gap1 px8 py6 bg-[#FAF9F6]/[0.75] dark:(bg-[#171717]/[0.75])">
         <div class="">{postPublishedStr}</div>
-        <h2 class="text-2xl font-bold" itemprop="name headline">
+        <h2 class="text-2xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
           <a sveltekit:prefetch href={data.slug} class="title-link-orange-500-orange-500" itemprop="url">
             {#if data.title}
               {data.title}

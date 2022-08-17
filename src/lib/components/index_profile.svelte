@@ -1,6 +1,7 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
   import { siteConfig } from '$config/site';
+  import AuthorAvatar from '$lib/components/author_avatar.svelte';
   import tippy from '$lib/actions/tippy';
 
   let className: any = undefined;
@@ -13,23 +14,7 @@
   id="index-profile"
   class={className}>
   <div class="relative group">
-    <figure>
-      {#if siteConfig.author.avatar && siteConfig.author.avatar_128}
-        <picture>
-          <source srcset={siteConfig.author.avatar_128[0]} type="image/avif" />
-          <source srcset={siteConfig.author.avatar_128[1]} type="image/webp" />
-          <img
-            decoding="async"
-            loading="lazy"
-            src={siteConfig.author.avatar}
-            alt={siteConfig.author.avatar}
-            class="rounded-full shadow-xl w-32 h-32 aspect-auto object-cover hover:rotate-[360deg] transition-transform !duration-1000 ease-in-out" />
-        </picture>
-      {:else}
-        <div
-          class="i-akar-icons-question !h-32 !w-32 hover:rotate-[360deg] transition-transform !duration-1000 ease-in-out" />
-      {/if}
-    </figure>
+    <AuthorAvatar />
     <div
       class="absolute rounded-full w-8 h-8 bottom-0 left-24 shadow-xl text-lg bg-white flex justify-center items-center animate-heart-beat dark:bg-[#212121]">
       {siteConfig.author.status ?? ''}
