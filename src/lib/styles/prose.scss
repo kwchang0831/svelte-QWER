@@ -1,3 +1,18 @@
+html {
+  scroll-behavior: smooth;
+}
+
+:target:before {
+  content: '';
+  display: block;
+  height: 4em;
+  margin: -4em 0 0;
+}
+
+:target {
+  scroll-margin-top: 10vh;
+}
+
 .prose {
   --at-apply: 'px8';
 
@@ -50,6 +65,10 @@
         --at-apply: 'bg-gray/[0.4] dark:bg-white/[0.2]';
       }
     }
+  }
+
+  sup {
+    --at-apply: 'inline-block';
   }
 
   a {

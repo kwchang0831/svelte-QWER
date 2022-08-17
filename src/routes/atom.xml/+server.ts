@@ -3,6 +3,7 @@ import { siteConfig } from '$config/site';
 import type { Post } from '$lib/types/post';
 import postsjson from '$generated/posts.json';
 import tagsjson from '$generated/tags.json';
+import LZString from 'lz-string';
 
 const _allposts = (postsjson as [string, Post.Post][]).filter((e) => {
   return !(e[1].options && e[1].options.includes('unlisted'));
@@ -37,7 +38,8 @@ ${_alltags
       });
     }
     return Array.from(Object.keys(value[1])).map((tag) => {
-      return `<category term="${key[1]}-${tag}" scheme="${siteConfig.url}/?${key[1]}=${encodeURI(tag)}" />`;
+      const formattedTag = `tags-${key[1]}=${tag}`;
+      return `<category term="${key[1]}-${tag}" scheme=${siteConfig.url}/?${encodeURI(formattedTag)}" />`;
     });
   })
   .flat()
@@ -52,7 +54,7 @@ ${_allposts
     <published>${new Date(p[1].published).toJSON()}</published>
     <updated>${new Date(p[1].updated).toJSON()}</updated>
     <summary type="html"><![CDATA[${p[1].summary}]]></summary>
-    <content type="html"><![CDATA[${p[1].html}]]></content>
+    <content type="html"><![CDATA[${LZString.decompressFromBase64(p[1].html ?? '') ?? ''}]]></content>
     ${p[1].tags
       ?.map((t: string | string[] | { string: string } | { string: string[] }) => {
         if (typeof t === 'string') return `<category term="${t}" scheme="${siteConfig.url}/?tags=${encodeURI(t)}" />`;

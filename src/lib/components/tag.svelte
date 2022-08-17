@@ -16,9 +16,11 @@
         if (k.match(/^(?!(tags(-.*)?))/)) output.append(k, v);
       });
       $tagsCur.forEach((v, k) => {
-        output.append(k === 'tags' ? k : `tags-${k}`, Array.from(v).join(','));
+        output.append(k === 'tags' ? k : `tags-${encodeURI(k)}`, Array.from(v).join(','));
       });
-      window.history.replaceState({}, '', `?${output.toString().replaceAll('%2C', ',')}`);
+      const params = output.toString();
+      if (params) window.history.replaceState({}, '', `?${params}`);
+      else window.history.replaceState({}, '', '/');
     }
   }
 </script>

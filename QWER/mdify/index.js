@@ -1,354 +1,110 @@
-import { ImageConfig } from '../../config/QWER.confitg.js';
 import { marked } from 'marked';
-import PrismJS from 'prismjs';
-import 'prismjs/components/prism-bash.min.js';
-import 'prismjs/components/prism-powershell.min.js';
-import 'prismjs/components/prism-markdown.min.js';
-import 'prismjs/components/prism-typescript.min.js';
-import 'prism-svelte';
-import slug from 'limax';
-import path from 'node:path';
-import { toc } from './toc.js';
-import { footnotes } from './footnotes.js';
-import { spoiler } from './spoiler.js';
-
-import probe from 'probe-image-size';
-import { existsSync, readFileSync } from 'node:fs';
-import { Config } from '../../config/QWER.confitg.js';
-
-let _toc;
-
-export const languages = {
-  shell: 'bash',
-  sh: 'bash',
-  powershell: 'powershell',
-  bash: 'bash',
-  env: 'bash',
-  html: 'markup',
-  svelte: 'svelte',
-  js: 'javascript',
-  ts: 'typescript',
-  css: 'css',
-  diff: 'diff',
-  md: 'markdown',
-  '': '',
-};
+import { default_renderer } from './renderer/default.js';
 
 export const mdify = (data, basePath) => {
-  let _imports = [];
-  let _basePath = basePath;
+  let defaultRenderer = default_renderer(basePath);
 
-  const scriptBlockTest = /^<script.*>[\n]*([\S\s]*)<\/script>/i;
-  const escapeTest = /[&<>"']/;
-  const escapeReplace = /[&<>"']/g;
-  const escapeTestNoEncode = /[<>"']|&(?!#?\w+;)/;
-  const escapeReplaceNoEncode = /[<>"']|&(?!#?\w+;)/g;
-  const escapeReplacements = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;',
-  };
-  const getEscapeReplacement = (ch) => escapeReplacements[ch];
-
-  function escape(html, encode) {
-    if (encode) {
-      if (escapeTest.test(html)) {
-        return html.replace(escapeReplace, getEscapeReplacement);
-      }
-    } else {
-      if (escapeTestNoEncode.test(html)) {
-        return html.replace(escapeReplaceNoEncode, getEscapeReplacement);
-      }
-    }
-
-    return html;
-  }
-
-  const default_renderer = {
-    /**
-     * Options:
-     *  - title
-     *  - diff
-     *  - lineStart
-     *  - hlLines: 1-3, 5
-     *  - showLineNumber
-     */
-    code(code, infostring) {
-      const options = {};
-      let output = code;
-
-      output = output
-        .replace(/\/\/\/ (.+?): (.+)\n/gm, (_match, key, value) => {
-          options[key] = value;
-          return '';
-        })
-        .replace(/\/\/\/ ((\S+?,?)+)\n/gm, (_match, key) => {
-          key
-            .split(',')
-            .filter(Boolean)
-            .map((op) => {
-              options[op] = true;
-            });
-          return '';
-        })
-        .replace(/\/\/\/ (\S+?)\n/gm, (_match, key) => {
-          options[key] = true;
-          return '';
-        });
-
-      output = output.replace(/\n$/, '');
-
-      let lines = output.split(/\r\n|\r|\n/);
-      const lineStart = options['lineStart'] ? +options['lineStart'] : 1;
-      const linesClass = new Array(lines.length);
-      const lineStatus = new Array(lines.length);
-
-      for (let i = 0; i < lines.length; i += 1) {
-        linesClass[i] = new Set();
-
-        lineStatus[i] = ' ';
-        if (options['diff']) {
-          lines[i] = lines[i].replace(/^[+|-] /, (match) => {
-            if (match === '+ ') {
-              linesClass[i].add('line-addition');
-              lineStatus[i] = '+';
-            } else if (match === '- ') {
-              linesClass[i].add('line-subtraction');
-              lineStatus[i] = '-';
-            }
-            return '';
-          });
-        }
-      }
-
-      const linesToHL = options['hlLines']?.match(/(\d+-?\d+)|(\d+)/g) || [];
-      for (const lineHL of linesToHL) {
-        const toHL = lineHL.split('-');
-        if (toHL.length == 1) {
-          linesClass[+toHL - lineStart].add('line-highlight');
-        } else {
-          const startLine = +toHL[0] - lineStart;
-          const endLine = Math.min(+toHL[1] - lineStart, lines.length - 1);
-          if (startLine < 0) throw 'Check hlines option. Out-of-index.';
-          for (let i = startLine; i <= endLine; i += 1) {
-            linesClass[i].add('line-highlight');
-          }
-        }
-      }
-
-      lines = lines.join('\n');
-
-      const language = (infostring || '').match(/\S*/)[0];
-      const plang = languages[language];
-      lines = plang
-        ? PrismJS.highlight(lines, PrismJS.languages[plang], language)
-        : lines.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
-
-      lines = lines.split(/\n/);
-
-      // TODO: Could potentially break HTML tag open and close sequences, needs fix
-      for (let i = 0; i < lines.length; i += 1) {
-        const classes = [...linesClass[i]].join(' ');
-        lines[i] =
-          `<div class="code-line${classes ? ` ${classes}` : ''}">` +
-          `<div class="code-linenotation">` +
-          `${
-            options['showLineNumber']
-              ? `<span class="line-number">${i + lineStart}</span>`
-              : `<span class="no-line-number"></span>`
-          }` +
-          `${
-            options['diff'] ? `<span class="line-diff">${lineStatus[i]}</span>` : '<span class="no-line-diff"></span>'
-          }` +
-          `</div>` +
-          `<div class="code-content">${lines[i]}</div>` +
-          `</div>`;
-      }
-
-      lines = lines.join('');
-
-      const escapeTest = /[`]/g;
-      const toEscape = {
-        '`': '&#96;',
-      };
-
-      lines = lines.replace(escapeTest, (c) => toEscape[c]);
-
-      return (
-        `<div class="code-block ${options['title'] ? 'titled' : ''} ${
-          options['showLineNumber'] ? 'showLineNumber' : ''
-        }">` +
-        `${options['title'] ? `<h2 class="code-title">${options['title']}</h2>` : ''}` +
-        `<CodeCopy><pre><code${language ? ` class="language-${language}"` : ''}>` +
-        `{@html \`${lines}\`}` +
-        `</code></pre></CodeCopy>` +
-        `</div>\n`
-      );
-    },
-
-    blockquote(quote) {
-      return '<blockquote>\n' + quote + '</blockquote>\n';
-    },
-
-    html(html) {
-      const match = html.match(scriptBlockTest);
-      if (match && match[1]) {
-        _imports.push(match[1]);
-        return '';
-      }
-
-      return html;
-    },
-
-    heading(text, level) {
-      const slugurl = slug(text);
-      toc.add(_toc, level, text, slugurl);
-      return `<h${level} id="${slugurl}"><a href="#${slugurl}">${text}</a></h${level}>\n`;
-    },
-
-    hr() {
-      return '<hr>\n';
-    },
-
-    list(body, ordered, start) {
-      const type = ordered ? 'ol' : 'ul',
-        startatt = ordered && start !== 1 ? ' start="' + start + '"' : '';
-      return '<' + type + startatt + '>\n' + body + '</' + type + '>\n';
-    },
-
-    listitem(text) {
-      return `<li>${text}</li>\n`;
-    },
-
-    checkbox(checked) {
-      return `<input type="checkbox" ${checked ? 'checked' : ''}>`;
-    },
-
-    paragraph(text) {
-      // let isTeXInline     = /\$(.*)\$/g.test(text)
-      // let isTeXLine       = /^\$\$(\s*.*\s*)\$\$$/.test(text)
-
-      text = spoiler.parseSpoiler(text);
-      text = footnotes.parseReferences(footnotes.parseFootnotes(text));
-      return `<p>${text}</p>\n`;
-    },
-
-    table(header, body) {
-      if (body) body = '<tbody>' + body + '</tbody>';
-
-      return '<table>\n' + '<thead>\n' + header + '</thead>\n' + body + '</table>\n';
-    },
-
-    tablerow(content) {
-      return '<tr>\n' + content + '</tr>\n';
-    },
-
-    tablecell(content, flags) {
-      const type = flags.header ? 'th' : 'td';
-      return `<${type} ${flags.align ? `class="text-${flags.align}"` : ''}>${content}</${type}>\n`;
-    },
-
-    // span level renderer
-    strong(text) {
-      return '<strong>' + text + '</strong>';
-    },
-
-    em(text) {
-      return '<em>' + text + '</em>';
-    },
-
-    codespan(text) {
-      const escapeTest = /[{|}|(|)]/g;
-      const toEscape = {
-        '{': '&lcub',
-        '}': '&rcub',
-        '(': '&lpar',
-        ')': '&rpar',
-      };
-      text = text.replace(escapeTest, (c) => toEscape[c]);
-
-      return `<code class="inline-code-block">${text}</code>`;
-    },
-
-    br() {
-      return '<br>';
-    },
-
-    del(text) {
-      return '<del>' + text + '</del>';
-    },
-
-    link(href, title, text) {
-      if (href === null) {
-        return text;
-      }
-
-      return `<a ${href.startsWith('/') ? 'sveltekit:prefetch' : ''} href="${escape(href)}" ${
-        title ? `title="${title}"` : ''
-      }>${text}</a>`;
-    },
-
-    image(href, title, alt) {
-      if (href === null) {
-        return alt;
-      }
-
-      const ext = path.extname(href).substring(1);
-
-      try {
-        // Network File
-        href = new URL(href).href;
-        if (alt === '') alt = href;
-        if (ImageConfig.SupportedImageFormat.includes(ext)) {
-          return `<ImgZ src="${href}" alt="${alt}">${title ? `${title}` : ''}</ImgZ>`;
-        }
-        if (ImageConfig.SupportedVideoFormat.includes(ext)) {
-          if (ext === 'mp4') return `<Video mp4="${href}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
-          if (ext === 'webm') return `<Video webm="${href}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
-        }
-      } catch (_) {
-        href = path.join(_basePath, href);
-        if (alt === '') alt = href;
-
-        if (ImageConfig.SupportedImageFormat.includes(ext)) {
-          let imgPath = path.join(process.cwd(), path.join(Config.DataFolder, href));
-          let imgMeta;
-          if (existsSync(imgPath)) {
-            imgMeta = probe.sync(readFileSync(imgPath));
-            return `<ImgZ src="${href}" alt="${alt}" width="${imgMeta?.width}" height="${imgMeta?.height}">${
-              title ? `${title}` : ''
-            }</ImgZ>`;
-          }
-          return `<ImgZ src="${href}" alt="${alt}">${title ? `${title}` : ''}</ImgZ>`;
-        }
-        if (ImageConfig.SupportedVideoFormat.includes(ext)) {
-          if (ext === 'mp4') return `<Video mp4="${href}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
-          if (ext === 'webm') return `<Video webm="${href}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
-        }
-      }
-
-      return `<figure><img src="${href}" alt="${alt}"></img>${
-        title ? `<figcaption>${title}</figcaption>` : ''
-      }</figure>`;
-    },
-
-    text(text) {
-      return text;
-    },
-  };
-
-  _toc = [];
   marked.use({
     renderer: {
-      ...default_renderer,
+      ...defaultRenderer.renderer,
     },
   });
 
+  const footnotes = [];
+  const footnoteTest = /^\[\^[^\]]+\]: /;
+  const footnoteMatch = /^\[\^([^\]]+)\]: ([\s\S]*)$/;
+  const referenceTest = /\[\^([^\]]+)\](?!\()/g;
+
+  const tokens = marked.lexer(data);
+
+  function checkFootnote(token) {
+    if (token.type !== 'paragraph' || !footnoteTest.test(token.text)) {
+      return;
+    }
+
+    const match = token.text.match(footnoteMatch);
+    const name = match[1].replace(/\W/g, '-');
+    let note = match[2];
+
+    footnotes.push({
+      name,
+      note: `${marked(note)}<a href="#fnref:${name}">↩</a>`,
+    });
+
+    token.toDelete = true;
+  }
+
+  function checkReference(token) {
+    if (token.type === 'paragraph' || token.type === 'text') {
+      token.text = token.text.replace(referenceTest, (ref, value) => {
+        const name = value.replace(/\W/g, '-');
+        let code = ref;
+
+        for (let j = 0; j < footnotes.length; j++) {
+          if (footnotes[j].name === name) {
+            code = `<sup id="fnref:${name}"><a href="#fn:${name}">${j + 1}</a></sup>`;
+            break;
+          }
+        }
+        return code;
+      });
+
+      if (token.type === 'paragraph') {
+        token.tokens = marked.lexer(token.text)[0].tokens;
+      }
+    }
+  }
+
+  function visit(tokens, fn) {
+    for (var token of tokens) {
+      fn(token);
+
+      if (token.tokens) {
+        visit(token.tokens, fn);
+      }
+    }
+  }
+
+  visit(tokens, (token) => {
+    checkFootnote(token);
+  });
+
+  // Remove tokens from AST, starting with top-level
+  let workList = [tokens];
+  do {
+    let tokenList = workList.pop();
+
+    for (var i = tokenList.length - 1; i >= 0; i--) {
+      if (tokenList[i].toDelete) {
+        tokenList.splice(i, 1);
+      } else if (tokenList[i].tokens) {
+        workList.push(tokenList[i].tokens);
+      }
+    }
+  } while (workList.length != 0);
+
+  visit(tokens, (token) => {
+    checkReference(token);
+  });
+
+  let html = marked.parser(tokens);
+
+  if (footnotes.length > 0) {
+    html += `
+  <hr />
+  <ol>
+    ${footnotes
+      .map((f) => {
+        return `<li id="fn:${f.name}" class="footnote">${f.note}</li>`;
+      })
+      .join('\n')}
+  </ol>
+  `;
+  }
+
   return {
-    content: marked(String(data)),
-    imports: _imports,
-    toc: _toc,
+    content: html,
+    imports: defaultRenderer.imports,
+    toc: defaultRenderer.toc,
   };
 };

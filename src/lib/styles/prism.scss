@@ -1,14 +1,3 @@
-html {
-  scroll-behavior: smooth;
-}
-
-:target:before {
-  content: '';
-  display: block;
-  height: 4em;
-  margin: -4em 0 0;
-}
-
 code[class*='language-'],
 pre[class*='language-'] {
   font-family: 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;

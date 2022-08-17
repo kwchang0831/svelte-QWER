@@ -14,6 +14,7 @@
 
   onMount(async () => {
     $page.url.searchParams.forEach((v, k) => {
+      k = decodeURI(k);
       if (k.match(/^tags(-.*)?/)) {
         k = k.replace(/^tags-/, '');
         v.split(',').forEach((v) => {
