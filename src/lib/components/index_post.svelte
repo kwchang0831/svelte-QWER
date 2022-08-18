@@ -31,19 +31,19 @@
         <ImgBanner
           src={data.cover}
           imgClass="z1 blur-sm op50 absolute object-cover w-full h-full transition transform duration-250 ease-in-out group-hover:(scale-110 blur-none)" />
-        <div class="z2 px-8 py-6 flex flex-col gap1 flex-1 dark:(bg-black/[0.5]) bg-white/[0.25]">
-          <time class="dt-published" datetime={data.published} itemprop="datePublished">
+        <div class="z2 px-8 py-6 flex flex-col gap2 flex-1 dark:(bg-black/[0.5]) bg-white/[0.25]">
+          <time class="dt-published op80" datetime={data.published} itemprop="datePublished">
             {postPublishedStr}
           </time>
           <time class="hidden dt-updated" datetime={data.updated} itemprop="dateModified">
             {postUpdatedStr}
           </time>
-          <h2 class="text-2xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
+          <h2 class="text-3xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
             <a sveltekit:prefetch href={data.slug} class="title-link-orange-500-orange-500" itemprop="url">
               {data.title}
             </a>
           </h2>
-          <p class="font-medium line-clamp-2" itemprop="description">{data.summary}</p>
+          <p class="text-lg line-clamp-2" itemprop="description">{data.summary}</p>
         </div>
       {:else}
         <div class:flex-col={['TOP', 'BOT'].indexOf(data.coverStyle) !== -1} class="flex md:border-none relative">
@@ -59,9 +59,14 @@
                 imgClass="op90 group-hover:scale-110 transition transform duration-300 ease-in-out object-cover w-full h-full" />
             </a>
           </div>
-          <div class="px8 py6 flex flex-col gap1 flex-1">
-            <div class="">{postPublishedStr}</div>
-            <h2 class="text-2xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
+          <div class="px8 py6 flex flex-col gap2 flex-1">
+            <time class="dt-published op80" datetime={data.published} itemprop="datePublished">
+              {postPublishedStr}
+            </time>
+            <time class="hidden dt-updated" datetime={data.updated} itemprop="dateModified">
+              {postUpdatedStr}
+            </time>
+            <h2 class="text-3xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
               <a
                 sveltekit:prefetch
                 href={data.slug}
@@ -71,14 +76,19 @@
                 {data.title}
               </a>
             </h2>
-            <p class="font-medium line-clamp-2" itemprop="description">{data.summary}</p>
+            <p class="text-lg line-clamp-2" itemprop="description">{data.summary}</p>
           </div>
         </div>
       {/if}
     {:else}
-      <div class="flex flex-col flex-1 gap1 px8 py6 bg-[#FAF9F6]/[0.75] dark:(bg-[#171717]/[0.75])">
-        <div class="">{postPublishedStr}</div>
-        <h2 class="text-2xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
+      <div class="flex flex-col flex-1 gap2 px8 py6 bg-[#FAF9F6]/[0.75] dark:(bg-[#171717]/[0.75])">
+        <time class="dt-published op80" datetime={data.published} itemprop="datePublished">
+          {postPublishedStr}
+        </time>
+        <time class="hidden dt-updated" datetime={data.updated} itemprop="dateModified">
+          {postUpdatedStr}
+        </time>
+        <h2 class="text-3xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
           <a sveltekit:prefetch href={data.slug} class="title-link-orange-500-orange-500" itemprop="url">
             {#if data.title}
               {data.title}
@@ -88,7 +98,7 @@
           </a>
         </h2>
         {#if data.summary}
-          <p class="font-medium line-clamp-2" itemprop="description">{data.summary}</p>
+          <p class="text-lg line-clamp-2" itemprop="description">{data.summary}</p>
         {/if}
       </div>
     {/if}
