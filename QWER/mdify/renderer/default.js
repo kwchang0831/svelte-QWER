@@ -10,6 +10,7 @@ import slug from 'limax';
 import path from 'node:path';
 import { toc } from '../parser/toc.js';
 import { spoiler } from '../parser/spoiler.js';
+import { highlight } from '../parser/highlight.js';
 import probe from 'probe-image-size';
 import { existsSync, readFileSync } from 'node:fs';
 import { Config, ImageConfig } from '../../../config/QWER.confitg.js';
@@ -230,6 +231,8 @@ export const default_renderer = (basePath) => {
         // let isTeXLine       = /^\$\$(\s*.*\s*)\$\$$/.test(text)
 
         text = spoiler.parseSpoiler(text);
+        text = highlight.parseHighlight(text);
+
         return `<p>${text}</p>\n`;
       },
 
