@@ -209,7 +209,7 @@ export const rmDataFolderFile = (file, generateMeta) => {
   }
 };
 
-export const buildAll = () => {
+export const buildAll = (metaGenerate = true) => {
   new Promise((resolve) => {
     getAllFilesInDir(Config.DataFolder).forEach((file, i, ar) => {
       if (basename(file).startsWith('.')) return;
@@ -225,9 +225,12 @@ export const buildAll = () => {
       cpSync(file, _targetPath);
       log('green', 'Public File Copied', _targetPath);
     });
-    genMetaFiles();
-    genAssetFile();
-    genAssetTypeDefinition();
+
+    if (metaGenerate) {
+      genMetaFiles();
+      genAssetFile();
+      genAssetTypeDefinition();
+    }
   });
 };
 

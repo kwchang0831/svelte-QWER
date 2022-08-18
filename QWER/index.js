@@ -135,4 +135,10 @@ switch (process.argv[2]) {
       buildAll();
     }
     break;
+
+  case 'buildWithoutMeta':
+    {
+      buildAll(false);
+    }
+    break;
 }
