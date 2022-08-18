@@ -11,11 +11,11 @@ tags:
   - [QWER]
 ---
 
-## Beginning
+## ✨ Intro
 
-[QWER](https://www.github.com/kwchang0831/svelte-QWER) is an awesoem blog starter. Built using Svelte with ❤.
+[QWER](https://www.github.com/kwchang0831/svelte-QWER) is simply an Awesoem blog starter / static site generator. Built using [Svelte](https://svelte.dev/) with ❤.
 
-## Get your own QWER blog
+## 🎉 Try out QWER 
 
 Create a QWER blog named `my-blog`.
 
@@ -23,15 +23,15 @@ Create a QWER blog named `my-blog`.
 npx degit kwchang0831/svelte-QWER my-blog
 ```
 
-## To Dev
+## ⚡️ To Dev
 
-1. Install all the dependencies
+1. Install all the dependencies.
 
    ```shell
    pnpm i
    ```
 
-1. Start local dev server
+1. Start local dev server.
 
    ```shell
    pnpm dev
@@ -40,13 +40,13 @@ npx degit kwchang0831/svelte-QWER my-blog
 1. Sever is running. Open browser to see the result.
 
    ```shell
-   VITE v3.0.4  ready in 1080 ms
+   VITE v3.0.8  ready in 1080 ms
 
    ➜  Local:   http://localhost:5173/
    ➜  Network: use --host to expose
    ```
 
-## To Build
+## 🔧 To Build
 
 1. Create production version of your blog.
 
@@ -54,7 +54,7 @@ npx degit kwchang0831/svelte-QWER my-blog
    pnpm build
    ```
 
-1. Preview the build
+1. Preview the build.
 
    ```shell
    pnpm preview
@@ -67,8 +67,38 @@ npx degit kwchang0831/svelte-QWER my-blog
    ➜  Network: use --host to expose
    ```
 
-## To Deploy
+## 🚀 To Deploy
 
-Create a [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/) free account to deploy.
+Create a [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/) **free account** to deploy.
 
-## End
+### Vercel
+
+1. Get Vercel CLI.
+
+   ```sh
+   npm i -g vercel
+   ```
+
+1. Login your Vercel account.
+
+   ```sh
+   vercel login
+   ```
+
+1. Deploy
+
+   It's best to clean and format codebase before deploy.
+   ```sh
+   pnpm clean && pnpm format
+   ```
+
+   Create Production Deployment.
+   ```sh
+   vercel --prod
+   ```
+
+### Netlify
+
+🚧 WIP
+
+## 👍 End
