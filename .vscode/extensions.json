@@ -4,6 +4,7 @@
     "aaron-bond.better-comments",
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
-    "Gruntfuggly.todo-tree"
+    "Gruntfuggly.todo-tree",
+    "bungcip.better-toml"
   ]
 }
