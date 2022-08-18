@@ -33,7 +33,7 @@
     {/if}
     <span
       class="cursor-pointer select-none text-black/[0.6] group-hover:(text-black) dark:(text-white/[0.6] group-hover:(text-white) group-active:(!text-black))">
-      {content.heading}
+      {@html content.heading}
     </span>
   </div>
   {#if content.child && content.child.length > 0}
