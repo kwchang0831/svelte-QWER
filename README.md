@@ -42,6 +42,12 @@ npx degit kwchang0831/svelte-QWER my-blog
    pnpm dev
    ```
 
+1. Clean auto-generated files. (Do not commit those files to the repo.)
+
+   ```bash
+   pnpm clean
+   ```
+
 ## 🚀 Deploy on Vercel
 
 1. Install vercle CLI

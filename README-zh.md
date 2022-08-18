@@ -42,6 +42,12 @@ npx degit kwchang0831/svelte-QWER my-blog
    pnpm dev
    ```
 
+1. 清除自動生成的檔案。(記得不要提交這些檔案至 Git Repo 上)
+
+   ```bash
+   pnpm clean
+   ```
+
 ## 🚀 部署至 Vercel
 
 1. 安裝 Vercel CLI
