@@ -5,14 +5,14 @@
 <br/>
 <h1 align="center">QWER</h1>
 <p align="center">
-Simply Awesome Blog Starter built with Svelte.
+Simply Awesome Blog Starter / Static Site Generator built with Svelte.
 </p>
 <p align="center">
 <a href="README-zh.md"><img src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-lightgreen" alt="Readme"></a>
 <img src="https://img.shields.io/github/languages/top/kwchang0831/svelte-QWER?color=%23ff3e00" alt="Language" />
 <a href="https://github.com/kwchang0831/svelte-QWER/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/kwchang0831/svelte-QWER" alt="License"></a>
 <a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 DEMO-Vercel-informational" alt="Readme"></a>
-<a href="https://github.com/kwchang0831/svelte-QWER/discussions"><img src="https://img.shields.io/badge/💬 Discussions-F&Q-informational" alt="F&Q"></a>
+<a href="https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a"><img src="https://img.shields.io/badge/❓ Discussion-Q&A-informational" alt="Q&A"></a>
 </p>
 <br/>
 
@@ -23,6 +23,12 @@ npx degit kwchang0831/svelte-QWER my-blog
 ```
 
 ## ⚡️ Usage
+
+1. Get [pnpm](https://github.com/pnpm/pnpm).
+
+   ```bash
+   npm i -g pnpm
+   ```
 
 1. Install all the dependcies.
 
@@ -36,18 +42,12 @@ npx degit kwchang0831/svelte-QWER my-blog
    pnpm dev
    ```
 
-1. Clean and run auto-format before committing
-
-   ```bash
-   pnpm clean && pnpm format
-   ```
-
 ## 🚀 Deploy on Vercel
 
 1. Install vercle CLI
 
    ```bash
-   pnpm i -g vercel
+   npm i -g vercel
    ```
 
 1. Login
@@ -68,6 +68,10 @@ vercel --prod
 vercel build --prod
 vercel deploy --prebuilt --prod
 ```
+
+## ❓ Issues / Problems / Questions
+
+Please take advantage of our [Github's Q&A Discussion board](https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a).
 
 ## 🙏 Credits
 
