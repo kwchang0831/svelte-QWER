@@ -10,6 +10,7 @@
   import { page } from '$app/stores';
   import { postsAll } from '$stores/posts';
   import AuthorAvatar from '$lib/components/author_avatar.svelte';
+  import { lastUpdatedStr } from '$lib/utli/timeFormat';
 
   let search = false;
   let pin: boolean = true;
@@ -35,12 +36,10 @@
   }
 
   let curPost: Post.Post | undefined;
-  let postUpdatedSince: number;
+  let lastUpdated: string;
 
   $: curPost = $postsAll.get($page.routeId ?? '');
-  $: postUpdatedSince = Math.ceil(
-    (new Date(curPost?.updated ?? '').getTime() - new Date(curPost?.published ?? '').getTime()) / 86400000,
-  );
+  $: lastUpdated = lastUpdatedStr(curPost?.updated ?? '');
 </script>
 
 <svelte:window bind:scrollY />
@@ -73,7 +72,7 @@
               <AuthorAvatar class="h4 w4" />
               <span class="font-semibold mx1">{siteConfig.author.name}</span>
               <span class="font-semibold mx1">·</span>
-              {postUpdatedSince === 0 ? 'today' : postUpdatedSince === 1 ? '1 day ago' : `${postUpdatedSince} days ago`}
+              {lastUpdated}
             </p>
           </div>
           <div class="ml-auto flex">

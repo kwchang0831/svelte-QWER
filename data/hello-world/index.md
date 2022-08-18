@@ -15,7 +15,7 @@ tags:
 
 [QWER](https://www.github.com/kwchang0831/svelte-QWER) is simply an Awesoem blog starter / static site generator. Built using [Svelte](https://svelte.dev/) with ❤.
 
-## 🎉 Try out QWER 
+## 🎉 Try out QWER
 
 Create a QWER blog named `my-blog`.
 
@@ -88,11 +88,13 @@ Create a [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/) **
 1. Deploy
 
    It's best to clean and format codebase before deploy.
+
    ```sh
    pnpm clean && pnpm format
    ```
 
    Create Production Deployment.
+
    ```sh
    vercel --prod
    ```

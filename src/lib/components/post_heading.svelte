@@ -3,18 +3,9 @@
   import { dateConfig, siteConfig } from '$config/site';
   import ImgZ from '$lib/components/image_zoom.svelte';
   import tippy from '$lib/actions/tippy';
+  import { lastUpdatedStr, defaultPublishedStr, defaultUpdatedStr } from '$lib/utli/timeFormat';
 
   export let data: Post.Post;
-
-  const postPublishedStr = new Date(data.published).toLocaleString(
-    dateConfig.toPublishedString.locales,
-    dateConfig.toPublishedString.options,
-  );
-  const postUpdatedStr = new Date(data.updated).toLocaleString(
-    dateConfig.toUpdatedString.locales,
-    dateConfig.toUpdatedString.options,
-  );
-  const lastUpdated = Math.ceil((new Date(data.updated).getTime() - new Date(data.published).getTime()) / 86400000);
 </script>
 
 <div class="flex flex-col pt8 mx8">
@@ -53,10 +44,10 @@
         })}"
         datetime={data.published}
         itemprop="datePublished">
-        {postPublishedStr}
+        {defaultPublishedStr(data.published)}
       </time>
       <time class="hidden dt-updated" datetime={data.updated} itemprop="dateModified">
-        {postUpdatedStr}
+        {defaultUpdatedStr(data.updated)}
       </time>
       <span
         use:tippy
@@ -66,7 +57,7 @@
           day: 'numeric',
           timeZone: 'Asia/Taipei',
         })}">
-        Updated: {lastUpdated === 0 ? 'just today' : lastUpdated === 1 ? '1 day ago' : `${lastUpdated} days ago`}
+        Updated: {lastUpdatedStr(data.updated)}
       </span>
     </div>
   </div>
