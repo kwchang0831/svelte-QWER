@@ -11,3 +11,4 @@ node_modules
 __unconfig_vite.config.js
 /static
 /src/generated
+.husky/prepare-commit-msg
