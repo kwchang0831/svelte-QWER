@@ -10,17 +10,19 @@
   "scripts": {
     "dev:sveltekit": "cross-env MODE=development vite dev --host",
     "dev:QWER": "node --no-warnings QWER watch",
-    "dev": "npm-run-all -p -r dev:QWER dev:sveltekit",
+    "dev:watch": "npm-run-all -p -r dev:QWER dev:sveltekit",
+    "dev": "npm-run-all -s build:QWER dev:watch",
     "build:sveltekit": "vite build",
     "build:QWER": "node --no-warnings QWER build",
     "build": "npm-run-all -s build:QWER build:sveltekit",
     "preview": "vite preview",
-    "clean:sveltekit": "rimraf .svelte-kit ",
+    "clean:husky": "rimraf .husky",
+    "clean:sveltekit": "rimraf .svelte-kit",
     "clean:node_modules": "rimraf -- node_modules QWER/node_modules",
     "clean:routeFolder": "node --no-warnings QWER cleanEmptyFolders",
     "clean:QWER": "node --no-warnings QWER clean",
     "clean": "npm-run-all -s clean:QWER clean:routeFolder",
-    "cleandeep": "npm-run-all -s clean clean:sveltekit clean:node_modules",
+    "cleandeep": "npm-run-all -s clean clean:sveltekit clean:husky clean:node_modules",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check --plugin-search-dir=. . && eslint .",
@@ -30,7 +32,7 @@
     "up:deps": "pnpm up -L -i",
     "up:QWER-deps": "cd QWER && pnpm up -L -i",
     "up": "npm-run-all -s up:deps up:QWER-deps",
-    "prepare": "husky install && npx husky set .husky/pre-commit \"pnpm clean && npx lint-staged\" && gitmoji -i"
+    "prepare": "husky install && npx husky set .husky/pre-commit \"npx lint-staged\" && gitmoji -i"
   },
   "lint-staged": {
     "*.{html,scss,css,svelte,ts,js}": "prettier --write --plugin-search-dir=."
