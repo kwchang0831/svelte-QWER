@@ -81,7 +81,7 @@
 
   <article
     itemprop="articleBody"
-    class="flex-none flex flex-col max-w-[55rem] w-full md:(rounded-2xl bg-white/[0.5] dark:bg-[#252525]/[0.5])"
+    class="flex-none flex flex-col max-w-[55rem] w-full md:(rounded-2xl bg-[#F9FBFF] dark:bg-[#252525])"
     bind:this={postElement}>
     <div class="max-w-[55rem]">
       <PostHeading data={thisPost} />
