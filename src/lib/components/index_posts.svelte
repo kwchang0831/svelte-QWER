@@ -6,9 +6,7 @@
   let className: any = undefined;
   export { className as class };
 
-  let years: Array<number> = [];
-
-  $: if ($postsShow.length > 1) years = [new Date($postsShow[0].published).getFullYear()];
+  let years: Array<number> = [new Date().getFullYear()];
 </script>
 
 <main

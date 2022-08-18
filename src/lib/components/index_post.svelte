@@ -30,7 +30,7 @@
       {#if data.coverStyle === 'IN'}
         <ImgBanner
           src={data.cover}
-          imgClass="z1 blur-sm op50 absolute object-cover w-full h-full transition transform duration-250 ease-in-out group-hover:(scale-110 blur-none)" />
+          imgClass="z1 blur-sm op80 absolute object-cover w-full h-full transition transform duration-250 ease-in-out group-hover:(scale-110 blur-none)" />
         <div class="z2 px-8 py-6 flex flex-col gap2 flex-1 dark:(bg-black/[0.5]) bg-white/[0.25]">
           <time class="dt-published op80" datetime={data.published} itemprop="datePublished">
             {postPublishedStr}
