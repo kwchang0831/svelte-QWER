@@ -30,7 +30,7 @@
     "up:deps": "pnpm up -L -i",
     "up:QWER-deps": "cd QWER && pnpm up -L -i",
     "up": "npm-run-all -s up:deps up:QWER-deps",
-    "prepare": "husky install && gitmoji -i"
+    "prepare": "husky install && npx husky set .husky/pre-commit \"pnpm clean && npx lint-staged\" && gitmoji -i"
   },
   "lint-staged": {
     "*.{html,scss,css,svelte,ts,js}": "prettier --write --plugin-search-dir=."
@@ -61,6 +61,7 @@
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-svelte3": "^4.0.0",
+    "gitmoji-cli": "^5.3.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "lz-string": "^1.4.4",
