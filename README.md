@@ -73,6 +73,12 @@ vercel deploy --prebuilt --prod
 
 Please take advantage of our [Github's Q&A Discussion board](https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a).
 
+## 😊 Are you using QWER?
+
+Please consider adding `svelte-qwer` topic to your repository.
+
+To see whoelse are using QWER, please check [Github-Topics: svelte-qwer](https://github.com/topics/svelte-qwer).
+
 ## 🙏 Credits
 
 - Cover Photo by <a href="https://unsplash.com/@jessbaileydesigns?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jess Bailey</a> on <a href="https://unsplash.com/s/photos/note?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

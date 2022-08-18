@@ -68,9 +68,16 @@ vercel --prod
 vercel build --prod
 vercel deploy --prebuilt --prod
 ```
+
 ## ❓ 有任何使用上的問題
 
-歡迎使用我們的 [Github's Q&A 討論版](https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a).
+歡迎使用我們的 [Github's Q&A 討論版](https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a)。
+
+## 😊 您正在使用 QWER ?
+
+拜託您，請考慮添加 `svelte-qwer` 至您 Git Repo 的 Topics 底下。
+
+想知道還有誰正在使用 QWER，請參考 [Github-Topics: svelte-qwer](https://github.com/topics/svelte-qwer)。
 
 ## 🙏 特別感謝
 
