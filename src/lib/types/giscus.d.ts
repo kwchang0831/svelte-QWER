@@ -1,5 +1,7 @@
 export namespace Giscus {
   export type Config = {
+    /** Enable Giscus commenting or not */
+    enable: boolean;
     src?: string;
     id?: string;
     /** a public GitHub repository. this repo is where the discussions will be linked to. */

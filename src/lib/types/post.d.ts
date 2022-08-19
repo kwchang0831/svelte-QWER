@@ -9,6 +9,7 @@ export namespace Post {
     html?: string;
     published: string;
     updated: string;
+    created: string;
     cover?: string;
     coverCaption?: string;
     coverStyle: CoverStyle;
@@ -27,15 +28,4 @@ export namespace Post {
     IN = 'IN',
     NONE = 'NONE',
   }
-
-  // export interface Asset {
-  //   width: string;
-  //   height: string;
-  //   original: string;
-  //   banner: string[];
-  //   1280?: string[];
-  //   1024?: string[];
-  //   854?: string[];
-  //   640?: string[];
-  // }
 }

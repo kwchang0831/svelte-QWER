@@ -4,9 +4,6 @@
   import type { Post } from '$lib/types/post';
   import { siteConfig } from '$config/site';
 
-  // @ts-ignore
-  import DefaultOGCard_512_512 from '$assets/default_og_card.jpg?w=512&h=512&format=webp';
-
   export let post: Post.Post;
 </script>
 
@@ -32,7 +29,7 @@
     <meta property="og:image" content={$assets.get(post.cover)?.original} />
     <meta name="twitter:card" content="summary_large_image" />
   {:else}
-    <meta property="og:image" content={new URL(DefaultOGCard_512_512, $page.url.origin).href} />
+    <meta property="og:image" content={new URL(siteConfig.og_card, $page.url.origin).href} />
     <meta name="twitter:card" content="summary" />
   {/if}
 </svelte:head>

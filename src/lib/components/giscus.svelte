@@ -5,6 +5,8 @@
   export let theme: string;
 
   onMount(() => {
+    if (!giscusConfig.enable) return;
+
     const giscus = document.createElement('script');
     Object.entries({
       src: giscusConfig.src ?? 'https://giscus.app/client.js',
@@ -44,10 +46,12 @@
   });
 </script>
 
-<div id="giscus-container">
-  <div id="giscus-loading" class="flex flex-col items-center gap2">
-    <h2>Loading Giscus...</h2>
-    <div class="i-line-md-loading-twotone-loop !h-16 !w-16" />
+{#if giscusConfig.enable}
+  <div id="giscus-container">
+    <div id="giscus-loading" class="flex flex-col items-center gap2">
+      <h2>Loading Giscus...</h2>
+      <div class="i-line-md-loading-twotone-loop !h-16 !w-16" />
+    </div>
+    <div id="giscus" class="giscus" />
   </div>
-  <div id="giscus" class="giscus" />
-</div>
+{/if}

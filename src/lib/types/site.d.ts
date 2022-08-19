@@ -14,6 +14,8 @@ export namespace Site {
     since?: number;
 
     author: Author;
+
+    og_card: string;
   }
 
   export interface Head {
