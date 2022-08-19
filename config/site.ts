@@ -96,37 +96,29 @@ export const giscusConfig: Giscus.Config = {
 
 export const navConfig: (DD.Nav | DD.Link)[] = [
   {
-    name: 'About',
+    name: 'QWER',
     orientation: 2,
     links: [
       {
-        name: 'QWER',
-        orientation: 1,
-        links: [
-          {
-            name: 'Hello World',
-            url: '/hello-world',
-            prefetch: true,
-          },
-          {
-            name: 'Example',
-            url: '/example',
-            prefetch: true,
-          },
-        ],
+        name: 'Hello World',
+        url: '/hello-world',
+        prefetch: true,
       },
       {
-        name: 'Me',
-        orientation: 1,
-        links: [
-          {
-            name: '@kwchang0831',
-            url: 'https://github.com/kwchang0831/',
-            target: '_blank',
-          },
-        ],
+        name: 'Example Post',
+        url: '/example',
+        prefetch: true,
+      },
+      {
+        name: 'Intro to QWER',
+        url: '/intro-to-QWER',
+        prefetch: true,
       },
     ],
+  },
+  {
+    name: 'About',
+    url: '/about',
   },
   {
     name: 'Get QWER 🚀',
@@ -148,22 +140,20 @@ export const mobilenavConfig: DD.Nav = {
           prefetch: true,
         },
         {
-          name: 'Example',
+          name: 'Example Post',
           url: '/example',
+          prefetch: true,
+        },
+        {
+          name: 'Intro to QWER',
+          url: '/intro-to-QWER',
           prefetch: true,
         },
       ],
     },
     {
-      name: 'Me',
-      orientation: 1,
-      links: [
-        {
-          name: '@kwchang0831',
-          url: 'https://github.com/kwchang0831/',
-          target: '_blank',
-        },
-      ],
+      name: 'About',
+      url: '/about',
     },
     {
       name: 'Get QWER 🚀',

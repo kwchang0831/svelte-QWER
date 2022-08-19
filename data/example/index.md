@@ -1,14 +1,14 @@
 ---
 title: Example Post
-description: Getting started writing with 🚀 QWER - an Awesome Blog Starter, Built using Svelte with ❤
+description: Example post writen using Markdown Syntax with 🚀 QWER - Simply Awesome Blog Starter. Built using Svelte with ❤
 summary: 📝 Showcase basic syntax of Markdown and HTML
-published: 2022-08-08
+published: 2022-08-09
 cover: ./cover.jpg
 coverCaption: Photo by <a href="https://unsplash.com/@etiennegirardet?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Etienne Girardet</a> on <a href="https://unsplash.com/s/photos/motivation?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags:
   - Language: English
-  - Tech Stack: [Markdown]
-  - [QWER]
+  - Year: 2022
+  - [Markdown]
 ---
 
 <script lang="ts">
@@ -79,11 +79,10 @@ Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 
 [^1]: This is the first footnote.
 
-[^bignote]:  
-  Here's one with multiple paragraphs and code.  
-  Indent paragraphs to include them in the footnote.  
-  `{ my code }`  
-  Add as many paragraphs as you like.  
+[^bignote]: Here's one with multiple paragraphs and code.  
+   Indent paragraphs to include them in the footnote.  
+   `{ my code }`  
+   Add as many paragraphs as you like.  
 
 ## Paragraphs
 
@@ -156,9 +155,3 @@ Photo by <a href="https://unsplash.com/@willy24?utm_source=unsplash&utm_medium=r
 ## Misc
 
 <sup>Lorem</sup> <sub>ipsum</sub> <cite>dolor sit amet</cite>, <acronym title="Consectetur Adipiscing Elit">consectetur adipiscing elit</acronym>, <abbr title="Aliqua">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</abbr>. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-<!-- ---
-
-[^1]: Here is the footnote. [↩](#fnref:1)
-
-[^longnote]: Here’s one footnote with longer identifier. [↩](#fnref:longnote) -->

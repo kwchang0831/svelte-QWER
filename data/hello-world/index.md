@@ -1,14 +1,14 @@
 ---
 title: Hello World 👋
-description: Demonstrates basics of 🚀 QWER - an Awesome Blog Starter, Built using Svelte with ❤
-summary: 🎉 Let's start a brand new awesome blog...
-published: 2022-08-07
+description: Demonstrates basics of 🚀 QWER - Simply Awesome Blog Starter. Built using Svelte with ❤
+summary: ✨ Just a QuickStart guide
+published: 2022-08-08
 cover: ./cover.jpg
 coverCaption: Photo by <a href="https://unsplash.com/@justinveenema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Justin Veenema</a> on <a href="https://unsplash.com/s/photos/motivation?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags:
-  - Language: English
-  - Tech Stack: [Svelte, SvelteKit]
-  - [QWER]
+   - Language: English
+   - Year: 2022
+   - [QWER]
 ---
 
 ## ✨ Intro
@@ -71,36 +71,8 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 Create a [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/) **free account** to deploy.
 
-### Vercel
+## 🙋 More
 
-1. Get Vercel CLI.
+For more detail information, please check [Intro to QWER](/intro-to-QWER).
 
-   ```sh
-   npm i -g vercel
-   ```
-
-1. Login your Vercel account.
-
-   ```sh
-   vercel login
-   ```
-
-1. Deploy
-
-   It's best to clean and format codebase before deploy.
-
-   ```sh
-   pnpm clean && pnpm format
-   ```
-
-   Create Production Deployment.
-
-   ```sh
-   vercel --prod
-   ```
-
-### Netlify
-
-🚧 WIP
-
-## 👍 End
+## 👍 END

@@ -75,6 +75,10 @@ vercel build --prod
 vercel deploy --prebuilt --prod
 ```
 
+## 了解更多
+
+請參考教學 [Intro to QWER](https://svelte-qwer.vercel.app//intro)。
+
 ## ❓ 有任何使用上的問題
 
 歡迎使用我們的 [Github's Q&A 討論版](https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a)。
