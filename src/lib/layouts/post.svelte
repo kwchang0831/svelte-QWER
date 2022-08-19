@@ -23,8 +23,8 @@
   import { onMount } from 'svelte';
 
   const thisPost = $postsAll.get($page.routeId ?? '') as Post.Post;
-  const prevPost = thisPost.prev ? $postsAll.get(thisPost.prev) : undefined;
-  const nextPost = thisPost.next ? $postsAll.get(thisPost.next) : undefined;
+  const prevPost = thisPost?.prev ? $postsAll.get(thisPost.prev) : undefined;
+  const nextPost = thisPost?.next ? $postsAll.get(thisPost.next) : undefined;
   let observer: IntersectionObserver;
   let postElement: HTMLElement;
 
@@ -103,8 +103,8 @@
             <a
               sveltekit:prefetch
               rel="next"
-              href={nextPost.slug}
-              alt={nextPost.slug}
+              href="/{nextPost.slug}"
+              alt="/{nextPost.slug}"
               class="absolute text-2xl font-bold z-10 !decoration-none !underline-none title-link-orange-500-orange-500 top-[3rem] left-[1rem] mr8">
               {nextPost.title}
             </a>
@@ -120,8 +120,8 @@
             <a
               sveltekit:prefetch
               rel="prev"
-              href={prevPost.slug}
-              alt={prevPost.slug}
+              href="/{prevPost.slug}"
+              alt="/{prevPost.slug}"
               class="absolute text-2xl font-bold z-10 !decoration-none !underline-none title-link-orange-500-orange-500 top-[3rem] right-[1rem] ml8">
               {prevPost.title}
             </a>
