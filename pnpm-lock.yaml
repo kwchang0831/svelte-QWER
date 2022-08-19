@@ -14,7 +14,7 @@ specifiers:
   '@sveltejs/adapter-node': 1.0.0-next.86
   '@sveltejs/adapter-static': 1.0.0-next.39
   '@sveltejs/adapter-vercel': 1.0.0-next.66
-  '@sveltejs/kit': 1.0.0-next.420
+  '@sveltejs/kit': 1.0.0-next.427
   '@types/lz-string': ^1.3.34
   '@typescript-eslint/eslint-plugin': ^5.33.1
   '@typescript-eslint/parser': ^5.33.1
@@ -48,7 +48,7 @@ specifiers:
   typescript: ^4.7.4
   unocss: ^0.45.8
   unocss-preset-scrollbar: ^0.2.1
-  vite: ^3.0.8
+  vite: ^3.0.9
   vite-imagetools: ^4.0.4
 
 devDependencies:
@@ -65,7 +65,7 @@ devDependencies:
   '@sveltejs/adapter-node': 1.0.0-next.86
   '@sveltejs/adapter-static': 1.0.0-next.39
   '@sveltejs/adapter-vercel': 1.0.0-next.66
-  '@sveltejs/kit': 1.0.0-next.420_svelte@3.49.0+vite@3.0.8
+  '@sveltejs/kit': 1.0.0-next.427_svelte@3.49.0+vite@3.0.9
   '@types/lz-string': 1.3.34
   '@typescript-eslint/eslint-plugin': 5.33.1_vsoshirnpb7xw6mr7xomgfas2i
   '@typescript-eslint/parser': 5.33.1_4rv7y5c6xz3vfxwhbrcxxi73bq
@@ -97,9 +97,9 @@ devDependencies:
   tippy.js: 6.3.7
   tslib: 2.4.0
   typescript: 4.7.4
-  unocss: 0.45.8_vite@3.0.8
+  unocss: 0.45.8_vite@3.0.9
   unocss-preset-scrollbar: 0.2.1_unocss@0.45.8
-  vite: 3.0.8_sass@1.54.4
+  vite: 3.0.9_sass@1.54.4
   vite-imagetools: 4.0.4
 
 packages:
@@ -380,8 +380,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.420_svelte@3.49.0+vite@3.0.8:
-    resolution: {integrity: sha512-9m/uWbd7Osj474TrkjRZ2x784PZzO6akxDFGfaEoFS5AsRUnDFRJ0HWHHdymy170aJsvlu20ZpLTNbbS5a95+g==}
+  /@sveltejs/kit/1.0.0-next.427_svelte@3.49.0+vite@3.0.9:
+    resolution: {integrity: sha512-HUt1knOXaEM18y7E3k0CvhTxmoNhp0KbgfbLPmuRvSrQxRMsTnTpupZwW5mmU0VZkm4HHsf8mwftGy4WR8qf1Q==}
     engines: {node: '>=16.9'}
     hasBin: true
     requiresBuild: true
@@ -389,7 +389,7 @@ packages:
       svelte: ^3.44.0
       vite: ^3.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 1.0.1_svelte@3.49.0+vite@3.0.8
+      '@sveltejs/vite-plugin-svelte': 1.0.1_svelte@3.49.0+vite@3.0.9
       cookie: 0.5.0
       devalue: 2.0.1
       kleur: 4.1.5
@@ -402,13 +402,13 @@ packages:
       svelte: 3.49.0
       tiny-glob: 0.2.9
       undici: 5.9.1
-      vite: 3.0.8_sass@1.54.4
+      vite: 3.0.9_sass@1.54.4
     transitivePeerDependencies:
       - diff-match-patch
       - supports-color
     dev: true
 
-  /@sveltejs/vite-plugin-svelte/1.0.1_svelte@3.49.0+vite@3.0.8:
+  /@sveltejs/vite-plugin-svelte/1.0.1_svelte@3.49.0+vite@3.0.9:
     resolution: {integrity: sha512-PorCgUounn0VXcpeJu+hOweZODKmGuLHsLomwqSj+p26IwjjGffmYQfVHtiTWq+NqaUuuHWWG7vPge6UFw4Aeg==}
     engines: {node: ^14.18.0 || >= 16}
     peerDependencies:
@@ -426,7 +426,7 @@ packages:
       magic-string: 0.26.2
       svelte: 3.49.0
       svelte-hmr: 0.14.12_svelte@3.49.0
-      vite: 3.0.8_sass@1.54.4
+      vite: 3.0.9_sass@1.54.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -746,7 +746,7 @@ packages:
       '@unocss/core': 0.45.8
     dev: true
 
-  /@unocss/vite/0.45.8_vite@3.0.8:
+  /@unocss/vite/0.45.8_vite@3.0.9:
     resolution: {integrity: sha512-uGKe0tbxcJgk9aEKa+AYjbU3i0Yh1N7ekvdLGZD+xwk+EvIOg4Hc8mym5gOOh4wRYKROoVOPp1Z7m+GwCVecAA==}
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0-0
@@ -759,7 +759,7 @@ packages:
       '@unocss/scope': 0.45.8
       '@unocss/transformer-directives': 0.45.8
       magic-string: 0.26.2
-      vite: 3.0.8_sass@1.54.4
+      vite: 3.0.9_sass@1.54.4
     dev: true
 
   /@vercel/nft/0.21.0:
@@ -4660,10 +4660,10 @@ packages:
       unocss: '>= 0.31.13 < 1'
     dependencies:
       '@unocss/preset-mini': 0.31.17
-      unocss: 0.45.8_vite@3.0.8
+      unocss: 0.45.8_vite@3.0.9
     dev: true
 
-  /unocss/0.45.8_vite@3.0.8:
+  /unocss/0.45.8_vite@3.0.9:
     resolution: {integrity: sha512-OIStfHtH0sv1MYz0x+fa8wEBuwRS0lFhnlRwo/zxnNSh5zS+szMKeowhXoC/eoOQBUA1qoHux0qG5GdcJnX2Lg==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -4687,7 +4687,7 @@ packages:
       '@unocss/transformer-compile-class': 0.45.8
       '@unocss/transformer-directives': 0.45.8
       '@unocss/transformer-variant-group': 0.45.8
-      '@unocss/vite': 0.45.8_vite@3.0.8
+      '@unocss/vite': 0.45.8_vite@3.0.9
     transitivePeerDependencies:
       - supports-color
       - vite
@@ -4759,8 +4759,8 @@ packages:
       magic-string: 0.26.2
     dev: true
 
-  /vite/3.0.8_sass@1.54.4:
-    resolution: {integrity: sha512-AOZ4eN7mrkJiOLuw8IA7piS4IdOQyQCA81GxGsAQvAZzMRi9ZwGB3TOaYsj4uLAWK46T5L4AfQ6InNGlxX30IQ==}
+  /vite/3.0.9_sass@1.54.4:
+    resolution: {integrity: sha512-waYABTM+G6DBTCpYAxvevpG50UOlZuynR0ckTK5PawNVt7ebX6X7wNXHaGIO6wYYFXSM7/WcuFuO2QzhBB6aMw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
