@@ -91,8 +91,6 @@
       <slot name="post_content" />
     </div>
 
-    <div class="divider" />
-
     <TagsSection tags={thisPost.tags} />
 
     <div class="divider" />
@@ -151,13 +149,3 @@
     {/if}
   </div>
 </main>
-
-<style lang="scss">
-  .divider {
-    --at-apply: 'border-b-2 m8 border-gray op70';
-  }
-
-  :global(h2[toc-heading], h3[toc-heading], h4[toc-heading], h5[toc-heading], h6[toc-heading]) {
-    scroll-margin-top: 4em;
-  }
-</style>

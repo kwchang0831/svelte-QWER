@@ -46,21 +46,23 @@
   }
 </script>
 
-<aside
-  in:fly={{ x: 200, duration: 300, delay: 300 }}
-  out:fade={{ duration: 300 }}
-  id="post-toc"
-  aria-label="Table Of Content"
-  on:mousedown={mouseDownHandler}
-  class="sticky top-[5rem] hidden xl:block pb8 max-h-80vh overflow-hidden cursor-grab">
-  <nav>
-    <h2 class="text-2xl font-bold p4">Table of Content</h2>
-    {#if toc && toc.length > 0}
-      <ul class="text-base font-semibold flex flex-col">
-        {#each toc as c}
-          <TocContent content={c} expanded />
-        {/each}
-      </ul>
-    {/if}
-  </nav>
-</aside>
+{#if toc && toc.length > 0}
+  <aside
+    in:fly={{ x: 200, duration: 300, delay: 300 }}
+    out:fade={{ duration: 300 }}
+    id="post-toc"
+    aria-label="Table Of Content"
+    on:mousedown={mouseDownHandler}
+    class="sticky top-[5rem] hidden xl:block pb8 max-h-80vh overflow-hidden cursor-grab">
+    <nav>
+      <h2 class="text-2xl font-bold p4">Table of Content</h2>
+      {#if toc && toc.length > 0}
+        <ul class="text-base font-semibold flex flex-col">
+          {#each toc as c}
+            <TocContent content={c} expanded />
+          {/each}
+        </ul>
+      {/if}
+    </nav>
+  </aside>
+{/if}
