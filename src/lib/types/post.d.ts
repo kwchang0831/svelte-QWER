@@ -9,7 +9,6 @@ export namespace Post {
     html?: string;
     published: string;
     updated: string;
-    created: string;
     cover?: string;
     coverCaption?: string;
     coverStyle: CoverStyle;
