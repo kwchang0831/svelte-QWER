@@ -101,6 +101,7 @@ export const default_renderer = (basePath) => {
         output = output.replace(/\n$/, '');
 
         let lines = output.split(/\r\n|\r|\n/);
+
         const lineStart = options['lineStart'] ? +options['lineStart'] : 1;
         const linesClass = new Array(lines.length);
         const lineStatus = new Array(lines.length);
@@ -182,7 +183,7 @@ export const default_renderer = (basePath) => {
           }">` +
           `${options['title'] ? `<h2 class="code-title">${options['title']}</h2>` : ''}` +
           `<CodeCopy><pre><code${language ? ` class="language-${language}"` : ''}>` +
-          `{@html \`${lines}\`}` +
+          `{@html String.raw\`${lines}\`}` +
           `</code></pre></CodeCopy>` +
           `</div>\n`
         );
