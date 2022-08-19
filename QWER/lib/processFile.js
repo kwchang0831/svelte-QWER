@@ -116,6 +116,7 @@ const _processMD = (file, generateMeta) => {
     summary: _meta['summary'],
     content: _html2text ? LZString.compressToBase64(_html2text) : undefined,
     html: _md.content ? LZString.compressToBase64(_md.content) : undefined,
+    created: statSync(file).birthtime,
     published: _meta['published'] || statSync(file).birthtime,
     updated: _meta['updated'] || statSync(file).mtime,
     cover: processImagePath(_meta['cover'], _slug),
