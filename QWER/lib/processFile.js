@@ -86,7 +86,7 @@ const _processMD = (file, generateMeta) => {
   const _matter = matter.read(file);
   const _content = _matter.content;
   const _meta = _matter.data;
-  const _tags = !(_meta.options && _meta.options.includes('unlisted'))
+  const _tags = !(_meta['options'] && _meta['options']?.includes('unlisted'))
     ? _meta['tags']?.map((e) => {
         if (typeof e === 'number') return e.toString();
         if (Array.isArray(e))
