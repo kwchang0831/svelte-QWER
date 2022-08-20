@@ -1,0 +1,21 @@
+name: Metrics
+on:
+  workflow_dispatch:
+jobs:
+  svelte-QWER-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🍕 PageSpeed Report
+        if: ${{ success() || failure() }}
+        uses: lowlighter/metrics@latest
+        with:
+          config_timezone: Asia/Taipei
+          filename: metrics.pagespeed.svg
+          output_action: gist
+          committer_gist: ${{ secrets.METRICS_GIST }}
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ''
+          plugin_pagespeed: yes
+          plugin_pagespeed_detailed: yes
+          plugin_pagespeed_token: ${{ secrets.PAGESPEED_TOKEN }}
+          plugin_pagespeed_url: https://svelte-qwer.vercel.app/
