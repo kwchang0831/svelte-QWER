@@ -14,33 +14,35 @@ options:
 
 ## 🎉 QWER
 
-[QWER](https://github.com/kwchang0831/svelte-QWER) is inspired by [Urara](https://github.com/importantimport/urara), but [QWER](https://github.com/kwchang0831/svelte-QWER) was built with different approach. You can still check [my previous blog](http://urara.kwchang0831.dev/) that was built by [Urara](https://github.com/importantimport/urara).
+[QWER](https://github.com/kwchang0831/svelte-QWER) is inspired by [Urara](https://github.com/importantimport/urara), but [QWER](https://github.com/kwchang0831/svelte-QWER)'s internal core was built differently. You can still check [my previous blog](http://urara.kwchang0831.dev/) that was built by [Urara](https://github.com/importantimport/urara).
 
-It took me about a month or two of my leisure time to develope [QWER](https://github.com/kwchang0831/svelte-QWER). It is also my first [Svelte](https://svelte.dev/) project. I learned Svelte while doing devlopment.
+It took me about a month or two of my leisure time to develope [QWER](https://github.com/kwchang0831/svelte-QWER). It is also my first [Svelte](https://svelte.dev/) project. I learned Svelte while doing development.
 
 ## ✨ Features
 
-- Out-of-the-box support of Atom feed, Sitemap, PWA.
+- Out-of-the-box support for Atom feed, Sitemap, PWA.
 
-- Outstanding site performace and SEO support.
+- Outstanding site performance and SEO support.
 
 - Folder-based organization of blogging.
 
-- Bult-in images pre-process. Auto-generate different resolutions / format images to accommodate Mobile / Tablet / PC audiences for balance of speed and visual quality.
+- Built-in images pre-process. Auto-generate different resolutions / format images to accommodate Mobile / Tablet / PC audiences for balance of speed and visual quality.
 
-- Support [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
+- Support [Giscus](https://github.com/giscus/giscus) - a comments system powered by Github Discussions.
 
 - Support [Umami](https://github.com/umami-software/umami) - a simple, fast, privacy-focused alternative to Google Analytics.
 
-- Utlize [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
+- Utilize [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
 
-- Utlize [Marked](https://github.com/markedjs/marked) for markdown preprocessor.
+- Utilize [Marked](https://github.com/markedjs/marked) for markdown preprocessor.
 
-- Utlize [PrimeJS](https://prismjs.com/) for syntax highlighting.
+- Utilize [Prismjs](https://prismjs.com/) for syntax highlighting.
 
 ## 🚧 Current State
 
-[QWER](https://github.com/kwchang0831/svelte-QWER) is currently at pre-alpha stage. I used just-make-it-to-work approach, so many of the code are NOT optimized at all, and could be ugly.
+[QWER](https://github.com/kwchang0831/svelte-QWER) is currently at pre-alpha stage. I used just-make-it-to-work approach, so many of the code are NOT optimized at all, and ugly.
+
+If you have encountered any issues, please do let me know using [Github's Q&A Discussion board](https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a).
 
 ## 👍 END
 

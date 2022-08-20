@@ -5,7 +5,7 @@
 <br/>
 <h1 align="center">QWER</h1>
 <p align="center">
-Simply Awesome Blog Starter / Static Site Generator built with Svelte and ❤.
+Simply Awesome Blog Starter / Static Site Generator built with Svelte and ❤
 </p>
 <p align="center">
 <a href="README-zh.md"><img src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-lightgreen" alt="Readme"></a>
@@ -35,7 +35,7 @@ npx degit kwchang0831/svelte-QWER my-blog
    npm i -g pnpm
    ```
 
-1. Install all the dependcies.
+1. Install all the dependencies.
 
    ```bash
    pnpm i
@@ -55,7 +55,7 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## 🚀 Deploy on Vercel
 
-1. Install vercle CLI
+1. Install Vercle CLI
 
    ```bash
    npm i -g vercel
@@ -80,6 +80,26 @@ vercel build --prod
 vercel deploy --prebuilt --prod
 ```
 
+## ✨ Features
+
+- Out-of-the-box support for Atom feed, Sitemap, PWA.
+
+- Outstanding site performance and SEO support.
+
+- Folder-based organization of blogging.
+
+- Built-in images pre-process. Auto-generate different resolutions / format images to accommodate Mobile / Tablet / PC audiences for balance of speed and visual quality.
+
+- Support [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
+
+- Support [Umami](https://github.com/umami-software/umami) - a simple, fast, privacy-focused alternative to Google Analytics.
+
+- Utilize [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
+
+- Utilize [Marked](https://github.com/markedjs/marked) for markdown preprocessor.
+
+- Utilize [Prismjs](https://prismjs.com/) for syntax highlighting.
+
 ## Learn More
 
 Please read more at [Intro to QWER](https://svelte-qwer.vercel.app/intro-to-QWER) and [About QWER](https://svelte-qwer.vercel.app/about).
@@ -92,7 +112,7 @@ Please take advantage of our [Github's Q&A Discussion board](https://github.com/
 
 Please consider adding `svelte-qwer` topic to your repository.
 
-To see whoelse are using QWER, please check [Github-Topics: svelte-qwer](https://github.com/topics/svelte-qwer).
+To see who else are using QWER, please check [Github-Topics: svelte-qwer](https://github.com/topics/svelte-qwer).
 
 ## 🙏 Credits
 

@@ -80,6 +80,26 @@ vercel build --prod
 vercel deploy --prebuilt --prod
 ```
 
+## ✨ Features
+
+- 開箱即用的 Atom feed, Sitemap, PWA.
+
+- 網站速度評分快速，且支援 SEO.
+
+- 新增部落格頁面是使用資料夾式的整理方式
+
+- 內建照片檔案的前處理，自動生成不同的解析度與格式。讓不同的使用者在不同的設備上能在速度與觀看品質上有更好的平衡。
+
+- 支持 [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
+
+- 支持 [Umami](https://github.com/umami-software/umami) - a simple, fast, privacy-focused alternative to Google Analytics.
+
+- 使用 [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
+
+- 使用 [Marked](https://github.com/markedjs/marked) for markdown preprocessor.
+
+- 使用 [Prismjs](https://prismjs.com/) for syntax highlighting.
+
 ## 了解更多
 
 請參考教學 [Intro to QWER](https://svelte-qwer.vercel.app/intro) 和 [About QWER](https://svelte-qwer.vercel.app/about).。
