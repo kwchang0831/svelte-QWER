@@ -77,7 +77,7 @@
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.7.0",
     "rimraf": "^3.0.2",
-    "sass": "^1.54.4",
+    "sass": "^1.54.5",
     "svelte": "^3.49.0",
     "svelte-check": "^2.8.1",
     "svelte-preprocess": "^4.10.7",
