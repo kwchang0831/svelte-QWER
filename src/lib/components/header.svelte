@@ -9,7 +9,7 @@
   import { postsShow } from '$stores/posts';
   import { page } from '$app/stores';
   import { postsAll } from '$stores/posts';
-  import AuthorAvatar from '$lib/components/author_avatar.svelte';
+  import AuthorAvatar from '$lib/components/image_avatar.svelte';
   import { lastUpdatedStr } from '$lib/utli/timeFormat';
 
   let search = false;
@@ -69,7 +69,7 @@
               </p>
             </button>
             <p class="text-xs mx2 op80 flex items-center">
-              <AuthorAvatar class="h4 w4" />
+              <AuthorAvatar width="16px" height="16px" class="w4 h4" />
               <span class="font-semibold mx1">{siteConfig.author.name}</span>
               <span class="font-semibold mx1">·</span>
               {lastUpdated}

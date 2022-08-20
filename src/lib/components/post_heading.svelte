@@ -4,6 +4,8 @@
   import ImgZ from '$lib/components/image_zoom.svelte';
   import tippy from '$lib/actions/tippy';
   import { lastUpdatedStr, defaultPublishedStr, defaultUpdatedStr } from '$lib/utli/timeFormat';
+  import { dev } from '$app/env';
+  import AuthorAvatar from '$lib/components/image_avatar.svelte';
 
   export let data: Post.Post;
 </script>
@@ -11,21 +13,10 @@
 <div class="flex flex-col pt8 mx8">
   <div class="flex justify-between items-center mx--4 md:mx0">
     <div class="flex items-center gap-1 pl-0 shrink-0">
-      {#if siteConfig.author.avatar && siteConfig.author.avatar_32}
-        <picture>
-          <source srcset={siteConfig.author.avatar_32[0]} type="image/avif" />
-          <source srcset={siteConfig.author.avatar_32[1]} type="image/webp" />
-          <img
-            decoding="async"
-            loading="lazy"
-            class="inline-block !w-8 !h-8 mr-1 object-cover aspect-1 rounded-full hover:rotate-[360deg] transition-transform !duration-1000 ease-in-out"
-            src={siteConfig.author.avatar}
-            alt={siteConfig.author.avatar} />
-        </picture>
-      {:else}
-        <div
-          class="i-akar-icons-question !h-6 !w-6 hover:rotate-[360deg] transition-transform !duration-1000 ease-in-out" />
-      {/if}
+      <AuthorAvatar
+        width="32px"
+        height="32px"
+        class="inline-block !w-8 !h-8 mr-1 object-cover aspect-1 rounded-full hover:rotate-[360deg] transition-transform duration-1000 ease-in-out" />
       <span class="font-bold text-base">
         <a use:tippy aria-label="{siteConfig.author.name}'s Github Page" rel="author" href={siteConfig.author.github}>
           {siteConfig.author.name}

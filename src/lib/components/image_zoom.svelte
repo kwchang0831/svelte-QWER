@@ -3,6 +3,8 @@
   import { ImageConfig } from '$config/QWER.confitg';
   import { assets } from '$generated/assets';
   import { onMount } from 'svelte';
+  import { dev } from '$app/env';
+  import { siteConfig } from '$config/site';
 
   let className: string | undefined = undefined;
   export { className as class };
@@ -11,7 +13,7 @@
 
   export let src: string;
   export let alt: string = src;
-  export let loading: 'eager' | 'lazy' = 'eager';
+  export let loading: 'eager' | 'lazy' = 'lazy';
   export let decoding: 'async' | 'sync' | 'auto' = 'async';
   export let width: string | undefined = undefined;
   export let height: string | undefined = undefined;
@@ -35,9 +37,15 @@
       {#if resolutions}
         {#each resolutions as [res, meta]}
           {#each meta.format as format, index}
+            <!--
+              DirtyFix: ASSET PATH INCORRECT TRANSFORMED
+              The image asset path is expected to transfrom to "/_app/immutable/assets/..."
+              But, instead transform to "./_app/immutable/assets/..."
+              So, we add "/" in front to force it. Not sure if there's other side effects for now.
+            -->
             <source
               media={`(min-width: ${meta.minWidth})`}
-              srcset={asset[res][index]}
+              srcset={dev ? `${asset[res][index]}` : new URL(asset[res][index], siteConfig.url).href}
               width={meta.width}
               type={`image/${format}`} />
           {/each}
