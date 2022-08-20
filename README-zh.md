@@ -97,3 +97,5 @@ vercel deploy --prebuilt --prod
 ## 🙏 特別感謝
 
 - 封面圖片來自 <a href="https://unsplash.com/@jessbaileydesigns?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jess Bailey</a> 從 <a href="https://unsplash.com/s/photos/note?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+- 使用者圖像來自 <a href="https://icons8.com/illustrations/author/GrbQqWBEhaDS">Liam Moore</a> 從 <a href="https://icons8.com/illustrations">Ouch!</a>
