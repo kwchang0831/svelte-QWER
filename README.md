@@ -16,6 +16,11 @@ Simply Awesome Blog Starter / Static Site Generator built with Svelte and ❤.
 </p>
 <br/>
 
+<p align="center">
+<a href="https://raw.githubusercontent.com/gist/kwchang0831/acd18fa5e12de9be28a34617beffe5de/raw/metrics.pagespeed.svg"><img style="float:middle" width="auto" alt="PAGESPEED" src="https://raw.githubusercontent.com/gist/kwchang0831/acd18fa5e12de9be28a34617beffe5de/raw/metrics.pagespeed.svg"></a>
+</p>
+<br/>
+
 ## 🎉 Try it out
 
 ```bash
