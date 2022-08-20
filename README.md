@@ -1,6 +1,6 @@
 <br/>
 <div align="center">
-<a href="https://github.com/kwchang0831/svelte-qwer"><img src="./assets/qwer.webp" alt="qwer" /></a>
+<a href="https://svelte-qwer.vercel.app/"><img src="./assets/qwer.webp" alt="qwer" /></a>
 </div>
 <br/>
 <h1 align="center">QWER</h1>
@@ -77,7 +77,7 @@ vercel deploy --prebuilt --prod
 
 ## Learn More
 
-Please read more at [Intro to QWER](https://svelte-qwer.vercel.app//intro).
+Please read more at [Intro to QWER](https://svelte-qwer.vercel.app/intro-to-QWER) and [About QWER](https://svelte-qwer.vercel.app/about).
 
 ## ❓ Issues / Problems / Questions
 
