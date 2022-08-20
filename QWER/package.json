@@ -1,11 +1,23 @@
 {
   "name": "@kwchang0831/qwer",
-  "version": "1.0.0",
-  "description": "Convert markdwon and asset files for svelte-qwer internel use.",
-  "main": "index.js",
   "author": "kwchang0831",
+  "version": "0.0.1",
+  "description": "Convert markdwon and asset files for svelte-qwer internel use",
   "license": "MIT",
+  "homepage": "https://github.com/kwchang0831/svelte-qwer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kwchang0831/svelte-qwer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kwchang0831/svelte-qwer/issues"
+  },
+  "packageManager": "pnpm@7.9.3",
+  "engines": {
+    "pnpm": "^7.0.0"
+  },
   "type": "module",
+  "main": "index.js",
   "devDependencies": {
     "chalk": "^5.0.1",
     "chokidar": "^3.5.3",

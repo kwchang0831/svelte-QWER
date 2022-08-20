@@ -9,10 +9,23 @@ import transformerCompileClass from '@unocss/transformer-compile-class';
 import { imagetools } from 'vite-imagetools';
 import path from 'node:path';
 
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+const pathMainPkg = fileURLToPath(new URL('package.json', import.meta.url));
+const jsonMainPkg = readFileSync(pathMainPkg, 'utf8');
+const pathQWERPkg = fileURLToPath(new URL('QWER/package.json', import.meta.url));
+const jsonQWERPkg = readFileSync(pathQWERPkg, 'utf8');
+const mainPkg = JSON.parse(jsonMainPkg);
+const qwerPkg = JSON.parse(jsonQWERPkg);
+
 /** @type {import('vite').UserConfig} */
 const config = {
   mode: process.env.MODE || 'production',
   envPrefix: 'QWER_',
+  define: {
+    __VERSION_MAIN__: mainPkg,
+    __VERSION_QWER__: qwerPkg,
+  },
   plugins: [
     Unocss({
       extractors: [extractorSvelte],

@@ -3,10 +3,19 @@
   "version": "0.0.1",
   "type": "module",
   "license": "MIT",
-  "repository": "kwchang0831/svelte-qwer",
   "homepage": "https://github.com/kwchang0831/svelte-qwer",
-  "bugs": "https://github.com/kwchang0831/svelte-qwer/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kwchang0831/svelte-qwer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kwchang0831/svelte-qwer/issues"
+  },
   "author": "kwchang0831",
+  "packageManager": "pnpm@7.9.3",
+  "engines": {
+    "pnpm": "^7.0.0"
+  },
   "scripts": {
     "dev:sveltekit": "cross-env MODE=development vite dev --host",
     "dev:QWER": "node --no-warnings QWER watch",
