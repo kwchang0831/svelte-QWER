@@ -42,7 +42,7 @@
       }
 
       document.getElementById('giscus-container')?.appendChild(giscus);
-    }, 250);
+    }, 1000);
   });
 </script>
 
