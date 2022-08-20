@@ -14,18 +14,20 @@
 <a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 示範網站-Vercel-informational" alt="Readme"></a>
 <a href="https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a"><img src="https://img.shields.io/badge/❓ 問題討論-Q&A-informational" alt="Q&A"></a>
 </p>
+
 <br/>
 
 <p align="center">
 <a href="https://raw.githubusercontent.com/gist/kwchang0831/acd18fa5e12de9be28a34617beffe5de/raw/metrics.pagespeed.svg"><img style="float:middle" width="auto" alt="PAGESPEED" src="https://raw.githubusercontent.com/gist/kwchang0831/acd18fa5e12de9be28a34617beffe5de/raw/metrics.pagespeed.svg"></a>
 </p>
-<br/>
 
 ## 🎉 馬上嘗試看看 QWER
 
 ```bash
 npx degit kwchang0831/svelte-QWER my-blog
 ```
+
+<p align="center"><a href="https://svelte-qwer.vercel.app/"><img src="./assets/preview.png" alt="./assets/preview.png" /></a></p>
 
 ## ⚡️ 用法
 
