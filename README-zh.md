@@ -5,7 +5,7 @@
 <br/>
 <h1 align="center">QWER</h1>
 <p align="center">
-使用 Svelte 與 ❤ 打造之簡單好用的靜態網站 / 部落格生成器
+✒︎ 使用 Svelte 與 ❤ 打造之簡單好用的靜態網站 / 部落格生成器
 </p>
 <p align="center">
 <a href="README.md"><img src="https://img.shields.io/badge/README-ENGLISH-lightgreen" alt="Readme"></a>
@@ -69,18 +69,11 @@ npx degit kwchang0831/svelte-QWER my-blog
    vercel login
    ```
 
-### 遠端建置與部署
+1. 部署
 
-```bash
-vercel --prod
-```
-
-### 本地端建置後部署
-
-```bash
-vercel build --prod
-vercel deploy --prebuilt --prod
-```
+   ```bash
+   vercel --prod
+   ```
 
 ## ✨ Features
 

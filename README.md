@@ -5,7 +5,7 @@
 <br/>
 <h1 align="center">QWER</h1>
 <p align="center">
-Simply Awesome Blog Starter / Static Site Generator built with Svelte and ❤
+✒︎ Simply Awesome Blog Starter built with Svelte and ❤
 </p>
 <p align="center">
 <a href="README-zh.md"><img src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-lightgreen" alt="Readme"></a>
@@ -57,7 +57,7 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## 🚀 Deploy on Vercel
 
-1. Install Vercle CLI
+1. Install Vercel CLI
 
    ```bash
    npm i -g vercel
@@ -69,18 +69,11 @@ npx degit kwchang0831/svelte-QWER my-blog
    vercel login
    ```
 
-### Remote build
+1. Deploy
 
-```bash
-vercel --prod
-```
-
-### Local build
-
-```bash
-vercel build --prod
-vercel deploy --prebuilt --prod
-```
+   ```bash
+   vercel --prod
+   ```
 
 ## ✨ Features
 
