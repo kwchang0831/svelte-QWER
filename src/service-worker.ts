@@ -1,10 +1,10 @@
 /// <reference lib="webworker" />
 
-import { build, files, version } from '$service-worker';
+import { build, files, prerendered, version } from '$service-worker';
 
 const worker = self as unknown as ServiceWorkerGlobalScope;
 const FILES = `cache${version}`;
-const to_cache = build.concat(files);
+const to_cache = build.concat(files).concat(prerendered);
 const staticAssets = new Set(to_cache);
 
 worker.addEventListener('install', (event) => {
