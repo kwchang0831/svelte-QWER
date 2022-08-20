@@ -12,6 +12,7 @@ export const Config = {
     'src/routes/feed.json/+server.ts',
     'src/routes/manifest.webmanifest/+server.ts',
     'src/routes/sitemap.xml/+server.ts',
+    'src/routes/robots.txt/+server.ts',
   ],
   TemplateFolder: 'src/lib/template',
   GeneratedFolder: 'src/generated',
