@@ -17,6 +17,8 @@
 
   import { slide } from 'svelte/transition';
   import { quartIn } from 'svelte/easing';
+  import { createEventDispatcher } from 'svelte';
+  const dispatch = createEventDispatcher();
 
   export let nav: DD.Nav | DD.Link;
 
@@ -27,11 +29,17 @@
   }
   function hide() {
     active = false;
+    dispatch('message', {
+      ddActive: false,
+    });
+  }
+  function handleMessage(event: { ddActive: boolean }) {
+    active = event.ddActive;
   }
 </script>
 
 {#if nav}
-  <div on:mouseenter={show} on:mouseleave={hide} class="relative cursor-pointer {className}">
+  <div on:message on:mouseenter={show} on:mouseleave={hide} class="relative cursor-pointer {className}">
     <slot>
       {#if nav.url}
         <a href={nav.url} target={nav.target} class="flex items-center cursor-pointer gap-2">
@@ -67,12 +75,13 @@
         class:pos-right={nav.orientation === 1}
         class:pos-down={nav.orientation === 2}
         class:pos-left={nav.orientation === 3}
-        class="absolute w-max bg-white dark:bg-black">
-        <ul class="flex flex-col tracking-wide border-1 border-black dark:border-white">
+        class="absolute w-max bg-white dark:bg-black rounded-lg">
+        <ul class="flex flex-col tracking-wide rounded-lg border-1 border-black dark:border-white">
           {#each nav.links as link}
             {#if 'links' in link}
-              <li class="text-black hover:bg-black/[0.2] dark:(hover:bg-white/[0.2] text-white)">
-                <svelte:self nav={link}>
+              <li
+                class="first:rounded-t-lg last:rounded-b-lg text-black hover:bg-black/[0.2] dark:(hover:bg-white/[0.2] text-white)">
+                <svelte:self nav={link} on:message={handleMessage}>
                   <!-- TODO: page.url.pathname -->
                   <a
                     href={link.url}
