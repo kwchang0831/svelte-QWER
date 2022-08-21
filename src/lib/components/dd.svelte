@@ -68,7 +68,7 @@
         class:pos-down={nav.orientation === 2}
         class:pos-left={nav.orientation === 3}
         class="absolute w-max bg-white dark:bg-black">
-        <ul class="flex flex-col tracking-wide border-1">
+        <ul class="flex flex-col tracking-wide border-1 border-black dark:border-white">
           {#each nav.links as link}
             {#if 'links' in link}
               <li class="text-black hover:bg-black/[0.2] dark:(hover:bg-white/[0.2] text-white)">
