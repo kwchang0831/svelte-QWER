@@ -52,6 +52,8 @@ export const headConfig: Site.Head = {
           // Umami Analytics
           '<link rel="preconnect" href="https://umami.kwchang0831.dev" />',
           '<script defer data-website-id="2622af6c-7111-408f-bbc7-489e40256206" src="https://umami.kwchang0831.dev/umami.js" data-cache="true" data-domains="svelte-qwer.vercel.app"></script>',
+          // Google Site Verification
+          '<meta name="google-site-verification" content="V5SyrYOSHqs3meqKpj5EUNXUhCS33-ZJx9gphoRJk3M" />',
         ],
 };
 
