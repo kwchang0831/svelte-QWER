@@ -34,12 +34,14 @@ ${_alltags
     const [key, value] = Object.entries(t);
     if (key[1] === 'tags') {
       return Array.from(Object.keys(value[1])).map((tag) => {
-        return `<category term="${tag}" scheme="${siteConfig.url}/?tags=${encodeURI(tag)}" />`;
+        return `<category term="${tag}" scheme="${new URL(`?tags=${encodeURI(tag)}`, siteConfig.url).href}" />`;
       });
     }
     return Array.from(Object.keys(value[1])).map((tag) => {
       const formattedTag = `tags-${key[1]}=${tag}`;
-      return `<category term="${key[1]}-${tag}" scheme=${siteConfig.url}/?${encodeURI(formattedTag)}" />`;
+      return `<category term="${key[1]}-${tag}" scheme="${
+        new URL(`?tags=${encodeURI(formattedTag)}`, siteConfig.url).href
+      }" />`;
     });
   })
   .flat()
@@ -57,19 +59,24 @@ ${_allposts
     <content type="html"><![CDATA[${LZString.decompressFromBase64(p[1].html ?? '') ?? ''}]]></content>
     ${p[1].tags
       ?.map((t: string | string[] | { string: string } | { string: string[] }) => {
-        if (typeof t === 'string') return `<category term="${t}" scheme="${siteConfig.url}/?tags=${encodeURI(t)}" />`;
+        if (typeof t === 'string')
+          return `<category term="${t}" scheme="${new URL(`?tags=${encodeURI(t)}`, siteConfig.url).href}" />`;
         if (Array.isArray(t)) {
           return t.map((v) => {
-            return `<category term="${v}" scheme="${siteConfig.url}/?tags=${encodeURI(v)}" />`;
+            return `<category term="${v}" scheme="${new URL(`?tags=${encodeURI(v)}`, siteConfig.url).href}" />`;
           });
         }
         const [key, value] = Object.entries(t)[0];
         if (Array.isArray(value)) {
           return value.map((t) => {
-            return `<category term="${key}-${t}" scheme="${siteConfig.url}/?${key}=${encodeURI(t)}" />`;
+            return `<category term="${key}-${t}" scheme="${
+              new URL(`?${key}=${encodeURI(t)}`, siteConfig.url).href
+            }" />`;
           });
         }
-        return `<category term="${key}-${value}" scheme="${siteConfig.url}/?${key}=${encodeURI(value)}" />`;
+        return `<category term="${key}-${value}" scheme="${
+          new URL(`?${key}=${encodeURI(value)}`, siteConfig.url).href
+        }" />`;
       })
       .flat()
       .join('\n')}
