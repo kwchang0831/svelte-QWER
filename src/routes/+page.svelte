@@ -7,12 +7,15 @@
   import { siteConfig } from '$config/site';
 
   import { page } from '$app/stores';
-  import { onMount, onDestroy } from 'svelte';
+  import { onMount } from 'svelte';
 
   // @ts-ignore
   import DefaultOGCard_512_512 from '$assets/default_og_card.jpg?w=512&h=512&format=webp';
 
-  onMount(async () => {
+  onMount(() => {
+    tagsCur.init();
+    postsShow.init();
+
     $page.url.searchParams.forEach((v, k) => {
       k = decodeURI(k);
       if (k.match(/^tags(-.*)?/)) {
@@ -23,12 +26,7 @@
       }
     });
 
-    if ($tagsCur.size) postsShow.filter($tagsCur);
-  });
-
-  onDestroy(() => {
-    tagsCur.init();
-    postsShow.init();
+    postsShow.filter($tagsCur);
   });
 </script>
 

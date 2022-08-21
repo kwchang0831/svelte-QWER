@@ -31,13 +31,7 @@
 
   <div class="flex gap-x-2 mx8 flex-wrap">
     {#each formattedTags as tag}
-      <a
-        sveltekit:prefetch
-        sveltekit:noscroll
-        use:tippy
-        class="btn btn-ghost"
-        href={tag.url}
-        aria-label="{tag.category}: {tag.name}">
+      <a use:tippy class="btn btn-ghost" href={tag.url} aria-label="{tag.category}: {tag.name}">
         #{tag.name}
       </a>
     {/each}
