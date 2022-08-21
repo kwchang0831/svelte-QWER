@@ -28,6 +28,8 @@ npx degit kwchang0831/svelte-QWER my-blog
 ```
 
 <p align="center"><a href="https://svelte-qwer.vercel.app/"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/assets/preview.png" alt="./assets/preview.png" /></a></p>
+<br/>
+<p align="center"><a href="https://svelte-qwer.vercel.app/"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/assets/mobile-preview.png" alt="./assets/preview.png" /></a></p>
 
 ## ⚡️ Usage
 
