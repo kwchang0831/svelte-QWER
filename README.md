@@ -1,6 +1,6 @@
 <br/>
 <div align="center">
-<a href="https://svelte-qwer.vercel.app/"><img src="./assets/qwer.webp" alt="./assets/qwer.webp" /></a>
+<a href="https://svelte-qwer.vercel.app/"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/assets/qwer.webp" alt="./assets/qwer.webp" /></a>
 </div>
 <br/>
 <h1 align="center">QWER</h1>
@@ -27,7 +27,7 @@
 npx degit kwchang0831/svelte-QWER my-blog
 ```
 
-<p align="center"><a href="https://svelte-qwer.vercel.app/"><img src="./assets/preview.png" alt="./assets/preview.png" /></a></p>
+<p align="center"><a href="https://svelte-qwer.vercel.app/"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/assets/preview.png" alt="./assets/preview.png" /></a></p>
 
 ## ⚡️ Usage
 
