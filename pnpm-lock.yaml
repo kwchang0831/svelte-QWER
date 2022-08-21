@@ -13,8 +13,8 @@ specifiers:
   '@sveltejs/adapter-netlify': 1.0.0-next.71
   '@sveltejs/adapter-node': 1.0.0-next.86
   '@sveltejs/adapter-static': 1.0.0-next.39
-  '@sveltejs/adapter-vercel': 1.0.0-next.66
-  '@sveltejs/kit': 1.0.0-next.427
+  '@sveltejs/adapter-vercel': 1.0.0-next.67
+  '@sveltejs/kit': 1.0.0-next.428
   '@types/lz-string': ^1.3.34
   '@typescript-eslint/eslint-plugin': ^5.33.1
   '@typescript-eslint/parser': ^5.33.1
@@ -29,7 +29,7 @@ specifiers:
   eslint: ^8.22.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-svelte3: ^4.0.0
-  gitmoji-cli: ^5.3.0
+  gitmoji-cli: ^6.1.0
   husky: ^8.0.1
   lint-staged: ^13.0.3
   lz-string: ^1.4.4
@@ -64,8 +64,8 @@ devDependencies:
   '@sveltejs/adapter-netlify': 1.0.0-next.71
   '@sveltejs/adapter-node': 1.0.0-next.86
   '@sveltejs/adapter-static': 1.0.0-next.39
-  '@sveltejs/adapter-vercel': 1.0.0-next.66
-  '@sveltejs/kit': 1.0.0-next.427_svelte@3.49.0+vite@3.0.9
+  '@sveltejs/adapter-vercel': 1.0.0-next.67
+  '@sveltejs/kit': 1.0.0-next.428_svelte@3.49.0+vite@3.0.9
   '@types/lz-string': 1.3.34
   '@typescript-eslint/eslint-plugin': 5.33.1_vsoshirnpb7xw6mr7xomgfas2i
   '@typescript-eslint/parser': 5.33.1_4rv7y5c6xz3vfxwhbrcxxi73bq
@@ -80,7 +80,7 @@ devDependencies:
   eslint: 8.22.0
   eslint-config-prettier: 8.5.0_eslint@8.22.0
   eslint-plugin-svelte3: 4.0.0_laaqauvsmoyypsiqkozwyi2fn4
-  gitmoji-cli: 5.3.0
+  gitmoji-cli: 6.1.0
   husky: 8.0.1
   lint-staged: 13.0.3
   lz-string: 1.4.4
@@ -370,8 +370,8 @@ packages:
     resolution: {integrity: sha512-EeD39H6iEe0UEKnKxLFTZFZpi/FcX5xfbAvsMQ+B09aDZccpQmkJBSIo+4kq1JsQGSjwi/+J3aE9bR67R6CIyQ==}
     dev: true
 
-  /@sveltejs/adapter-vercel/1.0.0-next.66:
-    resolution: {integrity: sha512-s3Hcxu9nCG/rR3C3cFbdQGjTa5W4K2kRcc6S5Xefx7itbrw+4v3KpO8ZPB6qM55XDwVxuG7260NMHVI6MUGmSA==}
+  /@sveltejs/adapter-vercel/1.0.0-next.67:
+    resolution: {integrity: sha512-xg85d/vlivbTaZu70zmaPNkrY1YZhDrcxljuwVWO0LCzA4DACIA7CnXI9klUiXM5SPpsB8BhY6dS8sW5cDYWzw==}
     dependencies:
       '@vercel/nft': 0.21.0
       esbuild: 0.14.54
@@ -380,8 +380,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.427_svelte@3.49.0+vite@3.0.9:
-    resolution: {integrity: sha512-HUt1knOXaEM18y7E3k0CvhTxmoNhp0KbgfbLPmuRvSrQxRMsTnTpupZwW5mmU0VZkm4HHsf8mwftGy4WR8qf1Q==}
+  /@sveltejs/kit/1.0.0-next.428_svelte@3.49.0+vite@3.0.9:
+    resolution: {integrity: sha512-CVp7zltQ+3VOII1s7KuvgvGEFwD0PSqts9R3q4eaj0CNoC3gpdzcbEZayyQwXX/3lI1HdSNSF8gxbX0TRUoFuA==}
     engines: {node: '>=16.9'}
     hasBin: true
     requiresBuild: true
@@ -389,7 +389,7 @@ packages:
       svelte: ^3.44.0
       vite: ^3.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 1.0.1_svelte@3.49.0+vite@3.0.9
+      '@sveltejs/vite-plugin-svelte': 1.0.2_svelte@3.49.0+vite@3.0.9
       cookie: 0.5.0
       devalue: 2.0.1
       kleur: 4.1.5
@@ -408,8 +408,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/vite-plugin-svelte/1.0.1_svelte@3.49.0+vite@3.0.9:
-    resolution: {integrity: sha512-PorCgUounn0VXcpeJu+hOweZODKmGuLHsLomwqSj+p26IwjjGffmYQfVHtiTWq+NqaUuuHWWG7vPge6UFw4Aeg==}
+  /@sveltejs/vite-plugin-svelte/1.0.2_svelte@3.49.0+vite@3.0.9:
+    resolution: {integrity: sha512-8tTVbNuraeDchBaArNbwaZLpO0feM7BRSdZU5yeM4Clasx2p1p1CYBoWh+VgxZlxiark49HXummkHqKztbl8lA==}
     engines: {node: ^14.18.0 || >= 16}
     peerDependencies:
       diff-match-patch: ^1.0.5
@@ -979,7 +979,7 @@ packages:
     dependencies:
       ansi-align: 3.0.1
       camelcase: 6.3.0
-      chalk: 4.1.2
+      chalk: 4.1.0
       cli-boxes: 2.2.1
       string-width: 4.2.3
       type-fest: 0.20.2
@@ -2242,8 +2242,8 @@ packages:
     resolution: {integrity: sha1-l/tdlr/eiXMxPyDoKI75oWf6ZM4=}
     dev: true
 
-  /gitmoji-cli/5.3.0:
-    resolution: {integrity: sha512-CoGmjiJsbDVwS2RCf2vF8XV781kWSHAcGmpwZHAg3XBvS2sOnJwAW/Q4+klkPPZ72Tp2Uju/k72wVl2dDMLevw==}
+  /gitmoji-cli/6.1.0:
+    resolution: {integrity: sha512-zqzJTQgzbQAF3hrKm5xqvODCan3LlKb5oHMjodxwrGS39OgIqCRwF0WjIac3K2sRiwE0tVNNyupjuof0NjsMgQ==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
@@ -2983,7 +2983,7 @@ packages:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
     engines: {node: '>=10'}
     dependencies:
-      chalk: 4.1.2
+      chalk: 4.1.0
       is-unicode-supported: 0.1.0
     dev: true
 

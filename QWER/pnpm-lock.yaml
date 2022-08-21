@@ -5,7 +5,7 @@ specifiers:
   chokidar: ^3.5.3
   fs-extra: ^10.1.0
   gray-matter: ^4.0.3
-  html-to-text: ^8.2.0
+  html-to-text: ^8.2.1
   limax: ^3.0.0
   lz-string: ^1.4.4
   marked: ^4.0.18
@@ -19,7 +19,7 @@ devDependencies:
   chokidar: 3.5.3
   fs-extra: 10.1.0
   gray-matter: 4.0.3
-  html-to-text: 8.2.0
+  html-to-text: 8.2.1
   limax: 3.0.0
   lz-string: 1.4.4
   marked: 4.0.18
@@ -370,8 +370,8 @@ packages:
       bulk-replace: 0.0.1
     dev: true
 
-  /html-to-text/8.2.0:
-    resolution: {integrity: sha512-CLXExYn1b++Lgri+ZyVvbUEFwzkLZppjjZOwB7X1qv2jIi8MrMEvxWX5KQ7zATAzTvcqgmtO00M2kCRMtEdOKQ==}
+  /html-to-text/8.2.1:
+    resolution: {integrity: sha512-aN/3JvAk8qFsWVeE9InWAWueLXrbkoVZy0TkzaGhoRBC2gCFEeRLDDJN3/ijIGHohy6H+SZzUQWN/hcYtaPK8w==}
     engines: {node: '>=10.23.2'}
     hasBin: true
     dependencies:
