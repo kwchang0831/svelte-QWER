@@ -109,6 +109,10 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 想知道還有誰正在使用 QWER，請參考 [Github-Topics: svelte-qwer](https://github.com/topics/svelte-qwer)。
 
+## 🎉 社會支持
+
+<a href="https://www.producthunt.com/posts/qwer?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-qwer" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=356641&theme=light" alt="QWER - ✒︎&#0032;Simply&#0032;Awesome&#0032;Blog&#0032;Starter&#0032;built&#0032;with&#0032;Svelte&#0032;and&#0032;❤ | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 ## 🙏 特別感謝
 
 - 封面圖片來自 <a href="https://unsplash.com/@jessbaileydesigns?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jess Bailey</a> 從 <a href="https://unsplash.com/s/photos/note?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
