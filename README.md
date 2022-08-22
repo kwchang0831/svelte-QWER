@@ -87,15 +87,15 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - Built-in images pre-process. Auto-generate different resolutions / format images to accommodate Mobile / Tablet / PC audiences for balance of speed and visual quality.
 
+- Writing post with [Markdown syntax](https://www.markdownguide.org/basic-syntax/).
+
+- Support embedding Svelte components and JS with markdown.
+
 - Support [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
 
 - Support [Umami](https://github.com/umami-software/umami) - a simple, fast, privacy-focused alternative to Google Analytics.
 
 - Utilize [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
-
-- Utilize [Marked](https://github.com/markedjs/marked) for markdown preprocessor.
-
-- Utilize [Prismjs](https://prismjs.com/) for syntax highlighting.
 
 ## Learn More
 

@@ -87,15 +87,15 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - 內建照片檔案的前處理，自動生成不同的解析度與格式。讓不同的使用者在不同的設備上能在速度與觀看品質上有更好的平衡。
 
-- 支持 [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
+- 使用 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)撰寫文章
 
-- 支持 [Umami](https://github.com/umami-software/umami) - a simple, fast, privacy-focused alternative to Google Analytics.
+- 支援嵌入 Svelte 組件 與 使用 Javascript 搭配 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)
+
+- 支援 [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
+
+- 支援 [Umami](https://github.com/umami-software/umami) - a simple, fast, privacy-focused alternative to Google Analytics.
 
 - 使用 [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
-
-- 使用 [Marked](https://github.com/markedjs/marked) for markdown preprocessor.
-
-- 使用 [Prismjs](https://prismjs.com/) for syntax highlighting.
 
 ## 了解更多
 
