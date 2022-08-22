@@ -1,4 +1,4 @@
-import { readdirSync, statSync, existsSync, unlinkSync, rmSync, rmdirSync } from 'node:fs';
+import { readdirSync, statSync, existsSync, unlink, rm } from 'node:fs';
 import path from 'node:path';
 import { log } from './logger.js';
 import { firstLine } from './readFirstLine.js';
@@ -38,17 +38,19 @@ export const getAllFilesInDir = (src, arrayFiles = []) => {
 };
 
 export const rmFile = (path) => {
-  if (path && existsSync(path)) {
-    unlinkSync(path);
-    log('red', 'File Removed', path);
+  if (existsSync(path)) {
+    unlink(path, () => {
+      log('red', 'File Removed', path);
+    });
   }
 };
 
 export const rmDir = (dir) => {
   if (existsSync(dir)) {
     getAllFilesInDir(dir).forEach((f) => rmFile(f));
-    rmSync(dir, { recursive: true, force: true });
-    log('red', 'Dir Removed', dir);
+    rm(dir, { recursive: true, force: true }, () => {
+      log('red', 'Dir Removed', dir);
+    });
   } else {
     log('green', 'Dir Not Exists. All Done.', dir);
   }
@@ -81,8 +83,9 @@ export const rmEmptyFolders = (dir) => {
   }
 
   if (files.length == 0) {
-    rmdirSync(dir);
-    log('red', 'Empty Dir Removed', dir);
+    rm(dir, { recursive: true, force: true }, () => {
+      log('red', 'Empty Dir Removed', dir);
+    });
     return;
   }
 };

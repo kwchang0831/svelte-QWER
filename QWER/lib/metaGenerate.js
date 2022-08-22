@@ -1,28 +1,30 @@
 import { Config, ImageConfig } from '../../config/QWER.confitg.js';
 import fs from 'fs-extra';
-import { writeSync, readSync } from 'to-vfile';
+import { readSync, write } from 'to-vfile';
+import { exec } from 'child_process';
 import { join } from 'node:path';
 import { log } from '../utli/logger.js';
 import { tags } from '../lib/tags.js';
 import { posts } from '../lib/posts.js';
 import { assets } from '../lib/assets.js';
 import { strReplaceMatchWith } from '../utli/fsHelper.js';
-import { execSync } from 'child_process';
 
 export const genMetaFiles = () => {
   fs.ensureDirSync(Config.GeneratedFolder);
 
-  writeSync({
+  write({
     path: Config.PostsJsonPath,
     value: posts.json(),
+  }).then(() => {
+    log('cyan', '[Generated] Meta File Updated', Config.PostsJsonPath);
   });
-  log('cyan', '[Generated] Meta File Updated', Config.PostsJsonPath);
 
-  writeSync({
+  write({
     path: Config.TagsJsonPath,
     value: tags.json(),
+  }).then(() => {
+    log('cyan', '[Generated] Meta File Updated', Config.TagsJsonPath);
   });
-  log('cyan', '[Generated] Meta File Updated', Config.TagsJsonPath);
 };
 
 export const genAssetTypeDefinition = () => {
@@ -43,13 +45,13 @@ export const genAssetTypeDefinition = () => {
     },
   ];
 
-  writeSync({
+  write({
     path: ImageConfig.AssetTypePath,
     value: strReplaceMatchWith(String(type_tempalte), type_tempalteMap),
+  }).then(() => {
+    exec(`prettier --write --plugin-search-dir=. "${ImageConfig.AssetTypePath}"`);
+    log('cyan', '[Generated] Meta File Updated', ImageConfig.AssetTypePath);
   });
-
-  execSync(`prettier --write --plugin-search-dir=. "${ImageConfig.AssetTypePath}"`);
-  log('cyan', '[Generated] Meta File Updated', ImageConfig.AssetTypePath);
 };
 
 export const genAssetFile = () => {
@@ -69,11 +71,18 @@ export const genAssetFile = () => {
     },
   ];
 
-  writeSync({
+  write({
     path: Config.AssetsStorePath,
     value: strReplaceMatchWith(String(store_tempalte), store_tempalteMap),
+  }).then(() => {
+    exec(`prettier --write --plugin-search-dir=. "${Config.AssetsStorePath}"`);
+    log('cyan', '[Generated] Meta File Updated', Config.AssetsStorePath);
   });
 
-  execSync(`prettier --write --plugin-search-dir=. "${Config.AssetsStorePath}"`);
-  log('cyan', '[Generated] Meta File Updated', Config.AssetsStorePath);
+  write({
+    path: Config.AssetsJsonPath,
+    value: assets.json(),
+  }).then(() => {
+    log('cyan', '[Generated] Meta File Updated', Config.AssetsJsonPath);
+  });
 };

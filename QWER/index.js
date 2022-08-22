@@ -1,5 +1,5 @@
 import chokidar from 'chokidar';
-import { cpSync } from 'node:fs';
+import { cp } from 'node:fs';
 import { join, basename, sep } from 'node:path';
 import { Config } from '../config/QWER.confitg.js';
 import { log } from './utli/logger.js';
@@ -11,9 +11,9 @@ import {
   cleanAll,
   cleanEmptyFoldersInRoute,
   convertPathForInternalUse,
+  readMetaIntoMemory,
 } from './lib/processFile.js';
 import { rmFile, rmDir } from './utli/fsHelper.js';
-import { genMetaFiles, genAssetFile, genAssetTypeDefinition } from './lib/metaGenerate.js';
 
 switch (process.argv[2]) {
   case 'watch':
@@ -29,23 +29,28 @@ switch (process.argv[2]) {
       let dateFolderInited = false;
       dataFolderwatcher
         .on('add', (file) => {
+          if (!dateFolderInited) return;
           log('cyan', '[DATA] File Created', file);
           addDataFolderFile(file, dateFolderInited);
         })
         .on('change', (file) => {
+          if (!dateFolderInited) return;
           log('cyan', '[DATA] File Updated', file);
           rmDataFolderFile(file, false);
           addDataFolderFile(file, dateFolderInited);
         })
         .on('unlink', (file) => {
+          if (!dateFolderInited) return;
           log('cyan', '[DATA] File Unlinked', file);
           rmFile(convertPathForInternalUse(file));
           rmDataFolderFile(file, true);
         })
         .on('addDir', (dir) => {
+          if (!dateFolderInited) return;
           log('cyan', '[DATA] Dir Created', dir);
         })
         .on('unlinkDir', (dir) => {
+          if (!dateFolderInited) return;
           log('cyan', '[DATA] Dir Unlinked', dir);
           processRmDir(dir);
         })
@@ -53,9 +58,11 @@ switch (process.argv[2]) {
         .on('ready', () => {
           dateFolderInited = true;
           log('cyan', '[DATA] Folder - Init. Scan Completed.');
-          genMetaFiles();
-          genAssetTypeDefinition();
-          genAssetFile();
+          readMetaIntoMemory();
+          // // Assuming build was initialized, before calling watch
+          // genMetaFiles();
+          // genAssetTypeDefinition();
+          // genAssetFile();
         });
 
       const publicFolderwatcher = chokidar.watch(Config.PublicFolder, {
@@ -65,32 +72,40 @@ switch (process.argv[2]) {
           pollInterval: 100,
         },
       });
+      let publicFolderInited = false;
 
       publicFolderwatcher
         .on('add', (file) => {
+          if (!publicFolderInited) return;
           log('cyan', '[Public] File Created', file);
           const [, ...destPath] = file.split(sep);
           const _targetPath = join(Config.StaticFolder, destPath.join(sep));
-          cpSync(file, _targetPath);
-          log('green', 'File Copied', _targetPath);
+          cp(file, _targetPath, {}, () => {
+            log('green', 'File Copied', _targetPath);
+          });
         })
         .on('change', (file) => {
+          if (!publicFolderInited) return;
           log('cyan', '[Public] File Updated', file);
           const [, ...destPath] = file.split(sep);
           const _targetPath = join(Config.StaticFolder, destPath.join(sep));
-          cpSync(file, _targetPath);
-          log('green', 'File Updated', _targetPath);
+          cp(file, _targetPath, {}, () => {
+            log('green', 'File Copied', _targetPath);
+          });
         })
         .on('unlink', (file) => {
+          if (!publicFolderInited) return;
           log('cyan', '[Public] File Unlinked', file);
           const [, ...destPath] = file.split(sep);
           const _targetPath = join(Config.StaticFolder, destPath.join(sep));
           rmFile(_targetPath);
         })
         .on('addDir', (dir) => {
+          if (!publicFolderInited) return;
           log('cyan', '[Public] Dir Created', dir);
         })
         .on('unlinkDir', (dir) => {
+          if (!publicFolderInited) return;
           log('cyan', '[Public] Dir Unlinked', dir);
           const [, ...destPath] = dir.split(sep);
           const _targetPath = join(Config.StaticFolder, destPath.join(sep));
@@ -98,6 +113,7 @@ switch (process.argv[2]) {
         })
         .on('error', (error) => log('red', '[DATA] error', error))
         .on('ready', () => {
+          publicFolderInited = true;
           log('cyan', '[Public] Folder - Init Scan Completed.');
         });
 

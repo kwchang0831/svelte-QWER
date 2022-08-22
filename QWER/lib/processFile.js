@@ -1,9 +1,12 @@
 import { Config, ImageConfig } from '../../config/QWER.confitg.js';
-import { existsSync, statSync, cpSync } from 'node:fs';
+import { join, isAbsolute, basename, extname, sep, resolve, dirname, posix } from 'node:path';
+import { existsSync, statSync, cp } from 'node:fs';
+import { ensureDirSync } from 'fs-extra';
+import { read, write } from 'to-vfile';
+import LZString from 'lz-string';
+import { exec } from 'child_process';
 import { genMetaFiles, genAssetFile, genAssetTypeDefinition } from './metaGenerate.js';
 import { rmDir, getAllFilesInDir, rmGeneratedFiles, rmEmptyFolders, strReplaceMatchWith } from '../utli/fsHelper.js';
-import { join, isAbsolute, basename, extname, sep, resolve, dirname, posix } from 'node:path';
-import { ensureDirSync } from 'fs-extra';
 import { log } from '../utli/logger.js';
 import { tags } from '../lib/tags.js';
 import { posts } from '../lib/posts.js';
@@ -11,9 +14,6 @@ import { assets } from '../lib/assets.js';
 import matter from 'gray-matter';
 import { mdify } from '../mdify/index.js';
 import { convert } from 'html-to-text';
-import LZString from 'lz-string';
-import { writeSync, readSync } from 'to-vfile';
-import { execSync } from 'child_process';
 
 export const processRmDir = (dir) => {
   let _routeDir = dir.replace(Config.DataFolder, Config.RouteFolder);
@@ -127,33 +127,35 @@ const _processMD = (file, generateMeta) => {
     toc: _md.toc,
   };
 
-  const _tempalte = readSync(join(Config.TemplateFolder, _layout), 'utf8');
-  const _tempalteMap = [
-    {
-      match: Config.DefaultLayoutTemplateStr_Content,
-      replace: _md.content,
-    },
-    {
-      match: Config.DefaultLayoutTemplateStr_Imports,
-      replace: (_md.imports && _md.imports.join('/n')) || '',
-    },
-  ];
-
-  ensureDirSync(dirname(_targetPath));
-  writeSync({
-    path: _targetPath,
-    value: strReplaceMatchWith(String(_tempalte), _tempalteMap),
-  });
-
-  execSync(`prettier --write --plugin-search-dir=. "${_targetPath}"`);
-  log('green', 'MD File Processed', _targetPath);
-
   posts.set(_postData['slug'], _postData);
   tags.set(_postData['tags']);
 
-  if (generateMeta) {
-    genMetaFiles();
-  }
+  read(join(Config.TemplateFolder, _layout), 'utf8').then((_tempalte) => {
+    const _tempalteMap = [
+      {
+        match: Config.DefaultLayoutTemplateStr_Content,
+        replace: _md.content,
+      },
+      {
+        match: Config.DefaultLayoutTemplateStr_Imports,
+        replace: (_md.imports && _md.imports.join('/n')) || '',
+      },
+    ];
+
+    ensureDirSync(dirname(_targetPath));
+
+    write({
+      path: _targetPath,
+      value: strReplaceMatchWith(String(_tempalte), _tempalteMap),
+    }).then(() => {
+      exec(`prettier --write --plugin-search-dir=. "${_targetPath}"`);
+      log('green', 'MD File Processed', _targetPath);
+
+      if (generateMeta) {
+        genMetaFiles();
+      }
+    });
+  });
 
   return true;
 };
@@ -163,15 +165,15 @@ const _processImageAssets = (file, generateMeta) => {
 
   if (ImageConfig.SupportedImageFormat.includes(_ext.substring(1))) {
     const _targetPath = join(Config.AssetsFolder, _slug);
-    cpSync(file, _targetPath);
-    log('green', 'Image File Copied', _targetPath);
-
     assets.set(_slug);
 
-    if (generateMeta) {
-      genAssetFile();
-    }
+    cp(file, _targetPath, {}, () => {
+      log('green', 'Image File Copied', _targetPath);
 
+      if (generateMeta) {
+        genAssetFile();
+      }
+    });
     return true;
   }
 
@@ -180,14 +182,33 @@ const _processImageAssets = (file, generateMeta) => {
 
 const _processStaticAseets = (file) => {
   const _targetPath = convertPathForInternalUse(file);
-  cpSync(file, _targetPath);
-  log('green', 'Static File Copied', _targetPath);
-
+  cp(file, _targetPath, {}, () => {
+    log('green', 'Static File Copied', _targetPath);
+  });
   return true;
 };
 
 export const addDataFolderFile = (file, generateMeta) => {
   return _processMD(file, generateMeta) || _processImageAssets(file, generateMeta) || _processStaticAseets(file);
+};
+
+export const readMetaIntoMemory = () => {
+  if (existsSync(Config.PostsJsonPath)) {
+    read(Config.PostsJsonPath, 'utf8').then((_posts) => {
+      const _postsJson = JSON.parse(_posts);
+      _postsJson.forEach((post) => {
+        posts.set(post[0], post[1]);
+        tags.set(post[1].tags);
+      });
+      log('green', 'Meta File Loaded', Config.PostsJsonPath);
+    });
+  }
+  if (existsSync(Config.AssetsJsonPath)) {
+    read(Config.AssetsJsonPath, 'utf8').then((_assets) => {
+      assets.readFromJson(_assets);
+      log('green', 'Meta File Loaded', Config.AssetsJsonPath);
+    });
+  }
 };
 
 export const rmDataFolderFile = (file, generateMeta) => {
@@ -210,28 +231,25 @@ export const rmDataFolderFile = (file, generateMeta) => {
 };
 
 export const buildAll = (metaGenerate = true) => {
-  new Promise((resolve) => {
-    getAllFilesInDir(Config.DataFolder).forEach((file, i, ar) => {
-      if (basename(file).startsWith('.')) return;
-
-      addDataFolderFile(file);
-
-      if (i === ar.length - 1) resolve();
-    });
-  }).then(() => {
-    getAllFilesInDir(Config.PublicFolder).forEach((file) => {
-      const [, ..._destPath] = file.split(sep);
-      const _targetPath = join(Config.StaticFolder, _destPath.join('/'));
-      cpSync(file, _targetPath);
+  getAllFilesInDir(Config.PublicFolder).forEach((file) => {
+    const [, ..._destPath] = file.split(sep);
+    const _targetPath = join(Config.StaticFolder, _destPath.join('/'));
+    cp(file, _targetPath, {}, () => {
       log('green', 'Public File Copied', _targetPath);
     });
-
-    if (metaGenerate) {
-      genMetaFiles();
-      genAssetFile();
-      genAssetTypeDefinition();
-    }
   });
+
+  getAllFilesInDir(Config.DataFolder).forEach((file) => {
+    if (basename(file).startsWith('.')) return;
+
+    addDataFolderFile(file);
+  });
+
+  if (metaGenerate) {
+    genAssetTypeDefinition();
+    genAssetFile();
+    genMetaFiles();
+  }
 };
 
 export const cleanAll = () => {

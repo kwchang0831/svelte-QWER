@@ -44,6 +44,12 @@ export const assets = (() => {
     raw: () => {
       return _assets;
     },
+    readFromJson: (json) => {
+      _assets = new Set(JSON.parse(json));
+    },
+    json: () => {
+      return JSON.stringify(Array.from(_assets));
+    },
     clear: () => {
       _assets.clear();
     },
