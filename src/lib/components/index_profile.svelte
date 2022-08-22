@@ -8,11 +8,7 @@
   export { className as class };
 </script>
 
-<section
-  in:fly={{ x: 25, duration: 300, delay: 300 }}
-  out:fly={{ x: 25, duration: 300 }}
-  id="index-profile"
-  class={className}>
+<section id="index-profile" class={className}>
   <div class="relative group">
     <AuthorAvatar />
     <div

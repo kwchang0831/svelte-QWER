@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { fly, fade } from 'svelte/transition';
+  import { fade } from 'svelte/transition';
   import IndexPost from '$lib/components/index_post.svelte';
   import { postsShow } from '$stores/posts';
 
@@ -15,26 +15,26 @@
   itemprop="mainEntityOfPage"
   itemscope
   itemtype="https://schema.org/Blog">
-  {#if $postsShow.length === 0}
-    <div
-      class="h-[20rem] flex items-center justify-center"
-      in:fade={{ duration: 300, delay: 600 }}
-      out:fade={{ duration: 300 }}>
-      <h2 class="text-3xl">No Post Found.</h2>
-    </div>
-  {:else}
-    {#key $postsShow}
+  {#key $postsShow}
+    {#if $postsShow.length === 0}
+      <div
+        class="h-[20rem] flex items-center justify-center"
+        in:fade={{ duration: 300, delay: 300 }}
+        out:fade={{ duration: 300 }}>
+        <h2 class="text-3xl">No Post Found.</h2>
+      </div>
+    {:else}
       {#each $postsShow as p, index}
         {@const year = new Date(p.published).getFullYear()}
         {#if !years.includes(year)}
-          <div in:fade={{ duration: 300, delay: 600 }} out:fade={{ duration: 300 }} class="divider my-4 md:my-0">
+          <div class="divider my-4 md:my-0">
             {years.push(year) && year}
           </div>
         {/if}
         <IndexPost data={p} {index} />
       {/each}
-    {/key}
-  {/if}
+    {/if}
+  {/key}
 </main>
 
 <style lang="scss">

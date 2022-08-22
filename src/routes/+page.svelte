@@ -8,9 +8,7 @@
 
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
-
-  // @ts-ignore
-  import DefaultOGCard_512_512 from '$assets/default_og_card.jpg?w=512&h=512&format=webp';
+  import { fly } from 'svelte/transition';
 
   onMount(() => {
     tagsCur.init();
@@ -28,7 +26,11 @@
 
     postsShow.filter($tagsCur);
   });
+
+  let iW: number;
 </script>
+
+<svelte:window bind:innerWidth={iW} />
 
 <svelte:head>
   <title>{siteConfig.title}</title>
@@ -49,21 +51,30 @@
     <meta property="og:image" content={siteConfig.author.avatar} />
     <meta name="twitter:card" content="summary_large_image" />
   {:else}
-    <meta property="og:image" content={new URL(DefaultOGCard_512_512, $page.url.origin).href} />
+    <meta property="og:image" content={new URL(siteConfig.og_card, $page.url.origin).href} />
     <meta name="twitter:card" content="summary" />
   {/if}
 </svelte:head>
 
 <div class="flex flex-nowrap justify-center flex-col items-center xl:(flex-row items-stretch)">
-  <div class="max-w-screen-md flex-1 relative ml6">
+  <div
+    in:fly={{ x: iW < 1280 ? 0 : -100, y: iW < 1280 ? 0 : -100, duration: 300, delay: 300 }}
+    out:fly={{ x: iW < 1280 ? 0 : -100, y: iW < 1280 ? 0 : 100, duration: 300 }}
+    class="max-w-screen-md flex-1 relative ml6">
     <IndexProfile class="flex flex-col gap2 items-center text-center xl:(items-end text-right sticky top-[5rem])" />
   </div>
 
-  <div class="max-w-[55rem] flex-none w-full md:(rounded-2xl)">
+  <div
+    in:fly={{ y: 100, duration: 300, delay: 300 }}
+    out:fly={{ y: -100, duration: 300 }}
+    class="max-w-[55rem] flex-none w-full md:(rounded-2xl)">
     <IndexPosts />
   </div>
 
-  <div class="max-w-screen-md flex-1 relative mr6">
+  <div
+    in:fly={{ x: 100, y: -100, duration: 300, delay: 300 }}
+    out:fly={{ x: 100, y: 100, duration: 300 }}
+    class="max-w-screen-md flex-1 relative mr6">
     <Tags class="hidden max-w-[20rem] xl:(flex flex-col)" />
   </div>
 </div>

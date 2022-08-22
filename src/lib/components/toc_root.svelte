@@ -46,10 +46,11 @@
   }
 </script>
 
+<!-- in:fly={{ x: 200, duration: 300, delay: 150 }}
+out:fade={{ duration: 300 }} -->
+
 {#if toc && toc.length > 0}
   <aside
-    in:fly={{ x: 200, duration: 300, delay: 300 }}
-    out:fade={{ duration: 300 }}
     id="post-toc"
     aria-label="Table Of Content"
     on:mousedown={mouseDownHandler}

@@ -21,6 +21,7 @@
   import { videoplayerConfig } from '$config/site';
 
   import { onMount } from 'svelte';
+  import { fade, fly } from 'svelte/transition';
 
   const thisPost = $postsAll.get($page.routeId ?? '') as Post.Post;
   const prevPost = thisPost?.prev ? $postsAll.get(thisPost.prev) : undefined;
@@ -76,12 +77,12 @@
 
 <SEO post={thisPost} />
 
-<main class="flex flex-nowrap justify-center">
+<main in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="flex flex-nowrap justify-center">
   <div class="max-w-screen-md flex-1" />
 
   <article
     itemprop="articleBody"
-    class="flex-none flex flex-col max-w-[55rem] w-full md:(rounded-2xl bg-[#F9FBFF] dark:bg-[#252525])"
+    class="flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-2xl) bg-[#F9FBFF] dark:bg-[#252525]"
     bind:this={postElement}>
     <div class="max-w-[55rem]">
       <PostHeading data={thisPost} />
@@ -143,7 +144,10 @@
     {/key}
   </article>
 
-  <div class="max-w-screen-md flex-1 relative">
+  <div
+    in:fly={{ x: 100, y: -100, duration: 300, delay: 300 }}
+    out:fly={{ x: 100, y: 100, duration: 300 }}
+    class="max-w-screen-md flex-1 relative">
     {#if thisPost && thisPost.toc}
       <PostToc toc={thisPost.toc} />
     {/if}
