@@ -13,6 +13,7 @@ tags:
 
 <script lang="ts">
   import Youtube from '$lib/custom/youtube.svelte'
+  const const_variable = 999;
 </script>
 
 ## Headings
@@ -143,6 +144,19 @@ Photo by <a href="https://unsplash.com/@willy24?utm_source=unsplash&utm_medium=r
 ![GIF/WEBP Example](./example3.webp)
 
 ## Youtube / Custom Svelte Component
+
+```svelte
+<script lang="ts">
+  import Youtube from '$lib/custom/youtube.svelte'
+  const const_variable = 999;
+</script>
+
+Variable is {const_variable}
+
+<Youtube id="ZXsQAXx_ao0"/>
+```
+
+Variable is {const_variable}.
 
 <Youtube id="ZXsQAXx_ao0"/>
 

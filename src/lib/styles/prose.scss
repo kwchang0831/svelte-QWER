@@ -234,8 +234,13 @@ li .code-block {
         border-left-width: 4px;
       }
     }
+
     .code-content {
       --at-apply: 'flex-1 grow pr4';
+    }
+
+    .code-content:empty::before {
+      content: '\200b';
     }
   }
 

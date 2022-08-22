@@ -1,15 +1,15 @@
 <script lang="ts">
   import { siteConfig } from '$config/site';
 
-  export let id = undefined;
-  export let list = undefined;
-  export let playlist = undefined;
-  export let start = undefined;
-  export let autoplay = false;
-  export let disablekb = false;
-  export let controls = true;
-  export let fs = true;
-  export let loop = false;
+  export let id: string | undefined = undefined;
+  export let list: string | undefined = undefined;
+  export let playlist: string | undefined = undefined;
+  export let start: string | undefined = undefined;
+  export let autoplay: boolean = false;
+  export let disablekb: boolean = false;
+  export let controls: boolean = true;
+  export let fs: boolean = true;
+  export let loop: boolean = false;
 
   const src = `https://www.youtube.com/embed/${id}?${list ? `listType=playlist&list=${list}&` : ''}${
     playlist ? `playlist=${playlist}&` : ''
