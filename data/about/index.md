@@ -2,15 +2,17 @@
 title: About QWER
 description: Information about 🚀 QWER - Simply Awesome Blog Starter. Built using Svelte with ❤
 published: 2022-08-20
+cover: ./qwer.webp
 options:
   - unlisted
 ---
 
+<!--
 <script lang="ts>
   import QWER_COVER from '$assets/qwer.webp';
 </script>
 
-<ImgZ src={QWER_COVER} alt="QWER cover" />
+<ImgZ src={QWER_COVER} alt="QWER cover" /> -->
 
 ## 🎉 QWER
 
