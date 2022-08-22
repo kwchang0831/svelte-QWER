@@ -89,7 +89,7 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - Writing post with [Markdown syntax](https://www.markdownguide.org/basic-syntax/).
 
-- Support embedding Svelte components and JS with markdown.
+- Support embedding Svelte components and Javascript with Markdown.
 
 - Support [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
 
