@@ -54,7 +54,7 @@
       if (allelements.children && allelements.children.length > 0) {
         let curHeading = '';
         for (let i = 0; i < allelements.children.length; i += 1) {
-          if (/^h/i.test(allelements.children[i].tagName)) {
+          if (/^h[1-6]/i.test(allelements.children[i].tagName)) {
             curHeading = `#${allelements.children[i].id}`;
           }
           allelements.children[i].setAttribute('toc-heading', curHeading);
@@ -82,7 +82,7 @@
 
   <article
     itemprop="articleBody"
-    class="flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-2xl) bg-[#F9FBFF] dark:bg-[#252525]"
+    class="flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-t-2xl) bg-[#F9FBFF] dark:bg-[#252525]"
     bind:this={postElement}>
     <div class="max-w-[55rem]">
       <PostHeading data={thisPost} />
@@ -91,7 +91,22 @@
     <div class="prose prose-slate dark:prose-invert max-w-[55rem]">
       <slot name="post_content" />
     </div>
+  </article>
 
+  <div
+    in:fly={{ x: 100, y: -100, duration: 300, delay: 300 }}
+    out:fly={{ x: 100, y: 100, duration: 300 }}
+    class="max-w-screen-md flex-1 relative">
+    {#if thisPost && thisPost.toc}
+      <PostToc toc={thisPost.toc} />
+    {/if}
+  </div>
+</main>
+
+<div class="flex flex-nowrap justify-center">
+  <div class="max-w-screen-md flex-1" />
+
+  <div class="flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-b-2xl) bg-[#F9FBFF] dark:bg-[#252525]">
     <TagsSection tags={thisPost.tags} />
 
     <div class="divider" />
@@ -142,14 +157,7 @@
         <Giscuss theme={$theme} />
       </div>
     {/key}
-  </article>
-
-  <div
-    in:fly={{ x: 100, y: -100, duration: 300, delay: 300 }}
-    out:fly={{ x: 100, y: 100, duration: 300 }}
-    class="max-w-screen-md flex-1 relative">
-    {#if thisPost && thisPost.toc}
-      <PostToc toc={thisPost.toc} />
-    {/if}
   </div>
-</main>
+
+  <div class="max-w-screen-md flex-1" />
+</div>
