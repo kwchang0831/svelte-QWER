@@ -11,21 +11,9 @@
   import { postsAll } from '$stores/posts';
   import AuthorAvatar from '$lib/components/image_avatar.svelte';
   import { lastUpdatedStr } from '$lib/utli/timeFormat';
+  import { afterUpdate } from 'svelte';
 
   let search = false;
-  let pin: boolean = true;
-  let percent: number;
-  let [scrollY, lastY] = [0, 0];
-  $: if (scrollY) {
-    pin = lastY - scrollY > 0 || scrollY === 0 ? true : false;
-    lastY = scrollY;
-    if (browser) {
-      percent =
-        Math.round(
-          (scrollY / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 10000,
-        ) / 100;
-    }
-  }
 
   function resetHome() {
     if (browser && window.location.pathname === '/') {
@@ -40,20 +28,44 @@
 
   $: curPost = $postsAll.get($page.routeId ?? '');
   $: lastUpdated = lastUpdatedStr(curPost?.updated ?? '');
+
+  let scrollY: number;
+  let lastY: number = 0;
+  let innerHeight: number;
+  let scrollHeight: number;
+  let scrollPercent: number;
+  let pageEndTopBound: number;
+  let scrollingUp: boolean = false;
+  let scrollThresholdStep: number;
+  const topPercent = 0.025;
+  const botPercent = 0.975;
+
+  $: scrollThresholdStep = innerHeight * 0.1;
+  $: if (browser) {
+    scrollPercent = scrollY / pageEndTopBound;
+    pageEndTopBound = scrollHeight - innerHeight;
+    if (Math.abs(lastY - scrollY) > scrollThresholdStep) {
+      scrollingUp = lastY - scrollY > 0;
+      lastY = scrollY;
+    }
+  }
+  afterUpdate(() => {
+    scrollHeight = document.documentElement.scrollHeight;
+  });
 </script>
 
-<svelte:window bind:scrollY />
+<svelte:window bind:scrollY bind:innerHeight />
 
 <header tabindex="0" id="header" class="fixed w-screen ease-in-out border-transparent z-40" aria-label="Header Nav">
   {#if !search}
     <nav
       id="header-nav"
-      class="border-transparent backdrop-blur py-2 px-4 min-h-4rem max-h-16 {scrollY >= 32
+      class="border-transparent backdrop-blur py-2 px-4 min-h-4rem max-h-16 {scrollY >= scrollThresholdStep
         ? 'light:bg-white/[0.25]'
         : ''}"
       in:fly={{ x: -50, duration: 300, delay: 300 }}
       out:fly={{ x: -50, duration: 300 }}>
-      {#if curPost && scrollY > 32}
+      {#if curPost && scrollY > scrollThresholdStep}
         <div
           class="flex items-center justify-items-center justify-between"
           in:fly={{ y: -50, duration: 300, delay: 300 }}
@@ -166,60 +178,64 @@
   {/if}
 </header>
 
-<button
-  id="totop"
-  on:click={() => {
-    window.scrollTo(0, 0);
-  }}
-  class:translate-y-24={!pin || scrollY <= 7.5}
-  aria-label="scroll to top"
-  class="fixed grid group border-none bottom-2 right-2 z-50 duration-500 ease-in-out rounded-full bg-transparent"
-  class:opacity-100={scrollY}>
-  <div
-    class="backdrop-blur rounded-full col-start-1 row-start-1 transition-all duration-500 ease-in-out scale-75 relative bg-transparent">
+{#if scrollingUp && scrollPercent > topPercent && scrollPercent < botPercent}
+  <button
+    id="totop"
+    on:click={() => {
+      scrollY = 0;
+    }}
+    aria-label="scroll to top"
+    in:fly={{ y: 50, duration: 300, delay: 300 }}
+    out:fly={{ y: 50, duration: 300 }}
+    class="fixed grid group border-none bottom-2 right-2 z-50 duration-600 delay-300 ease-in-out rounded-full bg-transparent">
     <div
-      class="absolute z-50 top-[2rem] left-[1.9rem] i-mdi-chevron-up !h-[2.5rem] !w-[2.5rem] group-hover:text-black" />
-    <svg
-      height="100"
-      width="100"
-      class="fill-none group-hover:fill-gray-500/[0.5]"
-      style="transform: rotate(-90deg);stroke-dasharray: 251;">
-      <circle
-        cx="50"
-        cy="50"
-        r="40"
-        stroke-width="6"
-        class="stroke-emerald"
-        style="stroke-dashoffset: {251 - (251 * Math.trunc(percent)) / 100};" />
-    </svg>
-  </div>
-</button>
+      class="backdrop-blur rounded-full col-start-1 row-start-1 transition-all duration-500 ease-in-out scale-70 relative bg-transparent">
+      <div
+        class="absolute z-50 top-[1.85rem] left-[1.85rem] i-mdi-chevron-up !h-[2.5rem] !w-[2.5rem] group-hover:text-black" />
+      <svg
+        height="100"
+        width="100"
+        class="fill-none group-hover:fill-gray-500/[0.5]"
+        style="transform: rotate(-90deg);stroke-dasharray: 251;">
+        <circle
+          cx="50"
+          cy="50"
+          r="40"
+          stroke-width="6"
+          class="stroke-emerald"
+          style="stroke-dashoffset: {251 - 251 * scrollPercent};" />
+      </svg>
+    </div>
+  </button>
+{/if}
 
-<button
-  id="tobotoom"
-  on:click={() => {
-    window.scrollTo(0, document.body.scrollHeight);
-  }}
-  class:translate-y-24={pin || percent > 92.5}
-  aria-label="scroll to bottom"
-  class="fixed grid group border-none bottom-2 right-2 z-50 duration-500 ease-in-out rounded-full bg-transparent"
-  class:opacity-100={scrollY}>
-  <div
-    class="backdrop-blur rounded-full col-start-1 row-start-1 transition-all duration-500 ease-in-out scale-75 relative bg-transparent">
+{#if !scrollingUp && scrollPercent > topPercent && scrollPercent < botPercent}
+  <button
+    id="tobotoom"
+    on:click={() => {
+      scrollY = scrollHeight;
+    }}
+    aria-label="scroll to bottom"
+    in:fly={{ y: 50, duration: 300, delay: 300 }}
+    out:fly={{ y: 50, duration: 300 }}
+    class="fixed grid group border-none bottom-2 right-2 z-50 duration-600 delay-300 ease-in-out rounded-full bg-transparent">
     <div
-      class="absolute z-50 top-[2rem] left-[1.9rem] i-mdi-chevron-down !h-[2.5rem] !w-[2.5rem] group-hover:text-black" />
-    <svg
-      height="100"
-      width="100"
-      class="fill-none group-hover:fill-gray-500/[0.5]"
-      style="transform: rotate(-90deg);stroke-dasharray: 251;">
-      <circle
-        cx="50"
-        cy="50"
-        r="40"
-        stroke-width="6"
-        class="stroke-emerald"
-        style="stroke-dashoffset: {251 - (251 * Math.trunc(percent)) / 100};" />
-    </svg>
-  </div>
-</button>
+      class="backdrop-blur rounded-full col-start-1 row-start-1 transition-all duration-500 ease-in-out scale-70 relative bg-transparent">
+      <div
+        class="absolute z-50 top-[1.85rem] left-[1.85rem] i-mdi-chevron-down !h-[2.5rem] !w-[2.5rem] group-hover:text-black" />
+      <svg
+        height="100"
+        width="100"
+        class="fill-none group-hover:fill-gray-500/[0.5]"
+        style="transform: rotate(-90deg);stroke-dasharray: 251;">
+        <circle
+          cx="50"
+          cy="50"
+          r="40"
+          stroke-width="6"
+          class="stroke-emerald"
+          style="stroke-dashoffset: {251 - 251 * scrollPercent};" />
+      </svg>
+    </div>
+  </button>
+{/if}
