@@ -8,7 +8,7 @@
   export let depth = 1;
 </script>
 
-<li>
+<li id={content.slug}>
   <div
     on:click={() => {
       document.getElementById(`${content.slug.substring(1)}`)?.scrollIntoView({ behavior: 'smooth' });

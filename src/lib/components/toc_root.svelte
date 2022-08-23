@@ -1,12 +1,14 @@
 <script lang="ts">
-  import { fly, fade } from 'svelte/transition';
   import type { TOC } from '$lib/types/toc';
   import TocContent from '$lib/components/toc_content.svelte';
   export let toc: TOC.Heading[] | undefined;
+  import { tocCur } from '$stores/toc';
+  import { browser } from '$app/env';
+  import { onMount } from 'svelte';
 
   let pos = { top: 0, left: 0, x: 0, y: 0 };
 
-  function mouseDownHandler(e: { clientX: any; clientY: any }) {
+  function mouseDownHandler(e: { clientX: number; clientY: number }) {
     const post_toc = document.getElementById('post-toc');
     if (post_toc) {
       post_toc.style.cursor = 'grabbing';
@@ -24,7 +26,7 @@
     document.addEventListener('mouseup', mouseUpHandler);
   }
 
-  function mouseMoveHandler(e: { clientX: any; clientY: any }) {
+  function mouseMoveHandler(e: { clientX: number; clientY: number }) {
     const post_toc = document.getElementById('post-toc');
     if (post_toc) {
       const dx = e.clientX - pos.x;
@@ -44,26 +46,90 @@
     document.removeEventListener('mousemove', mouseMoveHandler);
     document.removeEventListener('mouseup', mouseUpHandler);
   }
+
+  let box: Element;
+  let upMore: boolean = false;
+  let downMore: boolean = false;
+
+  onMount(() => {
+    const top = 0;
+    const bot = box.scrollHeight - box.clientHeight;
+    upMore = box.scrollTop > top;
+    downMore = box.scrollTop < bot;
+  });
+
+  function handleScroll() {
+    const top = 0;
+    const bot = box.scrollHeight - box.clientHeight;
+    upMore = box.scrollTop > top;
+    downMore = box.scrollTop < bot;
+  }
+
+  function handleUpMore() {
+    if (upMore) {
+      const post_toc = document.getElementById('post-toc');
+      if (post_toc) {
+        post_toc.scrollBy({ top: -post_toc.clientHeight, behavior: 'smooth' });
+      }
+    }
+  }
+
+  function handleDownMore() {
+    if (downMore) {
+      const post_toc = document.getElementById('post-toc');
+      if (post_toc) {
+        post_toc.scrollBy({ top: post_toc.clientHeight, behavior: 'smooth' });
+      }
+    }
+  }
+
+  let scrollY: number;
+  let lastY: number = 0;
+  let scrollingUp: boolean = false;
+
+  $: if (browser) {
+    scrollingUp = lastY - scrollY > 0;
+    lastY = scrollY;
+
+    const post_toc = document.getElementById('post-toc');
+    const activated = Array.from($tocCur.keys());
+    const lastActivated = activated.length > 0 ? document.getElementById(activated[activated.length - 1]) : undefined;
+
+    if (post_toc && lastActivated) {
+      const cTop = post_toc.scrollTop;
+      const cBot = cTop + post_toc.clientHeight;
+      const aTop = lastActivated.offsetTop - post_toc.offsetTop;
+      const aBot = aTop + lastActivated.clientHeight;
+      const isInView = aTop >= cTop && aBot <= cBot;
+      if (!isInView) {
+        const top = scrollingUp ? aTop : aBot;
+        post_toc.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  }
 </script>
 
-<!-- in:fly={{ x: 200, duration: 300, delay: 150 }}
-out:fade={{ duration: 300 }} -->
+<svelte:window bind:scrollY />
 
 {#if toc && toc.length > 0}
-  <aside
-    id="post-toc"
-    aria-label="Table Of Content"
-    on:mousedown={mouseDownHandler}
-    class="sticky top-[5rem] hidden xl:block pb8 max-h-80vh overflow-hidden cursor-grab">
-    <nav>
-      <h2 class="text-2xl font-bold p4">Table of Content</h2>
+  <aside aria-label="Table Of Content" class="sticky top-[4rem] hidden xl:block pb8">
+    <nav on:mousedown={mouseDownHandler}>
+      <h2 class="text-2xl font-bold px4 py2">Table of Content</h2>
+      <div on:click={handleUpMore} class="i-bxs-chevrons-up w6 h6 m-auto {upMore ? 'op100 cursor-pointer' : 'op0'}" />
       {#if toc && toc.length > 0}
-        <ul class="text-base font-semibold flex flex-col">
+        <ul
+          bind:this={box}
+          on:scroll={handleScroll}
+          id="post-toc"
+          class="my2 text-base font-semibold flex flex-col max-h-60vh cursor-grab overflow-hidden">
           {#each toc as c}
             <TocContent content={c} expanded />
           {/each}
         </ul>
       {/if}
+      <div
+        on:click={handleDownMore}
+        class="i-bxs-chevrons-down w6 h6 m-auto {downMore ? 'op100 cursor-pointer' : 'op0'}" />
     </nav>
   </aside>
 {/if}
