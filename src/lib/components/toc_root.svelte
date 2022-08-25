@@ -4,7 +4,6 @@
   export let toc: TOC.Heading[] | undefined;
   import { tocCur } from '$stores/toc';
   import { browser } from '$app/env';
-  import { onMount } from 'svelte';
 
   let pos = { top: 0, left: 0, x: 0, y: 0 };
 
@@ -48,19 +47,20 @@
   }
 
   let box: Element;
+  let boxH: number;
   let upMore: boolean = false;
   let downMore: boolean = false;
 
-  onMount(() => {
+  $: if (browser && box) {
     const top = 0;
-    const bot = box.scrollHeight - box.clientHeight;
+    const bot = box.scrollHeight - boxH;
     upMore = box.scrollTop > top;
     downMore = box.scrollTop < bot;
-  });
+  }
 
   function handleScroll() {
     const top = 0;
-    const bot = box.scrollHeight - box.clientHeight;
+    const bot = box.scrollHeight - boxH;
     upMore = box.scrollTop > top;
     downMore = box.scrollTop < bot;
   }
@@ -69,7 +69,7 @@
     if (upMore) {
       const post_toc = document.getElementById('post-toc');
       if (post_toc) {
-        post_toc.scrollBy({ top: -post_toc.clientHeight, behavior: 'smooth' });
+        post_toc.scrollBy({ top: -boxH, behavior: 'smooth' });
       }
     }
   }
@@ -78,7 +78,7 @@
     if (downMore) {
       const post_toc = document.getElementById('post-toc');
       if (post_toc) {
-        post_toc.scrollBy({ top: post_toc.clientHeight, behavior: 'smooth' });
+        post_toc.scrollBy({ top: boxH, behavior: 'smooth' });
       }
     }
   }
@@ -113,12 +113,15 @@
 
 {#if toc && toc.length > 0}
   <aside aria-label="Table Of Content" class="sticky top-[4rem] hidden xl:block pb8">
-    <nav on:mousedown={mouseDownHandler}>
+    <nav on:mousedown={mouseDownHandler} class="flex-col">
       <h2 class="text-2xl font-bold px4 py2">Table of Content</h2>
-      <div on:click={handleUpMore} class="i-bxs-chevrons-up w6 h6 m-auto {upMore ? 'op100 cursor-pointer' : 'op0'}" />
+      <div on:click={handleUpMore} class={upMore ? 'cursor-pointer  hover:bg-gray/[0.5]' : ''}>
+        <div class="i-bxs-chevrons-up w6 h6 m-auto {upMore ? 'op100' : 'op0'}" />
+      </div>
       {#if toc && toc.length > 0}
         <ul
           bind:this={box}
+          bind:clientHeight={boxH}
           on:scroll={handleScroll}
           id="post-toc"
           class="my2 text-base font-semibold flex flex-col max-h-60vh cursor-grab overflow-hidden">
@@ -127,9 +130,9 @@
           {/each}
         </ul>
       {/if}
-      <div
-        on:click={handleDownMore}
-        class="i-bxs-chevrons-down w6 h6 m-auto {downMore ? 'op100 cursor-pointer' : 'op0'}" />
+      <div on:click={handleDownMore} class={downMore ? 'cursor-pointer hover:bg-gray/[0.5]' : ''}>
+        <div class="i-bxs-chevrons-down w6 h6 m-auto {downMore ? 'op100 ' : 'op0'}" />
+      </div>
     </nav>
   </aside>
 {/if}
