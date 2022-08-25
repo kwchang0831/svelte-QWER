@@ -1,5 +1,5 @@
 <script lang="ts">
-  import File from './file.svelte';
+  import File from '$lib/components/file.svelte';
   import type { Folder } from '$lib/types/folder';
 
   export let expanded = true;

@@ -73,6 +73,7 @@ const config = {
       $config: path.resolve('.', 'config'),
       $assets: path.resolve('.', 'assets'),
       $static: path.resolve('.', 'static'),
+      $custom: path.resolve('.', 'custom'),
     },
   },
   server: {

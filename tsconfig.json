@@ -25,7 +25,9 @@
       "$assets": ["./assets"],
       "$assets/*": ["./assets/*"],
       "$static": ["./static"],
-      "$static/*": ["./static/*"]
+      "$static/*": ["./static/*"],
+      "$custom": ["./custom"],
+      "$custom/*": ["./custom/*"]
     }
   },
   "include": ["src/**/*"],

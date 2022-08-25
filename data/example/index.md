@@ -12,7 +12,8 @@ tags:
 ---
 
 <script lang="ts">
-  import Youtube from '$lib/custom/youtube.svelte'
+  import Youtube from '$lib/components/youtube.svelte'
+  import Custom from '$custom/custom.svelte'
   const const_variable = 999;
 </script>
 
@@ -145,20 +146,56 @@ Photo by <a href="https://unsplash.com/@willy24?utm_source=unsplash&utm_medium=r
 
 ## Youtube / Custom Svelte Component
 
+### Input
+
 ```svelte
 <script lang="ts">
-  import Youtube from '$lib/custom/youtube.svelte'
+  import Youtube from '$lib/components/youtube.svelte'
   const const_variable = 999;
 </script>
 
 Variable is {const_variable}
 
 <Youtube id="ZXsQAXx_ao0"/>
+
+{(function () {
+  const guess = Math.random()
+
+  if (guess > 0.66) {
+    return `<span style="color: tomato">Look at us.</span>`
+  }
+
+  if (guess > 0.33) {
+    return `<span style="color: violet">Who would have guessed?!</span>`
+  }
+
+  return `<span style="color: goldenrod">Not me.</span>`
+})()}
+
+<Custom name="custom object"/>
 ```
+
+### Output
 
 Variable is {const_variable}.
 
 <Youtube id="ZXsQAXx_ao0"/>
+
+{(function () {
+  const guess = Math.random()
+
+  if (guess > 0.66) {
+    return `<span style="color: tomato">Look at us.</span>`
+  }
+
+  if (guess > 0.33) {
+    return `<span style="color: violet">Who would have guessed?!</span>`
+  }
+
+  return `<span style="color: goldenrod">Not me.</span>`
+})()}
+
+<Custom name="custom object"/>
 
 ## Keyboard
 

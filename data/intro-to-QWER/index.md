@@ -12,7 +12,7 @@ tags:
 ---
 
 <script lang="ts">
-  import Folder from '$lib/custom/folder.svelte'
+  import Folder from '$lib/components/folder.svelte'
   let postFolder = [
     {
       name:'post',
