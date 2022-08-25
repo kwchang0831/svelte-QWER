@@ -86,6 +86,7 @@ You only need to work with the following folders under `my-blog`, unless you are
 | config      | Site setting and QWER config. |
 | assets      | User-provided files that will be **pre-processed**. |
 | public      | User-provided files that will NOT be pre-processed, and can be directly accessed. |
+| custom      | User-provided svelte components files to reference in markdown. |
 
 Always keep backup of the above folders. For future QWER updates, just copy paste these folders to restore your contents.
 

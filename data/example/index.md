@@ -151,6 +151,7 @@ Photo by <a href="https://unsplash.com/@willy24?utm_source=unsplash&utm_medium=r
 ```svelte
 <script lang="ts">
   import Youtube from '$lib/components/youtube.svelte'
+  import Custom from '$custom/custom.svelte'
   const const_variable = 999;
 </script>
 
