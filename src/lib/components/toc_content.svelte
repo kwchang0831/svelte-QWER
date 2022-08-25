@@ -2,6 +2,7 @@
   import { slide } from 'svelte/transition';
   import type { TOC } from '$lib/types/toc';
   import { tocCur } from '$stores/toc';
+  import Article from '$lib/template/_article.svelte';
 
   export let content: TOC.Heading;
   export let expanded = false;
@@ -11,7 +12,12 @@
 <li id={content.slug}>
   <div
     on:click={() => {
-      document.getElementById(`${content.slug.substring(1)}`)?.scrollIntoView({ behavior: 'smooth' });
+      const heading = document.getElementById(`${content.slug.substring(1)}`);
+      const header_nav = document.getElementById('header-nav');
+      if (heading && header_nav) {
+        const top = heading.offsetTop - header_nav.clientHeight;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
     }}
     toc-link
     class="z1 group flex items-center gap2 py2 {$tocCur.get(content.slug) ? 'border-[#0096FF]' : 'border-transparent'}"
