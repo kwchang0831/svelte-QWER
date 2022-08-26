@@ -336,9 +336,7 @@ export const default_renderer = (basePath) => {
             if (ext === 'webm') return `<Video webm="${href}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
           }
         }
-        return `<figure><img src="${href}" alt="${alt}"></img>${
-          title ? `<figcaption>${title}</figcaption>` : ''
-        }</figure>`;
+        return `<figure><img src="${href}" alt="${alt}"/>${title ? `<figcaption>${title}</figcaption>` : ''}</figure>`;
       },
 
       text(text) {
