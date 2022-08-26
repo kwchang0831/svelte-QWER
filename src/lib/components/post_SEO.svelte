@@ -1,10 +1,11 @@
 <script lang="ts">
-  import { page } from '$app/stores';
   import { assets } from '$generated/assets';
   import type { Post } from '$lib/types/post';
   import { siteConfig } from '$config/site';
+  import type { Asset } from '$generated/asset';
 
   export let post: Post.Post;
+  let post_cover: Asset.Image | undefined = $assets.get(post.cover ?? '');
 </script>
 
 <svelte:head>
@@ -25,11 +26,29 @@
   <meta property="article:published_time" content={post.published} />
   <meta property="article:modified_time" content={post.updated} />
 
-  {#if post.cover}
-    <meta property="og:image" content={$assets.get(post.cover)?.original} />
+  {#if post_cover && post_cover.original}
+    <meta property="og:image" content={new URL(post_cover.original, siteConfig.url).href} />
     <meta name="twitter:card" content="summary_large_image" />
   {:else}
-    <meta property="og:image" content={new URL(siteConfig.og_card, $page.url.origin).href} />
+    <meta property="og:image" content={new URL(siteConfig.og_card, siteConfig.url).href} />
     <meta name="twitter:card" content="summary" />
   {/if}
+
+  {@html `<script type="application/ld+json">${
+    JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: post.title,
+      image: post_cover ? [new URL(post_cover.original, siteConfig.url).href] : [],
+      datePublished: post.published,
+      dateModified: post.updated,
+      author: [
+        {
+          '@type': 'Person',
+          name: siteConfig.author.name,
+          url: siteConfig.author.github,
+        },
+      ],
+    }) + '<'
+  }/script>`}
 </svelte:head>
