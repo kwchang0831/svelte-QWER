@@ -18,7 +18,7 @@ import { rmFile, rmDir } from './utli/fsHelper.js';
 switch (process.argv[2]) {
   case 'watch':
     {
-      let dataFolderwatcher = chokidar.watch(Config.DataFolder, {
+      let dataFolderwatcher = chokidar.watch(Config.UserDataFolder, {
         ignored: (file) => basename(file).startsWith('.'),
         awaitWriteFinish: {
           stabilityThreshold: 1000,
@@ -65,7 +65,7 @@ switch (process.argv[2]) {
           // genAssetFile();
         });
 
-      const publicFolderwatcher = chokidar.watch(Config.PublicFolder, {
+      const publicFolderwatcher = chokidar.watch(Config.UserPublicFolder, {
         ignored: (file) => basename(file).startsWith('.'),
         awaitWriteFinish: {
           stabilityThreshold: 1000,

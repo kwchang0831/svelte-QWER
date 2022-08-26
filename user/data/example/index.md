@@ -80,8 +80,8 @@ This is ||Spoiler Text||.
 Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 
 [^1]: This is the first footnote.
-[^bignote]:
-    Here's one with multiple paragraphs and code.  
+
+[^bignote]: Here's one with multiple paragraphs and code.  
     Indent paragraphs to include them in the footnote.  
     `{ my code }`  
     Add as many paragraphs as you like.
@@ -132,9 +132,9 @@ class Greeter {
 
 ## Image
 
-![Example1](./example1.jpg)
+![Example1](/example/example1.jpg)
 
-<ImgZ src="example/example1.jpg" alt="Example1" class="h-full object-cover">
+<ImgZ src="/example/example1.jpg" alt="Example1" class="h-full object-cover">
 Photo by <a href="https://unsplash.com/@willy24?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ioana Tabarcea</a> on <a href="https://unsplash.com/s/photos/morning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 </ImgZ>
 

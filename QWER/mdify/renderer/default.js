@@ -313,20 +313,24 @@ export const default_renderer = (basePath) => {
             if (ext === 'webm') return `<Video webm="${href}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
           }
         } catch (_) {
-          href = path.join(_basePath, href);
+          if (!path.isAbsolute(href)) {
+            href = path.join(_basePath, href);
+          }
           if (alt === '') alt = href;
 
           if (ImageConfig.SupportedImageFormat.includes(ext)) {
-            let imgPath = path.join(process.cwd(), path.join(Config.DataFolder, href));
+            let imgPath = path.join(process.cwd(), path.join(Config.UserDataFolder, href));
             let imgMeta;
             if (existsSync(imgPath)) {
               imgMeta = probe.sync(readFileSync(imgPath));
               // Internally uses posix style backslashes
-              href = href.split(path.sep).join(path.posix.sep);
+              href = path.resolve('/', href.split(path.sep).join(path.posix.sep));
               return `<ImgZ src="${href}" alt="${alt}" width="${imgMeta?.width}" height="${imgMeta?.height}">${
                 title ? `${title}` : ''
               }</ImgZ>`;
             }
+            console.log('FINAL', href);
+
             return `<ImgZ src="${href}" alt="${alt}">${title ? `${title}` : ''}</ImgZ>`;
           }
           if (ImageConfig.SupportedVideoFormat.includes(ext)) {
@@ -334,7 +338,7 @@ export const default_renderer = (basePath) => {
             if (ext === 'webm') return `<Video webm="${href}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
           }
         }
-
+        console.log('Final HREF', href);
         return `<figure><img src="${href}" alt="${alt}"></img>${
           title ? `<figcaption>${title}</figcaption>` : ''
         }</figure>`;

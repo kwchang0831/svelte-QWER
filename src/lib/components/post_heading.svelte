@@ -4,7 +4,6 @@
   import ImgZ from '$lib/components/image_zoom.svelte';
   import tippy from '$lib/actions/tippy';
   import { lastUpdatedStr, defaultPublishedStr, defaultUpdatedStr } from '$lib/utli/timeFormat';
-  import { dev } from '$app/env';
   import AuthorAvatar from '$lib/components/image_avatar.svelte';
 
   export let data: Post.Post;

@@ -16,8 +16,8 @@ import { mdify } from '../mdify/index.js';
 import { convert } from 'html-to-text';
 
 export const processRmDir = (dir) => {
-  let _routeDir = dir.replace(Config.DataFolder, Config.RouteFolder);
-  let _resourceDir = dir.replace(Config.DataFolder, Config.StaticFolder);
+  let _routeDir = dir.replace(Config.UserDataFolder, Config.RouteFolder);
+  let _resourceDir = dir.replace(Config.UserDataFolder, Config.StaticFolder);
   if (existsSync(_routeDir)) {
     rmDir(_routeDir);
   }
@@ -35,12 +35,13 @@ export const processImagePath = (path, slug) => {
 
   // Internally uses posix style backslashes
   path = path.split(sep).join(posix.sep);
-  return path;
+
+  return resolve('/', path);
 };
 
 export const convertPathToSlug = (file) => {
   const _ext = extname(file);
-  const _destPath = path.relative(Config.DataFolder, file).split(sep);
+  const _destPath = path.relative(Config.UserDataFolder, file).split(sep);
 
   let _slug;
   if (_ext === '.md') {
@@ -165,7 +166,7 @@ const _processImageAssets = (file, generateMeta) => {
 
   if (ImageConfig.SupportedImageFormat.includes(_ext.substring(1))) {
     const _targetPath = join(Config.AssetsFolder, _slug);
-    assets.set(_slug);
+    assets.set(`/${_slug}`);
 
     cp(file, _targetPath, {}, () => {
       log('green', 'Image File Copied', _targetPath);
@@ -231,15 +232,24 @@ export const rmDataFolderFile = (file, generateMeta) => {
 };
 
 export const buildAll = (metaGenerate = true) => {
-  getAllFilesInDir(Config.PublicFolder).forEach((file) => {
-    const _destPath = path.relative(Config.PublicFolder, file);
+  getAllFilesInDir(Config.UserPublicFolder).forEach((file) => {
+    const _destPath = path.relative(Config.UserPublicFolder, file);
     const _targetPath = join(Config.StaticFolder, _destPath);
     cp(file, _targetPath, {}, () => {
       log('green', 'Public File Copied', _targetPath);
     });
   });
 
-  getAllFilesInDir(Config.DataFolder).forEach((file) => {
+  getAllFilesInDir(Config.UserAssetsFolder).forEach((file) => {
+    const _destPath = path.relative(Config.UserAssetsFolder, file);
+    const _targetPath = join(Config.AssetsFolder, _destPath);
+    assets.set(`/${_destPath}`);
+    cp(file, _targetPath, {}, () => {
+      log('green', 'Assets File Copied', _targetPath);
+    });
+  });
+
+  getAllFilesInDir(Config.UserDataFolder).forEach((file) => {
     if (basename(file).startsWith('.')) return;
 
     addDataFolderFile(file);

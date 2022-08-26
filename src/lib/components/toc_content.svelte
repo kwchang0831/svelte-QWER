@@ -2,7 +2,6 @@
   import { slide } from 'svelte/transition';
   import type { TOC } from '$lib/types/toc';
   import { tocCur } from '$stores/toc';
-  import Article from '$lib/template/_article.svelte';
 
   export let content: TOC.Heading;
   export let expanded = false;

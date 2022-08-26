@@ -1,8 +1,9 @@
 export const Config = {
   StaticFolder: 'static',
   BuildFolder: 'build',
-  PublicFolder: 'user/public',
-  DataFolder: 'user/data',
+  UserPublicFolder: 'user/public',
+  UserDataFolder: 'user/data',
+  UserAssetsFolder: 'user/assets',
   RouteFolder: 'src/routes',
   PreserveFilesInRoutes: [
     'src/routes/+error.svelte',
@@ -50,20 +51,10 @@ export const ImageConfig = {
     1280: {
       width: 1280,
       format: ['avif', 'webp'],
-      minWidth: '1280px',
-    },
-    1024: {
-      width: 1024,
-      format: ['avif', 'webp'],
       minWidth: '1024px',
     },
-    854: {
-      width: 854,
-      format: ['avif', 'webp'],
-      minWidth: '768px',
-    },
-    640: {
-      width: 640,
+    800: {
+      width: 800,
       format: ['avif', 'webp'],
       minWidth: '360px',
     },
