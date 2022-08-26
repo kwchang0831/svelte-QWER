@@ -45,20 +45,20 @@ export const ImageConfig = {
   BannerImage: {
     width: 900,
     height: 200,
-    format: ['avif', 'webp'],
+    format: ['avif'],
   },
   ExtraResolutions: {
     1280: {
       width: 1280,
-      format: ['avif', 'webp'],
+      format: ['avif'],
       minWidth: '1024px',
     },
     800: {
       width: 800,
-      format: ['avif', 'webp'],
+      format: ['avif'],
       minWidth: '360px',
     },
   },
   // For original image without reszing
-  ExtraFormats: ['avif', 'webp'],
+  ExtraFormats: ['avif'],
 };
