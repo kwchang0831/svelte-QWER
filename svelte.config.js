@@ -9,9 +9,9 @@ const config = {
   preprocess: preprocess(),
   kit: {
     adapter: Object.keys(process.env).some((key) => key.includes('VERCEL'))
-      ? adapterVercel({ edge: true })
+      ? adapterVercel()
       : Object.keys(process.env).some((key) => key.includes('NETLIFY'))
-      ? adapterNetlify({ edge: true })
+      ? adapterNetlify()
       : process.env.ADAPTER === 'node'
       ? adapterNode({ out: 'build' })
       : adapterStatic({

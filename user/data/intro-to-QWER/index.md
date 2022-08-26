@@ -190,7 +190,7 @@ tags:
 
 #### Write post content
 
-Post content can be writen using [Markdown Syntax](https://www.markdownguide.org/cheat-sheet/) and HTML. You can also import svelte component and use it. For example, please check out the <a href="/example" target="_blank">Example Post</a> and it's <a href="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/data/example/index.md" target="_blank">source code</a>.
+Post content can be writen using [Markdown Syntax](https://www.markdownguide.org/cheat-sheet/) and HTML. You can also import svelte component and use it. For example, please check out the <a href="/example" target="_blank" rel="noreferrer noopener">Example Post</a> and it's <a href="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/data/example/index.md" target="_blank" rel="noreferrer noopener">source code</a>.
 
 Please note that NOT all the [Extended Syntax](https://www.markdownguide.org/extended-syntax/) for markdown are implemented or implemented the same way at the moment.
 

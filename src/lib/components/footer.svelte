@@ -37,7 +37,7 @@
         Powered by <a
           use:tippy
           aria-label="🚀 QWER [α] - Built using Svelte with ❤"
-          rel="noopener external"
+          rel="noreferrer noopener external"
           target="_blank"
           href="https://github.com/kwchang0831/svelte-QWER"
           class="hover:(text-sky-500)">
@@ -48,7 +48,7 @@
         href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1"
         aria-label="Creative Commons License"
         target="_blank"
-        rel="license noopener noreferrer"
+        rel="noreferrer noopener license"
         style="display:inline-block;"
         class="hover:(text-sky-500)">
         CC BY-NC-SA 4.0

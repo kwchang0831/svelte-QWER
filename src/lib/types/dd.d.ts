@@ -10,6 +10,7 @@ export namespace DD {
     name?: string;
     url?: string;
     target?: '_blank' | '_parent' | '_self' | '_top';
+    rel?: string;
     prefetch?: true | null;
   }
 
