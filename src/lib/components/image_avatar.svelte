@@ -30,7 +30,7 @@
         type="image/webp" />
       <img
         decoding="async"
-        loading="lazy"
+        loading="auto"
         src={siteConfig.author.avatar}
         alt={siteConfig.author.avatar}
         {width}
