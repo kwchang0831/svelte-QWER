@@ -59,4 +59,6 @@ export const ImageConfig = {
       minWidth: '360px',
     },
   },
+  // For original image without reszing
+  ExtraFormats: ['avif', 'webp'],
 };

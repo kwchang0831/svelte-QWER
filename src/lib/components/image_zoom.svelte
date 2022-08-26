@@ -51,6 +51,11 @@
           {/each}
         {/each}
       {/if}
+      {#if ImageConfig.ExtraFormats && ImageConfig.ExtraFormats.length}
+        {#each ImageConfig.ExtraFormats as format, index}
+          <source type={`image/${format}`} srcset={`${asset['extraFormats'][index]}`} />
+        {/each}
+      {/if}
       <img
         data-zoomable
         itemprop="image"

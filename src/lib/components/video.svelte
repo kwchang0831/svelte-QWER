@@ -20,7 +20,7 @@
   {loop}
   {width}
   {height}
-  class="videoplayer h-full w-auto m-auto {className ?? ''}"
+  class="videoplayer !h-full !w-auto m-auto {className ?? ''}"
   controls
   {poster}
   data-poster={poster}>

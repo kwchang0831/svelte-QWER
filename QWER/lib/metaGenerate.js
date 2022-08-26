@@ -30,7 +30,12 @@ export const genMetaFiles = () => {
 export const genAssetTypeDefinition = () => {
   fs.ensureDirSync(Config.GeneratedFolder);
 
-  let type_data = `banner: ${ImageConfig.BannerImage.format.length > 1 ? 'string[]' : 'string'};\n`;
+  let type_data = '';
+  if (ImageConfig.ExtraFormats) {
+    type_data += 'extraFormats : string[];';
+  }
+
+  type_data += `banner: ${ImageConfig.BannerImage.format.length > 1 ? 'string[]' : 'string'};\n`;
   type_data += Object.entries(ImageConfig.ExtraResolutions)
     .map(([k, v]) => {
       return `${k}?: ${v.format.length > 1 ? 'string[]' : 'string'};`;

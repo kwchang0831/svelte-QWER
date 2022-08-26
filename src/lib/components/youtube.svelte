@@ -20,6 +20,6 @@
   }&iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1`;
 </script>
 
-<div class="plyr__video-embed relative pb-[56.25%] mb-2 js-player">
+<div class="plyr__video-embed relative pb-[56.25%] mb-2 videoplayer">
   <iframe {src} title="Plyr video player" allowfullscreen allowtransparency loading="lazy" allow="autoplay" />
 </div>

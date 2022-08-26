@@ -138,11 +138,9 @@ class Greeter {
 Photo by <a href="https://unsplash.com/@willy24?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ioana Tabarcea</a> on <a href="https://unsplash.com/s/photos/morning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 </ImgZ>
 
-## GIF & Videos
+## Videos
 
-![MP4 Example](./example2.mp4)
-
-![GIF/WEBP Example](./example3.webp)
+![MP4 Example](/example/example2.mp4)
 
 ## Youtube / Custom Svelte Component
 

@@ -166,7 +166,7 @@ const _processImageAssets = (file, generateMeta) => {
 
   if (ImageConfig.SupportedImageFormat.includes(_ext.substring(1))) {
     const _targetPath = join(Config.AssetsFolder, _slug);
-    assets.set(`/${_slug}`);
+    assets.set(_slug);
 
     cp(file, _targetPath, {}, () => {
       log('green', 'Image File Copied', _targetPath);
@@ -243,7 +243,7 @@ export const buildAll = (metaGenerate = true) => {
   getAllFilesInDir(Config.UserAssetsFolder).forEach((file) => {
     const _destPath = path.relative(Config.UserAssetsFolder, file);
     const _targetPath = join(Config.AssetsFolder, _destPath);
-    assets.set(`/${_destPath}`);
+    assets.set(_destPath);
     cp(file, _targetPath, {}, () => {
       log('green', 'Assets File Copied', _targetPath);
     });

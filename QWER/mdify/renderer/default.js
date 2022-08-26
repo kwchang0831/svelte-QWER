@@ -329,8 +329,6 @@ export const default_renderer = (basePath) => {
                 title ? `${title}` : ''
               }</ImgZ>`;
             }
-            console.log('FINAL', href);
-
             return `<ImgZ src="${href}" alt="${alt}">${title ? `${title}` : ''}</ImgZ>`;
           }
           if (ImageConfig.SupportedVideoFormat.includes(ext)) {
@@ -338,7 +336,6 @@ export const default_renderer = (basePath) => {
             if (ext === 'webm') return `<Video webm="${href}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
           }
         }
-        console.log('Final HREF', href);
         return `<figure><img src="${href}" alt="${alt}"></img>${
           title ? `<figcaption>${title}</figcaption>` : ''
         }</figure>`;
