@@ -79,21 +79,19 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## ✨ Features
 
-- Out-of-the-box support for Atom feed, Sitemap, PWA.
-
-- Outstanding site performance and SEO support.
-
-- Folder-based organization of blogging.
-
-- Built-in images pre-process. Auto-generate different resolutions / format images to accommodate Mobile / Tablet / PC audiences for balance of speed and visual quality.
-
 - Writing post with [Markdown syntax](https://www.markdownguide.org/basic-syntax/).
 
 - Support embedding Svelte components and Javascript with Markdown.
 
-- Support [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
+- Folder-based organization of blogging.
 
-- Support [Umami](https://github.com/umami-software/umami) - a simple, fast, privacy-focused alternative to Google Analytics.
+- Outstanding site performance and SEO support.
+
+- Out-of-the-box support for Atom feed, Sitemap, PWA.
+
+- Built-in images pre-process. Auto-generate different resolutions / format images to accommodate Mobile / Tablet / PC audiences for balance of speed and visual quality.
+
+- Support [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
 
 - Utilize [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
 

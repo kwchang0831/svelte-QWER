@@ -15,4 +15,4 @@ yarn.lock
 .vercel_build_output
 .vercel
 
-data/**
+user/data/**

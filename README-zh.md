@@ -79,21 +79,19 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## ✨ Features
 
-- 開箱即用的 Atom feed, Sitemap, PWA.
-
-- 網站速度評分快速，且支援 SEO.
-
-- 新增部落格頁面是使用資料夾式的整理方式
-
-- 內建照片檔案的前處理，自動生成不同的解析度與格式。讓不同的使用者在不同的設備上能在速度與觀看品質上有更好的平衡。
-
 - 使用 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)撰寫文章
 
 - 支援嵌入 Svelte 組件 與 使用 Javascript 搭配 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)
 
-- 支援 [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
+- 新增部落格頁面是使用資料夾式的整理方式
 
-- 支援 [Umami](https://github.com/umami-software/umami) - a simple, fast, privacy-focused alternative to Google Analytics.
+- 網站速度評分快速，且支援 SEO.
+
+- 開箱即用的 Atom feed, Sitemap, PWA.
+
+- 內建照片檔案的前處理，自動生成不同的解析度與格式。讓不同的使用者在不同的設備上能在速度與觀看品質上有更好的平衡。
+
+- 支援 [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
 
 - 使用 [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
 

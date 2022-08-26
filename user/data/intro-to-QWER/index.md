@@ -3,6 +3,7 @@ title: Intro to QWER
 description: Start using 🚀 QWER - Simply Awesome Blog Starter. Built using Svelte with ❤
 summary: 🎉 Let's start a brand new awesome blog...
 published: 2022-08-20
+updated: 2022-08-26
 cover: ./cover.jpg
 coverCaption: Photo by <a href="https://unsplash.com/@joannakosinska?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joanna Kosinska</a> on <a href="https://unsplash.com/s/photos/study?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags:
@@ -26,6 +27,14 @@ tags:
         }
       ]
     }
+  ]
+
+  let userFolder = [
+    { name: 'assets', icon: 'i-bxs-folder' },
+    { name: 'config', icon: 'i-bxs-folder' },
+    { name: 'custom', icon: 'i-bxs-folder' },
+    { name: 'data', icon: 'i-bxs-folder' },
+    { name: 'public', icon: 'i-bxs-folder' }
   ]
 
   let configFolder = [
@@ -76,23 +85,31 @@ This post will guide you through making your first [QWER](https://github.com/kwc
 | `pnpm cleandeep` | Deep clean.<br/>Remove auto-generated files as well as `node_modules`, `.svelte-kit`, and etc... |
 | `pnpm format`    | Run prettier on the source code to maintian consistent format.                                   |
 
-## Important Folders
+## `user` Folder
 
-You only need to work with the following folders under `my-blog`, unless you are modify QWER itself.
+You only need to work with the `user` folder under `my-blog`, unless you are modify QWER itself.
+
+<div class="p4 border-1 shadow-xl rounded-xl border-black dark:border-white overflow-auto">
+  <Folder name="user" files={userFolder} expanded/>
+</div>
+
+Below are the list of folders under `user` folder and their purpose.
 
 | Folder Name | Purpose                                                                           |
 | ----------- | --------------------------------------------------------------------------------- |
-| data        | Provide your markdown file to generate blog.                                      |
+| data        | Provide your markdown file to generate page/blog.                                 |
 | config      | Site setting and QWER config.                                                     |
-| assets      | User-provided files that will be **pre-processed**.                               |
-| public      | User-provided files that will NOT be pre-processed, and can be directly accessed. |
+| assets      | User-provided image files that will be **pre-processed**.                         |
+| public      | User-provided files that will NOT be pre-processed, and can be directly accessed based on path. |
 | custom      | User-provided svelte components files to reference in markdown.                   |
 
-Always keep backup of the above folders. For future QWER updates, just copy paste these folders to restore your contents.
+> ! Always keep your backup of the `user` folder.
 
-## `data` Folder
+For future QWER updates, just overwirte these folders to restore your contents, unless there are breaking changes noted.
 
-### Create a page
+### `data` Folder
+
+#### Create a page
 
 Say if you want to creat a new page at `https://example-qwer.com/post/1`, you will create a folder strucutre like the following example.
 
@@ -100,7 +117,7 @@ Say if you want to creat a new page at `https://example-qwer.com/post/1`, you wi
   <Folder name="data" files={postFolder} expanded/>
 </div>
 
-### Write page meta
+#### Write page meta
 
 Page meta data describes the page. All the available meta are listed below:
 
@@ -117,7 +134,9 @@ Page meta data describes the page. All the available meta are listed below:
 | options      | Optional. Currently only have 1 option: `unlisted` which will hide from post listing.                               |
 | tags         | Tags are for post filtering. Details will be described below.                                                       |
 
-#### Tags
+>! Please note: It's best to manually set `updated` time since git cannot track file modification time. The `mtime` will be set to the checkout time which might not be the result you want.
+
+##### Tags
 
 QWER's tags work similar to simplifed version of **Taxonomies** where you can group tags into categories.
 
@@ -149,7 +168,7 @@ The above will create the following 3 tags:
 - tags-Tag2
 - tags-Tag3
 
-#### Example meta
+##### Example meta
 
 ```yaml
 ---
@@ -169,17 +188,15 @@ tags:
 ---
 ```
 
-### Write post content
+#### Write post content
 
-Post content can be writen using [Markdown Syntax](https://www.markdownguide.org/cheat-sheet/) and HTML. You can also import svelte component and use it.
+Post content can be writen using [Markdown Syntax](https://www.markdownguide.org/cheat-sheet/) and HTML. You can also import svelte component and use it. For example, please check out the <a href="/example" target="_blank">Example Post</a> and it's <a href="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/data/example/index.md" target="_blank">source code</a>.
 
-Check out the <a href="/example" target="_blank">Example Post</a> and it's <a href="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/data/example/index.md" target="_blank">source code</a>.
-
-Please note that NOT all the [Extended Syntax](https://www.markdownguide.org/extended-syntax/) for markdown are implemented or implemented the same way.
+Please note that NOT all the [Extended Syntax](https://www.markdownguide.org/extended-syntax/) for markdown are implemented or implemented the same way at the moment.
 
 I will list some of the notable syntax.
 
-#### Codeblock
+##### Codeblock
 
 Codeblock are fenced by \`\`\`
 
@@ -213,25 +230,27 @@ It will generate the following output:
 /// hlLines: 0-1, 3
 /// showLineNumber
 /// diff
-line1;
-line2;
-line3;
-line4 + line5 - line6;
+line1
+line2
+line3
+line4
++ line5
+- line6
 ```
 
-## `config` folder
+### `config` folder
 
 <div class="p4 border-1 shadow-xl rounded-xl border-black dark:border-white overflow-auto">
   <Folder name="config" files={configFolder} expanded/>
 </div>
 
-### QWER.config.js
+#### QWER.config.js
 
-**Generally, you don't need to modify this file at all.**
+**Generally, you do NOT need to modify this file at all.**
 
 QWER comes with image pre-process procedure. It will take your cover image or other image assets that are referenced in the post, and generate smaller resoultions and image formats that has better compression while maintaining similar visual quality.
 
-If you need to tune it, the following is the part where you would adjust.
+If you need to tune it, the following is the part where you would want to adjust.
 
 ```js
 BannerImage: {
@@ -263,9 +282,9 @@ ExtraResolutions: {
 },
 ```
 
-### site.ts
+#### site.ts
 
-**You are required to update this site config.**
+**You are REQUIRED to update this site config.**
 
 Firstly, check the `siteConfig`. Modify it where you see appropriated.
 
@@ -299,6 +318,22 @@ Next, check the `headConfig`.
 
 If you are using [Umami](https://github.com/umami-software/umami) - a simple, fast, privacy-focused alternative to Google Analytics, update it with your credential accordingly.
 
+```js
+export const headConfig: Site.Head = {
+  custom: ({ dev }) =>
+    dev
+      ? [
+          // For Development Enviroment
+        ]
+      : [
+          // For Production Enviroment
+          // Umami Analytics
+          '<link rel="preconnect" href="https://umami.kwchang0831.dev" />',
+          '<script defer data-website-id="YOUR_ID" src="https://umami.kwchang0831.dev/umami.js" data-cache="true" data-domains="svelte-qwer.vercel.app"></script>',
+        ],
+};
+```
+
 Finally, check the `giscusConfig`. [Giscus](https://github.com/giscus/giscus) is a comments system powerd by Github Discussions. Generate your own setting: [https://giscus.app/](https://giscus.app/). For more details, please consult their github repo.
 
 If you do NOT wish to use giscus, turn it off by change `enable` to `false`.
@@ -311,7 +346,7 @@ export const giscusConfig: Giscus.Config = {
 }
 ```
 
-## `assets` folder
+### `assets` folder
 
 You are requried to update those files to your style.
 
@@ -321,9 +356,9 @@ You are requried to update those files to your style.
 
 Overwrite the file with your images. If the name or extension of the image is differet, please update `site.ts` to reflect it.
 
-## `public` folder
+### `public` folder
 
-All the files inside this folder will be copied to static folder, which will be served directly to the public.
+All the files inside this folder will be copied to static folder, which will be served directly to the public based on the path.
 
 ## 🚀 Deploy
 
