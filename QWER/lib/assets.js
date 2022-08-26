@@ -1,4 +1,4 @@
-import { Config, ImageConfig } from '../../config/QWER.confitg.js';
+import { Config, ImageConfig } from '../../user/config/QWER.confitg.js';
 import path from 'node:path';
 import probe from 'probe-image-size';
 import { existsSync, readFileSync } from 'node:fs';

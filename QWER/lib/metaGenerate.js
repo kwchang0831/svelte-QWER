@@ -1,4 +1,4 @@
-import { Config, ImageConfig } from '../../config/QWER.confitg.js';
+import { Config, ImageConfig } from '../../user/config/QWER.confitg.js';
 import fs from 'fs-extra';
 import { readSync, write } from 'to-vfile';
 import { exec } from 'child_process';

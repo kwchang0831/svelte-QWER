@@ -1,4 +1,4 @@
-import { Config } from '../../config/QWER.confitg.js';
+import { Config } from '../../user/config/QWER.confitg.js';
 
 export const tags = (() => {
   let _tags = new Map();

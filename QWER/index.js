@@ -1,7 +1,7 @@
 import chokidar from 'chokidar';
 import { cp } from 'node:fs';
 import { join, basename, sep } from 'node:path';
-import { Config } from '../config/QWER.confitg.js';
+import { Config } from '../user/config/QWER.confitg.js';
 import { log } from './utli/logger.js';
 import {
   addDataFolderFile,

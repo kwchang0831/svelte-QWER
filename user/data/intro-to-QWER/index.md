@@ -66,27 +66,27 @@ This post will guide you through making your first [QWER](https://github.com/kwc
 
 ## List of commonly used commands
 
-| Commands         | Purpose        |
-| ---------------- | -------------- |
-| `pnpm i`         | Install Dependencies. |
-| `pnpm dev`       | Start dev sever. Be sure to `pnpm i` first. |
-| `pnpm build`     | Build the site. |
-| `pnpm preview`   | Preview the bult site with local server. Be sure to `pnpm build` first. |
-| `pnpm clean`     | Clean auto-generated files. Please DONOT commit auto-generated files. |
+| Commands         | Purpose                                                                                          |
+| ---------------- | ------------------------------------------------------------------------------------------------ |
+| `pnpm i`         | Install Dependencies.                                                                            |
+| `pnpm dev`       | Start dev sever. Be sure to `pnpm i` first.                                                      |
+| `pnpm build`     | Build the site.                                                                                  |
+| `pnpm preview`   | Preview the bult site with local server. Be sure to `pnpm build` first.                          |
+| `pnpm clean`     | Clean auto-generated files. Please DONOT commit auto-generated files.                            |
 | `pnpm cleandeep` | Deep clean.<br/>Remove auto-generated files as well as `node_modules`, `.svelte-kit`, and etc... |
-| `pnpm format`   | Run prettier on the source code to maintian consistent format. |
+| `pnpm format`    | Run prettier on the source code to maintian consistent format.                                   |
 
 ## Important Folders
 
 You only need to work with the following folders under `my-blog`, unless you are modify QWER itself.
 
-| Folder Name | Purpose        |
-| ----------- | -------------- |
-| data        | Provide your markdown file to generate blog. |
-| config      | Site setting and QWER config. |
-| assets      | User-provided files that will be **pre-processed**. |
+| Folder Name | Purpose                                                                           |
+| ----------- | --------------------------------------------------------------------------------- |
+| data        | Provide your markdown file to generate blog.                                      |
+| config      | Site setting and QWER config.                                                     |
+| assets      | User-provided files that will be **pre-processed**.                               |
 | public      | User-provided files that will NOT be pre-processed, and can be directly accessed. |
-| custom      | User-provided svelte components files to reference in markdown. |
+| custom      | User-provided svelte components files to reference in markdown.                   |
 
 Always keep backup of the above folders. For future QWER updates, just copy paste these folders to restore your contents.
 
@@ -104,18 +104,18 @@ Say if you want to creat a new page at `https://example-qwer.com/post/1`, you wi
 
 Page meta data describes the page. All the available meta are listed below:
 
-| Meta         | Purpose        |
-| ------------ | -------------- |
-| title        | Title for the post and SEO title meta. |
-| description  | Used for SEO description meta. |
-| summary      | Short description of the post that will display on the post listing. |
-| published    | Post published datetime. If not provided, file `birthtime` will be used. |
-| updated      | Post updated datetime. If not provided, file `mtime` will be used.  |
-| cover        | Path to the cover image. Relative path or URL to the external image. |
-| coverCaption | Caption Text for Cover image. Plain text or HTML are both accepted. |
+| Meta         | Purpose                                                                                                             |
+| ------------ | ------------------------------------------------------------------------------------------------------------------- |
+| title        | Title for the post and SEO title meta.                                                                              |
+| description  | Used for SEO description meta.                                                                                      |
+| summary      | Short description of the post that will display on the post listing.                                                |
+| published    | Post published datetime. If not provided, file `birthtime` will be used.                                            |
+| updated      | Post updated datetime. If not provided, file `mtime` will be used.                                                  |
+| cover        | Path to the cover image. Relative path or URL to the external image.                                                |
+| coverCaption | Caption Text for Cover image. Plain text or HTML are both accepted.                                                 |
 | coverStyle   | Cover image position for post listing.<br/>Options are: `TOP`, `RIGHT`, `BOT`, `LEFT`, `IN`, `NONE`. Default: `IN`. |
-| options      | Optional. Currently only have 1 option: `unlisted` which will hide from post listing.  |
-| tags         | Tags are for post filtering. Details will be described below. |
+| options      | Optional. Currently only have 1 option: `unlisted` which will hide from post listing.                               |
+| tags         | Tags are for post filtering. Details will be described below.                                                       |
 
 #### Tags
 
@@ -213,12 +213,10 @@ It will generate the following output:
 /// hlLines: 0-1, 3
 /// showLineNumber
 /// diff
-line1
-line2
-line3
-line4
-+ line5
-- line6
+line1;
+line2;
+line3;
+line4 + line5 - line6;
 ```
 
 ## `config` folder

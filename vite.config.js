@@ -70,10 +70,10 @@ const config = {
       $QWER: path.resolve('.', 'QWER'),
       $generated: path.resolve('.', 'src/generated'),
       $stores: path.resolve('.', 'src/lib/stores'),
-      $config: path.resolve('.', 'config'),
-      $assets: path.resolve('.', 'assets'),
+      $config: path.resolve('.', 'user/config'),
+      $assets: path.resolve('.', 'user/assets'),
+      $custom: path.resolve('.', 'user/custom'),
       $static: path.resolve('.', 'static'),
-      $custom: path.resolve('.', 'custom'),
     },
   },
   server: {

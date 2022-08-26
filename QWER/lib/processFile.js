@@ -1,5 +1,5 @@
-import { Config, ImageConfig } from '../../config/QWER.confitg.js';
-import { join, isAbsolute, basename, extname, sep, resolve, dirname, posix } from 'node:path';
+import { Config, ImageConfig } from '../../user/config/QWER.confitg.js';
+import path, { join, isAbsolute, basename, extname, sep, resolve, dirname, posix } from 'node:path';
 import { existsSync, statSync, cp } from 'node:fs';
 import { ensureDirSync } from 'fs-extra';
 import { read, write } from 'to-vfile';
@@ -40,7 +40,7 @@ export const processImagePath = (path, slug) => {
 
 export const convertPathToSlug = (file) => {
   const _ext = extname(file);
-  const [, ..._destPath] = file.split(sep);
+  const _destPath = path.relative(Config.DataFolder, file).split(sep);
 
   let _slug;
   if (_ext === '.md') {
@@ -232,8 +232,8 @@ export const rmDataFolderFile = (file, generateMeta) => {
 
 export const buildAll = (metaGenerate = true) => {
   getAllFilesInDir(Config.PublicFolder).forEach((file) => {
-    const [, ..._destPath] = file.split(sep);
-    const _targetPath = join(Config.StaticFolder, _destPath.join('/'));
+    const _destPath = path.relative(Config.PublicFolder, file);
+    const _targetPath = join(Config.StaticFolder, _destPath);
     cp(file, _targetPath, {}, () => {
       log('green', 'Public File Copied', _targetPath);
     });

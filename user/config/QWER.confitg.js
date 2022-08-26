@@ -1,8 +1,8 @@
 export const Config = {
   StaticFolder: 'static',
   BuildFolder: 'build',
-  PublicFolder: 'public',
-  DataFolder: 'data',
+  PublicFolder: 'user/public',
+  DataFolder: 'user/data',
   RouteFolder: 'src/routes',
   PreserveFilesInRoutes: [
     'src/routes/+error.svelte',

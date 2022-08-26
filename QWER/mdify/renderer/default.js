@@ -14,7 +14,7 @@ import { spoiler } from '../parser/spoiler.js';
 import { highlight } from '../parser/highlight.js';
 import probe from 'probe-image-size';
 import { existsSync, readFileSync } from 'node:fs';
-import { Config, ImageConfig } from '../../../config/QWER.confitg.js';
+import { Config, ImageConfig } from '../../../user/config/QWER.confitg.js';
 
 export const default_renderer = (basePath) => {
   let _toc = [];

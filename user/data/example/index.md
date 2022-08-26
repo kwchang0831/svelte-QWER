@@ -80,11 +80,11 @@ This is ||Spoiler Text||.
 Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 
 [^1]: This is the first footnote.
-
-[^bignote]: Here's one with multiple paragraphs and code.  
-   Indent paragraphs to include them in the footnote.  
-   `{ my code }`  
-   Add as many paragraphs as you like.  
+[^bignote]:
+    Here's one with multiple paragraphs and code.  
+    Indent paragraphs to include them in the footnote.  
+    `{ my code }`  
+    Add as many paragraphs as you like.
 
 ## Paragraphs
 
@@ -150,30 +150,30 @@ Photo by <a href="https://unsplash.com/@willy24?utm_source=unsplash&utm_medium=r
 
 ```svelte
 <script lang="ts">
-  import Youtube from '$lib/components/youtube.svelte'
-  import Custom from '$custom/custom.svelte'
+  import Youtube from '$lib/components/youtube.svelte';
+  import Custom from '$custom/custom.svelte';
   const const_variable = 999;
 </script>
 
 Variable is {const_variable}
 
-<Youtube id="ZXsQAXx_ao0"/>
+<Youtube id="ZXsQAXx_ao0" />
 
 {(function () {
-  const guess = Math.random()
+  const guess = Math.random();
 
   if (guess > 0.66) {
-    return `<span style="color: tomato">Look at us.</span>`
+    return `<span style="color: tomato">Look at us.</span>`;
   }
 
   if (guess > 0.33) {
-    return `<span style="color: violet">Who would have guessed?!</span>`
+    return `<span style="color: violet">Who would have guessed?!</span>`;
   }
 
-  return `<span style="color: goldenrod">Not me.</span>`
+  return `<span style="color: goldenrod">Not me.</span>`;
 })()}
 
-<Custom name="custom object"/>
+<Custom name="custom object" />
 ```
 
 ### Output
@@ -183,17 +183,17 @@ Variable is {const_variable}.
 <Youtube id="ZXsQAXx_ao0"/>
 
 {(function () {
-  const guess = Math.random()
+const guess = Math.random()
 
-  if (guess > 0.66) {
-    return `<span style="color: tomato">Look at us.</span>`
-  }
+if (guess > 0.66) {
+return `<span style="color: tomato">Look at us.</span>`
+}
 
-  if (guess > 0.33) {
-    return `<span style="color: violet">Who would have guessed?!</span>`
-  }
+if (guess > 0.33) {
+return `<span style="color: violet">Who would have guessed?!</span>`
+}
 
-  return `<span style="color: goldenrod">Not me.</span>`
+return `<span style="color: goldenrod">Not me.</span>`
 })()}
 
 <Custom name="custom object"/>

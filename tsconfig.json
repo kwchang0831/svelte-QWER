@@ -20,14 +20,14 @@
       "$generated/*": ["./src/generated/*"],
       "$stores": ["./src/lib/stores"],
       "$stores/*": ["./src/lib/stores/*"],
-      "$config": ["./config"],
-      "$config/*": ["./config/*"],
-      "$assets": ["./assets"],
-      "$assets/*": ["./assets/*"],
+      "$config": ["user/config"],
+      "$config/*": ["user/config/*"],
+      "$assets": ["./user/assets"],
+      "$assets/*": ["./user/assets/*"],
+      "$custom": ["./user/custom"],
+      "$custom/*": ["./user/custom/*"],
       "$static": ["./static"],
-      "$static/*": ["./static/*"],
-      "$custom": ["./custom"],
-      "$custom/*": ["./custom/*"]
+      "$static/*": ["./static/*"]
     }
   },
   "include": ["src/**/*"],
