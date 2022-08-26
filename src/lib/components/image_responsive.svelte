@@ -42,7 +42,9 @@
           -->
           <source
             media={`(min-width: ${meta.minWidth})`}
-            srcset={dev ? `${asset[res][index]}` : new URL(asset[res][index], siteConfig.url).href}
+            srcset={dev
+              ? `${Array.isArray(asset[res]) ? asset[res][index] : asset[res]}`
+              : new URL(Array.isArray(asset[res]) ? asset[res][index] : asset[res], siteConfig.url).href}
             width={meta.width}
             type={`image/${format}`} />
         {/each}
@@ -50,7 +52,14 @@
     {/if}
     {#if ImageConfig.ExtraFormats && ImageConfig.ExtraFormats.length}
       {#each ImageConfig.ExtraFormats as format, index}
-        <source type={`image/${format}`} srcset={`${asset['extraFormats'][index]}`} />
+        <source
+          type={`image/${format}`}
+          srcset={dev
+            ? `${Array.isArray(asset['extraFormats']) ? asset['extraFormats'][index] : asset['extraFormats']}`
+            : new URL(
+                Array.isArray(asset['extraFormats']) ? asset['extraFormats'][index] : asset['extraFormats'],
+                siteConfig.url,
+              ).href} />
       {/each}
     {/if}
     <img itemprop="image" class={imgClass} {decoding} {loading} src={asset.original} {alt} {width} {height} />
