@@ -16,7 +16,8 @@
 
 {#if data.name !== 'tags'}
   <div
-    class="flex justify-between items-center border-b-1 border-black dark:border-white py2 cursor-pointer {className}"
+    class="flex justify-between items-center border-b-1 border-black dark:border-white py2 cursor-pointer {className ??
+      ''}"
     on:click={() => {
       expanded = !expanded;
     }}>

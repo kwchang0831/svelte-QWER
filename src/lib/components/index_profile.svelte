@@ -8,7 +8,7 @@
   export { className as class };
 </script>
 
-<section id="index-profile" class={className}>
+<section id="index-profile" class={className ?? ''}>
   <div class="relative group">
     <AuthorAvatar />
     <div

@@ -39,7 +39,7 @@
 </script>
 
 {#if nav}
-  <div on:message on:mouseenter={show} on:mouseleave={hide} class="relative cursor-pointer {className}">
+  <div on:message on:mouseenter={show} on:mouseleave={hide} class="relative cursor-pointer {className ?? ''}">
     <slot>
       {#if nav.url}
         <a href={nav.url} target={nav.target} class="flex items-center cursor-pointer gap-2">

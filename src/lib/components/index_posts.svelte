@@ -11,7 +11,7 @@
 
 <main
   id="index-posts"
-  class="flex flex-col items-center py4 gap6 {className}"
+  class="flex flex-col items-center py4 gap6 {className ?? ''}"
   itemprop="mainEntityOfPage"
   itemscope
   itemtype="https://schema.org/Blog">
