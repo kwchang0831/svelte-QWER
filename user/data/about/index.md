@@ -1,8 +1,8 @@
 ---
 title: About QWER
 description: Information about 🚀 QWER - Simply Awesome Blog Starter. Built using Svelte with ❤
-published: 2022-08-20
-updated: 2022-08-27
+published: 2022-08-20 GMT+08:00
+updated: 2022-08-27 GMT+08:00
 cover: /qwer.webp
 options:
   - unlisted
