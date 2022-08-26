@@ -12,3 +12,4 @@ __unconfig_vite.config.js
 /static
 /src/generated
 .husky
+.tool-versions
