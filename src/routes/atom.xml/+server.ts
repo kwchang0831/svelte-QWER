@@ -5,15 +5,13 @@ import postsjson from '$generated/posts.json';
 import tagsjson from '$generated/tags.json';
 import LZString from 'lz-string';
 
-const _allposts = (postsjson as [string, Post.Post][]).filter((e) => {
-  return !(e[1].options && e[1].options.includes('unlisted'));
-});
+const _allposts = postsjson as [string, Post.Post][];
 
 const _alltags = Array.from(Object.entries(tagsjson as { [key: string]: { [key: string]: number } }));
 
 const render = async (): Promise<string> => `<?xml version='1.0' encoding='utf-8'?>
 <feed xmlns="http://www.w3.org/2005/Atom" ${siteConfig.lang ? `xml:lang="${siteConfig.lang}"` : ''}>
-<id>${siteConfig.url}/</id>
+<id>${siteConfig.url}</id>
 <title><![CDATA[${siteConfig.title}]]></title>
 ${
   siteConfig.subtitle
@@ -22,7 +20,7 @@ ${
 </subtitle>`
     : ''
 }
-<icon>${siteConfig.url}/favicon.png</icon>
+<icon>${new URL(`favicon.png`, siteConfig.url).href}</icon>
 <link href="${siteConfig.url}"/>
 <link href="${siteConfig.url}atom.xml" rel="self" type="application/atom+xml"/>
 <updated>${new Date().toJSON()}</updated>

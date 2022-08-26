@@ -13,10 +13,10 @@ const render = async () => {
     version: 'https://jsonfeed.org/version/1.1',
     title: siteConfig.title,
     home_page_url: siteConfig.url,
-    feed_url: `${siteConfig.url}/feed.json`,
+    feed_url: `${new URL(`feed.json`, siteConfig.url).href}`,
     description: siteConfig.description,
     icon: siteConfig.author.avatar,
-    favicon: `${siteConfig.url}/favicon.png`,
+    favicon: `${new URL(`favicon.png`, siteConfig.url).href}`,
     authors: [
       {
         name: siteConfig.author.name,
@@ -28,7 +28,7 @@ const render = async () => {
     items: _allposts.map((e) => {
       return {
         id: e[1].slug,
-        url: `${siteConfig.url}${e[1].slug}`,
+        url: `${new URL(`${e[1].slug}`, siteConfig.url).href}`,
         title: e[1].title,
         summary: e[1].summary,
         image: e[1].cover,
