@@ -5,8 +5,6 @@
 
   let className: any = undefined;
   export { className as class };
-
-  let years: Array<number> = [new Date().getFullYear()];
 </script>
 
 <main
@@ -24,6 +22,7 @@
         <h2 class="text-3xl">No Post Found.</h2>
       </div>
     {:else}
+      {@const years = [new Date().getFullYear()]}
       {#each $postsShow as p, index}
         {@const year = new Date(p.published).getFullYear()}
         {#if !years.includes(year)}
