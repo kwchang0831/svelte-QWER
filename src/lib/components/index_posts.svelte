@@ -26,7 +26,7 @@
       {#each $postsShow as p, index}
         {@const year = new Date(p.published).getFullYear()}
         {#if !years.includes(year)}
-          <div class="divider my-4 md:my-0">
+          <div class="year-2xl my-4 md:my-0">
             {years.push(year) && year}
           </div>
         {/if}
@@ -37,7 +37,7 @@
 </main>
 
 <style lang="scss">
-  .divider {
+  .year-2xl {
     --at-apply: 'my-4 h-4 whitespace-nowrap flex flex-row items-center self-stretch md:mx12';
     &:before {
       content: '';

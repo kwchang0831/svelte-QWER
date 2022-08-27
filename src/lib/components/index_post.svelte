@@ -38,7 +38,7 @@
           <time class="hidden dt-updated" datetime={data.updated} itemprop="dateModified">
             {postUpdatedStr}
           </time>
-          <h2 class="text-3xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
+          <h2 class="text-2xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
             <a href={data.slug} class="title-link-orange-500-orange-500" itemprop="url">
               {data.title}
             </a>
@@ -66,7 +66,7 @@
             <time class="hidden dt-updated" datetime={data.updated} itemprop="dateModified">
               {postUpdatedStr}
             </time>
-            <h2 class="text-3xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
+            <h2 class="text-2xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
               <a href={data.slug} alt={data.title} class="title-link-orange-500-orange-500" itemprop="url">
                 {data.title}
               </a>
@@ -83,7 +83,7 @@
         <time class="hidden dt-updated" datetime={data.updated} itemprop="dateModified">
           {postUpdatedStr}
         </time>
-        <h2 class="text-3xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
+        <h2 class="text-2xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
           <a href={data.slug} class="title-link-orange-500-orange-500" itemprop="url">
             {#if data.title}
               {data.title}
