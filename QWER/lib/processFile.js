@@ -124,9 +124,16 @@ const _processMD = (file, generateMeta) => {
     coverCaption: _meta['coverCaption'],
     coverStyle: _meta['coverStyle'] ?? Config.DefaultCoverStyle,
     options: _meta['options'],
+    series_tag: _meta['series_tag'],
+    series_title: _meta['series_title'],
     tags: _tags,
     toc: _md.toc,
   };
+
+  if (_meta['series_tag']) {
+    const series = { [Config.SeriesTagName]: _meta['series_tag'] };
+    _postData['tags'].push(series);
+  }
 
   posts.set(_postData['slug'], _postData);
   tags.set(_postData['tags']);

@@ -1,8 +1,12 @@
 <script lang="ts">
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  import type { Asset } from '$generated/asset';
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   import { assets } from '$generated/assets';
   import type { Post } from '$lib/types/post';
   import { siteConfig } from '$config/site';
-  import type { Asset } from '$generated/asset';
 
   export let post: Post.Post;
   let post_cover: Asset.Image | undefined = $assets.get(post.cover ?? '');

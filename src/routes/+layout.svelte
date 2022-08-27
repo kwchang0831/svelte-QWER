@@ -30,10 +30,10 @@
 
 <style lang="scss">
   :global(body) {
-    @apply bg-[#E1E3DD]/[0.9] text-black;
+    --at-apply: 'bg-[#E1E3DD]/[0.9] text-black';
   }
   :global(body.dark) {
-    @apply bg-[#191919]/[0.9] text-white;
+    --at-apply: 'bg-[#191919]/[0.9] text-white';
   }
 
   :global(.tippy-box) {

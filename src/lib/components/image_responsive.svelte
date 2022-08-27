@@ -1,7 +1,11 @@
 <script lang="ts">
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   import type { Asset } from '$generated/asset';
-  import { ImageConfig } from '$config/QWER.confitg';
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   import { assets } from '$generated/assets';
+  import { ImageConfig } from '$config/QWER.confitg';
   import { onMount } from 'svelte';
   import { dev } from '$app/env';
   import { siteConfig } from '$config/site';

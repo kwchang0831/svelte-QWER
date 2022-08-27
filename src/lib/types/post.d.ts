@@ -14,6 +14,8 @@ export namespace Post {
     coverCaption?: string;
     coverStyle: CoverStyle;
     options?: Array<string>;
+    series_tag?: string;
+    series_title?: string;
     prev?: string;
     next?: string;
     toc?: TOC.Heading[];

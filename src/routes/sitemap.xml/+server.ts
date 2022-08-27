@@ -1,6 +1,8 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import { siteConfig } from '$config/site';
 import type { Post } from '$lib/types/post';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import postsjson from '$generated/posts.json';
 
 const _allposts = postsjson as [string, Post.Post][];

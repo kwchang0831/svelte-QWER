@@ -1,5 +1,9 @@
 <script lang="ts">
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   import type { Asset } from '$generated/asset';
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   import { assets } from '$generated/assets';
   import { onMount } from 'svelte';
   import { dev } from '$app/env';

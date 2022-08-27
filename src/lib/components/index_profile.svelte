@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { fly } from 'svelte/transition';
   import { siteConfig } from '$config/site';
   import AuthorAvatar from '$lib/components/image_avatar.svelte';
   import tippy from '$lib/actions/tippy';

@@ -1,12 +1,13 @@
 import { readable, writable } from 'svelte/store';
 import type { Tags } from '$lib/types/tags';
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import tagsjson from '$generated/tags.json';
 const tags = Object.entries(tagsjson)
-  .map((e: [string, object]) => {
+  .map((e: [string, unknown]) => {
     return {
       name: e[0],
-      tags: Object.entries(e[1]).map((c) => {
+      tags: Object.entries(e[1] as object).map((c) => {
         return { name: c[0], category: e[0] };
       }),
     };

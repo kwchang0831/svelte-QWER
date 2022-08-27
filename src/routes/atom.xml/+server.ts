@@ -1,9 +1,13 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import { siteConfig } from '$config/site';
 import type { Post } from '$lib/types/post';
-import postsjson from '$generated/posts.json';
-import tagsjson from '$generated/tags.json';
 import LZString from 'lz-string';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import postsjson from '$generated/posts.json';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import tagsjson from '$generated/tags.json';
 
 const _allposts = postsjson as [string, Post.Post][];
 

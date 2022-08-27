@@ -5,6 +5,7 @@ import 'prismjs/components/prism-markdown.min.js';
 import 'prismjs/components/prism-typescript.min.js';
 import 'prismjs/components/prism-javascript.min.js';
 import 'prismjs/components/prism-yaml.min.js';
+import 'prismjs/components/prism-elixir.min.js';
 import 'prism-svelte';
 
 import slug from 'limax';
@@ -35,6 +36,7 @@ export const default_renderer = (basePath) => {
     diff: 'diff',
     md: 'markdown',
     yaml: 'yaml',
+    elixir: 'elixir',
     '': '',
   };
 
