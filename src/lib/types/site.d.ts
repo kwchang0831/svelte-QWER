@@ -26,7 +26,6 @@ export namespace Site {
     name: string;
     status?: string;
     avatar?: string;
-    avatar_32: string[];
     avatar_128: string[];
     avatar_48_png: string;
     avatar_96_png: string;

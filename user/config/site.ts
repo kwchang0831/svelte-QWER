@@ -5,13 +5,12 @@ import type { Giscus } from '$lib/types/giscus';
 import type { DD } from '$lib/types/dd';
 
 import Avatar from '$assets/avatar.png';
-import Avatar_32 from '$assets/avatar.png?w=32&h=32&format=avif;wepb';
 import Avatar_128 from '$assets/avatar.png?w=128&h=128&format=avif;wepb';
 
-import Avatar_48_PNG from '$assets/avatar.png?w=48&h=48&format=png';
-import Avatar_96_PNG from '$assets/avatar.png?w=96&h=96&format=png';
-import Avatar_192_PNG from '$assets/avatar.png?w=192&h=192&format=png';
-import Avatar_512_PNG from '$assets/avatar.png?w=512&h=512&format=png';
+import Avatar_48_PNG from '$assets/avatar.png?w=48&h=48';
+import Avatar_96_PNG from '$assets/avatar.png?w=96&h=96';
+import Avatar_192_PNG from '$assets/avatar.png?w=192&h=192';
+import Avatar_512_PNG from '$assets/avatar.png?w=512&h=512';
 
 import DefaultOGCard_512_512 from '$assets/default_og_card.jpg?w=512&h=512&format=webp';
 
@@ -26,7 +25,6 @@ export const siteConfig: Site.Config = {
     name: 'John Doe',
     status: '❤️',
     avatar: Avatar,
-    avatar_32: Avatar_32,
     avatar_128: Avatar_128,
     avatar_48_png: Avatar_48_PNG,
     avatar_96_png: Avatar_96_PNG,
