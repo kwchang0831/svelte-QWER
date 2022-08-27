@@ -172,9 +172,10 @@ export const default_renderer = (basePath) => {
 
         lines = lines.join('');
 
-        const escapeTest = /[`]/g;
+        const escapeTest = /[`$]/g;
         const toEscape = {
           '`': '&#96;',
+          $: '&#36;',
         };
 
         lines = lines.replace(escapeTest, (c) => toEscape[c]);
@@ -332,8 +333,10 @@ export const default_renderer = (basePath) => {
             return `<ImgZ src="${href}" alt="${alt}">${title ? `${title}` : ''}</ImgZ>`;
           }
           if (ImageConfig.SupportedVideoFormat.includes(ext)) {
-            if (ext === 'mp4') return `<Video mp4="${href}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
-            if (ext === 'webm') return `<Video webm="${href}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
+            if (ext === 'mp4')
+              return `<Video mp4="${path.resolve('/', href)}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
+            if (ext === 'webm')
+              return `<Video webm="${path.resolve('/', href)}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
           }
         }
         return `<figure><img src="${href}" alt="${alt}"/>${title ? `<figcaption>${title}</figcaption>` : ''}</figure>`;
