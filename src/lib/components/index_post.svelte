@@ -25,12 +25,12 @@
     itemprop="blogPost"
     in:fly={{ x: index % 2 ? 100 : -100, duration: 300, delay: 300 }}
     out:fly={{ x: index % 2 ? -100 : 100, duration: 300 }}
-    class="flex flex-col relative w-full overflow-hidden group shadow-xl hover:(shadow-2xl) transform transition duration-250 min-h-[12rem] md:(min-h-[9rem] w-3xl rounded-lg !border-none hover:(scale-105)) light:(border-t-1 border-b-1 border-black) ">
+    class="flex flex-col relative w-full overflow-hidden group shadow-xl hover:(shadow-2xl) transform transition duration-300 min-h-[12rem] md:(min-h-[9rem] w-3xl rounded-lg !border-none hover:(scale-105)) light:(border-t-1 border-b-1 border-black) ">
     {#if data.cover && data.coverStyle !== 'NONE'}
       {#if data.coverStyle === 'IN'}
         <ImgBanner
           src={data.cover}
-          imgClass="z1 blur-sm op80 absolute object-cover w-full h-full transition transform duration-250 ease-in-out group-hover:(scale-110 blur-none)" />
+          imgClass="z1 blur-sm op80 absolute object-cover w-full h-full transition transform duration-300 ease-in-out group-hover:(scale-110 blur-none)" />
         <div class="z2 px-8 py-6 flex flex-col gap2 flex-1 dark:(bg-black/[0.5]) bg-white/[0.25]">
           <time class="dt-published op80" datetime={data.published} itemprop="datePublished">
             {postPublishedStr}

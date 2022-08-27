@@ -26,7 +26,7 @@
       {#each $postsShow as p, index}
         {@const year = new Date(p.published).getFullYear()}
         {#if !years.includes(year)}
-          <div class="year-divider my-4 md:my-0">
+          <div in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="year-divider my-4 md:my-0">
             {years.push(year) && year}
           </div>
         {/if}

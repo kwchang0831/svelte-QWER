@@ -11,13 +11,15 @@
   export let fs: boolean = true;
   export let loop: boolean = false;
 
-  const src = `https://www.youtube.com/embed/${id}?${list ? `listType=playlist&list=${list}&` : ''}${
-    playlist ? `playlist=${playlist}&` : ''
-  }${start ? `start=${start}` : ''}${autoplay ? 'autoplay=1&' : ''}${disablekb ? 'disablekb=1&' : ''}${
-    controls ? '' : 'controls=0&'
-  }${fs ? '' : 'fs=0&'}${loop ? 'loop=1' : ''}origin=${
-    siteConfig.url
-  }&iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1`;
+  const src = `https://www.youtube.com/embed/${id}?${list ? `listType=playlist&amp;list=${list}&amp;` : ''}${
+    playlist ? `playlist=${playlist}&amp;` : ''
+  }${start ? `start=${start}&amp;` : ''}${autoplay ? 'autoplay=1&amp;' : ''}${disablekb ? 'disablekb=1&amp;' : ''}${
+    controls ? '' : 'controls=0&amp;'
+  }${fs ? '' : 'fs=0&amp;'}${
+    loop ? 'loop=1&amp;' : ''
+  }iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;origin=${encodeURI(
+    siteConfig.url,
+  )}`;
 </script>
 
 <div class="plyr__video-embed relative pb-[56.25%] mb-2 videoplayer">

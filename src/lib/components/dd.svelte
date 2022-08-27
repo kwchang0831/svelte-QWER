@@ -70,7 +70,7 @@
 
     {#if active && 'links' in nav && nav.links}
       <div
-        transition:slide={{ duration: 250, easing: quartIn }}
+        transition:slide={{ duration: 300, easing: quartIn }}
         class:pos-up={nav.orientation === 0}
         class:pos-right={nav.orientation === 1}
         class:pos-down={nav.orientation === 2}

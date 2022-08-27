@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { page } from '$app/stores';
-
   import '@unocss/reset/sanitize/sanitize.css';
   import '@unocss/reset/sanitize/assets.css';
   import '@unocss/reset/tailwind.css';
@@ -13,14 +11,16 @@
   import Head from '$lib/components/head.svelte';
   import Header from '$lib/components/header.svelte';
   import Footer from '$lib/components/footer.svelte';
+  import type { LayoutData } from './$types';
+
+  export let data: LayoutData;
 </script>
 
 <Head />
 
 <Header />
 
-<!-- {#key data && data['props']['path']} -->
-{#key $page.url.pathname}
+{#key data.props.path}
   <div in:fly={{ y: 100, duration: 300, delay: 300 }} out:fly={{ y: -100, duration: 300 }} class="pt-[4rem] min-h-75vh">
     <slot />
   </div>

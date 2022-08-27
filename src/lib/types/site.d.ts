@@ -1,6 +1,6 @@
 export namespace Site {
   export interface Config {
-    /** site url. for example: `https://example.com` */
+    /** site url  without tailing slash. for example: `https://example.com` */
     url: string;
     /** site title. */
     title: string;

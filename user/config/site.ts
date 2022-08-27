@@ -15,7 +15,7 @@ import Avatar_512_PNG from '$assets/avatar.png?w=512&h=512';
 import DefaultOGCard_512_512 from '$assets/default_og_card.jpg?w=512&h=512&format=webp';
 
 export const siteConfig: Site.Config = {
-  url: 'https://svelte-qwer.vercel.app/',
+  url: 'https://svelte-qwer.vercel.app',
   title: 'QWER',
   subtitle: '🚀 QWER - Built using Svelte with ❤',
   description: '🚀 QWER - Awesome Blog Starter, Built using Svelte with ❤',
@@ -48,9 +48,7 @@ export const headConfig: Site.Head = {
           // For Production Enviroment
           // Umami Analytics
           // '<link rel="preconnect" href="https://umami.kwchang0831.dev" />',
-          // '<script defer data-website-id="2622af6c-7111-408f-bbc7-489e40256206" src="https://umami.kwchang0831.dev/umami.js" data-cache="true" data-domains="svelte-qwer.vercel.app"></script>',
-          // Google Site Verification
-          // '<meta name="google-site-verification" content="V5SyrYOSHqs3meqKpj5EUNXUhCS33-ZJx9gphoRJk3M" />',
+          // '<script defer data-website-id="YOUR_ID" src="https://umami.kwchang0831.dev/umami.js" data-cache="true" data-domains="svelte-qwer.vercel.app"></script>',
         ],
 };
 
