@@ -117,7 +117,6 @@
           <div id="next-post" class="relative flex-1 group overflow-hidden bg-white/[0.5] dark:bg-black/[0.5]">
             <div class="absolute z-10 i-mdi-chevron-left !w-[1.5rem] !h-[1.5rem] top-[1.25rem] left-[0.75rem]" />
             <a
-              sveltekit:prefetch
               rel="next"
               href="/{nextPost.slug}"
               alt="/{nextPost.slug}"
@@ -134,7 +133,6 @@
         {#if prevPost}
           <div id="prev-post" class="relative flex-1 group overflow-hidden bg-white/[0.5] dark:bg-black/[0.5]">
             <a
-              sveltekit:prefetch
               rel="prev"
               href="/{prevPost.slug}"
               alt="/{prevPost.slug}"

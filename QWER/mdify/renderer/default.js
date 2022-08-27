@@ -290,9 +290,7 @@ export const default_renderer = (basePath) => {
           return text;
         }
 
-        return `<a ${href.startsWith('/') ? 'sveltekit:prefetch' : ''} href="${escape(href)}" ${
-          title ? `title="${title}"` : ''
-        }>${text}</a>`;
+        return `<a href="${escape(href)}" ${title ? `title="${title}"` : ''}>${text}</a>`;
       },
 
       image(href, title, alt) {

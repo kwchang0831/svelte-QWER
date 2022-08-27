@@ -39,7 +39,7 @@
             {postUpdatedStr}
           </time>
           <h2 class="text-3xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
-            <a sveltekit:prefetch href={data.slug} class="title-link-orange-500-orange-500" itemprop="url">
+            <a href={data.slug} class="title-link-orange-500-orange-500" itemprop="url">
               {data.title}
             </a>
           </h2>
@@ -53,7 +53,7 @@
             {['RIGHT', 'LEFT'].indexOf(data.coverStyle) !== -1 ? 'w-[9rem] md:(w-[12rem])' : ''}"
             class:order-first={data.coverStyle === 'TOP' || data.coverStyle === 'LEFT'}
             class:order-last={data.coverStyle === 'BOT' || data.coverStyle === 'RIGHT'}>
-            <a sveltekit:prefetch href={data.slug} alt={data.title} class="cursor-pointer" itemprop="url">
+            <a href={data.slug} alt={data.title} class="cursor-pointer" itemprop="url">
               <ImgBanner
                 src={data.cover}
                 imgClass="op90 group-hover:scale-110 transition transform duration-300 ease-in-out object-cover w-full h-full" />
@@ -67,12 +67,7 @@
               {postUpdatedStr}
             </time>
             <h2 class="text-3xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
-              <a
-                sveltekit:prefetch
-                href={data.slug}
-                alt={data.title}
-                class="title-link-orange-500-orange-500"
-                itemprop="url">
+              <a href={data.slug} alt={data.title} class="title-link-orange-500-orange-500" itemprop="url">
                 {data.title}
               </a>
             </h2>
@@ -89,7 +84,7 @@
           {postUpdatedStr}
         </time>
         <h2 class="text-3xl font-bold line-clamp-2 text-ellipsis" itemprop="name headline">
-          <a sveltekit:prefetch href={data.slug} class="title-link-orange-500-orange-500" itemprop="url">
+          <a href={data.slug} class="title-link-orange-500-orange-500" itemprop="url">
             {#if data.title}
               {data.title}
             {:else}
