@@ -33,25 +33,25 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## ⚡️ 用法
 
-1. 安裝 [pnpm](https://github.com/pnpm/pnpm)
+1. 安裝 [pnpm](https://github.com/pnpm/pnpm)。
 
    ```bash
    npm i -g pnpm
    ```
 
-1. 安裝所有依賴套件
+1. 安裝所有依賴套件。
 
    ```bash
    pnpm i
    ```
 
-1. 啟動本地端測試伺服器
+1. 啟動本地端測試伺服器。
 
    ```bash
    pnpm dev
    ```
 
-1. 清除自動生成的檔案。(記得不要提交這些檔案至 Git Repo 上)
+1. 清除自動生成的檔案。 (記得不要提交這些檔案至 Git Repo 上)
 
    ```bash
    pnpm clean
@@ -59,19 +59,19 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## 🚀 部署至 Vercel
 
-1. 安裝 Vercel CLI
+1. 安裝 Vercel CLI。
 
    ```bash
    npm i -g vercel
    ```
 
-1. 登入 Vercel 帳號
+1. 登入 Vercel 帳號。
 
    ```bash
    vercel login
    ```
 
-1. 部署
+1. 部署。
 
    ```bash
    vercel --prod
@@ -79,25 +79,25 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## ✨ Features
 
-- 使用 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)撰寫文章
+- 使用 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)撰寫文章。
 
-- 支援嵌入 Svelte 組件 與 使用 Javascript 搭配 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)
+- 支援嵌入 Svelte 組件 與 使用 Javascript 搭配 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)。
 
-- 新增部落格頁面是使用資料夾式的整理方式
+- 新增部落格頁面是使用資料夾式的整理方式。
 
-- 網站速度評分快速，且支援 SEO.
+- 網站速度評分快速，且支援 SEO。
 
-- 開箱即用的 Atom feed, Sitemap, PWA.
+- 開箱即用的 Atom feed, Sitemap, PWA。
 
 - 內建照片檔案的前處理，自動生成不同的解析度與格式。讓不同的使用者在不同的設備上能在速度與觀看品質上有更好的平衡。
 
-- 支援 [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
+- 支援 [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions
 
-- 使用 [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
+- 使用 [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine
 
 ## 了解更多
 
-請參考教學 [Intro to QWER](https://svelte-qwer.vercel.app/intro) 和 [About QWER](https://svelte-qwer.vercel.app/about).。
+請參考教學 [Intro to QWER](https://svelte-qwer.vercel.app/intro) 和 [About QWER](https://svelte-qwer.vercel.app/about)。
 
 ## ❓ 有任何使用上的問題
 

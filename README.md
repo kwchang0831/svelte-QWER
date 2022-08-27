@@ -45,7 +45,7 @@ npx degit kwchang0831/svelte-QWER my-blog
    pnpm i
    ```
 
-1. Run local dev server
+1. Run local dev server.
 
    ```bash
    pnpm dev
@@ -59,19 +59,19 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## 🚀 Deploy on Vercel
 
-1. Install Vercel CLI
+1. Install Vercel CLI.
 
    ```bash
    npm i -g vercel
    ```
 
-1. Login
+1. Login.
 
    ```bash
    vercel login
    ```
 
-1. Deploy
+1. Deploy.
 
    ```bash
    vercel --prod
