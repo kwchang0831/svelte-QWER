@@ -263,3 +263,18 @@ li .code-block {
 .inline-code-block {
   --at-apply: 'mx1 px2 py1 rounded-lg bg-gray/[0.5] hover:bg-black/[0.5] whitespace-normal';
 }
+
+.infobox {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    --at-apply: 'my2';
+  }
+
+  p {
+    --at-apply: 'my2';
+  }
+}

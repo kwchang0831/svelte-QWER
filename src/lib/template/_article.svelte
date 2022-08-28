@@ -4,6 +4,7 @@
   import ImgZ from '$lib/components/image_zoom.svelte';
   import Video from '$lib/components/video.svelte';
   import CodeCopy from '$lib/components/code_copybtn.svelte';
+  import InfoBox from '$lib/components/infobox.svelte';
 
   /*<!-- :QWER IMPORTS: -->*/
 </script>
