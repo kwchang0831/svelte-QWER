@@ -50,9 +50,9 @@
     out:fly={{ x: index % 2 ? -100 : 100, duration: 300 }}
     class="flex flex-col relative w-full overflow-hidden group shadow-xl hover:(shadow-2xl) transform transition duration-300 min-h-[12rem] md:(min-h-[9rem] w-3xl rounded-lg !border-none hover:(scale-105)) light:(border-t-1 border-b-1 border-black) ">
     {#if data.series_tag && data.series_title}
-      <div class="flex items-stretch gap-0 z2">
+      <div class="flex items-stretch gap-0 z2 border-b-2 border-black dark:border-white">
         <div
-          class="py2 bg-green-500 hover:(bg-green-600) cursor-pointer"
+          class="py2 bg-green-500 hover:(bg-amber-400) cursor-pointer"
           on:click={() => handleClick({ name: data.series_tag ?? '', category: Config.SeriesTagName })}>
           <div class="pl-4 pr-3 text-sm font-bold text-black"># {data.series_tag} {Config.SeriesTagName}</div>
         </div>
