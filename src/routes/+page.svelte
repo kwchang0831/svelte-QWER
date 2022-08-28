@@ -67,7 +67,7 @@
   <div
     in:fly={{ y: 100, duration: 300, delay: 300 }}
     out:fly={{ y: -100, duration: 300 }}
-    class="max-w-[55rem] flex-none w-full md:(rounded-2xl)">
+    class="max-w-[55rem] min-h-50vh flex-none w-full md:(rounded-2xl)">
     <IndexPosts />
   </div>
 
