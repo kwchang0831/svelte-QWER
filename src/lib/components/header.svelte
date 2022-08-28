@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Post } from '$lib/types/post';
-  import { browser } from '$app/env';
+  import { browser } from '$app/environment';
   import { siteConfig, navConfig, mobilenavConfig } from '$config/site';
   import { theme } from '$stores/themes';
   import { fly } from 'svelte/transition';

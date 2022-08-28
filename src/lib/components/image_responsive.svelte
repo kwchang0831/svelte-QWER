@@ -7,7 +7,7 @@
   import { assets } from '$generated/assets';
   import { ImageConfig } from '$config/QWER.confitg';
   import { onMount } from 'svelte';
-  import { dev } from '$app/env';
+  import { dev } from '$app/environment';
   import { siteConfig } from '$config/site';
 
   export let pictureClass: string | undefined = undefined;
@@ -21,7 +21,7 @@
   export let height: string | undefined = undefined;
 
   let asset: Asset.Image | undefined = $assets.get(src);
-  const resolutions = Object.entries(ImageConfig.ExtraResolutions)
+  const resolutions: Array<[string, any]> = Object.entries(ImageConfig.ExtraResolutions)
     .filter((e) => asset && asset[e[0] as keyof Asset.Image])
     .sort((a, b) => {
       return +b[0] - +a[0];

@@ -1,6 +1,6 @@
 import type { Theme } from '$lib/types/themes';
 import { writable } from 'svelte/store';
-import { browser } from '$app/env';
+import { browser } from '$app/environment';
 
 export const ThemeLocalStorageKey = 'theme';
 export const DefaultTheme = 'dark';

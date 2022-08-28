@@ -3,7 +3,7 @@
   import TocContent from '$lib/components/toc_content.svelte';
   export let toc: TOC.Heading[] | undefined;
   import { tocCur } from '$stores/toc';
-  import { browser } from '$app/env';
+  import { browser } from '$app/environment';
 
   let pos = { top: 0, left: 0, x: 0, y: 0 };
 

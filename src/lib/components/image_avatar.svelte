@@ -3,7 +3,7 @@
   export { className as class };
 
   import { siteConfig } from '$config/site';
-  import { dev } from '$app/env';
+  import { dev } from '$app/environment';
 
   export let width: string = '128px';
   export let height: string = '128px';

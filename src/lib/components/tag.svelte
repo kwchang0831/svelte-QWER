@@ -4,7 +4,7 @@
 
   import { tagsCur } from '$stores/tags';
   import { postsShow } from '$stores/posts';
-  import { browser } from '$app/env';
+  import { browser } from '$app/environment';
   import { page } from '$app/stores';
 
   function handleClick() {

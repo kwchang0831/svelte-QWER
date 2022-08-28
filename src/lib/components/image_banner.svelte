@@ -6,7 +6,7 @@
   // @ts-ignore
   import { assets } from '$generated/assets';
   import { onMount } from 'svelte';
-  import { dev } from '$app/env';
+  import { dev } from '$app/environment';
   import { ImageConfig } from '$config/QWER.confitg';
   import { siteConfig } from '$config/site';
 
