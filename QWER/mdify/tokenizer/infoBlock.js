@@ -3,7 +3,7 @@ export const infoBlock = {
   level: 'block',
 
   tokenizer(src) {
-    const rule = /^:{3}([\S]*)(?:[ ]*)([\S]*)?(?:[ \n\r]*)([\s\S]*?):{3}[\n\r]?/;
+    const rule = /^:{3}([\S]*)(?:[ ]*)([\S ]*)(?:[ \n\r]?)([\s\S]*?):{3}[\n\r]?/;
     const match = rule.exec(src);
     if (match) {
       const token = {
@@ -19,8 +19,8 @@ export const infoBlock = {
     }
   },
   renderer(token) {
-    return `<InfoBox statusType=${token.statusType} ${
-      token.statusName ? `statusName=${token.statusName}` : ''
+    return `<InfoBox statusType="${token.statusType}" ${
+      token.statusName ? `statusName="${token.statusName}"` : ''
     }>${this.parser.parse(token.tokens)}</InfoBox>\n`;
   },
 };
