@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Post } from '$lib/types/post';
   import { fly } from 'svelte/transition';
-  import { dateConfig } from '$config/site';
+  import { dateConfig, siteConfig } from '$config/site';
   import { Config } from '$config/QWER.confitg';
   import { tagsCur } from '$stores/tags';
   import { postsShow } from '$stores/posts';
@@ -82,7 +82,7 @@
             {postUpdatedStr}
           </time>
           <h2 class="text-2xl font-bold line-clamp-2 text-ellipsis group-hover:font-900" itemprop="name headline">
-            <a href={data.slug} class="title-link-orange-500-orange-500" itemprop="url">
+            <a href={data.slug} class="u-url title-link-orange-500-orange-500" itemprop="url">
               {data.title}
             </a>
           </h2>
@@ -112,7 +112,7 @@
               {postUpdatedStr}
             </time>
             <h2 class="text-2xl font-bold line-clamp-2 text-ellipsis group-hover:font-900" itemprop="name headline">
-              <a href={data.slug} alt={data.title} class="title-link-orange-500-orange-500" itemprop="url">
+              <a href={data.slug} alt={data.title} class=" u-url title-link-orange-500-orange-500" itemprop="url">
                 {data.title}
               </a>
             </h2>
@@ -130,7 +130,7 @@
         </time>
 
         <h2 class="text-2xl font-bold line-clamp-2 text-ellipsis group-hover:font-900" itemprop="name headline">
-          <a href={data.slug} class="title-link-orange-500-orange-500" itemprop="url">
+          <a href={data.slug} class="u-url title-link-orange-500-orange-500" itemprop="url">
             {#if data.title}
               {data.title}
             {:else}

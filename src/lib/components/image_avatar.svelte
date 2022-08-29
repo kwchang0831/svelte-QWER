@@ -29,9 +29,13 @@
           : `${new URL(siteConfig.author.avatar_128[1], siteConfig.url).href}`}
         type="image/webp" />
       <img
-        decoding="async"
-        loading="auto"
-        src={siteConfig.author.avatar}
+        src={dev
+          ? `${siteConfig.author.avatar}`
+          : `${
+              siteConfig.author.avatar.indexOf('://') > 0 || siteConfig.author.avatar.indexOf('//') === 0
+                ? siteConfig.author.avatar
+                : new URL(siteConfig.author.avatar, siteConfig.url).href
+            }`}
         alt={siteConfig.author.avatar}
         {width}
         {height}

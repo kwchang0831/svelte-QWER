@@ -1,5 +1,6 @@
 <script lang="ts">
   import { siteConfig } from '$config/site';
+  import { dev } from '$app/environment';
   import AuthorAvatar from '$lib/components/image_avatar.svelte';
   import tippy from '$lib/actions/tippy';
 
@@ -8,6 +9,33 @@
 </script>
 
 <section id="index-profile" class={className ?? ''}>
+  <div class="hidden h-card p-author">
+    <a href={siteConfig.url} class="u-url u-uid">{siteConfig.title}</a>
+    {#if siteConfig.author.email}<p class="u-email">
+        {siteConfig.author.email}
+      </p>{/if}
+    {#if siteConfig.author.github}<a href={siteConfig.author.github} class="u-url u-uid">
+        {siteConfig.author.github}
+      </a>{/if}
+    {#if siteConfig.author.twitter}<a href={siteConfig.author.twitter} class="u-url u-uid">
+        {siteConfig.author.twitter}
+      </a>{/if}
+    <h1 class="p-name">{siteConfig.author.name}</h1>
+    <p class="p-note">{siteConfig.author.bio}</p>
+    {#if siteConfig.author.avatar}
+      <img
+        class="u-photo"
+        src={dev
+          ? `${siteConfig.author.avatar}`
+          : `${
+              siteConfig.author.avatar.indexOf('://') > 0 || siteConfig.author.avatar.indexOf('//') === 0
+                ? siteConfig.author.avatar
+                : new URL(siteConfig.author.avatar, siteConfig.url).href
+            }`}
+        alt={siteConfig.author.name} />
+    {/if}
+  </div>
+
   <div class="relative group">
     <AuthorAvatar />
     <div
@@ -33,7 +61,7 @@
       </a>
     {/if}
     {#if siteConfig.author.twitter}
-      <a use:tippy href={siteConfig.author.github} class="btn btn-ghost" aria-label="Twitter">
+      <a use:tippy href={siteConfig.author.twitter} class="btn btn-ghost" aria-label="Twitter">
         <div class="!w-[1.75rem] !h-[1.75rem]  i-carbon-logo-twitter" />
       </a>
     {/if}

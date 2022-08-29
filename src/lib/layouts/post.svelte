@@ -81,14 +81,16 @@
   <div class="max-w-screen-md flex-1" />
 
   <article
-    itemprop="articleBody"
-    class="flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-t-2xl) bg-[#F9FBFF] dark:bg-[#252525]"
+    itemscope
+    itemtype="https://schema.org/BlogPosting"
+    itemprop="blogPost"
+    class="h-entry flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-t-2xl) bg-[#F9FBFF] dark:bg-[#252525]"
     bind:this={postElement}>
     <div class="max-w-[55rem]">
       <PostHeading data={thisPost} />
     </div>
 
-    <div class="prose prose-slate dark:prose-invert max-w-[55rem]">
+    <div itemprop="articleBody" class="e-content prose prose-slate dark:prose-invert max-w-[55rem]">
       <slot name="post_content" />
     </div>
   </article>
@@ -151,7 +153,7 @@
     {/if}
 
     {#key $theme}
-      <div class="my8 mx6">
+      <div itemscope itemtype="https://schema.org/Comment" itemprop="comment" class="my8 mx6">
         <Giscuss theme={$theme} />
       </div>
     {/key}

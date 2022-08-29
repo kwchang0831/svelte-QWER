@@ -27,10 +27,10 @@
           <div class="!w-[1.75rem] !h-[1.75rem] i-mdi-sitemap-outline" />
         </a>
       </div>
-      <p>
-        Copyright © {copyrightYear}
+      <p itemprop="copyrightNotice">
+        Copyright © <span itemprop="copyrightYear">{copyrightYear}</span>
         <a href={siteConfig.author.github} rel="noopener external" class="hover:(text-sky-500)">
-          {siteConfig.author.name}
+          <span itemprop="copyrightHolder">{siteConfig.author.name}</span>
         </a>
       </p>
       <div>
@@ -45,6 +45,7 @@
         </a>
       </div>
       <a
+        itemprop="copyrightNotice"
         href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1"
         aria-label="Creative Commons License"
         target="_blank"

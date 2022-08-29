@@ -46,7 +46,7 @@
     in:fly={{ x: -25, duration: 300, delay: 300 }}
     out:fly={{ x: -25, duration: 300 }}
     id="index-tags"
-    class="{className ?? ''} {scrollY > 0 ? 'sticky top-[4rem]' : ''}">
+    class={className ?? ''}>
     <div
       class="select-none flex justify-between items-center border-b-2 border-black dark:border-white cursor-pointer"
       on:click={toggle}>

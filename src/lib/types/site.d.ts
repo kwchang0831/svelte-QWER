@@ -19,6 +19,7 @@ export namespace Site {
   }
 
   export interface Head {
+    me?: string[];
     custom?: (params: { dev: boolean }) => string[];
   }
 

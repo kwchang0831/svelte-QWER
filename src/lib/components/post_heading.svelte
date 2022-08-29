@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Post } from '$lib/types/post';
   import { dateConfig, siteConfig } from '$config/site';
+  import { dev } from '$app/environment';
   import ImgZ from '$lib/components/image_zoom.svelte';
   import tippy from '$lib/actions/tippy';
   import { lastUpdatedStr, defaultPublishedStr, defaultUpdatedStr } from '$lib/utli/timeFormat';
@@ -11,14 +12,29 @@
 
 <div class="flex flex-col pt8 mx8">
   <div class="flex justify-between items-center mx--4 md:mx0">
-    <div class="flex items-center gap-1 pl-0 shrink-0">
+    <a class="hidden u-url u-uid" href={new URL(data.slug, siteConfig.url).href}>
+      {new URL(data.slug, siteConfig.url).href}
+    </a>
+    <div class="p-author h-card flex items-center gap-1 pl-0 shrink-0">
+      {#if siteConfig.author.avatar}
+        <img
+          class="u-photo hidden"
+          src={dev
+            ? `${siteConfig.author.avatar}`
+            : `${
+                siteConfig.author.avatar.indexOf('://') > 0 || siteConfig.author.avatar.indexOf('//') === 0
+                  ? siteConfig.author.avatar
+                  : new URL(siteConfig.author.avatar, siteConfig.url).href
+              }`}
+          alt={siteConfig.author.name} />
+      {/if}
       <AuthorAvatar
         width="32px"
         height="32px"
         class="inline-block !w-8 !h-8 mr-1 object-cover aspect-1 rounded-full hover:rotate-[360deg] transition-transform duration-1000 ease-in-out" />
       <span class="font-bold text-base">
-        <a use:tippy aria-label="{siteConfig.author.name}'s Github Page" rel="author" href={siteConfig.author.github}>
-          {siteConfig.author.name}
+        <a use:tippy aria-label="Github Page" rel="author" href={siteConfig.author.github} class="u-url u-uid">
+          <span class="p-name">{siteConfig.author.name}</span>
         </a>
       </span>
     </div>
@@ -52,7 +68,7 @@
     </div>
   </div>
 
-  <h1 itemprop="name headline" class="text-3xl my4 mx--4 md:mx0">{data.title}</h1>
+  <h1 itemprop="name headline" class="p-name text-3xl my4 mx--4 md:mx0">{data.title}</h1>
 
   <div class="mx--8 md:mx0">
     {#if data.cover}

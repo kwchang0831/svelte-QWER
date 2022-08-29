@@ -18,6 +18,12 @@
   <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
+  {#if headConfig.me}
+    {#each headConfig.me as href}
+      <link rel="me" {href} />
+    {/each}
+  {/if}
+
   {#if headConfig.custom}
     {#each headConfig.custom({ dev }) as tag}
       {@html tag}
