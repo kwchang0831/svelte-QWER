@@ -8,13 +8,13 @@ specifiers:
   '@iconify-json/ic': ^1.1.9
   '@iconify-json/line-md': ^1.1.14
   '@iconify-json/mdi': ^1.1.31
-  '@iconify-json/tabler': ^1.1.28
-  '@iconify-json/vscode-icons': ^1.1.10
-  '@sveltejs/adapter-netlify': 1.0.0-next.73
+  '@iconify-json/tabler': ^1.1.29
+  '@iconify-json/vscode-icons': ^1.1.11
+  '@sveltejs/adapter-netlify': 1.0.0-next.75
   '@sveltejs/adapter-node': 1.0.0-next.87
   '@sveltejs/adapter-static': 1.0.0-next.39
-  '@sveltejs/adapter-vercel': 1.0.0-next.69
-  '@sveltejs/kit': 1.0.0-next.445
+  '@sveltejs/adapter-vercel': 1.0.0-next.71
+  '@sveltejs/kit': 1.0.0-next.448
   '@types/lz-string': ^1.3.34
   '@typescript-eslint/eslint-plugin': ^5.35.1
   '@typescript-eslint/parser': ^5.35.1
@@ -41,7 +41,7 @@ specifiers:
   rimraf: ^3.0.2
   sass: ^1.54.5
   svelte: ^3.49.0
-  svelte-check: ^2.8.1
+  svelte-check: ^2.9.0
   svelte-preprocess: ^4.10.7
   tippy.js: ^6.3.7
   tslib: ^2.4.0
@@ -49,7 +49,7 @@ specifiers:
   unocss: ^0.45.13
   unocss-preset-scrollbar: ^0.2.1
   vite: ^3.0.9
-  vite-imagetools: ^4.0.4
+  vite-imagetools: ^4.0.5
 
 devDependencies:
   '@iconify-json/akar-icons': 1.1.8
@@ -59,13 +59,13 @@ devDependencies:
   '@iconify-json/ic': 1.1.9
   '@iconify-json/line-md': 1.1.14
   '@iconify-json/mdi': 1.1.31
-  '@iconify-json/tabler': 1.1.28
-  '@iconify-json/vscode-icons': 1.1.10
-  '@sveltejs/adapter-netlify': 1.0.0-next.73
+  '@iconify-json/tabler': 1.1.29
+  '@iconify-json/vscode-icons': 1.1.11
+  '@sveltejs/adapter-netlify': 1.0.0-next.75
   '@sveltejs/adapter-node': 1.0.0-next.87
   '@sveltejs/adapter-static': 1.0.0-next.39
-  '@sveltejs/adapter-vercel': 1.0.0-next.69
-  '@sveltejs/kit': 1.0.0-next.445_svelte@3.49.0+vite@3.0.9
+  '@sveltejs/adapter-vercel': 1.0.0-next.71
+  '@sveltejs/kit': 1.0.0-next.448_svelte@3.49.0+vite@3.0.9
   '@types/lz-string': 1.3.34
   '@typescript-eslint/eslint-plugin': 5.35.1_pfwtupu3r4wxmgbx6hj7gwmyuu
   '@typescript-eslint/parser': 5.35.1_yqf6kl63nyoq5megxukfnom5rm
@@ -92,7 +92,7 @@ devDependencies:
   rimraf: 3.0.2
   sass: 1.54.5
   svelte: 3.49.0
-  svelte-check: 2.8.1_sass@1.54.5+svelte@3.49.0
+  svelte-check: 2.9.0_sass@1.54.5+svelte@3.49.0
   svelte-preprocess: 4.10.7_7cwgipf4uegry6qomktrg6zd5e
   tippy.js: 6.3.7
   tslib: 2.4.0
@@ -100,7 +100,7 @@ devDependencies:
   unocss: 0.45.13_vite@3.0.9
   unocss-preset-scrollbar: 0.2.1_unocss@0.45.13
   vite: 3.0.9_sass@1.54.5
-  vite-imagetools: 4.0.4
+  vite-imagetools: 4.0.5
 
 packages:
 
@@ -240,14 +240,14 @@ packages:
       '@iconify/types': 1.1.0
     dev: true
 
-  /@iconify-json/tabler/1.1.28:
-    resolution: {integrity: sha512-a2yg4oWsElUkvc/xcyNfO6otvzBquw9OoltBr2hsY4+rsNZMW/NigZHACrp8y7j4vtmJ8XJS/ATWDOhzrWxtJw==}
+  /@iconify-json/tabler/1.1.29:
+    resolution: {integrity: sha512-+8aHG5uYBWm9sujmopUJnawCB2PT80hdroCXBe8Y2YmpOVWktF0uaTUetQ6tKQlPbRJfp0vwGIW0EgrYbxbJxA==}
     dependencies:
       '@iconify/types': 1.1.0
     dev: true
 
-  /@iconify-json/vscode-icons/1.1.10:
-    resolution: {integrity: sha512-HrTLj9T/+O9VHBIQB+PN7jxQVcpgqsU0glq+BMjni61v93VSS843Z4PblFjhAWc263DlYw3AtnznU9Iuf5HoRQ==}
+  /@iconify-json/vscode-icons/1.1.11:
+    resolution: {integrity: sha512-2HducOcHAGEY5fD9NRilS4BeLTu72/JEjKy9/HsUzst9VlXT0TGH6qaU1m7X2bSFZHV+CGsisG1lq6M5XxzytQ==}
     dependencies:
       '@iconify/types': 1.1.0
     dev: true
@@ -358,8 +358,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /@sveltejs/adapter-netlify/1.0.0-next.73:
-    resolution: {integrity: sha512-dPsSPHbihycOvqfwNX6X2jfmdqYaZUKkDgky5vxR2sraTlMEwSo97s9N/fwRWwy9ORZi6DT5Ty0i0G+xJWiKPg==}
+  /@sveltejs/adapter-netlify/1.0.0-next.75:
+    resolution: {integrity: sha512-1zTR/U/ceEAyqIGJ74v54G+JbIR+fSmTN9qfqGOM0gBwVoBVRUujGm4tDFJQNYzvuGzVnC7br/rhYMLZd2JluQ==}
     dependencies:
       '@iarna/toml': 2.2.5
       esbuild: 0.14.54
@@ -375,8 +375,8 @@ packages:
     resolution: {integrity: sha512-EeD39H6iEe0UEKnKxLFTZFZpi/FcX5xfbAvsMQ+B09aDZccpQmkJBSIo+4kq1JsQGSjwi/+J3aE9bR67R6CIyQ==}
     dev: true
 
-  /@sveltejs/adapter-vercel/1.0.0-next.69:
-    resolution: {integrity: sha512-E5mSkD3x3zYuJU5hPRmoqblrKZtEj2lRwhObnXf4OSFsMej2VUzoogbhaXHcVt57j0Ja5HgO07u7v9VUGOhi+w==}
+  /@sveltejs/adapter-vercel/1.0.0-next.71:
+    resolution: {integrity: sha512-Tj8za7fMXheaiB6hNqv61jr/AmAUm+G8huoY1cIvtSqqBHzGmiZH+GFK1Tq/e8e0XR2Xb/ZpZCQSyrFLU2grIQ==}
     dependencies:
       '@vercel/nft': 0.22.0
       esbuild: 0.14.54
@@ -385,9 +385,9 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.445_svelte@3.49.0+vite@3.0.9:
-    resolution: {integrity: sha512-E/d6lhJ+4cSGJmAk8JnlrBwJfa6xYeCZ1zBc8kTdrO/vNiFpMDRJM9pgT8DGlXYA7kI+OBud/p3Eipl5m5jntw==}
-    engines: {node: '>=16.9'}
+  /@sveltejs/kit/1.0.0-next.448_svelte@3.49.0+vite@3.0.9:
+    resolution: {integrity: sha512-x1ufQj04uP2eidZMJXubWLQXF3UvDnFUrugNwKZBkuoSekv7kWb3cRop2Q24/QpSrqYVV4aMeeZ2OoHcASsxGQ==}
+    engines: {node: '>=16.14'}
     hasBin: true
     requiresBuild: true
     peerDependencies:
@@ -396,7 +396,7 @@ packages:
     dependencies:
       '@sveltejs/vite-plugin-svelte': 1.0.2_svelte@3.49.0+vite@3.0.9
       cookie: 0.5.0
-      devalue: 2.0.1
+      devalue: 3.1.2
       kleur: 4.1.5
       magic-string: 0.26.2
       mime: 3.0.0
@@ -1466,8 +1466,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /devalue/2.0.1:
-    resolution: {integrity: sha512-I2TiqT5iWBEyB8GRfTDP0hiLZ0YeDJZ+upDxjBfOC2lebO5LezQMv7QvIUTzdb64jQyAKLf1AHADtGN+jw6v8Q==}
+  /devalue/3.1.2:
+    resolution: {integrity: sha512-wUXbMGPAsBx79UF14nsWSsJlC7RcwPlf2w3bGheODWxKx57e9n68ceoijbqCJCEbjyo0S79nqfPwQgyijwLaqw==}
     dev: true
 
   /dir-glob/3.0.1:
@@ -4371,8 +4371,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /svelte-check/2.8.1_sass@1.54.5+svelte@3.49.0:
-    resolution: {integrity: sha512-cibyY1sgt3ONIDnQbSgV2X9AJFhwEslRHNo95lijrYfPzVEvTvbmL2ohsUyqB5L7j1GhLXtQbjCJ4lZZ/fwbeQ==}
+  /svelte-check/2.9.0_sass@1.54.5+svelte@3.49.0:
+    resolution: {integrity: sha512-9AVrtP7WbfDgCdqTZNPdj5CCCy1OrYMxFVWAWzNw7fl93c9klFJFtqzVXa6fovfQ050CcpUyJE2dPFL9TFAREw==}
     hasBin: true
     peerDependencies:
       svelte: ^3.24.0
@@ -4762,8 +4762,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite-imagetools/4.0.4:
-    resolution: {integrity: sha512-ik1Sq4ueKYN2iBjxe3g8YxqM9aul2goQ2z8CuTKKxOG3M1nF63SRqialbXMuJVH8aKJ9A2oGhs1sktCAoo9EBg==}
+  /vite-imagetools/4.0.5:
+    resolution: {integrity: sha512-Blh5Fl5tbBGkLFM+BCxtN5zoagBGedEHI+VH5GmUdpBJV7AGpuG9Y8rbTEHzwYP6mg3+nl4mgz3UaFiYhQU1cA==}
     engines: {node: '>=12.0.0'}
     dependencies:
       '@rollup/pluginutils': 4.2.1

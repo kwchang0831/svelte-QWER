@@ -8,9 +8,9 @@ specifiers:
   html-to-text: ^8.2.1
   limax: ^3.0.0
   lz-string: ^1.4.4
-  marked: ^4.0.18
+  marked: ^4.0.19
   prism-svelte: ^0.5.0
-  prismjs: ^1.28.0
+  prismjs: ^1.29.0
   probe-image-size: ^7.2.3
   to-vfile: ^7.2.3
 
@@ -22,9 +22,9 @@ devDependencies:
   html-to-text: 8.2.1
   limax: 3.0.0
   lz-string: 1.4.4
-  marked: 4.0.18
+  marked: 4.0.19
   prism-svelte: 0.5.0
-  prismjs: 1.28.0
+  prismjs: 1.29.0
   probe-image-size: 7.2.3
   to-vfile: 7.2.3
 
@@ -472,8 +472,8 @@ packages:
     hasBin: true
     dev: true
 
-  /marked/4.0.18:
-    resolution: {integrity: sha512-wbLDJ7Zh0sqA0Vdg6aqlbT+yPxqLblpAZh1mK2+AO2twQkPywvvqQNfEPVwSSRjZ7dZcdeVBIAgiO7MMp3Dszw==}
+  /marked/4.0.19:
+    resolution: {integrity: sha512-rgQF/OxOiLcvgUAj1Q1tAf4Bgxn5h5JZTp04Fx4XUkVhs7B+7YA9JEWJhJpoO8eJt8MkZMwqLCNeNqj1bCREZQ==}
     engines: {node: '>= 12'}
     hasBin: true
     dev: true
@@ -537,8 +537,8 @@ packages:
     resolution: {integrity: sha512-db91Bf3pRGKDPz1lAqLFSJXeW13mulUJxhycysFpfXV5MIK7RgWWK2E5aPAa71s8TCzQUXxF5JOV42/iOs6QkA==}
     dev: true
 
-  /prismjs/1.28.0:
-    resolution: {integrity: sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==}
+  /prismjs/1.29.0:
+    resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}
     engines: {node: '>=6'}
     dev: true
 
