@@ -137,7 +137,7 @@ const _processMD = (file, generateMeta) => {
       _postData['tags'].push(series);
     }
 
-    const year = { [Config.YearTagName]: new Date(_postData['published']).getFullYear() };
+    const year = { [Config.YearTagName]: new Date(_postData['published']).getFullYear().toString() };
     _postData['tags'].push(year);
 
     const language = { [Config.PostLanguageTagName]: _postData['language'] };
