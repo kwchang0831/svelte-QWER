@@ -54,7 +54,7 @@
 
 <svelte:window bind:scrollY bind:innerHeight />
 
-<header tabindex="0" id="header" class="fixed w-screen ease-in-out z-40" aria-label="Header Nav">
+<header id="header" class="fixed w-screen ease-in-out z-40" aria-label="Header Nav">
   <nav
     id="header-nav"
     class="backdrop-blur py-2 px-4 min-h-4rem max-h-16 {scrollY >= scrollThresholdStep ? 'shadow-lg' : ''}"

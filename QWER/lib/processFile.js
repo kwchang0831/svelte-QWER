@@ -113,6 +113,7 @@ const _processMD = (file, generateMeta) => {
   const _postData = {
     slug: _slug,
     title: _meta['title'],
+    language: _meta['language'] ?? Config.DefaultPostLanguage,
     description: _meta['description'],
     summary: _meta['summary'],
     content: _html2text ? LZString.compressToBase64(_html2text) : undefined,
@@ -130,9 +131,17 @@ const _processMD = (file, generateMeta) => {
     toc: _md.toc,
   };
 
-  if (_meta['series_tag']) {
-    const series = { [Config.SeriesTagName]: _meta['series_tag'] };
-    _postData['tags'].push(series);
+  if (_postData['tags']) {
+    if (_meta['series_tag']) {
+      const series = { [Config.SeriesTagName]: _meta['series_tag'] };
+      _postData['tags'].push(series);
+    }
+
+    const year = { [Config.YearTagName]: new Date(_postData['published']).getFullYear() };
+    _postData['tags'].push(year);
+
+    const language = { [Config.PostLanguageTagName]: _postData['language'] };
+    _postData['tags'].push(language);
   }
 
   posts.set(_postData['slug'], _postData);

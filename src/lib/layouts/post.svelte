@@ -126,7 +126,7 @@
             {#if nextPost.cover}
               <ImgBanner
                 src={nextPost.cover}
-                imgClass="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110) transition-transform duration-300 ease-in-out" />
+                imgClass="absolute z-1 w-full h-full object-cover op70 group-hover:(scale-110) transition-transform duration-300 ease-in-out" />
             {/if}
           </div>
         {/if}
@@ -143,7 +143,7 @@
             {#if prevPost.cover}
               <ImgBanner
                 src={prevPost.cover}
-                imgClass="absolute z-1 w-full h-full object-cover op50 group-hover:(scale-110) transition-transform duration-300 ease-in-out" />
+                imgClass="absolute z-1 w-full h-full object-cover op70 group-hover:(scale-110) transition-transform duration-300 ease-in-out" />
             {/if}
           </div>
         {/if}

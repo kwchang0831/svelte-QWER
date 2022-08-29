@@ -3,6 +3,7 @@ export namespace Post {
   export type Post = {
     slug: string;
     title: stinrg;
+    language: string;
     description: string;
     summary?: string;
     content?: string;

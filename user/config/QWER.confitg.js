@@ -29,7 +29,10 @@ export const Config = {
   DefaultLayoutTemplateStr_Imports: /\/\*<!-- :QWER IMPORTS: -->\*\//,
   DefaultCoverStyle: 'IN',
   DefaultTagName: 'tags',
+  PostLanguageTagName: 'Language',
+  DefaultPostLanguage: 'English',
   SeriesTagName: 'Series',
+  YearTagName: 'Year',
 };
 
 export const ImageConfig = {

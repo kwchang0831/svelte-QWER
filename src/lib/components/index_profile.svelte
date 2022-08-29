@@ -21,7 +21,7 @@
     {@html siteConfig.author.bio}
   </p>
 
-  <div class="flex flex-row">
+  <div class="flex">
     {#if siteConfig.author.email}
       <a use:tippy href="mailto:{siteConfig.author.email}" class="btn btn-ghost" aria-label="Email">
         <div class="!w-[1.75rem] !h-[1.75rem]  i-ic-baseline-mail" />
