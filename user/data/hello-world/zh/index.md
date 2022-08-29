@@ -6,9 +6,8 @@ published: 2022-08-08 GMT+08:00
 updated: 2022-08-27 GMT+08:00
 cover: ../cover.jpg
 coverCaption: 照片來自 <a href="https://unsplash.com/@justinveenema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Justin Veenema</a> 從 <a href="https://unsplash.com/s/photos/motivation?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+language: 中文
 tags:
-  - Language: 中文
-  - Year: 2022
   - [QWER]
 ---
 

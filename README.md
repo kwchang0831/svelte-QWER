@@ -5,7 +5,7 @@
 <br/>
 <h1 align="center">QWER</h1>
 <p align="center">
-✒︎ Simply Awesome Blog Starter built with Svelte and ❤
+✒︎ Simply Awesome Blog Starter built with SvelteKit and ❤
 </p>
 <p align="center">
 <a href="README-zh.md"><img src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-lightgreen" alt="Readme"></a>
