@@ -95,9 +95,21 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - Utilize [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
 
-## Learn More
+## 📚 Learn More
 
 Please read more at [Intro to QWER](https://svelte-qwer.vercel.app/intro-to-QWER) and [About QWER](https://svelte-qwer.vercel.app/about).
+
+## 👷 Current State
+
+[QWER](https://github.com/kwchang0831/svelte-QWER) is at its' very early stage. Kindly expect frequent breaking changes.
+
+For now, if there are updates, and if you do wanna apply the upates.
+
+Just copy the latest `QWER` and `src` folder and replace your old ones.
+
+But sometimes, you might be required to adjust/update `user/config`.
+
+That's it for now. Thanks.
 
 ## ❓ Issues / Problems / Questions
 
