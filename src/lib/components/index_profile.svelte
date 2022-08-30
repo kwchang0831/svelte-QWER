@@ -8,33 +8,11 @@
   export { className as class };
 </script>
 
-<section id="index-profile" class={className ?? ''}>
-  <div class="hidden h-card p-author">
-    <a href={siteConfig.url} class="u-url u-uid">{siteConfig.title}</a>
-    {#if siteConfig.author.email}<p class="u-email">
-        {siteConfig.author.email}
-      </p>{/if}
-    {#if siteConfig.author.github}<a href={siteConfig.author.github} class="u-url u-uid">
-        {siteConfig.author.github}
-      </a>{/if}
-    {#if siteConfig.author.twitter}<a href={siteConfig.author.twitter} class="u-url u-uid">
-        {siteConfig.author.twitter}
-      </a>{/if}
-    <h1 class="p-name">{siteConfig.author.name}</h1>
-    <p class="p-note">{siteConfig.author.bio}</p>
-    {#if siteConfig.author.avatar}
-      <img
-        class="u-photo"
-        src={dev
-          ? `${siteConfig.author.avatar}`
-          : `${
-              siteConfig.author.avatar.indexOf('://') > 0 || siteConfig.author.avatar.indexOf('//') === 0
-                ? siteConfig.author.avatar
-                : new URL(siteConfig.author.avatar, siteConfig.url).href
-            }`}
-        alt={siteConfig.author.name} />
-    {/if}
-  </div>
+<section id="index-profile" class="h-card p-author {className ?? ''}">
+  <a href={siteConfig.url} class="hidden u-url u-uid">{siteConfig.title}</a>
+  {#if siteConfig.author.email}<p class="hidden u-email">
+      {siteConfig.author.email}
+    </p>{/if}
 
   <div class="relative group">
     <AuthorAvatar />
@@ -44,8 +22,8 @@
     </div>
   </div>
 
-  <h1 class="text-2xl font-bold">{siteConfig.author.name}</h1>
-  <p class="text-base op75">
+  <h1 class="p-name text-2xl font-bold">{siteConfig.author.name}</h1>
+  <p class="p-note text-base op75">
     {@html siteConfig.author.bio}
   </p>
 
@@ -56,12 +34,12 @@
       </a>
     {/if}
     {#if siteConfig.author.github}
-      <a use:tippy href={siteConfig.author.github} class="btn btn-ghost" aria-label="Github">
+      <a use:tippy href={siteConfig.author.github} class="u-url u-uid btn btn-ghost" aria-label="Github">
         <div class="!w-[1.75rem] !h-[1.75rem]  i-carbon-logo-github" />
       </a>
     {/if}
     {#if siteConfig.author.twitter}
-      <a use:tippy href={siteConfig.author.twitter} class="btn btn-ghost" aria-label="Twitter">
+      <a use:tippy href={siteConfig.author.twitter} class="u-url u-uid btn btn-ghost" aria-label="Twitter">
         <div class="!w-[1.75rem] !h-[1.75rem]  i-carbon-logo-twitter" />
       </a>
     {/if}

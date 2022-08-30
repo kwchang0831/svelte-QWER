@@ -92,7 +92,7 @@
               on:click={theme.toggle}
               class="btn active:translate-y-2 duration-500 ease-out group">
               <div
-                class="!w-[1.75rem] !h-[1.75rem] i-carbon-sun dark:i-carbon-moon group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+                class="!w8 !h8 i-line-md-sunny-outline-loop dark:i-line-md-moon group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
             </button>
           {/key}
         </div>
@@ -127,7 +127,7 @@
               on:click={theme.toggle}
               class="btn active:translate-y-2 duration-600 ease-out group">
               <div
-                class="!w-[1.75rem] !h-[1.75rem] i-carbon-sun dark:i-carbon-moon group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+                class="!w8 !h8 i-line-md-sunny-outline-loop dark:i-line-md-moon group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
             </button>
           {/key}
         </div>

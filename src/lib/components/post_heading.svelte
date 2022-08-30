@@ -16,18 +16,6 @@
       {new URL(data.slug, siteConfig.url).href}
     </a>
     <div class="p-author h-card flex items-center gap-1 pl-0 shrink-0">
-      {#if siteConfig.author.avatar}
-        <img
-          class="u-photo hidden"
-          src={dev
-            ? `${siteConfig.author.avatar}`
-            : `${
-                siteConfig.author.avatar.indexOf('://') > 0 || siteConfig.author.avatar.indexOf('//') === 0
-                  ? siteConfig.author.avatar
-                  : new URL(siteConfig.author.avatar, siteConfig.url).href
-              }`}
-          alt={siteConfig.author.name} />
-      {/if}
       <AuthorAvatar
         width="32px"
         height="32px"

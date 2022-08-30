@@ -17,7 +17,7 @@
       But, instead transform to "./_app/immutable/assets/..."
       So, we add "/" in front to force it. Not sure if there's other side effects for now.
     -->
-    <picture>
+    <picture class="u-photo">
       <source
         srcset={dev
           ? `${siteConfig.author.avatar_128[0]}`
