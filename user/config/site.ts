@@ -39,6 +39,7 @@ export const siteConfig: Site.Config = {
 };
 
 export const headConfig: Site.Head = {
+  // Used for IndieWeb
   me: ['https://github.com/kwchang0831'],
   custom: ({ dev }) =>
     dev

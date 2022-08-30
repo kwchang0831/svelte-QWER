@@ -78,6 +78,7 @@
     "eslint-plugin-svelte3": "^4.0.0",
     "gitmoji-cli": "^6.1.0",
     "husky": "^8.0.1",
+    "js-base64": "^3.7.2",
     "lint-staged": "^13.0.3",
     "lz-string": "^1.4.4",
     "medium-zoom": "^1.0.6",

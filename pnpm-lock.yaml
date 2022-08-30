@@ -31,6 +31,7 @@ specifiers:
   eslint-plugin-svelte3: ^4.0.0
   gitmoji-cli: ^6.1.0
   husky: ^8.0.1
+  js-base64: ^3.7.2
   lint-staged: ^13.0.3
   lz-string: ^1.4.4
   medium-zoom: ^1.0.6
@@ -82,6 +83,7 @@ devDependencies:
   eslint-plugin-svelte3: 4.0.0_sfdub7vxhxkt5wmgvhhmmgyu2e
   gitmoji-cli: 6.1.0
   husky: 8.0.1
+  js-base64: 3.7.2
   lint-staged: 13.0.3
   lz-string: 1.4.4
   medium-zoom: 1.0.6
@@ -2804,6 +2806,10 @@ packages:
   /jiti/1.14.0:
     resolution: {integrity: sha512-4IwstlaKQc9vCTC+qUXLM1hajy2ImiL9KnLvVYiaHOtS/v3wRjhLlGl121AmgDgx/O43uKmxownJghS5XMya2A==}
     hasBin: true
+    dev: true
+
+  /js-base64/3.7.2:
+    resolution: {integrity: sha512-NnRs6dsyqUXejqk/yv2aiXlAvOs56sLkX6nUdeaNezI5LFFLlsZjOThmwnrcwh5ZZRwZlCMnVAY3CvhIhoVEKQ==}
     dev: true
 
   /js-tokens/4.0.0:

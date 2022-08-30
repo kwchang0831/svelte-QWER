@@ -4,6 +4,7 @@
   import { postsShow } from '$stores/posts';
   import tippy from '$lib/actions/tippy';
   import { onMount } from 'svelte';
+  import { Base64 } from 'js-base64';
 
   let className: any = undefined;
   export { className as class };
@@ -26,6 +27,11 @@
       class="flex flex-col justify-center items-center flex-none w-full mx-auto xl:mx-0 {className ?? ''}">
       <main
         class="my4 gap1 md:(border-t-2 w-3xl mt-8 border-black border-opacity-20 dark:(border-white border-opacity-10)) flex flex-col justify-center items-center">
+        <div class="hidden">
+          {Base64.atob(
+            'VGhpcyBzaXRlIGlzIHBvd2VyZWQgYnkgUVdFUjogU2ltcGx5IEF3ZXNvbWUgQmxvZyBTdGFydGVyIGJ1aWx0IHdpdGggU3ZlbHRlS2l0IGFuZCBMb3ZlLiBAIGh0dHBzOi8vZ2l0aHViLmNvbS9rd2NoYW5nMDgzMS9zdmVsdGUtUVdFUg==',
+          ).toString()}
+        </div>
         <div class="flex justify-center mt-4">
           <a use:tippy href="/atom.xml" class="btn btn-ghost" aria-label="Atom Feed">
             <div class="!w-[1.75rem] !h-[1.75rem] i-ic-baseline-rss-feed" />
@@ -40,10 +46,11 @@
             <span itemprop="copyrightHolder">{siteConfig.author.name}</span>
           </a>
         </p>
+        <!-- Pleese show your respect and support by displaying "Powered by QWER" section -->
         <div>
           Powered by <a
             use:tippy
-            aria-label="🚀 QWER [α] - Built using Svelte with ❤"
+            aria-label="🚀 QWER [α] - Built with SvelteKit and ❤"
             rel="noreferrer noopener external"
             target="_blank"
             href="https://github.com/kwchang0831/svelte-QWER"
@@ -51,6 +58,7 @@
             QWER
           </a>
         </div>
+        <!-- Pleese show your respect and support by displaying "Powered by QWER" section -->
         <a
           itemprop="copyrightNotice"
           href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1"
