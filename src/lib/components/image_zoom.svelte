@@ -6,9 +6,9 @@
   // @ts-ignore
   import { assets } from '$generated/assets';
   import { ImageConfig } from '$config/QWER.confitg';
-  import { onMount } from 'svelte';
   import { dev } from '$app/environment';
   import { siteConfig } from '$config/site';
+  import { fade } from 'svelte/transition';
 
   let className: string | undefined = undefined;
   export { className as class };
@@ -29,13 +29,11 @@
       return +b[0] - +a[0];
     });
 
-  onMount(async () => {
-    width = asset?.width;
-    height = asset?.height;
-  });
+  $: width = asset?.width;
+  $: height = asset?.height;
 </script>
 
-<figure class="my6">
+<figure in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="my6">
   {#if asset}
     <picture>
       {#if resolutions}

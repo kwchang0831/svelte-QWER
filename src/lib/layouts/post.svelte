@@ -29,7 +29,7 @@
   let observer: IntersectionObserver;
   let postElement: HTMLElement;
 
-  onMount(async () => {
+  onMount(() => {
     observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

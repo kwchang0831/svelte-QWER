@@ -5,10 +5,10 @@
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   import { assets } from '$generated/assets';
-  import { onMount } from 'svelte';
   import { dev } from '$app/environment';
   import { ImageConfig } from '$config/QWER.confitg';
   import { siteConfig } from '$config/site';
+  import { fade } from 'svelte/transition';
 
   export let pictureClass: string | undefined = undefined;
   export let imgClass: string | undefined = undefined;
@@ -22,10 +22,8 @@
 
   let asset: Asset.Image | undefined = $assets.get(src);
 
-  onMount(async () => {
-    width = asset?.width;
-    height = asset?.height;
-  });
+  $: width = asset?.width;
+  $: height = asset?.height;
 </script>
 
 {#if asset}
@@ -35,7 +33,7 @@
     But, instead transform to "./_app/immutable/assets/..."
     So, we add "/" in front to force it. Not sure if there's other side effects for now.
   -->
-  <picture class={pictureClass}>
+  <picture in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class={pictureClass}>
     {#if ImageConfig.BannerImage && ImageConfig.BannerImage['format']}
       {#each ImageConfig.BannerImage['format'] as format, index}
         <source
