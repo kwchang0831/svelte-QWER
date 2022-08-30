@@ -1,9 +1,9 @@
 ---
 title: 你好 世界 👋
-description: 介紹 🚀 QWER 的基本操作，一個使用 Svelte 與 ❤ 打造之簡單好用的靜態網站 / 部落格生成器。
+description: 介紹 🚀 QWER 的基本操作，一個使用 SvelteKit 與 ❤ 打造之簡單好用的靜態網站 / 部落格生成器。
 summary: ✨ 一個快速上手的流程
 published: 2022-08-08 GMT+08:00
-updated: 2022-08-27 GMT+08:00
+updated: 2022-08-30 14:30:00 GMT+08:00
 cover: ../cover.jpg
 coverCaption: 照片來自 <a href="https://unsplash.com/@justinveenema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Justin Veenema</a> 從 <a href="https://unsplash.com/s/photos/motivation?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 language: 中文
@@ -13,7 +13,7 @@ tags:
 
 ## ✨ 開始
 
-[QWER](https://www.github.com/kwchang0831/svelte-QWER) 是一個使用 [Svelte](https://svelte.dev/) 與 ❤ 打造之簡單好用的靜態網站 / 部落格生成器。
+[QWER](https://www.github.com/kwchang0831/svelte-QWER) 是一個使用 [SvelteKit](https://kit.svelte.dev/) 與 ❤ 打造的部落格生成器，簡單好用。
 
 沒錯。就是這個網站。
 

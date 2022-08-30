@@ -3,7 +3,7 @@ title: Intro to QWER
 description: Start using 🚀 QWER - Simply Awesome Blog Starter. Built using Svelte with ❤
 summary: 🎉 Let's start a brand new awesome blog...
 published: 2022-08-20 00:00:00 GMT+08:00
-updated: 2022-08-27 00:00:00 GMT+08:00
+updated: 2022-08-30 14:30:00 GMT+08:00
 cover: ./cover.jpg
 coverCaption: Photo by <a href="https://unsplash.com/@joannakosinska?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joanna Kosinska</a> on <a href="https://unsplash.com/s/photos/study?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags:
@@ -49,7 +49,7 @@ tags:
 
 ## ✨ Start
 
-This post will guide you through making your first [QWER](https://github.com/kwchang0831/svelte-QWER) blog site.
+This post will guide you through building your first [QWER](https://github.com/kwchang0831/svelte-QWER) blog site.
 
 ## Prepare
 
@@ -83,6 +83,14 @@ This post will guide you through making your first [QWER](https://github.com/kwc
 | `pnpm cleandeep` | Deep clean.<br/>Remove auto-generated files as well as `node_modules`, `.svelte-kit`, and etc... |
 | `pnpm format`    | Run prettier on the source code to maintian consistent format.                                   |
 
+:::tip
+
+While `pnpm dev` is running, you can do <kbd>Ctrl + C</kbd> to stop it.
+
+If you encountered any issues, always try to restart the dev sever first.
+
+:::
+
 ## `user` Folder
 
 You only need to work with the `user` folder under `my-blog`, unless you are modify QWER itself.
@@ -95,15 +103,19 @@ Below are the list of folders under `user` folder and their purpose.
 
 | Folder Name | Purpose                                                                           |
 | ----------- | --------------------------------------------------------------------------------- |
-| data        | Provide your markdown file to generate page/blog.                                 |
-| config      | Site setting and QWER config.                                                     |
 | assets      | User-provided image files that will be **pre-processed**.                         |
-| public      | User-provided files that will NOT be pre-processed, and can be directly accessed based on path. |
+| config      | Site setting and QWER config.                                                     |
 | custom      | User-provided svelte components files to reference in markdown.                   |
+| data        | Provide your markdown file to generate page/blog.                                 |
+| public      | User-provided files that will NOT be pre-processed, and can be directly accessed based on path. |
 
-> ! Always keep your backup of the `user` folder.
+:::tip
 
-For future QWER updates, just overwirte these folders to restore your contents, unless there are breaking changes noted.
+Always keep backup of your `user` folder.
+
+For future QWER updates, just copy the latest `QWER` and `src` folder and replace your old ones.
+
+:::
 
 ### `data` Folder
 
@@ -122,6 +134,7 @@ Page meta data describes the page. All the available meta are listed below:
 | Meta         | Purpose                                                                                                             |
 | ------------ | ------------------------------------------------------------------------------------------------------------------- |
 | title        | Title for the post and SEO title meta.                                                                              |
+| language     | Language for the post which will show up in the tags filtering section. Default is stored in the `user/config/QWER.js` as `DefaultPostLanguage`. |
 | description  | Used for SEO description meta.                                                                                      |
 | summary      | Short description of the post that will display on the post listing.                                                |
 | published    | Post published datetime. If not provided, file `birthtime` will be used.                                            |
@@ -129,10 +142,16 @@ Page meta data describes the page. All the available meta are listed below:
 | cover        | Path to the cover image. Relative path or URL to the external image.                                                |
 | coverCaption | Caption Text for Cover image. Plain text or HTML are both accepted.                                                 |
 | coverStyle   | Cover image position for post listing.<br/>Options are: `TOP`, `RIGHT`, `BOT`, `LEFT`, `IN`, `NONE`. Default: `IN`. |
-| options      | Optional. Currently only have 1 option: `unlisted` which will hide from post listing.                               |
+| options      | Optional. Currently has only 1 option: `unlisted`, which will hide the post from post listing.                      |
 | tags         | Tags are for post filtering. Details will be described below.                                                       |
+| series_tag   | Mark the post with series name/tag. It will show up in the post listing.                                            |
+| series_title | Mark the post with series title. It will show up in the post listing.                                               |
 
->! Please note: It's best to manually set `updated` time since git cannot track file modification time. The `mtime` will be set to the checkout time which might not be the result you want.
+:::tip
+
+Please noted it's best to manually set `published` and `updated` time since git cannot track file modification time. The checkout time might be used for both which might not be the desired outcome.
+
+:::
 
 ##### Tags
 
@@ -236,6 +255,34 @@ line4
 - line6
 ```
 
+##### Info block
+
+Here are the info types:
+
+- <span class="inline-block i-ic-outline-info w5 h5"/> `info`
+- <span class="inline-block i-ic-outline-tips-and-updates w5 h5"/> `tip`
+- <span class="inline-block i-ic-round-warning-amber w5 h5"/> `caution`
+- <span class="inline-block i-ic-round-error-outline w5 h5"/> `error`
+- <span class="inline-block i-ic-outline-dangerous w5 h5"/> `danger`
+
+Example Input
+
+```md
+:::tip Title
+
+Content
+
+:::
+```
+
+Example Output
+
+:::tip Title
+
+Content
+
+:::
+
 ### `config` folder
 
 <div class="p4 border-1 shadow-xl rounded-xl border-black dark:border-white overflow-auto">
@@ -278,6 +325,8 @@ ExtraResolutions: {
     minWidth: '360px',
   },
 },
+// For original image without reszing
+ExtraFormats: ['avif'],
 ```
 
 #### site.ts
@@ -288,7 +337,7 @@ Firstly, check the `siteConfig`. Modify it where you see appropriated.
 
 ```js
 export const siteConfig: Site.Config = {
-  url: 'https://svelte-qwer.vercel.app/',
+  url: 'https://svelte-qwer.vercel.app',
   title: 'QWER',
   subtitle: '🚀 QWER - Built using Svelte with ❤',
   description: '🚀 QWER - Awesome Blog Starter, Built using Svelte with ❤',
@@ -298,7 +347,6 @@ export const siteConfig: Site.Config = {
     name: 'John Doe',
     status: '❤️',
     avatar: Avator,
-    avatar_32: Avator_32,
     avatar_128: Avator_128,
     avatar_48_png: Avator_48_PNG,
     avatar_96_png: Avator_96_PNG,
@@ -318,6 +366,7 @@ If you are using [Umami](https://github.com/umami-software/umami) - a simple, fa
 
 ```js
 export const headConfig: Site.Head = {
+  me: ['https://github.com/kwchang0831'],
   custom: ({ dev }) =>
     dev
       ? [

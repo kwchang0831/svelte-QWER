@@ -3,7 +3,7 @@ title: Example Post
 description: Example post writen using Markdown Syntax with 🚀 QWER - Simply Awesome Blog Starter. Built using Svelte with ❤
 summary: 📝 Showcase basic syntax of Markdown and HTML
 published: 2022-08-09 GMT+08:00
-updated: 2022-08-27 GMT+08:00
+updated: 2022-08-30 14:30:00 GMT+08:00
 cover: ./cover.jpg
 coverCaption: Photo by <a href="https://unsplash.com/@etiennegirardet?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Etienne Girardet</a> on <a href="https://unsplash.com/s/photos/motivation?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags:
@@ -89,7 +89,13 @@ Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 
 **Lorem Ipsum** dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-**_The_** _quick_ <u>brown</u> [fox](https://www.foxnews.com/) `jumps` ~~over~~ the lazy **dog**.
+## Info Block
+
+:::info This is the title
+
+This is the content: **_The_** _quick_ <u>brown</u> [fox](https://www.foxnews.com/) `jumps` ~~over~~ the lazy **dog**.
+
+:::
 
 ## Table
 
@@ -99,7 +105,7 @@ Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 | Division 1     | Division 2     | Division 3     |
 | Division 1     | Division 2     | Division 3     |
 
-| Table Header 1 | Table Header 2 | Table Header 3 |
+| Align Left | Align Center | Align Right |
 | :------------- | :------------: | -------------: |
 | Division 1     |   Division 2   |     Division 3 |
 | Division 1     |   Division 2   |     Division 3 |
@@ -143,7 +149,7 @@ Photo by <a href="https://unsplash.com/@willy24?utm_source=unsplash&utm_medium=r
 
 ## Youtube / Custom Svelte Component
 
-### Input
+### Example Input
 
 ```svelte
 <script lang="ts">
@@ -173,7 +179,7 @@ Variable is {const_variable}
 <Custom name="custom object" />
 ```
 
-### Output
+### Example Output
 
 Variable is {const_variable}.
 

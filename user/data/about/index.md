@@ -12,7 +12,7 @@ options:
 
 [QWER](https://github.com/kwchang0831/svelte-QWER) is inspired by [Urara](https://github.com/importantimport/urara), but [QWER](https://github.com/kwchang0831/svelte-QWER)'s internal core was built differently. You can still check my previous blog: [urara.kwchang0831.dev](https://urara.kwchang0831.dev/) that was built by [Urara](https://github.com/importantimport/urara).
 
-It took me about a month or two of my leisure time to develope [QWER](https://github.com/kwchang0831/svelte-QWER). It is also my first [Svelte](https://svelte.dev/) project. I just learned Svelte while developing it.
+It took me about a month or two of my leisure time to develope [QWER](https://github.com/kwchang0831/svelte-QWER). It is also my first [Svelte](https://svelte.dev/) + [SvelteKit](https://kit.svelte.dev/) project. I just learned Svelte while developing it.
 
 <ImgZ src="/preview.png" alt="QWER Preview" />
 
