@@ -8,7 +8,7 @@ specifiers:
   html-to-text: ^8.2.1
   limax: ^3.0.0
   lz-string: ^1.4.4
-  marked: ^4.0.19
+  marked: ^4.1.0
   prism-svelte: ^0.5.0
   prismjs: ^1.29.0
   probe-image-size: ^7.2.3
@@ -22,7 +22,7 @@ devDependencies:
   html-to-text: 8.2.1
   limax: 3.0.0
   lz-string: 1.4.4
-  marked: 4.0.19
+  marked: 4.1.0
   prism-svelte: 0.5.0
   prismjs: 1.29.0
   probe-image-size: 7.2.3
@@ -472,8 +472,8 @@ packages:
     hasBin: true
     dev: true
 
-  /marked/4.0.19:
-    resolution: {integrity: sha512-rgQF/OxOiLcvgUAj1Q1tAf4Bgxn5h5JZTp04Fx4XUkVhs7B+7YA9JEWJhJpoO8eJt8MkZMwqLCNeNqj1bCREZQ==}
+  /marked/4.1.0:
+    resolution: {integrity: sha512-+Z6KDjSPa6/723PQYyc1axYZpYYpDnECDaU6hkaf5gqBieBkMKYReL5hteF2QizhlMbgbo8umXl/clZ67+GlsA==}
     engines: {node: '>= 12'}
     hasBin: true
     dev: true
