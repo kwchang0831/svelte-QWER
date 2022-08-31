@@ -4,4 +4,4 @@
 
 ### Minor Changes
 
-- 955b990: add: init changeset
+- 955b990: added: init changeset
