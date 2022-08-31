@@ -8,11 +8,16 @@
 ✒︎ 使用 SvelteKit 與 ❤ 打造的部落格生成器，簡單好用。
 </p>
 <p align="center">
-<a href="README.md"><img src="https://img.shields.io/badge/README-ENGLISH-lightgreen" alt="Readme"></a>
-<img src="https://img.shields.io/github/languages/top/kwchang0831/svelte-QWER?color=%23ff3e00" alt="Language" />
-<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/kwchang0831/svelte-QWER" alt="License"></a>
-<a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 示範網站-Vercel-informational" alt="Readme"></a>
-<a href="https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a"><img src="https://img.shields.io/badge/❓ 問題討論-Q&A-informational" alt="Q&A"></a>
+<a href="README.md"><img src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-lightgreen?style=for-the-badge&logo=Read the Docs" alt="Readme"></a>
+<img src="https://img.shields.io/github/languages/top/kwchang0831/svelte-QWER?color=%23ff3e00&style=for-the-badge&logo=Svelte" alt="Language" />
+<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/kwchang0831/svelte-QWER?style=for-the-badge" alt="License"></a>
+<a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 示範網站-Vercel-informational?style=for-the-badge" alt="Readme"></a>
+<a href="https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a"><img src="https://img.shields.io/badge/❓ 問題討論-Q&A-informational?style=for-the-badge" alt="Q&A"></a>
+</p>
+
+<p align="center">
+<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/CHANGELOG.md"><img src="https://img.shields.io/badge/更新日誌-Svelt--QWER-lightgreen?style=for-the-badge&logo=Keep a Changelog" alt="svelte-QWER"></a>
+<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/QWER/CHANGELOG.md"><img src="https://img.shields.io/badge/更新日誌-QWER-lightgreen?style=for-the-badge&logo=Keep a Changelog" alt="QWER"></a>
 </p>
 
 <br/>
@@ -81,15 +86,23 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - 使用 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)撰寫文章。
 
+- 超快的網站速度。接近完美的 [PageSpeed](https://pagespeed.web.dev/) 跑分。
+
+- 手機優先 / 響應式的設計。
+
+- SEO 友善，支援 meta, [Open Graph](https://ogp.me/), [Schema](https://schema.org/), [JSON-LD](https://json-ld.org/), [microformats2](https://indieweb.org/microformats2)。
+
+- 使用資料夾式的整理方式來新增部落格頁面。
+
+- 網誌可設定標籤，還有標籤過濾功能。
+
+- 網誌會自動生成文章目錄。
+
+- 開箱即用的 [Atom feed](https://validator.w3.org/feed/docs/atom.html), Sitemap, [PWA](https://web.dev/progressive-web-apps/)。
+
 - 支援嵌入 Svelte 組件 與 使用 Javascript 搭配 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)。
 
-- 新增部落格頁面是使用資料夾式的整理方式。
-
-- 網站速度評分快速，且支援 SEO。
-
-- 開箱即用的 Atom feed, Sitemap, PWA。
-
-- 內建照片檔案的前處理，自動生成不同的解析度與格式。讓不同的使用者在不同的設備上能在速度與觀看品質上有更好的平衡。
+- 自動照片優化支援，透過 [vite-imagetools](https://github.com/JonasKruckenberg/imagetools)。
 
 - 支援 [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions
 

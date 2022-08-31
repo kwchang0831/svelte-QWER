@@ -8,11 +8,16 @@
 ✒︎ Simply Awesome Blog Starter built with SvelteKit and ❤
 </p>
 <p align="center">
-<a href="README-zh.md"><img src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-lightgreen" alt="Readme"></a>
-<img src="https://img.shields.io/github/languages/top/kwchang0831/svelte-QWER?color=%23ff3e00" alt="Language" />
-<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/kwchang0831/svelte-QWER" alt="License"></a>
-<a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 DEMO-Vercel-informational" alt="Readme"></a>
-<a href="https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a"><img src="https://img.shields.io/badge/❓ Discussion-Q&A-informational" alt="Q&A"></a>
+<a href="README-zh.md"><img src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-lightgreen?style=for-the-badge&logo=Read the Docs" alt="Readme"></a>
+<img src="https://img.shields.io/github/languages/top/kwchang0831/svelte-QWER?color=%23ff3e00&style=for-the-badge&logo=Svelte" alt="Language" />
+<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/kwchang0831/svelte-QWER?style=for-the-badge" alt="License"></a>
+<a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 DEMO-Vercel-informational?style=for-the-badge" alt="Readme"></a>
+<a href="https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a"><img src="https://img.shields.io/badge/❓ Discussion-Q&A-informational?style=for-the-badge" alt="Q&A"></a>
+</p>
+
+<p align="center">
+<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/CHANGELOG.md"><img src="https://img.shields.io/badge/CHANGELOG-Svelt--QWER-lightgreen?style=for-the-badge&logo=Keep a Changelog" alt="svelte-QWER"></a>
+<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/QWER/CHANGELOG.md"><img src="https://img.shields.io/badge/CHANGELOG-QWER-lightgreen?style=for-the-badge&logo=Keep a Changelog" alt="QWER"></a>
 </p>
 
 <br/>
@@ -81,19 +86,27 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - Writing post with [Markdown syntax](https://www.markdownguide.org/basic-syntax/).
 
+- Outstanding site performance. Near perfect [PageSpeed](https://pagespeed.web.dev/) score.
+
+- Mobile-First / Responsive design.
+
+- SEO friendly through meta, [Open Graph](https://ogp.me/), [Schema](https://schema.org/), [JSON-LD](https://json-ld.org/), [microformats2](https://indieweb.org/microformats2).
+
+- Folder-based organization for creating posts.
+
+- Post with tags and tag filtering feature.
+
+- Post with auto generated table of content.
+
+- Out-of-the-box support for [Atom feed](https://validator.w3.org/feed/docs/atom.html), Sitemap, [PWA](https://web.dev/progressive-web-apps/).
+
+- Automatic image optimization via [vite-imagetools](https://github.com/JonasKruckenberg/imagetools).
+
 - Support embedding Svelte components and Javascript with Markdown.
 
-- Folder-based organization of blogging.
+- Supports [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
 
-- Outstanding site performance and SEO support.
-
-- Out-of-the-box support for Atom feed, Sitemap, PWA.
-
-- Built-in images pre-process. Auto-generate different resolutions / format images to accommodate Mobile / Tablet / PC audiences for balance of speed and visual quality.
-
-- Support [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
-
-- Utilize [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
+- Utilizes [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
 
 ## 📚 Learn More
 
