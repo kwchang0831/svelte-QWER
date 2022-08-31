@@ -81,19 +81,27 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - Writing post with [Markdown syntax](https://www.markdownguide.org/basic-syntax/).
 
+- Outstanding site performance. Near perfect [PageSpeed](https://pagespeed.web.dev/) score.
+
+- Mobile-First / Responsive design.
+
+- SEO friendly through meta, [Open Graph](https://ogp.me/), [Schema](https://schema.org/), [JSON-LD](https://json-ld.org/), [microformats2](https://indieweb.org/microformats2).
+
+- Folder-based organization for creating posts.
+
+- Post with tags and tag filtering feature.
+
+- Post with auto generated table of content.
+
+- Out-of-the-box support for [Atom feed](https://validator.w3.org/feed/docs/atom.html), Sitemap, [PWA](https://web.dev/progressive-web-apps/).
+
+- Automatic image optimization via [vite-imagetools](https://github.com/JonasKruckenberg/imagetools).
+
 - Support embedding Svelte components and Javascript with Markdown.
 
-- Folder-based organization of blogging.
+- Supports [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
 
-- Outstanding site performance and SEO support.
-
-- Out-of-the-box support for Atom feed, Sitemap, PWA.
-
-- Built-in images pre-process. Auto-generate different resolutions / format images to accommodate Mobile / Tablet / PC audiences for balance of speed and visual quality.
-
-- Support [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
-
-- Utilize [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
+- Utilizes [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
 
 ## 📚 Learn More
 
