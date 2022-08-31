@@ -1,6 +1,6 @@
 [
   {
     "action": "remove",
-    "files": ["netlify.toml", "vercel.json", ".github/workflows/metrics.yml"]
+    "files": ["netlify.toml", "vercel.json", ".github/workflows/*"]
   }
 ]

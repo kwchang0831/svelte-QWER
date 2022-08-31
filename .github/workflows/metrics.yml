@@ -1,8 +1,11 @@
 name: Metrics
+
 on:
   workflow_dispatch:
+
 jobs:
-  svelte-QWER-metrics:
+  metrics:
+    if: github.repository == 'kwchang0831/svelte-QWER'
     runs-on: ubuntu-latest
     steps:
       - name: 🍕 PageSpeed Report
