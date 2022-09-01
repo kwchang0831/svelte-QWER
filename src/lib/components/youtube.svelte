@@ -22,6 +22,13 @@
   )}`;
 </script>
 
-<div class="plyr__video-embed relative pb-[56.25%] mb-2 videoplayer">
-  <iframe {src} title="Plyr video player" allowfullscreen allowtransparency loading="lazy" allow="autoplay" />
+<div class="relative my4">
+  <iframe
+    {src}
+    title="Youtube Player"
+    allowfullscreen
+    allowtransparency
+    loading="lazy"
+    allow="autoplay"
+    class="w-full h-auto aspect-video" />
 </div>

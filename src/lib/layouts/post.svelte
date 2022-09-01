@@ -1,8 +1,6 @@
 <script lang="ts">
   import '$lib/styles/prism.scss';
   import '$lib/styles/prose.scss';
-  import 'plyr/dist/plyr.css';
-  // import Plyr from 'plyr';
 
   import type { Post } from '$lib/types/post';
   import { page } from '$app/stores';
@@ -18,8 +16,6 @@
   import mediumZoom from 'medium-zoom';
 
   import { theme } from '$stores/themes';
-  // import { videoplayerConfig } from '$config/site';
-
   import { onMount } from 'svelte';
   import { fade, fly } from 'svelte/transition';
 
@@ -71,11 +67,6 @@
       scrollOffset: 0,
       background: 'rgba(25, 18, 25, .9)',
     });
-
-    // Plyr.setup('.videoplayer', {
-    //   seekTime: videoplayerConfig.seekTime,
-    //   controls: videoplayerConfig.controls,
-    // });
   });
 </script>
 
