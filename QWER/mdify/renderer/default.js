@@ -339,7 +339,7 @@ export const default_renderer = (basePath) => {
               return `<Video webm="${path.resolve('/', href)}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
           }
         }
-        return `<figure><img src="${href}" alt="${alt}"/>${title ? `<figcaption>${title}</figcaption>` : ''}</figure>`;
+        return `<ImgZ src="${href}" alt="${alt}">${title ? `${title}` : ''}</ImgZ>`;
       },
 
       text(text) {
