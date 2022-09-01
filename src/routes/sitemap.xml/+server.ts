@@ -18,7 +18,7 @@ const render = async (): Promise<string> => `<?xml version='1.0' encoding='utf-8
       .map((e) => {
         return `
         <url>
-        <loc>${siteConfig.url}${e[1].slug}</loc>
+        <loc>${new URL(e[1].slug, siteConfig.url).href}</loc>
         <lastmod>${new Date(e[1].updated).toISOString()}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>

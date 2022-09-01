@@ -26,7 +26,7 @@ ${
 }
 <icon>${new URL(`favicon.png`, siteConfig.url).href}</icon>
 <link href="${siteConfig.url}"/>
-<link href="${siteConfig.url}atom.xml" rel="self" type="application/atom+xml"/>
+<link href="${new URL('atom.xml', siteConfig.url).href}" rel="self" type="application/atom+xml"/>
 <updated>${new Date().toJSON()}</updated>
 <author>
   <name><![CDATA[${siteConfig.author.name}]]></name>
@@ -53,8 +53,8 @@ ${_allposts
     return `<entry>
     <title type="html"><![CDATA[${p[1].title}]]></title>
     <author><name><![CDATA[${siteConfig.author.name}]]></name></author>
-    <link href="${siteConfig.url}${p[1].slug}" />
-    <id>${siteConfig.url}${p[1].slug}</id>
+    <link href="${new URL(p[1].slug, siteConfig.url).href}" />
+    <id>${new URL(p[1].slug, siteConfig.url).href}</id>
     <published>${new Date(p[1].published).toJSON()}</published>
     <updated>${new Date(p[1].updated).toJSON()}</updated>
     <summary type="html"><![CDATA[${p[1].summary}]]></summary>
