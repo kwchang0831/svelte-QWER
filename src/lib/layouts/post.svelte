@@ -2,7 +2,7 @@
   import '$lib/styles/prism.scss';
   import '$lib/styles/prose.scss';
   import 'plyr/dist/plyr.css';
-  import Plyr from 'plyr';
+  // import Plyr from 'plyr';
 
   import type { Post } from '$lib/types/post';
   import { page } from '$app/stores';
@@ -18,7 +18,7 @@
   import mediumZoom from 'medium-zoom';
 
   import { theme } from '$stores/themes';
-  import { videoplayerConfig } from '$config/site';
+  // import { videoplayerConfig } from '$config/site';
 
   import { onMount } from 'svelte';
   import { fade, fly } from 'svelte/transition';
@@ -72,10 +72,10 @@
       background: 'rgba(25, 18, 25, .9)',
     });
 
-    Plyr.setup('.videoplayer', {
-      seekTime: videoplayerConfig.seekTime,
-      controls: videoplayerConfig.controls,
-    });
+    // Plyr.setup('.videoplayer', {
+    //   seekTime: videoplayerConfig.seekTime,
+    //   controls: videoplayerConfig.controls,
+    // });
   });
 </script>
 
@@ -133,7 +133,7 @@
       <div class="divider" />
 
       {#if nextPost || prevPost}
-        <nav class="flex flex-col h-[12rem] md:(flex-row) my8">
+        <nav class="flex flex-col h-[20rem] md:(flex-row h-[12rem]) my8">
           {#if nextPost}
             <div id="next-post" class="relative flex-1 group overflow-hidden bg-white/[0.5] dark:bg-black/[0.5]">
               <div class="absolute z-10 i-mdi-chevron-left !w-[1.5rem] !h-[1.5rem] top-[1.25rem] left-[0.75rem]" />
