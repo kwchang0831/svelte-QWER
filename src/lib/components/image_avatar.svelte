@@ -16,7 +16,7 @@
   });
 </script>
 
-<figure>
+<figure class="select-none">
   {#if loaded && siteConfig.author.avatar && siteConfig.author.avatar_128}
     <!--
       DirtyFix: ASSET PATH INCORRECT TRANSFORMED
@@ -36,6 +36,7 @@
           : `${new URL(siteConfig.author.avatar_128[1], siteConfig.url).href}`}
         type="image/webp" />
       <img
+        draggable="false"
         src={dev
           ? `${siteConfig.author.avatar}`
           : `${

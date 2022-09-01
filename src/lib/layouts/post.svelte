@@ -13,7 +13,6 @@
   import PostHeading from '$lib/components/post_heading.svelte';
   import SEO from '$lib/components/post_SEO.svelte';
   import TagsSection from '$lib/components/post_tags.svelte';
-  import mediumZoom from 'medium-zoom';
 
   import { theme } from '$stores/themes';
   import { onMount } from 'svelte';
@@ -62,11 +61,6 @@
         }
       }
     }
-
-    mediumZoom('[data-zoomable]', {
-      scrollOffset: 0,
-      background: 'rgba(25, 18, 25, .9)',
-    });
   });
 </script>
 
@@ -127,7 +121,8 @@
         <nav class="flex flex-col h-[20rem] md:(flex-row h-[12rem]) my8">
           {#if nextPost}
             <div id="next-post" class="relative flex-1 group overflow-hidden bg-white/[0.5] dark:bg-black/[0.5]">
-              <div class="absolute z-10 i-mdi-chevron-left !w-[1.5rem] !h-[1.5rem] top-[1.25rem] left-[0.75rem]" />
+              <div
+                class="absolute z-10 i-mdi-chevron-left !w-[1.5rem] !h-[1.5rem] top-[1.25rem] left-[0.75rem] animate-bounce-left" />
               <a
                 rel="next"
                 href="/{nextPost.slug}"
@@ -151,7 +146,8 @@
                 class="absolute text-2xl font-bold z-10 !decoration-none !underline-none title-link-orange-500-orange-500 top-[3rem] right-[1rem] ml8">
                 {prevPost.title}
               </a>
-              <div class="absolute z-10 i-mdi-chevron-right !w-[1.5rem] !h-[1.5rem] top-[6rem] right-[0.75rem]" />
+              <div
+                class="absolute z-10 i-mdi-chevron-right !w-[1.5rem] !h-[1.5rem] top-[6rem] right-[0.75rem] animate-bounce-right" />
               {#if prevPost.cover}
                 <ImgBanner
                   src={prevPost.cover}
@@ -172,3 +168,59 @@
     <div class="max-w-screen-md flex-1" />
   </div>
 {/if}
+
+<style lang="scss">
+  @keyframes bounce-right {
+    from,
+    20%,
+    53%,
+    80%,
+    to {
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      transform: translate3d(0, 0, 0);
+    }
+    40%,
+    43% {
+      animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+      transform: translate3d(-30px, 0, 0);
+    }
+    70% {
+      animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+      transform: translate3d(-15px, 0, 0);
+    }
+    90% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  }
+  .animate-bounce-right {
+    animation: bounce-right 1s linear infinite;
+    transform-origin: center bottom;
+  }
+
+  @keyframes bounce-left {
+    from,
+    20%,
+    53%,
+    80%,
+    to {
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      transform: translate3d(0, 0, 0);
+    }
+    40%,
+    43% {
+      animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+      transform: translate3d(30px, 0, 0);
+    }
+    70% {
+      animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+      transform: translate3d(15px, 0, 0);
+    }
+    90% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+  .animate-bounce-left {
+    animation: bounce-left 1s linear infinite;
+    transform-origin: center bottom;
+  }
+</style>

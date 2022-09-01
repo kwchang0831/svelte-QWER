@@ -33,7 +33,7 @@
     But, instead transform to "./_app/immutable/assets/..."
     So, we add "/" in front to force it. Not sure if there's other side effects for now.
   -->
-  <picture in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class={pictureClass}>
+  <picture in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="select-none {pictureClass}">
     {#if ImageConfig.BannerImage && ImageConfig.BannerImage['format']}
       {#each ImageConfig.BannerImage['format'] as format, index}
         <source
@@ -47,8 +47,17 @@
           type={`image/${format}`} />
       {/each}
     {/if}
-    <img itemprop="image" class={imgClass} {decoding} {loading} src={asset.original} {alt} {width} {height} />
+    <img
+      draggable="false"
+      itemprop="image"
+      class={imgClass}
+      {decoding}
+      {loading}
+      src={asset.original}
+      {alt}
+      {width}
+      {height} />
   </picture>
 {:else}
-  <img itemprop="image" class={imgClass} {decoding} {loading} {src} {alt} {width} {height} />
+  <img draggable="false" itemprop="image" class={imgClass} {decoding} {loading} {src} {alt} {width} {height} />
 {/if}

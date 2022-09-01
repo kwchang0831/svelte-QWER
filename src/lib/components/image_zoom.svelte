@@ -9,6 +9,10 @@
   import { dev } from '$app/environment';
   import { siteConfig } from '$config/site';
   import { fade } from 'svelte/transition';
+  import { onMount } from 'svelte';
+  import mediumZoom from 'medium-zoom';
+
+  let imgElement: HTMLElement;
 
   let className: string | undefined = undefined;
   export { className as class };
@@ -31,9 +35,16 @@
 
   $: width = asset?.width;
   $: height = asset?.height;
+
+  onMount(() => {
+    mediumZoom(imgElement, {
+      scrollOffset: 0,
+      background: 'rgba(25, 18, 25, .9)',
+    });
+  });
 </script>
 
-<figure in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="my6">
+<figure in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="my6 select-none">
   {#if asset}
     <picture>
       {#if resolutions}
@@ -68,7 +79,8 @@
         {/each}
       {/if}
       <img
-        data-zoomable
+        bind:this={imgElement}
+        draggable="false"
         itemprop="image"
         class="z-50 m-auto md:(rounded-2xl shadow-xl) {className ?? 'h-full w-auto aspect-auto object-cover'}"
         {decoding}
@@ -80,7 +92,8 @@
     </picture>
   {:else}
     <img
-      data-zoomable
+      bind:this={imgElement}
+      draggable="false"
       itemprop="image"
       class="z-50 m-auto md:(rounded-2xl shadow-xl) {className ?? 'h-full w-auto aspect-auto object-cover'}"
       {decoding}
