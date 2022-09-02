@@ -26,9 +26,7 @@
 
   let loaded = false;
 
-  onMount(() => {
-    loaded = true;
-
+  $: if (loaded && postElement) {
     observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -61,6 +59,10 @@
         }
       }
     }
+  }
+
+  onMount(() => {
+    loaded = true;
   });
 </script>
 
@@ -73,8 +75,7 @@
     itemscope
     itemtype="https://schema.org/BlogPosting"
     itemprop="blogPost"
-    class="h-entry flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-t-2xl) bg-[#F9FBFF] dark:bg-[#252525]"
-    bind:this={postElement}>
+    class="h-entry flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-t-2xl) bg-[#F9FBFF] dark:bg-[#252525]">
     {#if loaded}
       <div in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="max-w-[55rem]">
         <PostHeading data={thisPost} />
@@ -83,6 +84,7 @@
       <div
         in:fade={{ duration: 300, delay: 300 }}
         out:fade={{ duration: 300 }}
+        bind:this={postElement}
         itemprop="articleBody"
         class="e-content prose prose-slate dark:prose-invert max-w-[55rem]">
         <slot name="post_content" />

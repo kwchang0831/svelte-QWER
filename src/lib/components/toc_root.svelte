@@ -98,7 +98,7 @@
     if (post_toc && lastActivated) {
       const cTop = post_toc.scrollTop;
       const cBot = cTop + post_toc.clientHeight;
-      const aTop = lastActivated.offsetTop - post_toc.offsetTop;
+      const aTop = lastActivated.offsetTop;
       const aBot = aTop + lastActivated.clientHeight;
       const isInView = aTop >= cTop && aBot <= cBot;
       if (!isInView) {
@@ -114,7 +114,15 @@
 {#if toc && toc.length > 0}
   <aside aria-label="Table Of Content" class="sticky top-[4rem] hidden xl:block pb8">
     <nav on:mousedown={mouseDownHandler} class="flex-col">
-      <h2 class="text-2xl font-bold px4 py2">Table of Content</h2>
+      <h2 class="text-2xl font-bold px4 py2">
+        <button
+          class="cursor-pointer"
+          on:click={() => {
+            window.scrollTo(0, 0);
+          }}>
+          Table of Content
+        </button>
+      </h2>
       <div on:click={handleUpMore} class={upMore ? 'cursor-pointer  hover:bg-gray/[0.5]' : ''}>
         <div class="i-bxs-chevrons-up w6 h6 m-auto {upMore ? 'op100' : 'op0'}" />
       </div>
