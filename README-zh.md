@@ -132,9 +132,16 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 想知道還有誰正在使用 QWER，請參考 [Github-Topics: svelte-qwer](https://github.com/topics/svelte-qwer)。
 
-## 🎉 社會支持
+## 🎉 支持
 
 <a href="https://www.producthunt.com/posts/qwer?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-qwer" target="_blank" rel="noreferrer noopener"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=356641&theme=light" alt="QWER - ✒︎&#0032;Simply&#0032;Awesome&#0032;Blog&#0032;Starter&#0032;built&#0032;with&#0032;Svelte&#0032;and&#0032;❤ | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
+<div class="flex" style="display:inline-block; font-size: 24px; --un-bg-opacity: 1; background-color: rgba(255, 221, 0); border-radius: 0.5rem; padding: 12px 18px; border: 2px solid;">
+<a class="flex"  href="https://www.buymeacoffee.com/kwchang0831" style="color: black;" >
+<span>🥓</span>
+<span>請我吃香脆培根</span>
+</a>
+</div>
 
 ## 📝 授權條款
 
