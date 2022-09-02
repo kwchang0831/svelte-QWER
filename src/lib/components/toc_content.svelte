@@ -37,7 +37,9 @@
       <span class="!w-[1.25rem] !h-[1.25rem]  i-akar-icons-circle inline-block shrink-0" />
     {/if}
     <span
-      class="cursor-pointer select-none text-black/[0.6] group-hover:(text-black) dark:(text-white/[0.6] group-hover:(text-white) group-active:(!text-black))">
+      class="{$tocCur.get(content.slug)
+        ? '!text-black !font-900 scale-105 dark:(!text-white)'
+        : ''} cursor-pointer select-none text-black/[0.6] group-hover:(text-black) dark:(text-white/[0.6] group-hover:(text-white) group-active:(!text-black))">
       {@html content.heading}
     </span>
   </div>

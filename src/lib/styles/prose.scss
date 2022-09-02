@@ -14,14 +14,18 @@ html {
 }
 
 .prose {
-  --at-apply: 'px8';
+  --at-apply: 'px8 text-lg';
+
+  h1 {
+    --at-apply: 'text-4xl';
+  }
 
   h2 {
     --at-apply: 'text-3xl';
   }
 
   h3 {
-    --at-apply: 'text-2xl';
+    --at-apply: 'text-3xl';
   }
 
   h4 {
@@ -33,7 +37,11 @@ html {
   }
 
   h6 {
-    --at-apply: 'text-base';
+    --at-apply: 'text-lg';
+  }
+
+  strong {
+    --at-apply: 'text-green-600 font-bold';
   }
 
   h2:not(.code-title),

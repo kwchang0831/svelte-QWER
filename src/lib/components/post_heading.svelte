@@ -55,7 +55,7 @@
     </div>
   </div>
 
-  <h1 itemprop="name headline" class="p-name text-3xl my4 mx--4 md:mx0">{data.title}</h1>
+  <h1 itemprop="name headline" class="p-name text-4xl my4 mx--4 md:mx0">{data.title}</h1>
 
   <div class="mx--8 md:mx0">
     {#if data.cover}
