@@ -14,6 +14,13 @@
   import type { LayoutData } from './$types';
 
   export let data: LayoutData;
+
+  import { navigating } from '$app/stores';
+  import NProgress from 'nprogress';
+  import '$lib/styles/nprogress.css';
+  // Full list: https://github.com/rstacruz/nprogress#configuration
+  NProgress.configure({ minimum: 0.2, easing: 'ease', speed: 600 });
+  $: $navigating ? NProgress.start() : NProgress.done();
 </script>
 
 <Head />
