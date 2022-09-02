@@ -1,3 +1,5 @@
+export const prerender = true;
+
 import type { RequestHandler } from '@sveltejs/kit';
 import { Base64 } from 'js-base64';
 
