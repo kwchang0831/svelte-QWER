@@ -48,9 +48,8 @@ export const headConfig: Site.Head = {
         ]
       : [
           // For Production Enviroment
-          // Umami Analytics
-          // '<link rel="preconnect" href="https://umami.kwchang0831.dev" />',
-          // '<script defer data-website-id="YOUR_ID" src="https://umami.kwchang0831.dev/umami.js" data-cache="true" data-domains="svelte-qwer.vercel.app"></script>',
+          '<link rel="preconnect" href="https://plausible.kwchang0831.dev" />',
+          '<script defer data-domain="svelte-qwer.vercel.app" src="https://plausible.kwchang0831.dev/js/plausible.js"></script>',
         ],
 };
 
