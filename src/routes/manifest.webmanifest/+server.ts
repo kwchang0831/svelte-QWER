@@ -1,5 +1,5 @@
-export const prerender = true;
-
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 import type { RequestHandler } from '@sveltejs/kit';
 import { siteConfig } from '$config/site';
 import { theme } from '$stores/themes';

@@ -1,5 +1,3 @@
-export const prerender = true;
-
 import type { RequestHandler } from '@sveltejs/kit';
 import { siteConfig } from '$config/site';
 import type { Post } from '$lib/types/post';
