@@ -21,13 +21,13 @@ export const assets = (() => {
       };
 
       if (ImageConfig.ExtraFormats && ImageConfig.ExtraFormats.length) {
-        output['extraFormats'] = `$generated/assets${e}?format=${ImageConfig.ExtraFormats.join(';')}`;
+        output['extraFormats'] = `${ImageConfig.OriginalImageFolder}${e}?format=${ImageConfig.ExtraFormats.join(';')}`;
       }
 
       Object.entries(ImageConfig.ExtraResolutions).map(([k, v]) => {
-        output[k] = `$generated/assets${e}?w=${v.width}${v.height ? `&h=${v.height}` : ''}&format=${v.format.join(
-          ';',
-        )}`;
+        output[k] = `${ImageConfig.OriginalImageFolder}${e}?w=${v.width}${
+          v.height ? `&h=${v.height}` : ''
+        }&format=${v.format.join(';')}`;
       });
 
       m.set(e, output);
