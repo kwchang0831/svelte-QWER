@@ -49,7 +49,7 @@
         </p>
         <!-- Pleese show your respect and support by displaying "Powered by QWER" section -->
         <div>
-          Powered By
+          Powered by
           <a
             use:tippy
             aria-label={$LL.QWER()}
