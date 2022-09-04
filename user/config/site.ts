@@ -25,6 +25,8 @@ export const siteConfig: Site.Config = {
   author: {
     name: 'John Doe',
     status: '❤️',
+    statusTip:
+      '<a href="https://github.com/kwchang0831/svelte-QWER" style="color:#0F0" onMouseOver="this.style.color=\'#0FF\'" onMouseOut="this.style.color=\'#0F0\'" >QWER</a> is Awesome !',
     avatar: Avatar,
     avatar_128: Avatar_128,
     avatar_48_png: Avatar_48_PNG,

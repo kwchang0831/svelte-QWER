@@ -4,4 +4,4 @@
 
 feat: add i18n for UI
 
-!updated: `user/site.ts` config required mirgration
+!updated: `user/config/site.ts` config required mirgration

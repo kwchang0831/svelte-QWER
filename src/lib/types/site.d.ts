@@ -31,6 +31,7 @@ export namespace Site {
   export interface Author {
     name: string;
     status?: string;
+    statusTip?: string;
     avatar?: string;
     avatar_128: string[];
     avatar_48_png: string;
