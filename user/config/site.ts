@@ -97,7 +97,7 @@ export const giscusConfig: Giscus.Config = {
 
 export const navConfig: (DD.Nav | DD.Link)[] = [
   {
-    name: 'QWER',
+    name: 'Get Started',
     orientation: 2,
     links: [
       {
@@ -133,7 +133,7 @@ export const mobilenavConfig: DD.Nav = {
   orientation: 2,
   links: [
     {
-      name: 'QWER',
+      name: 'Get Started',
       orientation: 1,
       links: [
         {
