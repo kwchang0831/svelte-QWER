@@ -5,6 +5,7 @@
   import tippy from '$lib/actions/tippy';
   import { onMount } from 'svelte';
   import { Base64 } from 'js-base64';
+  import { LL } from '$i18n/i18n-svelte';
 
   let className: any = undefined;
   export { className as class };
@@ -48,9 +49,10 @@
         </p>
         <!-- Pleese show your respect and support by displaying "Powered by QWER" section -->
         <div>
-          Powered by <a
+          Powered By
+          <a
             use:tippy
-            aria-label="🚀 QWER [α] - Built with SvelteKit and ❤"
+            aria-label={$LL.QWER()}
             rel="noreferrer noopener external"
             target="_blank"
             href="https://github.com/kwchang0831/svelte-QWER"

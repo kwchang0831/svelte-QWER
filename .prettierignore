@@ -16,3 +16,4 @@ yarn.lock
 .vercel
 
 user/data/**
+src/i18n/i18n-*

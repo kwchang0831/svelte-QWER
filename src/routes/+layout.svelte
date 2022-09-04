@@ -21,6 +21,19 @@
   // Full list: https://github.com/rstacruz/nprogress#configuration
   NProgress.configure({ minimum: 0.2, easing: 'ease', speed: 600 });
   $: $navigating ? NProgress.start() : NProgress.done();
+
+  import { setLocale } from '$i18n/i18n-svelte';
+  import { loadLocale } from '$i18n/i18n-util.sync';
+  import { siteConfig } from '$config/site';
+  import { locales, baseLocale } from '$i18n/i18n-util';
+
+  if (locales.includes(siteConfig.lang)) {
+    loadLocale(siteConfig.lang);
+    setLocale(siteConfig.lang);
+  } else {
+    loadLocale(baseLocale);
+    setLocale(baseLocale);
+  }
 </script>
 
 <Head />

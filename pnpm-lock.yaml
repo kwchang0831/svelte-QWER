@@ -51,6 +51,7 @@ importers:
       svelte-preprocess: ^4.10.7
       tippy.js: ^6.3.7
       tslib: ^2.4.0
+      typesafe-i18n: ^5.12.0
       typescript: ^4.8.2
       unocss: ^0.45.13
       unocss-preset-scrollbar: ^0.2.1
@@ -104,6 +105,7 @@ importers:
       svelte-preprocess: 4.10.7_6ypzhqbpygtvyg57dypetecbwy
       tippy.js: 6.3.7
       tslib: 2.4.0
+      typesafe-i18n: 5.12.0_typescript@4.8.2
       typescript: 4.8.2
       unocss: 0.45.13_vite@3.1.0-beta.1
       unocss-preset-scrollbar: 0.2.1_unocss@0.45.13
@@ -5624,6 +5626,15 @@ packages:
     resolution: {integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==}
     dependencies:
       is-typedarray: 1.0.0
+    dev: true
+
+  /typesafe-i18n/5.12.0_typescript@4.8.2:
+    resolution: {integrity: sha512-9QUVOZcxzRMhY3W7BJq0s87sSjXmHo9K9uyyrYPLxx5YWzDG7SgPJQ6XHvB7RXTkRrr6ixAIiqBS9uAaKJpmFg==}
+    hasBin: true
+    peerDependencies:
+      typescript: '>=3.5.1'
+    dependencies:
+      typescript: 4.8.2
     dev: true
 
   /typescript/4.8.2:

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import LL from '$i18n/i18n-svelte';
   import { fade } from 'svelte/transition';
   import IndexPost from '$lib/components/index_post.svelte';
   import { postsShow } from '$stores/posts';
@@ -26,7 +27,7 @@
           class="h-[20rem] flex items-center justify-center"
           in:fade={{ duration: 300, delay: 300 }}
           out:fade={{ duration: 300 }}>
-          <h2 class="text-3xl">No Post Found.</h2>
+          <h2 class="text-3xl">{$LL.NoPostFound()}</h2>
         </div>
       {:else}
         {@const years = [new Date().getFullYear()]}
@@ -46,7 +47,7 @@
       class="h-[20rem] flex flex-col items-center justify-center gap4"
       in:fade={{ duration: 300, delay: 300 }}
       out:fade={{ duration: 300 }}>
-      <h2 class="text-3xl">Loading Posts...</h2>
+      <h2 class="text-3xl">{$LL.LoadingPosts()}</h2>
       <div class="i-line-md-loading-twotone-loop !h-16 !w-16" />
     </div>
   {/if}

@@ -21,14 +21,16 @@
     "./QWER"
   ],
   "scripts": {
+    "dev:i18n": "npx typesafe-i18n",
     "dev:sveltekit": "cross-env MODE=development vite dev --host",
     "dev:QWER": "node --no-warnings QWER watch",
-    "dev:watch": "npm-run-all -p -r dev:QWER dev:sveltekit",
+    "dev:watch": "npm-run-all -p -r dev:QWER dev:i18n dev:sveltekit ",
     "dev": "npm-run-all -s build:QWER dev:watch",
+    "build:i18n": "npx typesafe-i18n --no-watch",
     "build:sveltekit": "vite build",
     "build:QWER_Without_Meta": "node --no-warnings QWER buildWithoutMeta",
     "build:QWER": "node --no-warnings QWER build",
-    "build": "npm-run-all -s build:QWER build:sveltekit",
+    "build": "npm-run-all -s build:QWER build:i18n build:sveltekit",
     "preview": "vite preview",
     "clean:husky": "rimraf .husky",
     "clean:sveltekit": "rimraf .svelte-kit",
@@ -44,7 +46,8 @@
     "up:deps": "pnpm up -L -i",
     "up:QWER-deps": "cd QWER && pnpm up -L -i",
     "up": "npm-run-all -s up:deps up:QWER-deps",
-    "husky": "husky install && npx husky set .husky/pre-commit \"npx lint-staged\" && gitmoji -i"
+    "husky": "husky install && npx husky set .husky/pre-commit \"npx lint-staged\" && gitmoji -i",
+    "typesafe-i18n": "typesafe-i18n"
   },
   "lint-staged": {
     "*.{html,scss,css,svelte,ts,js}": "prettier --write --plugin-search-dir=."
@@ -97,6 +100,7 @@
     "svelte-preprocess": "^4.10.7",
     "tippy.js": "^6.3.7",
     "tslib": "^2.4.0",
+    "typesafe-i18n": "^5.12.0",
     "typescript": "^4.8.2",
     "unocss": "^0.45.13",
     "unocss-preset-scrollbar": "^0.2.1",

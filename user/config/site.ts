@@ -20,6 +20,7 @@ export const siteConfig: Site.Config = {
   subtitle: '🚀 QWER - Built using Svelte with ❤',
   description: '🚀 QWER - Awesome Blog Starter, Built using Svelte with ❤',
   lang: 'en',
+  timeZone: 'Asia/Taipei',
   since: 2022,
   author: {
     name: 'John Doe',
@@ -61,7 +62,7 @@ export const dateConfig: Site.DateConfig = {
       weekday: 'short',
       month: 'short',
       day: 'numeric',
-      timeZone: 'Asia/Taipei',
+      timeZone: `${siteConfig.timeZone}`,
     },
   },
   toUpdatedString: {
@@ -71,7 +72,7 @@ export const dateConfig: Site.DateConfig = {
       weekday: 'short',
       month: 'short',
       day: 'numeric',
-      timeZone: 'Asia/Taipei',
+      timeZone: `${siteConfig.timeZone}`,
     },
   },
 };

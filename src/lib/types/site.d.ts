@@ -1,3 +1,5 @@
+import type { Locales } from '$i18n/i18n-types';
+
 export namespace Site {
   export interface Config {
     /** site url  without tailing slash. for example: `https://example.com` */
@@ -9,7 +11,10 @@ export namespace Site {
     /** site subtitle. */
     subtitle?: string;
     /** site lang. `<html lang={site.lang}>` */
-    lang: string;
+    lang: Locales;
+
+    timeZone: string;
+
     /** site published since year. */
     since?: number;
 

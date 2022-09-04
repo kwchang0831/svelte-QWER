@@ -1,4 +1,5 @@
 <script lang="ts">
+  import LL from '$i18n/i18n-svelte';
   import { slide, fly } from 'svelte/transition';
   import TagsCategory from '$lib/components/tags_category.svelte';
   let scrollY = 0;
@@ -50,7 +51,7 @@
     <div
       class="select-none flex justify-between items-center border-b-2 border-black dark:border-white cursor-pointer"
       on:click={toggle}>
-      <h2 class:expaned class="text-2xl my2">Tags</h2>
+      <h2 class:expaned class="text-2xl my2">{$LL.Tags()}</h2>
 
       <div
         class="{expaned ? 'i-tabler-fold-down' : 'i-tabler-fold-up'} display-inline-block !w-[1.75rem] !h-[1.75rem]" />
@@ -65,7 +66,7 @@
             handleInput();
           }
         }}
-        placeholder="Filter Tags"
+        placeholder={$LL.FilterTags()}
         class="my2 px2 py1 bg-transparent border-2 border-x-2 border-black/[0.5] dark:border-white/[0.5] rounded flex-1" />
       {#if input && input.length > 0}
         <div

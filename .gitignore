@@ -13,3 +13,4 @@ __unconfig_vite.config.js
 /src/generated
 .husky
 .tool-versions
+/src/i18n/i18n-*

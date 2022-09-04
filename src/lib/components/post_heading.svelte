@@ -5,6 +5,7 @@
   import tippy from '$lib/actions/tippy';
   import { lastUpdatedStr, defaultPublishedStr, defaultUpdatedStr } from '$lib/utli/timeFormat';
   import AuthorAvatar from '$lib/components/image_avatar.svelte';
+  import LL from '$i18n/i18n-svelte';
 
   export let data: Post.Post;
 </script>
@@ -29,12 +30,17 @@
       <time
         use:tippy
         class="dt-published"
-        aria-label="First published at {new Date(data.published).toLocaleString(dateConfig.toPublishedString.locales, {
-          year: 'numeric',
-          month: 'numeric',
-          day: 'numeric',
-          timeZone: 'Asia/Taipei',
-        })}"
+        aria-label="{$LL.FirstPublishedAt()} {new Date(data.published).toLocaleString(
+          dateConfig.toPublishedString.locales,
+          {
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            timeZone: `${siteConfig.timeZone}`,
+          },
+        )}"
         datetime={data.published}
         itemprop="datePublished">
         {defaultPublishedStr(data.published)}
@@ -44,13 +50,16 @@
       </time>
       <span
         use:tippy
-        aria-label="Last updated at {new Date(data.updated).toLocaleString(dateConfig.toPublishedString.locales, {
+        aria-label="{$LL.LastUpdatedAt()} {new Date(data.updated).toLocaleString(dateConfig.toPublishedString.locales, {
           year: 'numeric',
           month: 'numeric',
           day: 'numeric',
-          timeZone: 'Asia/Taipei',
+          hour: 'numeric',
+          minute: 'numeric',
+          timeZone: `${siteConfig.timeZone}`,
         })}">
-        Updated: {lastUpdatedStr(data.updated)}
+        {$LL.Updated()}
+        {lastUpdatedStr(data.updated)}
       </span>
     </div>
   </div>

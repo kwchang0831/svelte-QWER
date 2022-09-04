@@ -1,6 +1,5 @@
 <script lang="ts">
   import { siteConfig } from '$config/site';
-  import { dev } from '$app/environment';
   import AuthorAvatar from '$lib/components/image_avatar.svelte';
   import tippy from '$lib/actions/tippy';
 

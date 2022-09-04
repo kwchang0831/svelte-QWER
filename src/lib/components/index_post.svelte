@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Post } from '$lib/types/post';
   import { fly } from 'svelte/transition';
-  import { dateConfig, siteConfig } from '$config/site';
+  import { dateConfig } from '$config/site';
   import { Config } from '$config/QWER.confitg';
   import { tagsCur } from '$stores/tags';
   import { postsShow } from '$stores/posts';

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import LL from '$i18n/i18n-svelte';
   import { onMount } from 'svelte';
   import { giscusConfig } from '$config/site';
 
@@ -49,7 +50,7 @@
 {#if giscusConfig.enable}
   <div id="giscus-container">
     <div id="giscus-loading" class="flex flex-col items-center gap2">
-      <h2>Loading Giscus...</h2>
+      <h2>{$LL.LoadingGiscus()}</h2>
       <div class="i-line-md-loading-twotone-loop !h-16 !w-16" />
     </div>
     <div id="giscus" class="giscus" />

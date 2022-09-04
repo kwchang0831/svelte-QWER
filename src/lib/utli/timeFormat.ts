@@ -1,4 +1,6 @@
 import { dateConfig } from '$config/site';
+import { LL } from '$i18n/i18n-svelte';
+import { get } from 'svelte/store';
 
 export const lastUpdatedStr = (updatedTime: string) => {
   // In minutes
@@ -6,24 +8,24 @@ export const lastUpdatedStr = (updatedTime: string) => {
 
   let cur = Math.round(lastUpdated);
   if (cur === 0) {
-    return 'just now';
+    return get(LL).JustNow();
   }
   if (cur < 60) {
-    return `${cur} minute${cur > 1 ? 's' : ''} ago`;
+    return get(LL).MinuteAgo(cur);
   }
 
   // In hours
   lastUpdated = lastUpdated / 60;
   cur = Math.round(lastUpdated);
   if (cur < 24) {
-    return `${cur} hour${cur > 1 ? 's' : ''} ago`;
+    return get(LL).HourAgo(cur);
   }
 
   // In days
   lastUpdated = lastUpdated / 24;
   cur = Math.round(lastUpdated);
 
-  return `${cur} day${cur > 1 ? 's' : ''} ago`;
+  return get(LL).DayAgo(cur);
 };
 
 export const defaultPublishedStr = (publishedTime: string) => {

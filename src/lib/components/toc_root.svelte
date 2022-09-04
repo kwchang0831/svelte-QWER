@@ -4,6 +4,7 @@
   export let toc: TOC.Heading[] | undefined;
   import { tocCur } from '$stores/toc';
   import { browser } from '$app/environment';
+  import LL from '$i18n/i18n-svelte';
 
   let pos = { top: 0, left: 0, x: 0, y: 0 };
 
@@ -114,14 +115,12 @@
 {#if toc && toc.length > 0}
   <aside aria-label="Table Of Content" class="sticky top-[4rem] hidden xl:block pb8">
     <nav on:mousedown={mouseDownHandler} class="flex-col">
-      <h2 class="text-2xl font-bold px4 py2">
-        <button
-          class="cursor-pointer"
-          on:click={() => {
-            window.scrollTo(0, 0);
-          }}>
-          Table of Content
-        </button>
+      <h2
+        class="text-2xl font-bold px4 py2 text-center cursor-pointer"
+        on:click={() => {
+          window.scrollTo(0, 0);
+        }}>
+        {$LL.TableOfContent()}
       </h2>
       <div on:click={handleUpMore} class={upMore ? 'cursor-pointer  hover:bg-gray/[0.5]' : ''}>
         <div class="i-bxs-chevrons-up w6 h6 m-auto {upMore ? 'op100' : 'op0'}" />

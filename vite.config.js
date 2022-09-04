@@ -70,6 +70,7 @@ const config = {
       $QWER: path.resolve('.', 'QWER'),
       $generated: path.resolve('.', 'src/generated'),
       $stores: path.resolve('.', 'src/lib/stores'),
+      $i18n: path.resolve('.', 'src/i18n'),
       $config: path.resolve('.', 'user/config'),
       $assets: path.resolve('.', 'user/assets'),
       $custom: path.resolve('.', 'user/custom'),

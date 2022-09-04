@@ -27,9 +27,11 @@
       "$custom": ["./user/custom"],
       "$custom/*": ["./user/custom/*"],
       "$static": ["./static"],
-      "$static/*": ["./static/*"]
+      "$static/*": ["./static/*"],
+      "$i18n": ["./src/i18n"],
+      "$i18n/*": ["./src/i18n/*"]
     }
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "build/**/*", "src/lib/template/**/*"]
+  "exclude": ["node_modules", "build/**/*", "src/lib/template/**/*", "src/generated/**/*"]
 }
