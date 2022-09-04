@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Post } from '$lib/types/post';
   import { dateConfig, siteConfig } from '$config/site';
-  import ImgZ from '$lib/components/image_zoom.svelte';
+  import ImgZoom from '$lib/components/image_zoom.svelte';
   import tippy from '$lib/actions/tippy';
   import { lastUpdatedStr, defaultPublishedStr, defaultUpdatedStr } from '$lib/utli/timeFormat';
   import AuthorAvatar from '$lib/components/image_avatar.svelte';
@@ -68,11 +68,14 @@
 
   <div class="mx--8 md:mx0">
     {#if data.cover}
-      <ImgZ src={data.cover} class="w-full h-auto aspect-auto object-cover md:(rounded-2xl shadow-xl)" loading="eager">
+      <ImgZoom
+        src={data.cover}
+        class="w-full h-auto aspect-auto object-cover md:(rounded-2xl shadow-xl)"
+        loading="eager">
         {#if data.coverCaption}
           {@html data.coverCaption}
         {/if}
-      </ImgZ>
+      </ImgZoom>
     {/if}
   </div>
 </div>

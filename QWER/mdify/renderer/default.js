@@ -307,7 +307,7 @@ export const default_renderer = (basePath) => {
           href = new URL(href).href;
           if (alt === '') alt = href;
           if (ImageConfig.SupportedImageFormat.includes(ext)) {
-            return `<ImgZ src="${href}" alt="${alt}">${title ? `${title}` : ''}</ImgZ>`;
+            return `<ImgZoom src="${href}" alt="${alt}">${title ? `${title}` : ''}</ImgZoom>`;
           }
           if (ImageConfig.SupportedVideoFormat.includes(ext)) {
             if (ext === 'mp4') return `<Video mp4="${href}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
@@ -326,11 +326,11 @@ export const default_renderer = (basePath) => {
               imgMeta = probe.sync(readFileSync(imgPath));
               // Internally uses posix style backslashes
               href = path.resolve('/', href.split(path.sep).join(path.posix.sep));
-              return `<ImgZ src="${href}" alt="${alt}" width="${imgMeta?.width}" height="${imgMeta?.height}">${
+              return `<ImgZoom src="${href}" alt="${alt}" width="${imgMeta?.width}" height="${imgMeta?.height}">${
                 title ? `${title}` : ''
-              }</ImgZ>`;
+              }</ImgZoom>`;
             }
-            return `<ImgZ src="${href}" alt="${alt}">${title ? `${title}` : ''}</ImgZ>`;
+            return `<ImgZoom src="${href}" alt="${alt}">${title ? `${title}` : ''}</ImgZoom>`;
           }
           if (ImageConfig.SupportedVideoFormat.includes(ext)) {
             if (ext === 'mp4')
@@ -339,7 +339,7 @@ export const default_renderer = (basePath) => {
               return `<Video webm="${path.resolve('/', href)}" id="${alt}" ${title ? `title="${title}"` : ''}/>`;
           }
         }
-        return `<ImgZ src="${href}" alt="${alt}">${title ? `${title}` : ''}</ImgZ>`;
+        return `<ImgZoom src="${href}" alt="${alt}">${title ? `${title}` : ''}</ImgZoom>`;
       },
 
       text(text) {

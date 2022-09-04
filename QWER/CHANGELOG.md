@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- e98fc14: fix: always use ImgZ component for image element
+- e98fc14: fix: always use ImgZoom component for image element
 
 ## 0.1.0
 
