@@ -108,6 +108,8 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - Utilizes [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
 
+- i18n via [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n).
+
 ## 📚 Learn More
 
 Please read more at [Intro to QWER](https://svelte-qwer.vercel.app/intro-to-QWER) and [About QWER](https://svelte-qwer.vercel.app/about).
@@ -118,11 +120,9 @@ Please read more at [Intro to QWER](https://svelte-qwer.vercel.app/intro-to-QWER
 
 For now, if there are updates, and if you do wanna apply the upates.
 
-Just copy the latest `QWER` and `src` folder and replace your old ones.
+Just copy and paste your `user` folder to the latest release.
 
-But sometimes, you might be required to adjust/update `user/config`.
-
-That's it for now. Thanks.
+Watch out for the CHANGELOG to see if yor are required to migrate `user/config`.
 
 ## ❓ Issues / Problems / Questions
 

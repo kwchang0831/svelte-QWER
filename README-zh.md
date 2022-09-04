@@ -104,9 +104,11 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - 自動照片優化支援，透過 [vite-imagetools](https://github.com/JonasKruckenberg/imagetools)。
 
-- 支援 [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions
+- 支援 [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions。
 
-- 使用 [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine
+- 使用 [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine。
+
+- 多國語系 i18n 透過 [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n)。
 
 ## 📚 了解更多
 
@@ -116,11 +118,9 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 [QWER](https://github.com/kwchang0831/svelte-QWER) 現在處於很早期的階段，所以會有經常可能會有破壞性的改動，請多包涵。
 
-未來如果有更新，而且您也想應用更新，通常您只需要複製最新的 `QWER` 與 `src` 資料夾覆蓋您原有的就可以了。
+未來如果有更新，而且您也想應用更新，通常你只需要複製你的 `user` 資料夾覆蓋最新的 release。
 
-但有時候，您可以還是會需要對 `user/config` 進行更新與調整。
-
-目前暫時就這樣，感謝。
+請別忘了查看 CHANGELOG，看看你是否需要對 `user/config` 進行更新與調整。
 
 ## ❓ 有任何使用上的問題
 
