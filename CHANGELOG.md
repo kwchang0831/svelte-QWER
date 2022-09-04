@@ -1,5 +1,22 @@
 # @kwchang0831/svelte-qwer
 
+## 0.2.0
+
+### Minor Changes
+
+- b56128c: feat: add i18n for UI
+
+  !updated: `user/config/site.ts` config required mirgration
+
+### Patch Changes
+
+- c363a84: deps: upgrade
+- 6dec248: fix: revert deps upgrade (svelte 3.50.0 -> 3.49.0) due to transition broken
+- bfcecdd: dpes: upgrade. \*(@sveltjs/kit -> 1.0.0-next.463)
+- e8e4c4c: updated: rename file name of components
+- 4c33b24: fix: tippy action default options always overwritten user options.
+  !added: status tip. `user/config/site.ts` might need migration.
+
 ## 0.1.2
 
 ### Patch Changes
