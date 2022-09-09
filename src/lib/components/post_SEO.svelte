@@ -13,7 +13,7 @@
 </script>
 
 <svelte:head>
-  <title>{post.title} | {siteConfig.title}</title>
+  <title>{post.title} | {siteConfig.title} | @{siteConfig.author.name}</title>
   <meta name="description" content={post.description} />
   <link rel="canonical" href={new URL(post.slug, siteConfig.url).href} />
 

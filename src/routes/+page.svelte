@@ -33,7 +33,7 @@
 <svelte:window bind:innerWidth={iW} />
 
 <svelte:head>
-  <title>{siteConfig.title}</title>
+  <title>{siteConfig.title} | @{siteConfig.author.name}</title>
   <meta name="description" content={siteConfig.description} />
   <link rel="canonical" href={siteConfig.url} />
 
