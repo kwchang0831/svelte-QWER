@@ -16,6 +16,8 @@ const zh_Hans: Translation = {
   MinuteAgo: '{0} 分钟前',
   HourAgo: '{0} 小时前',
   DayAgo: '{0} 天前',
+  Page404NotFound: '此地无银三百两',
+  Page404BackHome: '赶紧回首页 !',
 };
 
 export default zh_Hans;
