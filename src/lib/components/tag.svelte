@@ -9,7 +9,7 @@
 
   function handleClick() {
     tagsCur.toggle(data);
-    postsShow.filter($tagsCur);
+    postsShow.filter();
     if (browser && window.location.pathname === '/') {
       let output = new URLSearchParams();
       $page.url.searchParams.forEach((v, k) => {
@@ -19,8 +19,11 @@
         output.append(k === 'tags' ? k : `tags-${encodeURI(k)}`, Array.from(v).join(','));
       });
       const params = output.toString();
-      if (params) window.history.replaceState({}, '', `?${params}`);
-      else window.history.replaceState({}, '', '/');
+      if (params) {
+        window.history.replaceState({}, '', `?${params}`);
+      } else {
+        window.history.replaceState({}, '', '/');
+      }
     }
   }
 </script>

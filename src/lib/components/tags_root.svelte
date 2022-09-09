@@ -61,7 +61,7 @@
         bind:value={input}
         on:input={debounce}
         on:keydown={(e) => {
-          if (input.length > 0 && e.code === 'Escape') {
+          if (input && input.length > 0 && e.code === 'Escape') {
             input = '';
             handleInput();
           }

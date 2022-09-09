@@ -27,7 +27,7 @@
 
   function handleClick(tag: Tags.Tag) {
     tagsCur.toggle(tag);
-    postsShow.filter($tagsCur);
+    postsShow.filter();
     if (browser && window.location.pathname === '/') {
       let output = new URLSearchParams();
       $page.url.searchParams.forEach((v, k) => {

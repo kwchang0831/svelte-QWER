@@ -1,8 +1,10 @@
-import { readable, writable } from 'svelte/store';
+import { readable, writable, get } from 'svelte/store';
 import type { Post } from '$lib/types/post';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import postsjson from '$generated/posts.json';
+import { tagsCur } from '$stores/tags';
+import { result } from '$lib/search/stores';
 
 const _allposts = postsjson as [string, Post.Post][];
 
@@ -20,9 +22,20 @@ export const postsShow = (() => {
     set(_default);
   };
 
-  const _filter = (tags: Map<string, Set<string>>) => {
-    let _data = _default;
-    tags.forEach((v, category) => {
+  const _filterBySlugs = (data: Post.Post[]) => {
+    let _data = data;
+    const slugs: Array<string> | undefined = get(result);
+    if (slugs) {
+      _data = _data.filter((e) => {
+        return (slugs as Array<string>).includes(e.slug);
+      });
+    }
+    return _data;
+  };
+
+  const _filterByTags = (data: Post.Post[]) => {
+    let _data = data;
+    get(tagsCur).forEach((v, category) => {
       if (category === 'tags') {
         v.forEach((searchTag) => {
           _data = _data.filter((e) => {
@@ -54,6 +67,13 @@ export const postsShow = (() => {
         });
       }
     });
+    return _data;
+  };
+
+  const _filter = () => {
+    let _data = _default;
+    _data = _filterByTags(_data);
+    _data = _filterBySlugs(_data);
     set(_data);
   };
 
