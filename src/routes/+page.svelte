@@ -24,7 +24,7 @@
       }
     });
 
-    postsShow.filter($tagsCur);
+    if ($tagsCur && $tagsCur.size) postsShow.filter($tagsCur);
   });
 
   let iW: number;

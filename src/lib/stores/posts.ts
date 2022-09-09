@@ -14,17 +14,14 @@ export const postsShow = (() => {
       return !(e[1]['options'] && e[1]['options'].includes('unlisted'));
     })
     .flatMap((e) => e[1]);
-
-  let _data: Post.Post[] = _default;
-  const { subscribe, set } = writable<Post.Post[]>(_data);
+  const { subscribe, set } = writable<Post.Post[]>(_default);
 
   const _init = () => {
-    _data = _default;
-    set(_data);
+    set(_default);
   };
 
   const _filter = (tags: Map<string, Set<string>>) => {
-    _data = _default;
+    let _data = _default;
     tags.forEach((v, category) => {
       if (category === 'tags') {
         v.forEach((searchTag) => {
