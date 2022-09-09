@@ -112,7 +112,7 @@
                   : ''}">
                 {#if link.url}
                   <a
-                    sveltekit:prefetch={link.prefetch}
+                    data-sveltekit-prefetch={link.prefetch ? '' : 'off'}
                     href={link.url}
                     target={nav.target}
                     rel={nav.rel}
