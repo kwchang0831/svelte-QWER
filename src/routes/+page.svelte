@@ -9,7 +9,7 @@
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
   import { fly } from 'svelte/transition';
-  import { query, searching } from '$lib/search/stores';
+  import { query } from '$lib/search/stores';
 
   onMount(() => {
     tagsCur.init();
