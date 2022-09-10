@@ -1,5 +1,11 @@
 # @kwchang0831/svelte-qwer
 
+## 0.3.1
+
+### Patch Changes
+
+- ce52339: fix: index page UI unexpected shift
+
 ## 0.3.0
 
 ### Minor Changes
