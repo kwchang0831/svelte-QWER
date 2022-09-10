@@ -41,20 +41,20 @@
   <!-- OpenGraph -->
   <meta property="og:site_name" content={siteConfig.title} />
   <meta property="og:locale" content={siteConfig.lang} />
+  <meta property="og:type" content="website" />
 
   <meta property="og:title" content={siteConfig.title} />
+  <meta name="twitter:title" content={siteConfig.title} />
+
   <meta property="og:description" content={siteConfig.description} />
+  <meta name="twitter:description" content={siteConfig.description} />
 
-  <meta property="og:type" content="website" />
   <meta property="og:url" content={siteConfig.url} />
+  <meta property="twitter:url" content={siteConfig.url} />
 
-  {#if siteConfig.author.avatar}
-    <meta property="og:image" content={siteConfig.author.avatar} />
-    <meta name="twitter:card" content="summary_large_image" />
-  {:else}
-    <meta property="og:image" content={new URL(siteConfig.og_card, $page.url.origin).href} />
-    <meta name="twitter:card" content="summary" />
-  {/if}
+  <meta property="og:image" content={new URL(siteConfig.cover, siteConfig.url).href} />
+  <meta name="twitter:image" content={new URL(siteConfig.cover, siteConfig.url).href} />
+  <meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 {#if iW < 1280}

@@ -20,7 +20,7 @@ export namespace Site {
 
     author: Author;
 
-    og_card: string;
+    cover: string;
   }
 
   export interface Head {
