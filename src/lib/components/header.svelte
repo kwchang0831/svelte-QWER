@@ -213,8 +213,8 @@
               }}
               class="btn active:translate-y-2 duration-600 ease-out group xl:hidden">
               <div
-                class:i-mdi-tag={$tagsShowMobile}
-                class:i-mdi-tag-off={!$tagsShowMobile}
+                class:i-mdi-tag-off={$tagsShowMobile}
+                class:i-mdi-tag={!$tagsShowMobile}
                 class="!w7 !h7 group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
             </button>
             {#key $theme}
