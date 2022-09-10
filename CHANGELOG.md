@@ -1,5 +1,34 @@
 # @kwchang0831/svelte-qwer
 
+## 0.3.0
+
+### Minor Changes
+
+- 771a3cd: feat: add tags filter button for mobile user
+- 0bfdfab: feat: add on-site search
+
+### Patch Changes
+
+- 2853a77: UI: update index search box
+- 416177d: fix: shows NaN year divider with invalid date in post
+- 82c8454: fix: hover effect stays after touch on mobile
+  fix: index profile avatar unexpected transition on mobile
+- 9261f08: updated: meta, seo
+
+  - !updated: `user/config/site.ts`
+    - added `cover`
+    - removed `og_card`
+
+- 5163f57: fix: incorrectly setting URL search params when mixing tags and query
+- 8c5b897: updated: sveltekit-prefetch -> data-sveltekit-prefetch
+- 0f74c3b: updated: tweak posts stores related
+- 7db9721: deps: upgrade
+- 79e7dd8: updated: 404 error page
+
+  - !added: `user/assets/404.webp`
+
+- aff9466: deps: upgrade (svelte 3.49.0 -> 3.50.1)
+
 ## 0.2.0
 
 ### Minor Changes
