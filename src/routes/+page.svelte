@@ -8,11 +8,15 @@
 
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
-  import { fly } from 'svelte/transition';
+  import { fly, fade } from 'svelte/transition';
   import { query } from '$lib/search/stores';
+  import LL from '$i18n/i18n-svelte';
 
   let iW: number = 0;
+  let loaded = false;
+
   onMount(() => {
+    loaded = true;
     tagsCur.init();
     postsShow.init();
 
@@ -56,56 +60,66 @@
   <meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
-{#if iW < 1280}
-  {#if $tagsShowMobile}
-    <div
-      in:fly={{ x: -100, y: -100, duration: 300, delay: 300 }}
-      out:fly={{ x: -100, y: -100, duration: 300 }}
-      class="mx6 my4">
-      <Tags class="flex flex-col min-w-[12rem]" />
-    </div>
+{#if loaded}
+  {#if iW < 1280}
+    {#if $tagsShowMobile}
+      <div
+        in:fly={{ x: -100, y: -100, duration: 300, delay: 300 }}
+        out:fly={{ x: -100, y: -100, duration: 300 }}
+        class="mx6 my4">
+        <Tags class="flex flex-col min-w-[12rem]" />
+      </div>
+    {:else}
+      <div
+        in:fly={{ y: 100, duration: 300, delay: 300 }}
+        out:fly={{ y: 100, duration: 300 }}
+        itemscope
+        itemtype="https://schema.org/Blog"
+        itemprop="blog"
+        class="flex flex-nowrap justify-center flex-col items-center xl:(flex-row items-stretch)">
+        <div class="max-w-screen-md flex-1 relative ml6">
+          <IndexProfile class="flex flex-col gap2 items-center text-center" />
+        </div>
+        <div class="h-feed min-h-50vh flex-none w-full">
+          <IndexPosts />
+        </div>
+      </div>
+    {/if}
   {:else}
     <div
-      in:fly={{ y: 100, duration: 300, delay: 300 }}
-      out:fly={{ y: 100, duration: 300 }}
       itemscope
       itemtype="https://schema.org/Blog"
       itemprop="blog"
       class="flex flex-nowrap justify-center flex-col items-center xl:(flex-row items-stretch)">
-      <div class="max-w-screen-md flex-1 relative ml6">
-        <IndexProfile class="flex flex-col gap2 items-center text-center" />
+      <div
+        in:fly={{ x: -100, y: -100, duration: 300, delay: 300 }}
+        out:fly={{ x: -100, y: 100, duration: 300 }}
+        class="max-w-screen-md flex-1 relative ml6">
+        <IndexProfile
+          class="flex flex-col gap2 items-center text-center xl:(items-end text-right py4 sticky top-[4rem] min-w-[10rem])" />
       </div>
-      <div class="h-feed min-h-50vh flex-none w-full">
+
+      <div
+        in:fly={{ y: 100, duration: 300, delay: 300 }}
+        out:fly={{ y: -100, duration: 300 }}
+        class="h-feed min-h-50vh flex-none w-full md:(rounded-2xl w-[55rem])">
         <IndexPosts />
+      </div>
+
+      <div
+        in:fly={{ x: 100, y: -100, duration: 300, delay: 300 }}
+        out:fly={{ x: 100, y: 100, duration: 300 }}
+        class="max-w-screen-md flex-1 relative mr6">
+        <Tags class="hidden max-w-[20rem] xl:(flex flex-col min-w-[12rem] sticky top-[4rem])" />
       </div>
     </div>
   {/if}
 {:else}
   <div
-    itemscope
-    itemtype="https://schema.org/Blog"
-    itemprop="blog"
-    class="flex flex-nowrap justify-center flex-col items-center xl:(flex-row items-stretch)">
-    <div
-      in:fly={{ x: -100, y: -100, duration: 300, delay: 300 }}
-      out:fly={{ x: -100, y: 100, duration: 300 }}
-      class="max-w-screen-md flex-1 relative ml6">
-      <IndexProfile
-        class="flex flex-col gap2 items-center text-center xl:(items-end text-right py4 sticky top-[4rem] min-w-[10rem])" />
-    </div>
-
-    <div
-      in:fly={{ y: 100, duration: 300, delay: 300 }}
-      out:fly={{ y: -100, duration: 300 }}
-      class="h-feed min-h-50vh flex-none w-full md:(rounded-2xl w-[55rem])">
-      <IndexPosts />
-    </div>
-
-    <div
-      in:fly={{ x: 100, y: -100, duration: 300, delay: 300 }}
-      out:fly={{ x: 100, y: 100, duration: 300 }}
-      class="max-w-screen-md flex-1 relative mr6">
-      <Tags class="hidden max-w-[20rem] xl:(flex flex-col min-w-[12rem] sticky top-[4rem])" />
-    </div>
+    class="h-[20rem] flex flex-col items-center justify-center gap4"
+    in:fade={{ duration: 300, delay: 300 }}
+    out:fade={{ duration: 300 }}>
+    <h2 class="text-3xl">{$LL.LoadingPosts()}</h2>
+    <div class="i-line-md-loading-twotone-loop !h-16 !w-16" />
   </div>
 {/if}

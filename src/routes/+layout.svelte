@@ -2,8 +2,8 @@
   import '@unocss/reset/sanitize/sanitize.css';
   import '@unocss/reset/sanitize/assets.css';
   import '@unocss/reset/tailwind.css';
-  import 'uno.css';
   import '$lib/styles/global.scss';
+  import 'uno.css';
   import 'tippy.js/dist/tippy.css';
   import 'tippy.js/themes/material.css';
   import 'tippy.js/animations/shift-away.css';

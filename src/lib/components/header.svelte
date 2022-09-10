@@ -3,7 +3,7 @@
   import { browser } from '$app/environment';
   import { siteConfig, navConfig, mobilenavConfig } from '$config/site';
   import { theme } from '$stores/themes';
-  import { fly } from 'svelte/transition';
+  import { fly, fade } from 'svelte/transition';
   import Dropdown from '$lib/components/dd.svelte';
   import { tagsCur, tagsShowMobile } from '$stores/tags';
   import { postsShow } from '$stores/posts';
@@ -196,9 +196,11 @@
                   on:click={() => {
                     $searching = true;
                   }}
+                  in:fade={{ duration: 300, delay: 300 }}
+                  out:fade={{ duration: 300 }}
                   class="mx2 btn active:translate-y-2 duration-600 ease-out group flex items-center gap2 md:(border-1 border-black/[0.25] dark:border-white/[0.25])">
                   <div
-                    class="!w8 !h8 i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+                    class="!w7 !h7 i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
                   <label for="#search" class="hidden md:inline-block">
                     <span class="mx2">{$LL.IndexSearchBox()}</span>
                     <kbd>/</kbd>
