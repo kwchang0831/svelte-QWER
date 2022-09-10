@@ -94,6 +94,8 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - Folder-based organization for creating posts.
 
+- On-site Search.
+
 - Post with tags and tag filtering feature.
 
 - Post with auto generated table of content.
@@ -109,6 +111,8 @@ npx degit kwchang0831/svelte-QWER my-blog
 - Utilizes [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
 
 - i18n via [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n).
+
+- Host the blog free on [Vercel](https://vercel.com/) or [Netlify](https://Netlify.com/).
 
 ## 📚 Learn More
 

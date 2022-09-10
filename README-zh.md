@@ -82,7 +82,7 @@ npx degit kwchang0831/svelte-QWER my-blog
    vercel --prod
    ```
 
-## ✨ Features
+## ✨ 功能
 
 - 使用 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)撰寫文章。
 
@@ -94,6 +94,8 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - 使用資料夾式的整理方式來新增部落格頁面。
 
+- 站內搜尋功能。
+
 - 網誌可設定標籤，還有標籤過濾功能。
 
 - 網誌會自動生成文章目錄。
@@ -104,11 +106,13 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - 自動照片優化支援，透過 [vite-imagetools](https://github.com/JonasKruckenberg/imagetools)。
 
-- 支援 [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions。
+- 支援 [Giscus](https://github.com/giscus/giscus) - 免費留言系統架設於 Github 討論版上。
 
-- 使用 [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine。
+- 使用 [UnoCSS](https://github.com/unocss/unocss) - 原子化的 CSS 引擎。
 
 - 多國語系 i18n 透過 [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n)。
+
+- 免費架設部落格於 [Vercel](https://vercel.com/) 或 [Netlify](https://Netlify.com/) 上。
 
 ## 📚 了解更多
 
