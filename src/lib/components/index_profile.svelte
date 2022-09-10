@@ -19,7 +19,7 @@
     <AuthorAvatar />
     <div
       use:tippy={{ placement: 'right', interactive: true, allowHTML: true }}
-      aria-label={siteConfig.author.statusTip}
+      data-tippy-content={siteConfig.author.statusTip}
       class="absolute rounded-full w-8 h-8 bottom-0 left-24 shadow-xl text-lg bg-white flex justify-center items-center animate-heart-beat dark:bg-[#212121]">
       {siteConfig.author.status ?? ''}
     </div>
