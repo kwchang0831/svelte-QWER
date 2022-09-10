@@ -8,23 +8,20 @@
   import { page } from '$app/stores';
 
   function handleClick() {
-    tagsCur.toggle(data);
-    postsShow.filter();
-    if (browser && window.location.pathname === '/') {
-      let output = new URLSearchParams();
-      $page.url.searchParams.forEach((v, k) => {
-        if (k.match(/^(?!(tags(-.*)?))/)) output.append(k, v);
-      });
-      $tagsCur.forEach((v, k) => {
-        output.append(k === 'tags' ? k : `tags-${encodeURI(k)}`, Array.from(v).join(','));
-      });
-      const params = output.toString();
-      if (params) {
-        window.history.replaceState({}, '', `?${params}`);
-      } else {
-        window.history.replaceState({}, '', '/');
-      }
+    let category = data.category === 'tags' ? data.category : `tags-${encodeURI(data.category)}`;
+    if (tagsCur.has(data)) {
+      $page.url.searchParams.delete(category);
     }
+    tagsCur.toggle(data);
+    const activeTags = $tagsCur.get(data.category);
+    if (activeTags) {
+      $page.url.searchParams.set(category, Array.from(activeTags).join(','));
+    }
+    const params = $page.url.searchParams.toString();
+    if (browser) {
+      window.history.replaceState({}, '', params.length > 0 ? `?${params}` : '/');
+    }
+    postsShow.filter();
   }
 </script>
 

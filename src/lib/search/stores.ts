@@ -33,12 +33,14 @@ export const query = (() => {
         payload: q,
       });
     } else {
-      postsShow.init();
+      _reset();
     }
   };
 
   const _reset = () => {
     set('');
+    result.set(undefined);
+    postsShow.filter();
   };
 
   return {

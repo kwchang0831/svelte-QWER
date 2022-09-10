@@ -16,10 +16,10 @@
   import { LL } from '$i18n/i18n-svelte';
 
   function resetHome() {
-    if (browser && window.location.pathname === '/') {
+    tagsCur.init();
+    postsShow.init();
+    if (browser) {
       window.history.replaceState({}, '', '/');
-      tagsCur.init();
-      postsShow.init();
     }
   }
 
@@ -51,37 +51,42 @@
       lastY = scrollY;
     }
   }
+
   afterUpdate(() => {
     scrollHeight = document.documentElement.scrollHeight;
   });
 
   let timer: string | number | NodeJS.Timeout | undefined;
   let input: string;
+
   function handleInput() {
     query.set(input);
   }
+
   function onSubmit() {
     query.set(input);
 
-    let params = new URLSearchParams(window.location.search);
     if (input && input.length) {
       $page.url.searchParams.set('query', input);
-      params.set('query', input);
-      window.history.replaceState({}, '', `?${params.toString()}`);
     } else {
       $page.url.searchParams.delete('query');
-      window.history.replaceState({}, '', '/');
     }
+
+    const params = $page.url.searchParams.toString();
+    window.history.replaceState({}, '', params.length > 0 ? `?${params}` : '/');
 
     $searching = false;
   }
+
   function closeSearch() {
     input = '';
-    query.set('');
+    query.reset();
     $searching = false;
     $page.url.searchParams.delete('query');
-    window.history.replaceState({}, '', '/');
+    const params = $page.url.searchParams.toString();
+    window.history.replaceState({}, '', params.length > 0 ? `?${params}` : '/');
   }
+
   const debounce = () => {
     clearTimeout(timer);
     timer = setTimeout(() => {
@@ -182,25 +187,26 @@
           </div>
 
           <div class="ml-auto flex">
-            {#key $page}
-              <button
-                id="search"
-                class:hidden={$page.routeId !== ''}
-                aria-label="search"
-                tabindex="0"
-                on:click={() => {
-                  $searching = true;
-                }}
-                class="btn active:translate-y-2 duration-600 ease-out group flex items-center gap2 md:(border-1 border-black/[0.25] dark:border-white/[0.25])">
-                <div
-                  class="!w8 !h8 i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+            {#if $page.routeId === ''}
+              {#key $page}
+                <button
+                  id="search"
+                  aria-label="search"
+                  tabindex="0"
+                  on:click={() => {
+                    $searching = true;
+                  }}
+                  class="btn active:translate-y-2 duration-600 ease-out group flex items-center gap2 md:(border-1 border-black/[0.25] dark:border-white/[0.25])">
+                  <div
+                    class="!w8 !h8 i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
 
-                <label for="#search" class="hidden md:inline-block">
-                  <span class="mx2">{$LL.IndexSearchBox()}</span>
-                  <kbd>/</kbd>
-                </label>
-              </button>
-            {/key}
+                  <label for="#search" class="hidden md:inline-block">
+                    <span class="mx2">{$LL.IndexSearchBox()}</span>
+                    <kbd>/</kbd>
+                  </label>
+                </button>
+              {/key}
+            {/if}
             {#key $theme}
               <button
                 aria-label="Dark Mode Switch"

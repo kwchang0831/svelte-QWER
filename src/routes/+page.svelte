@@ -2,7 +2,7 @@
   import IndexProfile from '$lib/components/index_profile.svelte';
   import IndexPosts from '$lib/components/index_posts.svelte';
   import Tags from '$lib/components/tags_root.svelte';
-  import { tagsCur } from '$stores/tags';
+  import { tagsCur, tagsAll } from '$stores/tags';
   import { postsShow } from '$stores/posts';
   import { siteConfig } from '$config/site';
 
