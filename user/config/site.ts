@@ -12,7 +12,7 @@ import Avatar_96_PNG from '$assets/avatar.png?w=96&h=96';
 import Avatar_192_PNG from '$assets/avatar.png?w=192&h=192';
 import Avatar_512_PNG from '$assets/avatar.png?w=512&h=512';
 
-import DefaultOGCard_512_512 from '$assets/default_og_card.jpg?w=512&h=512&format=webp';
+import DefaultOGCard_512_512 from '$assets/default_og_card.webp?w=512&h=512';
 
 export const siteConfig: Site.Config = {
   url: 'https://svelte-qwer.vercel.app',

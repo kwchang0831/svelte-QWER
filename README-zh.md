@@ -32,9 +32,9 @@
 npx degit kwchang0831/svelte-QWER my-blog
 ```
 
-<p align="center"><a href="https://svelte-qwer.vercel.app/"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/preview.png" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/preview.png" /></a></p>
+<p align="center"><a href="https://svelte-qwer.vercel.app/"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/preview.webp" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/preview.webp" /></a></p>
 <br/>
-<p align="center"><a href="https://svelte-qwer.vercel.app/"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.png" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.png" /></a></p>
+<p align="center"><a href="https://svelte-qwer.vercel.app/"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" /></a></p>
 
 ## ⚡️ 用法
 

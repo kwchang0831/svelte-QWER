@@ -42,7 +42,7 @@ tags:
 
   let assetsFolder = [
     { name: 'avatar.png', icon: 'i-bxs-file-png' },
-    { name: 'default_og_card.jpg', icon: 'i-bxs-file-jpg' },
+    { name: 'default_og_card.webp', icon: 'i-bxs-file-jpg' },
     { name: 'qwer.webp', icon: 'i-bxs-file-image' }
   ]
 </script>
