@@ -9,9 +9,11 @@
 
 <section id="index-profile" class="h-card p-author {className ?? ''}">
   <a href={siteConfig.url} class="hidden u-url u-uid">{siteConfig.title}</a>
-  {#if siteConfig.author.email}<p class="hidden u-email">
+  {#if siteConfig.author.email}
+    <p class="hidden u-email">
       {siteConfig.author.email}
-    </p>{/if}
+    </p>
+  {/if}
 
   <div class="relative group">
     <AuthorAvatar />

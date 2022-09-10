@@ -49,9 +49,6 @@ const config = {
       transformers: [transformerDirective(), transformerVariantGroup(), transformerCompileClass()],
       shortcuts: [
         {
-          btn: 'cursor-pointer shrink-0 text-center px-2 py-2 rounded-lg',
-          'btn-ghost':
-            'border-transparent bg-transparent border-1 light:(hover:bg-gray/[0.5]) dark:(hover:bg-gray/[0.25])',
           'title-link':
             'bg-gradient-to-t from-orange-500 to-orange-500 bg-no-repeat [background-position:0_88%] [background-size:0%_0.1em] focus:![background-size:100%_100%] hover:![background-size:100%_100%] group-hover:[background-size:100%_0.1em] motion-safe:transition-all motion-safe:duration-200',
         },

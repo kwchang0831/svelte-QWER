@@ -11,6 +11,7 @@
   import { fly } from 'svelte/transition';
   import { query } from '$lib/search/stores';
 
+  let iW: number = 0;
   onMount(() => {
     tagsCur.init();
     postsShow.init();
@@ -27,8 +28,6 @@
 
     query.set($page.url.searchParams.get('query') ?? '');
   });
-
-  let iW: number;
 </script>
 
 <svelte:window bind:innerWidth={iW} />

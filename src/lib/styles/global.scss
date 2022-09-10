@@ -1,0 +1,13 @@
+.btn {
+  --at-apply: 'cursor-pointer shrink-0 text-center px-2 py-2 rounded-lg';
+}
+
+.btn-ghost {
+  --at-apply: 'border-transparent bg-transparent border-1';
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn {
+    --at-apply: 'light:(hover:bg-gray/[0.5]) dark:(hover:bg-gray/[0.25])';
+  }
+}

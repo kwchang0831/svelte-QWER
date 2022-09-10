@@ -168,7 +168,7 @@
           class="flex items-center justify-items-center"
           in:fly={{ x: -50, duration: 300, delay: 300 }}
           out:fly={{ x: -50, duration: 300 }}>
-          <div class="lg:hidden rounded-lg light:(hover:bg-gray/[0.5]) dark:(hover:bg-gray/[0.25])">
+          <div class="lg:hidden rounded-lg btn btn-ghost !p0">
             <Dropdown nav={mobilenavConfig} class="text-sm p2 ">
               <button aria-label="nav menu" class="flex items-center ">
                 <div class="i-mdi-hamburger-menu !w-[1.5rem] !h-[1.5rem]" />

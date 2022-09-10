@@ -4,6 +4,6 @@
 
 updated: meta, seo
 
-+ !updated: `user/config/site.ts`
-  + added `cover`
-  + removed `og_card`
+- !updated: `user/config/site.ts`
+  - added `cover`
+  - removed `og_card`

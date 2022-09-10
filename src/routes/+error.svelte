@@ -17,6 +17,6 @@
     <h1 class="text-6xl">{$page.status ?? '404'}</h1>
     <p class="text-lg">{$page.status === 404 ? $LL.Page404NotFound() : $page.error?.message}</p>
     <img draggable="false" class="select-none max-w-lg w-full h-auto" src={Error404} alt="404.webp" />
-    <a href="/" class="btn btn-ghost underline text-lg" target="_self">{$LL.Page404BackHome()}</a>
+    <a href="/" class="btn btn-ghost underline text-lg !p4" target="_self">{$LL.Page404BackHome()}</a>
   </article>
 </main>
