@@ -329,6 +329,6 @@
   }
 
   input:focus {
-    --at-apply: 'border-black outline-black/[0.25] dark:(border-white outline-white/[0.25])';
+    --at-apply: '!border-transparent dark:(!border-transparent)';
   }
 </style>
