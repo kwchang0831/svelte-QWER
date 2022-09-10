@@ -16,7 +16,6 @@ export const query = (() => {
     searchWorker.addEventListener('message', (event) => {
       const { type, payload } = event.data;
       if (type === 'query') {
-        searching.set(false);
         result.set(payload);
         postsShow.filter();
       }
@@ -29,7 +28,6 @@ export const query = (() => {
   const _set = (q: string) => {
     set(q);
     if (q && q.length > 0) {
-      searching.set(true);
       searchWorker.postMessage({
         type: 'query',
         payload: q,

@@ -18,6 +18,8 @@ const zh_Hans: Translation = {
   DayAgo: '{0} 天前',
   Page404NotFound: '此地无银三百两',
   Page404BackHome: '赶紧回首页 !',
+  IndexSearchBox: '搜索',
+  IndexCloseSearchBox: '关闭',
 };
 
 export default zh_Hans;

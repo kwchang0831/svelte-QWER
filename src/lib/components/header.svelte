@@ -12,7 +12,8 @@
   import AuthorAvatar from '$lib/components/image_avatar.svelte';
   import { lastUpdatedStr } from '$lib/utli/timeFormat';
   import { afterUpdate, onMount } from 'svelte';
-  import { query, result } from '$lib/search/stores';
+  import { query, result, searching } from '$lib/search/stores';
+  import { LL } from '$i18n/i18n-svelte';
 
   function resetHome() {
     if (browser && window.location.pathname === '/') {
@@ -22,7 +23,6 @@
     }
   }
 
-  let search = false;
   let searchbox: HTMLElement;
   let curPost: Post.Post | undefined;
   let lastUpdated: string;
@@ -64,16 +64,23 @@
     query.set(input);
 
     let params = new URLSearchParams(window.location.search);
-    params.set('query', input);
-
-    if (params) {
+    if (input && input.length) {
+      $page.url.searchParams.set('query', input);
+      params.set('query', input);
       window.history.replaceState({}, '', `?${params.toString()}`);
     } else {
+      $page.url.searchParams.delete('query');
       window.history.replaceState({}, '', '/');
     }
 
-    search = false;
+    $searching = false;
+  }
+  function closeSearch() {
     input = '';
+    query.set('');
+    $searching = false;
+    $page.url.searchParams.delete('query');
+    window.history.replaceState({}, '', '/');
   }
   const debounce = () => {
     clearTimeout(timer);
@@ -87,17 +94,28 @@
   });
 
   $: if ($navigating) {
-    search = false;
+    $searching = false;
     input = '';
     query.reset();
     $result = undefined;
   }
 </script>
 
-<svelte:window bind:scrollY bind:innerHeight />
+<svelte:window
+  bind:scrollY
+  bind:innerHeight
+  on:keydown={(e) => {
+    if (e.key === '/') {
+      e.preventDefault();
+      if (!$searching) {
+        $searching = true;
+        input = $query;
+      }
+    }
+  }} />
 
 <header id="header" class="fixed w-screen ease-in-out z-40" aria-label="Header Nav">
-  {#if !search}
+  {#if !$searching}
     <nav
       id="header-nav"
       class="backdrop-blur py-2 px-4 min-h-4rem max-h-16 {scrollY >= scrollThresholdStep ? 'shadow-lg' : ''}"
@@ -166,15 +184,21 @@
           <div class="ml-auto flex">
             {#key $page}
               <button
+                id="search"
                 class:hidden={$page.routeId !== ''}
                 aria-label="search"
                 tabindex="0"
                 on:click={() => {
-                  search = !search;
+                  $searching = true;
                 }}
-                class="btn active:translate-y-2 duration-600 ease-out group">
+                class="btn active:translate-y-2 duration-600 ease-out group flex items-center gap2 md:(border-1 border-black/[0.25] dark:border-white/[0.25])">
                 <div
                   class="!w8 !h8 i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+
+                <label for="#search" class="hidden md:inline-block">
+                  <span class="mx2">{$LL.IndexSearchBox()}</span>
+                  <kbd>/</kbd>
+                </label>
               </button>
             {/key}
             {#key $theme}
@@ -196,33 +220,37 @@
       class="flex border-transparent backdrop-blur items-center py-2"
       in:fly={{ x: 50, duration: 300, delay: 300 }}
       out:fly={{ x: 50, duration: 300 }}>
-      <form on:submit|preventDefault={onSubmit} accept-charset="UTF-8" class="grow flex">
+      <form on:submit|preventDefault={onSubmit} accept-charset="UTF-8" class="grow flex items-center" action="/search">
         <input
           bind:this={searchbox}
           bind:value={input}
           on:input={debounce}
           on:keydown={(e) => {
             if (e.code === 'Escape') {
-              input = '';
-              search = false;
-              $result = undefined;
-              handleInput();
+              closeSearch();
             }
           }}
           type="text"
           name="query"
+          placeholder={$LL.IndexSearchBox()}
+          spellcheck="false"
           id="index-search"
-          class="grow mx-4 my-2 px-2 h-8 rounded bg-transparent border-1" />
-        <button class="btn display-inline-block active:translate-y-2 duration-500 ease-out group">
+          class="grow mx4 px2 h10 rounded bg-transparent border-1 border-black dark:border-white focus:!border-red" />
+        <button class="btn display-inline-block active:translate-y-2 duration-500 ease-out group md:hidden">
           <div class="!w8 !h8 i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
         </button>
       </form>
-      <div class="mr-4">
-        <button on:click={() => (search = !search)} class="btn active:translate-y-2 duration-500 ease-out group">
-          <div
-            class="!w-[2rem] !h-[2rem] i-carbon-close group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
-        </button>
-      </div>
+      <button
+        on:click={() => ($searching = false)}
+        class="mx2 btn active:translate-y-2 duration-500 ease-out group flex items-center gap2 md:(border-1 border-black/[0.25] dark:border-white/[0.25])"
+        aria-label="close-search"
+        id="close-search">
+        <div class="!w8 !h8 i-carbon-close group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+        <label for="#close-search" class="hidden md:inline-block">
+          <span class="mx2">{$LL.IndexCloseSearchBox()}</span>
+          <kbd>ESC</kbd>
+        </label>
+      </button>
     </nav>
   {/if}
 </header>
@@ -288,3 +316,13 @@
     </div>
   </button>
 {/if}
+
+<style>
+  kbd {
+    --at-apply: 'border-1 px2 py1 rounded border-black dark:border-white';
+  }
+
+  input:focus {
+    --at-apply: 'border-black outline-black/[0.25] dark:(border-white outline-white/[0.25])';
+  }
+</style>

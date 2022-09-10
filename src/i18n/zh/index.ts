@@ -18,6 +18,8 @@ const zh: Translation = {
   DayAgo: '{0} 天前',
   Page404NotFound: '此地無銀三百兩',
   Page404BackHome: '趕緊回首頁 !',
+  IndexSearchBox: '搜尋',
+  IndexCloseSearchBox: '關閉',
 };
 
 export default zh;

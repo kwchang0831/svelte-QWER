@@ -4,4 +4,4 @@
 
 updated: 404 error page
 
-+ !added: `user/assets/404.webp`
+- !added: `user/assets/404.webp`

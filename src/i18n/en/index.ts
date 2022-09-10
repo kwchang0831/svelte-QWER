@@ -18,6 +18,8 @@ const en: BaseTranslation = {
   DayAgo: '{0} day{{s}} ago',
   Page404NotFound: 'Page Not Found',
   Page404BackHome: 'Go Back Home !',
+  IndexSearchBox: 'Search',
+  IndexCloseSearchBox: 'Close',
 };
 
 export default en;
