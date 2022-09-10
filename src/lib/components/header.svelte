@@ -5,7 +5,7 @@
   import { theme } from '$stores/themes';
   import { fly } from 'svelte/transition';
   import Dropdown from '$lib/components/dd.svelte';
-  import { tagsCur } from '$stores/tags';
+  import { tagsCur, tagsShowMobile } from '$stores/tags';
   import { postsShow } from '$stores/posts';
   import { navigating, page } from '$app/stores';
   import { postsAll } from '$stores/posts';
@@ -196,10 +196,9 @@
                   on:click={() => {
                     $searching = true;
                   }}
-                  class="btn active:translate-y-2 duration-600 ease-out group flex items-center gap2 md:(border-1 border-black/[0.25] dark:border-white/[0.25])">
+                  class="mx2 btn active:translate-y-2 duration-600 ease-out group flex items-center gap2 md:(border-1 border-black/[0.25] dark:border-white/[0.25])">
                   <div
                     class="!w8 !h8 i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
-
                   <label for="#search" class="hidden md:inline-block">
                     <span class="mx2">{$LL.IndexSearchBox()}</span>
                     <kbd>/</kbd>
@@ -207,6 +206,17 @@
                 </button>
               {/key}
             {/if}
+            <button
+              aria-label="Tags"
+              on:click={() => {
+                $tagsShowMobile = !$tagsShowMobile;
+              }}
+              class="btn active:translate-y-2 duration-600 ease-out group xl:hidden">
+              <div
+                class:i-mdi-tag={$tagsShowMobile}
+                class:i-mdi-tag-off={!$tagsShowMobile}
+                class="!w7 !h7 group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+            </button>
             {#key $theme}
               <button
                 aria-label="Dark Mode Switch"
@@ -329,6 +339,6 @@
   }
 
   input:focus {
-    --at-apply: '!border-transparent dark:(!border-transparent)';
+    --at-apply: '!border-transparent !outline-black dark:(!border-transparent !outline-white)';
   }
 </style>

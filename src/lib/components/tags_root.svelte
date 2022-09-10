@@ -44,8 +44,8 @@
 
 {#if $tagsAll.length}
   <aside
-    in:fly={{ x: -25, duration: 300, delay: 300 }}
-    out:fly={{ x: -25, duration: 300 }}
+    in:fly={{ x: 100, duration: 300, delay: 300 }}
+    out:fly={{ x: 100, duration: 300 }}
     id="index-tags"
     class={className ?? ''}>
     <div

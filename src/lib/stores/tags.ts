@@ -21,6 +21,7 @@ const tags = Object.entries(tagsjson)
     return String(a.name).localeCompare(String(b.name), 'zh-u-co-zhuyin');
   });
 
+export const tagsShowMobile = writable(false);
 export const tagsAll = readable(tags);
 
 export const tagsCur = (() => {
