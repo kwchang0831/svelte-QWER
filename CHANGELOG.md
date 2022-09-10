@@ -1,5 +1,11 @@
 # @kwchang0831/svelte-qwer
 
+## 0.3.2
+
+### Patch Changes
+
+- 08e04ae: fix: index CLS
+
 ## 0.3.1
 
 ### Patch Changes
