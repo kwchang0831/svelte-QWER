@@ -1,5 +1,11 @@
 # @kwchang0831/svelte-qwer
 
+## 0.3.3
+
+### Patch Changes
+
+- ac9ea7f: fix: error page only shows 404 img if status is actually 404
+
 ## 0.3.2
 
 ### Patch Changes
