@@ -82,7 +82,9 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - 📱 Mobile-First / Responsive design.
 
-- ✍️ Writing post with [Markdown syntax](https://www.markdownguide.org/basic-syntax/).
+- ✍️ Write post with [Markdown syntax](https://www.markdownguide.org/basic-syntax/).
+
+- 🧮 🧪 Wirte Math and Chemical formulas with [TeX Syntax](https://www.math.brown.edu/johsilve/ReferenceCards/TeXRefCard.v1.5.pdf) via [Katex](https://katex.org/) & [mhchem](https://mhchem.github.io/MathJax-mhchem/).
 
 - 📁 Folder-based organization for creating posts.
 

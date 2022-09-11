@@ -84,6 +84,8 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - ✍️ 使用 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)撰寫文章。
 
+- 🧮 🧪 使用 [TeX 語法](https://www.math.brown.edu/johsilve/ReferenceCards/TeXRefCard.v1.5.pdf) 撰寫 數學表達式 與 化學表達式 透過 [Katex](https://katex.org/) 與 [mhchem](https://mhchem.github.io/MathJax-mhchem/)。
+
 - 📁 使用資料夾式的整理方式來新增部落格頁面。
 
 - 🏷️ 多標籤過濾文章。
