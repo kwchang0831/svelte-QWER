@@ -74,35 +74,35 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## ✨ Features
 
-- ⚡ Outstanding site performance. Near perfect [PageSpeed](https://pagespeed.web.dev/) score.
+- ⚡ Super fast site performance. Near **Perfect** [PageSpeed](https://pagespeed.web.dev/) score.
 
-- 🤗 SEO friendly through meta, [Open Graph](https://ogp.me/), [Schema](https://schema.org/), [JSON-LD](https://json-ld.org/), [microformats2](https://indieweb.org/microformats2).
+- 🤗 SEO ready with meta, [Open Graph](https://ogp.me/), [Schema](https://schema.org/), [JSON-LD](https://json-ld.org/), [microformats2](https://indieweb.org/microformats2).
 
 - 🔎 On-site Search.
 
-- Mobile-First / Responsive design.
+- 📱 Mobile-First / Responsive design.
 
-- Writing post with [Markdown syntax](https://www.markdownguide.org/basic-syntax/).
+- ✍️ Writing post with [Markdown syntax](https://www.markdownguide.org/basic-syntax/).
 
-- Folder-based organization for creating posts.
+- 📁 Folder-based organization for creating posts.
 
-- Multi-Tags filtering.
+- 🏷️ Multi-Tags filtering.
 
-- Auto-Generate Table of Content for posts.
+- 📄 Auto-Generate Table of Content for posts.
 
-- Out-of-the-box support for [Atom feed](https://validator.w3.org/feed/docs/atom.html), Sitemap, [PWA](https://web.dev/progressive-web-apps/), [JSON Feed](https://www.jsonfeed.org/).
+- 📦 Out-of-the-box support for [Atom feed](https://validator.w3.org/feed/docs/atom.html), Sitemap, [PWA](https://web.dev/progressive-web-apps/), [JSON Feed](https://www.jsonfeed.org/).
 
-- Automatic image optimization via [vite-imagetools](https://github.com/JonasKruckenberg/imagetools).
+- 🖼️ Automatic image optimization via [vite-imagetools](https://github.com/JonasKruckenberg/imagetools).
 
-- Support embedding Svelte components and Javascript with Markdown.
+- ⚙️ Support embedding Svelte components and Javascript with Markdown.
 
-- Supports [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
+- 💬 Supports [Giscus](https://github.com/giscus/giscus) - a comments system powerd by Github Discussions.
 
-- Utilizes [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
+- 💄 Utilizes [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
 
-- i18n via [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n).
+- 🌐 i18n via [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n).
 
-- Host the blog free on [Vercel](https://vercel.com/) or [Netlify](https://Netlify.com/).
+- 🚀 Deploy the blog **Free** on [Vercel](https://vercel.com/) or [Netlify](https://Netlify.com/).
 
 ## 📚 Learn More
 

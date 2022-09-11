@@ -80,29 +80,29 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - 🔎 站內搜尋功能。
 
-- 手機優先 / 響應式的設計。
+- 📱 手機優先 / 響應式的設計。
 
-- 使用 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)撰寫文章。
+- ✍️ 使用 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)撰寫文章。
 
-- 使用資料夾式的整理方式來新增部落格頁面。
+- 📁 使用資料夾式的整理方式來新增部落格頁面。
 
-- 多標籤過濾文章。
+- 🏷️ 多標籤過濾文章。
 
-- 自動生成文章目錄。
+- 📄 自動生成文章目錄。
 
-- 開箱即用的 [Atom feed](https://validator.w3.org/feed/docs/atom.html), Sitemap, [PWA](https://web.dev/progressive-web-apps/), [JSON Feed](https://www.jsonfeed.org/)。
+- 📦 開箱即用的 [Atom feed](https://validator.w3.org/feed/docs/atom.html), Sitemap, [PWA](https://web.dev/progressive-web-apps/), [JSON Feed](https://www.jsonfeed.org/)。
 
-- 自動照片優化支援，透過 [vite-imagetools](https://github.com/JonasKruckenberg/imagetools)。
+- 🖼️ 自動照片優化支援，透過 [vite-imagetools](https://github.com/JonasKruckenberg/imagetools)。
 
-- 支援嵌入 Svelte 組件 與 使用 Javascript 搭配 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)。
+- ⚙️ 支援嵌入 Svelte 組件 與 使用 Javascript 搭配 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)。
 
-- 支援 [Giscus](https://github.com/giscus/giscus) - 免費留言系統架設於 Github 討論版上。
+- 💬 支援 [Giscus](https://github.com/giscus/giscus) - 免費留言系統架設於 Github 討論版上。
 
-- 使用 [UnoCSS](https://github.com/unocss/unocss) - 原子化的 CSS 引擎。
+- 💄 使用 [UnoCSS](https://github.com/unocss/unocss) - 原子化的 CSS 引擎。
 
-- 多國語系 i18n 透過 [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n)。
+- 🌐 多國語系 i18n 透過 [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n)。
 
-- 免費架設部落格於 [Vercel](https://vercel.com/) 或 [Netlify](https://Netlify.com/) 上。
+- 🚀 免費架設部落格於 [Vercel](https://vercel.com/) 或 [Netlify](https://Netlify.com/) 上。
 
 ## 📚 了解更多
 
