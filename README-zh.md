@@ -1,30 +1,20 @@
-<br/>
-<div align="center">
-<a href="https://svelte-qwer.vercel.app/"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/qwer.webp" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/qwer.webp" /></a>
-</div>
-<br/>
+<p align="right"><a href="README.md">English</a> | <strong>中文</strong></p>
+
 <h1 align="center">QWER</h1>
+
 <p align="center">
-✒︎ 使用 SvelteKit 與 ❤ 打造的部落格生成器，簡單好用。
+使用 <b>SvelteKit</b> 與 <b>❤</b> 精心打造的<b>部落格生成器</b>
 </p>
-<p align="center">
-<a href="README.md"><img src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-lightgreen?style=for-the-badge&logo=Read the Docs" alt="Readme"></a>
-<img src="https://img.shields.io/github/languages/top/kwchang0831/svelte-QWER?color=%23ff3e00&style=for-the-badge&logo=Svelte" alt="Language" />
+
+<p align="center"><img src="https://img.shields.io/github/languages/top/kwchang0831/svelte-QWER?color=%23ff3e00&style=for-the-badge&logo=Svelte" alt="Language" />
 <a href="https://github.com/kwchang0831/svelte-QWER/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/kwchang0831/svelte-QWER?style=for-the-badge" alt="License"></a>
 <a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 示範網站-Vercel-informational?style=for-the-badge" alt="Readme"></a>
-<a href="https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a"><img src="https://img.shields.io/badge/❓ 問題討論-Q&A-informational?style=for-the-badge" alt="Q&A"></a>
-</p>
+<a href="https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a"><img src="https://img.shields.io/badge/❓ 問題討論-Q&A-informational?style=for-the-badge" alt="Q&A"></a></p>
 
-<p align="center">
-<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/CHANGELOG.md"><img src="https://img.shields.io/badge/更新日誌-Svelt--QWER-lightgreen?style=for-the-badge&logo=Keep a Changelog" alt="svelte-QWER"></a>
-<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/QWER/CHANGELOG.md"><img src="https://img.shields.io/badge/更新日誌-QWER-lightgreen?style=for-the-badge&logo=Keep a Changelog" alt="QWER"></a>
-</p>
+<p align="center"><a href="https://github.com/kwchang0831/svelte-QWER/blob/main/CHANGELOG.md"><img src="https://img.shields.io/badge/更新日誌-Svelt--QWER-lightgreen?style=for-the-badge&logo=Keep a Changelog" alt="svelte-QWER"></a>
+<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/QWER/CHANGELOG.md"><img src="https://img.shields.io/badge/更新日誌-QWER-lightgreen?style=for-the-badge&logo=Keep a Changelog" alt="QWER"></a></p>
 
-<br/>
-
-<p align="center">
-<a href="https://raw.githubusercontent.com/gist/kwchang0831/acd18fa5e12de9be28a34617beffe5de/raw/metrics.pagespeed.svg"><img style="float:middle" width="auto" alt="PAGESPEED" src="https://raw.githubusercontent.com/gist/kwchang0831/acd18fa5e12de9be28a34617beffe5de/raw/metrics.pagespeed.svg"></a>
-</p>
+<p align="center"><img style="float:middle" width="auto" alt="PAGESPEED" src="https://raw.githubusercontent.com/gist/kwchang0831/acd18fa5e12de9be28a34617beffe5de/raw/metrics.pagespeed.svg"></p>
 
 ## 🎉 馬上嘗試看看 QWER
 
@@ -32,9 +22,9 @@
 npx degit kwchang0831/svelte-QWER my-blog
 ```
 
-<p align="center"><a href="https://svelte-qwer.vercel.app/"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/preview.webp" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/preview.webp" /></a></p>
+<p align="center"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/preview.webp" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/preview.webp" /></p>
 <br/>
-<p align="center"><a href="https://svelte-qwer.vercel.app/"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" /></a></p>
+<p align="center"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" /></p>
 
 ## ⚡️ 用法
 
@@ -84,27 +74,27 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## ✨ 功能
 
-- 使用 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)撰寫文章。
+- ⚡ 超快的網站速度。接近完美的 [PageSpeed](https://pagespeed.web.dev/) 跑分。
 
-- 超快的網站速度。接近完美的 [PageSpeed](https://pagespeed.web.dev/) 跑分。
+- 🤗 SEO 友善，支援 meta, [Open Graph](https://ogp.me/), [Schema](https://schema.org/), [JSON-LD](https://json-ld.org/), [microformats2](https://indieweb.org/microformats2)。
+
+- 🔎 站內搜尋功能。
 
 - 手機優先 / 響應式的設計。
 
-- SEO 友善，支援 meta, [Open Graph](https://ogp.me/), [Schema](https://schema.org/), [JSON-LD](https://json-ld.org/), [microformats2](https://indieweb.org/microformats2)。
+- 使用 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)撰寫文章。
 
 - 使用資料夾式的整理方式來新增部落格頁面。
 
-- 站內搜尋功能。
+- 多標籤過濾文章。
 
-- 網誌可設定標籤，還有標籤過濾功能。
+- 自動生成文章目錄。
 
-- 網誌會自動生成文章目錄。
-
-- 開箱即用的 [Atom feed](https://validator.w3.org/feed/docs/atom.html), Sitemap, [PWA](https://web.dev/progressive-web-apps/)。
-
-- 支援嵌入 Svelte 組件 與 使用 Javascript 搭配 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)。
+- 開箱即用的 [Atom feed](https://validator.w3.org/feed/docs/atom.html), Sitemap, [PWA](https://web.dev/progressive-web-apps/), [JSON Feed](https://www.jsonfeed.org/)。
 
 - 自動照片優化支援，透過 [vite-imagetools](https://github.com/JonasKruckenberg/imagetools)。
+
+- 支援嵌入 Svelte 組件 與 使用 Javascript 搭配 [Markdwon 語法](https://www.markdownguide.org/basic-syntax/)。
 
 - 支援 [Giscus](https://github.com/giscus/giscus) - 免費留言系統架設於 Github 討論版上。
 
@@ -120,11 +110,11 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## 👷 目前狀態
 
-[QWER](https://github.com/kwchang0831/svelte-QWER) 現在處於很早期的階段，所以會有經常可能會有破壞性的改動，請多包涵。
+[QWER](https://github.com/kwchang0831/svelte-QWER) 現在處於很早期的階段，所以經常會有破壞性的改動，請多包涵。
 
 未來如果有更新，而且您也想應用更新，通常你只需要複製你的 `user` 資料夾覆蓋最新的 release。
 
-請別忘了查看 CHANGELOG，看看你是否需要對 `user/config` 進行更新與調整。
+請別忘了查看 CHANGELOG，看看你是否需要對 `user/config` 或其他地方進行更新與調整。
 
 ## ❓ 有任何使用上的問題
 
@@ -137,8 +127,6 @@ npx degit kwchang0831/svelte-QWER my-blog
 想知道還有誰正在使用 QWER，請參考 [Github-Topics: svelte-qwer](https://github.com/topics/svelte-qwer)。
 
 ## 🎉 支持
-
-<a href="https://www.producthunt.com/posts/qwer?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-qwer" target="_blank" rel="noreferrer noopener"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=356641&theme=light" alt="QWER - ✒︎&#0032;Simply&#0032;Awesome&#0032;Blog&#0032;Starter&#0032;built&#0032;with&#0032;Svelte&#0032;and&#0032;❤ | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
 <div class="flex" style="display:inline-block; font-size: 24px; --un-bg-opacity: 1; background-color: rgba(255, 221, 0); border-radius: 0.5rem; padding: 12px 18px; border: 2px solid;">
 <a class="flex"  href="https://www.buymeacoffee.com/kwchang0831" style="color: black;" >
