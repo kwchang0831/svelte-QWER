@@ -208,17 +208,21 @@
                 </button>
               {/key}
             {/if}
-            <button
-              aria-label="Tags"
-              on:click={() => {
-                $tagsShowMobile = !$tagsShowMobile;
-              }}
-              class="btn active:translate-y-2 duration-600 ease-out group xl:hidden">
-              <div
-                class:i-mdi-tag-off={$tagsShowMobile}
-                class:i-mdi-tag={!$tagsShowMobile}
-                class="!w7 !h7 group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
-            </button>
+            {#if $page.routeId === ''}
+              <button
+                in:fade={{ duration: 300, delay: 300 }}
+                out:fade={{ duration: 300 }}
+                aria-label="Tags"
+                on:click={() => {
+                  $tagsShowMobile = !$tagsShowMobile;
+                }}
+                class="btn active:translate-y-2 duration-600 ease-out group xl:hidden">
+                <div
+                  class:i-mdi-tag-off={$tagsShowMobile}
+                  class:i-mdi-tag={!$tagsShowMobile}
+                  class="!w7 !h7 group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+              </button>
+            {/if}
             {#key $theme}
               <button
                 aria-label="Dark Mode Switch"
