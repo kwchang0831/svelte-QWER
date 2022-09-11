@@ -3,7 +3,7 @@ title: Intro to QWER
 description: Start using 🚀 QWER - Simply Awesome Blog Starter. Built using Svelte with ❤
 summary: 🎉 Let's start a brand new awesome blog...
 published: '2022-08-20T00:00:00.000+08:00'
-updated: '2022-08-30T14:30:00.000+08:00'
+updated: '2022-09-11T12:00:00.000+08:00'
 cover: ./cover.jpg
 coverCaption: Photo by <a href="https://unsplash.com/@joannakosinska?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joanna Kosinska</a> on <a href="https://unsplash.com/s/photos/study?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags:
@@ -113,7 +113,7 @@ Below are the list of folders under `user` folder and their purpose.
 
 Always keep backup of your `user` folder.
 
-For future QWER updates, just copy the latest `QWER` and `src` folder and replace your old ones.
+For future QWER updates, just copy the latest `QWER` and `src` folder and replace your old ones. Unless there are breaking changes noted in the CHANGELOG.md.
 
 :::
 
@@ -215,17 +215,23 @@ I will list some of the notable syntax.
 
 ##### Codeblock
 
-Codeblock are fenced by \`\`\`
+Codeblock are fenced by **\`\`\`**
 
-<pre>{`\`\`\`code-language
+<pre>
+<code>
+{`\`\`\`code-language
 code content
-\`\`\``}</pre>
+\`\`\``}
+</code>
+</pre>
 
 There are options to make codeblock more informational. Those options are all optional. If you don't need, you can omit it.
 
 Here are the example:
 
-<pre>{`\`\`\`js
+<pre>
+<code class="language-js">
+{`\`\`\`js
 \/\/\/ title: Title
 \/\/\/ lineStart: 0
 \/\/\/ hlLines: 0-1, 3
@@ -237,7 +243,9 @@ line3
 line4
 + line5
 - line6
-\`\`\``}</pre>
+\`\`\``}
+</code>
+</pre>
 
 It will generate the following output:
 
