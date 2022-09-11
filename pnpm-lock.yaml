@@ -12,13 +12,13 @@ importers:
       '@iconify-json/ic': ^1.1.9
       '@iconify-json/line-md': ^1.1.14
       '@iconify-json/mdi': ^1.1.31
-      '@iconify-json/tabler': ^1.1.31
+      '@iconify-json/tabler': ^1.1.32
       '@iconify-json/vscode-icons': ^1.1.11
       '@sveltejs/adapter-netlify': 1.0.0-next.76
-      '@sveltejs/adapter-node': 1.0.0-next.88
+      '@sveltejs/adapter-node': 1.0.0-next.89
       '@sveltejs/adapter-static': 1.0.0-next.42
-      '@sveltejs/adapter-vercel': 1.0.0-next.72
-      '@sveltejs/kit': 1.0.0-next.478
+      '@sveltejs/adapter-vercel': 1.0.0-next.73
+      '@sveltejs/kit': 1.0.0-next.480
       '@types/flexsearch': ^0.7.3
       '@types/lz-string': ^1.3.34
       '@types/nprogress': ^0.2.0
@@ -67,13 +67,13 @@ importers:
       '@iconify-json/ic': 1.1.9
       '@iconify-json/line-md': 1.1.14
       '@iconify-json/mdi': 1.1.31
-      '@iconify-json/tabler': 1.1.31
+      '@iconify-json/tabler': 1.1.32
       '@iconify-json/vscode-icons': 1.1.11
       '@sveltejs/adapter-netlify': 1.0.0-next.76
-      '@sveltejs/adapter-node': 1.0.0-next.88
+      '@sveltejs/adapter-node': 1.0.0-next.89
       '@sveltejs/adapter-static': 1.0.0-next.42
-      '@sveltejs/adapter-vercel': 1.0.0-next.72
-      '@sveltejs/kit': 1.0.0-next.478_svelte@3.50.1+vite@3.1.0
+      '@sveltejs/adapter-vercel': 1.0.0-next.73
+      '@sveltejs/kit': 1.0.0-next.480_svelte@3.50.1+vite@3.1.0
       '@types/flexsearch': 0.7.3
       '@types/lz-string': 1.3.34
       '@types/nprogress': 0.2.0
@@ -479,10 +479,10 @@ packages:
       '@iconify/types': 1.1.0
     dev: true
 
-  /@iconify-json/tabler/1.1.31:
-    resolution: {integrity: sha512-cRc12zNuggknZkl2WKAqN1QfTJOe6J400v+3icwwXhdvQPXAgECk98fd2xEZFDcrEQlr8I6s1TqWNQ0KLg/HDg==}
+  /@iconify-json/tabler/1.1.32:
+    resolution: {integrity: sha512-hkgQlp97f+h0oJRffPOy/nxGzvubpNxlgUwEPRO374lZIN9+Us96AGbHhxOUjbl6qGdNLoqkHTE+LeuIxNLFQQ==}
     dependencies:
-      '@iconify/types': 1.1.0
+      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify-json/vscode-icons/1.1.11:
@@ -493,6 +493,10 @@ packages:
 
   /@iconify/types/1.1.0:
     resolution: {integrity: sha512-Jh0llaK2LRXQoYsorIH8maClebsnzTcve+7U3rQUSnC11X4jtPnFuyatqFLvMxZ8MLG8dB4zfHsbPfuvxluONw==}
+    dev: true
+
+  /@iconify/types/2.0.0:
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
     dev: true
 
   /@iconify/utils/1.0.33:
@@ -776,8 +780,8 @@ packages:
       tiny-glob: 0.2.9
     dev: true
 
-  /@sveltejs/adapter-node/1.0.0-next.88:
-    resolution: {integrity: sha512-N75E0tbq1+70/8lYUbttj7ry+5PDl7DB29aJqYIQQdnWMkIv0CPnH5ux4fwDuQJuhR7k1lfUbLd96JWwPBHvIg==}
+  /@sveltejs/adapter-node/1.0.0-next.89:
+    resolution: {integrity: sha512-fWN2gqvM6zmZI25Y2vOpl+sPYzx19PBynf+FvUOcytP4+MhGzT8OxTTW7NCIBOGpRw8D2+u1yfQbANKhI2Ayug==}
     dependencies:
       esbuild: 0.14.54
     dev: true
@@ -786,8 +790,8 @@ packages:
     resolution: {integrity: sha512-BLMQY8zfUibex5FE3zkMXdkW4l/n+1tecUrCxmmO5jc8vEuZc41VQdmQtDifX80Bf1pCG3RH7151tJ+jqte2lg==}
     dev: true
 
-  /@sveltejs/adapter-vercel/1.0.0-next.72:
-    resolution: {integrity: sha512-oNs8FQaYC2NnwDcvX/jc9MDNqXc9HxwGPQNkd+1vBpFVWZl9mShQgCcOMzfTOIH0ka984jYNa0ZawYYHex79xg==}
+  /@sveltejs/adapter-vercel/1.0.0-next.73:
+    resolution: {integrity: sha512-wYm80tDSkwa9YfXHCHqMFMHmGYsQjVWj2oLbQdijQ2k8dnQPq908Pla3IES1cLwtT+fIMbZyh3Xly7mt06FwJg==}
     dependencies:
       '@vercel/nft': 0.22.1
       esbuild: 0.14.54
@@ -796,8 +800,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.478_svelte@3.50.1+vite@3.1.0:
-    resolution: {integrity: sha512-XnsPQg1aQpfgqU3FvuLrfY7HwwQpq82EbW4Y5FybEshsnJkeGGWv4qQUKpR88E0mu8yHqGh0MVZpsbMSteoa/w==}
+  /@sveltejs/kit/1.0.0-next.480_svelte@3.50.1+vite@3.1.0:
+    resolution: {integrity: sha512-RnltVDZFksAkeIZ0wgMQDr4POz3WZxSDy6D/ycIjrz3VXMDYWxKRqmTEI7Yl7TxPgUabeYHGRm/qI+nSXOb/Yw==}
     engines: {node: '>=16.14'}
     hasBin: true
     requiresBuild: true
