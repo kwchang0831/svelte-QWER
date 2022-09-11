@@ -102,11 +102,11 @@ html {
   }
 
   .katex-inline {
-    --at-apply: 'inline-block px1 text-lg';
+    --at-apply: 'inline-block mx1 text-lg';
   }
 
   .katex-block {
-    --at-apply: 'py4 text-lg';
+    --at-apply: 'leading-14 text-2xl';
   }
 }
 

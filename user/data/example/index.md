@@ -3,7 +3,7 @@ title: Example Post
 description: Example post writen using Markdown Syntax with 🚀 QWER - Simply Awesome Blog Starter. Built using Svelte with ❤
 summary: 📝 Showcase basic syntax of Markdown and HTML
 published: '2022-08-09T00:00:00.000+08:00'
-updated: '2022-08-30T14:30:00.000+08:00'
+updated: '2022-09-12T00:00:00.000+08:00'
 cover: ./cover.jpg
 coverCaption: Photo by <a href="https://unsplash.com/@etiennegirardet?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Etienne Girardet</a> on <a href="https://unsplash.com/s/photos/motivation?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags:
@@ -16,25 +16,41 @@ tags:
   const const_variable = 999;
 </script>
 
-## Headings
-
 ## H2
 
 ### H3
 
 #### H4
 
-##### H5
+## Paragraphs
 
-###### H6
+**Lorem Ipsum** dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. This is the content: **_The_** _quick_ <u>brown</u> [fox](https://www.foxnews.com/) `jumps` ~~over~~ the lazy **dog**.
 
-## Bold
+## Katex
 
-This is **bold text**.
+### Katex Block
 
-## Italic
+Example of Fractions and Binomials
 
-This is _italicized text_.
+$$
+\frac{n!}{k!(n-k)!} = \binom{n}{k}
+$$
+
+Also
+
+$$
+\frac{\frac{1}{x}+\frac{1}{y}}{y-z}
+$$
+
+### Katex Inline
+
+This $n^{22}$ and that $\cos (2\theta) = \cos^2 \theta - \sin^2 \theta$
+
+### Chemical typesetting
+
+$$
+\ce{Zn^2+  <=>[+ 2OH-][+ 2H+]  $\underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}}$  <=>[+ 2OH-][+ 2H+]  $\underset{\text{Hydroxozikat}}{\ce{[Zn(OH)4]^2-}}$}
+$$
 
 ## Spoiler
 
@@ -64,7 +80,7 @@ This is ||Spoiler Text||.
 
 ## Inline Code
 
-`console.log("Hello World");`
+`alert('Hello World')`
 
 ## Horizontal Rule
 
@@ -84,10 +100,6 @@ Here's a simple footnote,[^1] and here's a longer one.[^bignote]
     Indent paragraphs to include them in the footnote.  
     `{ my code }`  
     Add as many paragraphs as you like.
-
-## Paragraphs
-
-**Lorem Ipsum** dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 ## Info Block
 
@@ -143,7 +155,7 @@ class Greeter {
 Photo by <a href="https://unsplash.com/@willy24?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ioana Tabarcea</a> on <a href="https://unsplash.com/s/photos/morning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 </ImgZoom>
 
-## Videos
+## Videos / GIF
 
 ![MP4 Example](/example/example2.mp4)
 
