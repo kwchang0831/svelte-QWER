@@ -1,6 +1,7 @@
 <script lang="ts">
   import '$lib/styles/prism.scss';
   import '$lib/styles/prose.scss';
+  import 'katex/dist/katex.min.css';
 
   import type { Post } from '$lib/types/post';
   import { page } from '$app/stores';

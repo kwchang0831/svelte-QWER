@@ -38,6 +38,7 @@ importers:
       flexsearch: ^0.7.21
       gitmoji-cli: ^6.2.0
       husky: ^8.0.1
+      katex: ^0.16.2
       lint-staged: ^13.0.3
       lz-string: ^1.4.4
       medium-zoom: ^1.0.6
@@ -93,6 +94,7 @@ importers:
       flexsearch: 0.7.21
       gitmoji-cli: 6.2.0
       husky: 8.0.1
+      katex: 0.16.2
       lint-staged: 13.0.3
       lz-string: 1.4.4
       medium-zoom: 1.0.6
@@ -121,6 +123,7 @@ importers:
       fs-extra: ^10.1.0
       gray-matter: ^4.0.3
       html-to-text: ^8.2.1
+      katex: ^0.16.2
       limax: ^3.0.0
       lz-string: ^1.4.4
       marked: ^4.1.0
@@ -134,6 +137,7 @@ importers:
       fs-extra: 10.1.0
       gray-matter: 4.0.3
       html-to-text: 8.2.1
+      katex: 0.16.2
       limax: 3.0.0
       lz-string: 1.4.4
       marked: 4.1.0
@@ -1748,6 +1752,11 @@ packages:
 
   /commander/2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
+    dev: true
+
+  /commander/8.3.0:
+    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
+    engines: {node: '>= 12'}
     dev: true
 
   /commander/9.4.0:
@@ -3806,6 +3815,13 @@ packages:
       universalify: 2.0.0
     optionalDependencies:
       graceful-fs: 4.2.10
+    dev: true
+
+  /katex/0.16.2:
+    resolution: {integrity: sha512-70DJdQAyh9EMsthw3AaQlDyFf54X7nWEUIa5W+rq8XOpEk//w5Th7/8SqFqpvi/KZ2t6MHUj4f9wLmztBmAYQA==}
+    hasBin: true
+    dependencies:
+      commander: 8.3.0
     dev: true
 
   /keyv/3.1.0:
