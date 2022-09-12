@@ -1,5 +1,9 @@
 <p align="right"><a href="README.md">English</a> | <strong>中文</strong></p>
 
+<p align="center">
+<a href="https://svelte-qwer.vercel.app/" target="_blank"><img src=https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/avatar.png width=96 hieght=96 style="border-radius: 9999px; object-fit: cover;" /></a>
+</p>
+
 <h1 align="center">QWER</h1>
 
 <p align="center">
