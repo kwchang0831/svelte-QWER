@@ -2,13 +2,12 @@ import { marked } from 'marked';
 import { default_renderer } from './renderer/default.js';
 import { multiLineCurlyBracket } from './tokenizer/multiLineCurlyBracket.js';
 import { infoBlock } from './tokenizer/infoBlock.js';
-import { katexBlock, katexInline } from './tokenizer/katexTokenizer.js';
 
 export const mdify = (data, basePath) => {
   let defaultRenderer = default_renderer(basePath);
 
   marked.use({
-    extensions: [multiLineCurlyBracket, infoBlock, katexBlock, katexInline],
+    extensions: [multiLineCurlyBracket, infoBlock],
     renderer: {
       ...defaultRenderer.renderer,
     },

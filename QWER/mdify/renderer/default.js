@@ -17,6 +17,7 @@ import { highlight } from '../parser/highlight.js';
 import probe from 'probe-image-size';
 import { existsSync, readFileSync } from 'node:fs';
 import { Config, ImageConfig } from '../../../user/config/QWER.confitg.js';
+import { renderKatexBlock, renderKatexInline } from './mathRenderer.js';
 
 export const default_renderer = (basePath) => {
   let _toc = [];
@@ -81,6 +82,10 @@ export const default_renderer = (basePath) => {
        *  - showLineNumber
        */
       code(code, infostring) {
+        const language = (infostring || '').match(/\S*/)[0];
+
+        if (language === 'math') return renderKatexBlock(code);
+
         const options = {};
         let output = code;
 
@@ -146,7 +151,6 @@ export const default_renderer = (basePath) => {
 
         lines = lines.join('\n');
 
-        const language = (infostring || '').match(/\S*/)[0];
         const plang = languages[language];
         lines = plang
           ? PrismJS.highlight(lines, PrismJS.languages[plang], language)
@@ -265,6 +269,12 @@ export const default_renderer = (basePath) => {
       },
 
       codespan(text) {
+        // Check for Inline Katex
+        const inlineKatexRule = /^\$([^\n\r]*?[^\\])\$/;
+        const katexMatch = inlineKatexRule.exec(text);
+        if (katexMatch) return renderKatexInline(katexMatch[1]);
+
+        // The Rest
         const escapeTest = /[{|}|(|)]/g;
         const toEscape = {
           '{': '&lcub',

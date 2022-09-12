@@ -32,35 +32,39 @@ tags:
 
 Katex Block are facanced by
 
-```text
-$$
+<pre>
+```math
 Tex Syntax
-$$
 ```
+</pre>
 
 Example of Fractions and Binomials
 
-$$
+```math
 \frac{n!}{k!(n-k)!} = \binom{n}{k}
-$$
+```
 
 Also
 
-$$
+```math
 \frac{\frac{1}{x}+\frac{1}{y}}{y-z}
-$$
+```
 
 ### Katex Inline
 
-Katex inline are facanced by <code class="inline-code-block">&#36;&#96;...&#96;&#36;</code>
+Katex inline are facanced by
 
-This $`n^{22}`$ and that $`\cos (2\theta) = \cos^2 \theta - \sin^2 \theta`$
+<pre>
+&#96;&#36;kaTex&#36;&#96;
+</pre>
+
+This `$n^{22}$` and that `$\cos (2\theta) = \cos^2 \theta - \sin^2 \theta$`
 
 ### Chemical typesetting
 
-$$
+```math
 \ce{Zn^2+  <=>[+ 2OH-][+ 2H+]  $\underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}}$  <=>[+ 2OH-][+ 2H+]  $\underset{\text{Hydroxozikat}}{\ce{[Zn(OH)4]^2-}}$}
-$$
+```
 
 ## Spoiler
 
