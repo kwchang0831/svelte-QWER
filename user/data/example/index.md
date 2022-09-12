@@ -30,6 +30,14 @@ tags:
 
 ### Katex Block
 
+Katex Block are facanced by
+
+```text
+$$
+Tex Syntax
+$$
+```
+
 Example of Fractions and Binomials
 
 $$
@@ -44,7 +52,9 @@ $$
 
 ### Katex Inline
 
-This $n^{22}$ and that $\cos (2\theta) = \cos^2 \theta - \sin^2 \theta$
+Katex inline are facanced by <code class="inline-code-block">&#36;&#96;...&#96;&#36;</code>
+
+This $`n^{22}`$ and that $`\cos (2\theta) = \cos^2 \theta - \sin^2 \theta`$
 
 ### Chemical typesetting
 

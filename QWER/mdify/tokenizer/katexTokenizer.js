@@ -25,8 +25,8 @@ export const katexInline = {
   name: 'katexInline',
   level: 'block',
   tokenizer(src) {
-    const rule = /^[^$\n\r]*\$([^\n\r]*?[^\\])\$[^$\n\r]*[\n\r]/;
-    const inlineRule = /\$([^\n\r]*?[^\\])\$/g;
+    const rule = /^[^$\n\r`]*\$`([^\n\r]*?[^\\])`\$[^$\n\r`]*[\n\r]/;
+    const inlineRule = /\$`([^\n\r]*?[^\\])`\$/g;
 
     let match = rule.exec(src);
 
