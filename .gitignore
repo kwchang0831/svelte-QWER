@@ -14,3 +14,5 @@ __unconfig_vite.config.js
 .husky
 .tool-versions
 /src/i18n/i18n-*
+# Local Netlify folder
+.netlify
