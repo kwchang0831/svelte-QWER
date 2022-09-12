@@ -1,4 +1,4 @@
-import renderToString from '../lib/katex.cjs';
+import { renderBlock, renderInline } from '../lib/katex.cjs';
 
 export const katexBlock = {
   name: 'katexBlock',
@@ -11,7 +11,7 @@ export const katexBlock = {
       const token = {
         type: 'katexBlock',
         raw: match[0],
-        content: renderToString(match[1].trim()),
+        content: renderBlock(match[1].trim()),
       };
       return token;
     }
@@ -38,7 +38,7 @@ export const katexInline = {
     while (inlineMatch) {
       content = content.replace(
         inlineMatch[0],
-        `<span class="katex-inline">${renderToString(inlineMatch[1].trim())}</span>`,
+        `<span class="katex-inline">${renderInline(inlineMatch[1].trim())}</span>`,
       );
       inlineMatch = inlineRule.exec(match[0]);
     }
