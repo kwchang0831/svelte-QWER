@@ -53,6 +53,7 @@
     "*.{html,scss,css,svelte,ts,js}": "prettier --write --plugin-search-dir=."
   },
   "devDependencies": {
+    "@builder.io/partytown": "^0.7.0",
     "@changesets/cli": "^2.24.4",
     "@iconify-json/akar-icons": "^1.1.8",
     "@iconify-json/bxs": "^1.1.3",
