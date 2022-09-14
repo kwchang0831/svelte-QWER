@@ -29,9 +29,9 @@ tags:
 
   let userFolder = [
     { name: 'assets', icon: 'i-bxs-folder' },
+    { name: 'blogs', icon: 'i-bxs-folder' },
     { name: 'config', icon: 'i-bxs-folder' },
     { name: 'custom', icon: 'i-bxs-folder' },
-    { name: 'data', icon: 'i-bxs-folder' },
     { name: 'public', icon: 'i-bxs-folder' }
   ]
 
@@ -106,7 +106,7 @@ Below are the list of folders under `user` folder and their purpose.
 | assets      | User-provided image files that will be **pre-processed**.                         |
 | config      | Site setting and QWER config.                                                     |
 | custom      | User-provided svelte components files to reference in markdown.                   |
-| data        | Provide your markdown file to generate page/blog.                                 |
+| blogs       | Provide your markdown file to generate blog page.                                 |
 | public      | User-provided files that will NOT be pre-processed, and can be directly accessed based on path. |
 
 :::tip
@@ -117,14 +117,14 @@ For future QWER updates, just copy the latest `QWER` and `src` folder and replac
 
 :::
 
-### `data` Folder
+### `blogs` Folder
 
 #### Create a page
 
 Say if you want to creat a new page at `https://example-qwer.com/post/1`, you will create a folder strucutre like the following example.
 
 <div class="p4 border-1 shadow-xl rounded-xl border-black dark:border-white overflow-auto">
-  <Folder name="data" files={postFolder} expanded/>
+  <Folder name="blogs" files={postFolder} expanded/>
 </div>
 
 #### Write page meta

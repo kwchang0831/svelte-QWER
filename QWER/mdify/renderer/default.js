@@ -328,7 +328,7 @@ export const default_renderer = (basePath) => {
           if (alt === '') alt = href;
 
           if (ImageConfig.SupportedImageFormat.includes(ext)) {
-            let imgPath = path.join(process.cwd(), path.join(Config.UserDataFolder, href));
+            let imgPath = path.join(process.cwd(), path.join(Config.UserBlogsFolder, href));
             let imgMeta;
             if (existsSync(imgPath)) {
               imgMeta = probe.sync(readFileSync(imgPath));

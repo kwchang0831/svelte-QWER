@@ -16,8 +16,8 @@ import { mdify } from '../mdify/index.js';
 import { convert } from 'html-to-text';
 
 export const processRmDir = (dir) => {
-  let _routeDir = dir.replace(Config.UserDataFolder, Config.RouteFolder);
-  let _resourceDir = dir.replace(Config.UserDataFolder, Config.StaticFolder);
+  let _routeDir = dir.replace(Config.UserBlogsFolder, Config.RouteFolder);
+  let _resourceDir = dir.replace(Config.UserBlogsFolder, Config.StaticFolder);
   if (existsSync(_routeDir)) {
     rmDir(_routeDir);
   }
@@ -41,7 +41,7 @@ export const processImagePath = (path, slug) => {
 
 export const convertPathToSlug = (file) => {
   const _ext = extname(file);
-  const _destPath = path.relative(Config.UserDataFolder, file).split(sep);
+  const _destPath = path.relative(Config.UserBlogsFolder, file).split(sep);
 
   let _slug;
   if (_ext === '.md') {
@@ -265,7 +265,7 @@ export const buildAll = (metaGenerate = true) => {
     });
   });
 
-  getAllFilesInDir(Config.UserDataFolder).forEach((file) => {
+  getAllFilesInDir(Config.UserBlogsFolder).forEach((file) => {
     if (basename(file).startsWith('.')) return;
 
     addDataFolderFile(file);

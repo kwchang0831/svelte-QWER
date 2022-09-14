@@ -15,5 +15,5 @@ yarn.lock
 .vercel_build_output
 .vercel
 
-user/data/**
+user/blogs/**
 src/i18n/i18n-*

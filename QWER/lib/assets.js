@@ -66,7 +66,7 @@ export const assets = (() => {
       output.forEach((e) => {
         mapData.push([e[0], {}]);
 
-        let imgPath = path.join(process.cwd(), path.join(Config.UserDataFolder, e[0]));
+        let imgPath = path.join(process.cwd(), path.join(Config.UserBlogsFolder, e[0]));
         let imgMeta;
         if (existsSync(imgPath)) {
           imgMeta = probe.sync(readFileSync(imgPath));

@@ -5,5 +5,5 @@
 
 !updated: change katex syntax for block and inline
 
-  + katex block : ```math block
-  + katex inline : `$...$`
+- katex block : ```math block
+- katex inline : `$...$`

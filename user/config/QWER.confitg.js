@@ -2,7 +2,7 @@ export const Config = {
   StaticFolder: 'static',
   BuildFolder: 'build',
   UserPublicFolder: 'user/public',
-  UserDataFolder: 'user/data',
+  UserBlogsFolder: 'user/blogs',
   UserAssetsFolder: 'user/assets',
   RouteFolder: 'src/routes',
   PreserveFilesInRoutes: [

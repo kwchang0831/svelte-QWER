@@ -18,7 +18,7 @@ import { rmFile, rmDir } from './utli/fsHelper.js';
 switch (process.argv[2]) {
   case 'watch':
     {
-      let dataFolderwatcher = chokidar.watch(Config.UserDataFolder, {
+      let dataFolderwatcher = chokidar.watch(Config.UserBlogsFolder, {
         ignored: (file) => basename(file).startsWith('.'),
         awaitWriteFinish: {
           stabilityThreshold: 1000,
