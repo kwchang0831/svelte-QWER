@@ -23,5 +23,6 @@ export namespace Giscus {
     loading?: 'lazy';
     inputPosition?: 'top' | 'bottom';
     term?: string;
+    'data-strict'?: string;
   };
 }

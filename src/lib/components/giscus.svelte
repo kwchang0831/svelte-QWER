@@ -1,7 +1,7 @@
 <script lang="ts">
   import LL from '$i18n/i18n-svelte';
   import { onMount } from 'svelte';
-  import { giscusConfig } from '$config/site';
+  import { giscusConfig, siteConfig } from '$config/site';
 
   export let theme: string;
 
@@ -11,6 +11,7 @@
     const giscus = document.createElement('script');
     Object.entries({
       src: giscusConfig.src ?? 'https://giscus.app/client.js',
+      origins: [siteConfig.url],
       'data-repo': giscusConfig.repo,
       'data-repo-id': giscusConfig.repoId,
       'data-category': giscusConfig.category ?? '',
@@ -21,6 +22,7 @@
       'data-theme': theme ?? 'preferred_color_scheme',
       'data-lang': giscusConfig.lang ?? 'en',
       'data-loading': giscusConfig.loading ?? '',
+      'data-strict': giscusConfig['data-strict'] ?? '0',
       crossorigin: 'anonymous',
       async: '',
     }).forEach(([key, value]) => {

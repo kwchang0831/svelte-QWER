@@ -100,6 +100,7 @@ export const giscusConfig: Giscus.Config = {
   inputPosition: 'top',
   loading: 'lazy',
   lang: 'en',
+  'data-strict': '0',
 };
 
 export const navConfig: (DD.Nav | DD.Link)[] = [
