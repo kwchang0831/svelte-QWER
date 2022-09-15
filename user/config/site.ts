@@ -5,7 +5,7 @@ import type { DD } from '$lib/types/dd';
 import Avatar from '$assets/avatar.png';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import Avatar_128 from '$assets/avatar.png?w=128&h=128&format=avif;wepb';
+import Avatar_128 from '$assets/avatar.png?w=128&h=128&format=avif;webp';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import Avatar_48_PNG from '$assets/avatar.png?w=48&h=48';
