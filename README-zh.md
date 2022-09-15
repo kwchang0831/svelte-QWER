@@ -7,20 +7,22 @@
 <h1 align="center">QWER</h1>
 
 <p align="center">
-使用 <b>SvelteKit</b> 與 <b>❤</b> 精心打造的<b>部落格生成器</b>
+使用 <b>SvelteKit</b> 與 <b>愛 ❤</b> 精心打造的<b>部落格生成器</b>
 </p>
 
-<p align="center"><img src="https://img.shields.io/github/languages/top/kwchang0831/svelte-QWER?color=%23ff3e00&style=for-the-badge&logo=Svelte" alt="Language" />
-<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/kwchang0831/svelte-QWER?style=for-the-badge" alt="License"></a>
-<a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 示範網站-Vercel-informational?style=for-the-badge" alt="Readme"></a>
-<a href="https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a"><img src="https://img.shields.io/badge/❓ 問題討論-Q&A-informational?style=for-the-badge" alt="Q&A"></a></p>
+<p align="center"><img src="https://img.shields.io/github/languages/top/kwchang0831/svelte-QWER?color=%23ff3e00&logo=Svelte" alt="Language" />
+<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/kwchang0831/svelte-QWER" alt="License"></a><a href="https://github.com/kwchang0831/svelte-QWER/blob/main/CHANGELOG.md"><img src="https://img.shields.io/badge/更新日誌-svelte--QWER-lightgreen?logo=Keep a Changelog" alt="svelte-QWER"></a>
+<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/QWER/CHANGELOG.md"><img src="https://img.shields.io/badge/更新日誌-QWER-lightgreen?logo=Keep a Changelog" alt="QWER"></a></p>
 
-<p align="center"><a href="https://github.com/kwchang0831/svelte-QWER/blob/main/CHANGELOG.md"><img src="https://img.shields.io/badge/更新日誌-Svelt--QWER-lightgreen?style=for-the-badge&logo=Keep a Changelog" alt="svelte-QWER"></a>
-<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/QWER/CHANGELOG.md"><img src="https://img.shields.io/badge/更新日誌-QWER-lightgreen?style=for-the-badge&logo=Keep a Changelog" alt="QWER"></a></p>
+<p align="center">
+<a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 示範網站-Vercel-informational?style=for-the-badge" alt="QWER DEMO"></a>
+<a href="https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a"><img src="https://img.shields.io/badge/💬 討論版-Q&A-informational?style=for-the-badge" alt="QWER Q&A"></a>
+<a href="https://docs-svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/📝 使用教學-DOCS-informational?style=for-the-badge" alt="QWER DOCS"></a>
+</p>
 
 <p align="center"><img style="float:middle" width="auto" alt="PAGESPEED" src="https://raw.githubusercontent.com/gist/kwchang0831/acd18fa5e12de9be28a34617beffe5de/raw/metrics.pagespeed.svg"></p>
 
-## 🎉 馬上嘗試看看 QWER
+## 🎉 馬上嘗試看看 [QWER](https://github.com/kwchang0831/svelte-QWER/)
 
 ```bash
 npx degit kwchang0831/svelte-QWER my-blog
@@ -112,13 +114,13 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## 📚 了解更多
 
-請參考教學 [Intro to QWER](https://svelte-qwer.vercel.app/intro) 和 [About QWER](https://svelte-qwer.vercel.app/about)。
+請參考 [教學文件](https://docs-svelte-qwer.vercel.app/)。
 
 ## 👷 目前狀態
 
 [QWER](https://github.com/kwchang0831/svelte-QWER) 現在處於很早期的階段，所以經常會有破壞性的改動，請多包涵。
 
-未來如果有更新，而且您也想應用更新，通常你只需要複製你的 `user` 資料夾覆蓋最新的 release。
+未來如果有更新，通常你只需要複製你的 `user` 資料夾覆蓋最新的 release。
 
 請別忘了查看 CHANGELOG，看看你是否需要對 `user/config` 或其他地方進行更新與調整。
 
