@@ -3,21 +3,11 @@ import type { Giscus } from '$lib/types/giscus';
 import type { DD } from '$lib/types/dd';
 
 import Avatar from '$assets/avatar.png';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import Avatar_128 from '$assets/avatar.png?w=128&h=128&format=avif;webp';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import Avatar_48_PNG from '$assets/avatar.png?w=48&h=48';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import Avatar_96_PNG from '$assets/avatar.png?w=96&h=96';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import Avatar_192_PNG from '$assets/avatar.png?w=192&h=192';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import Avatar_512_PNG from '$assets/avatar.png?w=512&h=512';
+import Avatar_128 from '$assets/avatar.png?w=128&h=128&format=avif;webp&imagetools';
+import Avatar_48_PNG from '$assets/avatar.png?w=48&h=48&imagetools';
+import Avatar_96_PNG from '$assets/avatar.png?w=96&h=96&imagetools';
+import Avatar_192_PNG from '$assets/avatar.png?w=192&h=192&imagetools';
+import Avatar_512_PNG from '$assets/avatar.png?w=512&h=512&imagetools';
 
 import SiteCover from '$assets/qwer.webp';
 
