@@ -11,7 +11,7 @@
     const giscus = document.createElement('script');
     Object.entries({
       src: giscusConfig.src ?? 'https://giscus.app/client.js',
-      origins: [siteConfig.url],
+      origins: siteConfig.url,
       'data-repo': giscusConfig.repo,
       'data-repo-id': giscusConfig.repoId,
       'data-category': giscusConfig.category ?? '',
