@@ -10,17 +10,20 @@
 Simply Awesome <b>Blog Starter</b> built with <b>SvelteKit</b> and <b>❤</b>
 </p>
 
-<p align="center"><img src="https://img.shields.io/github/languages/top/kwchang0831/svelte-QWER?color=%23ff3e00&style=for-the-badge&logo=Svelte" alt="Language" />
-<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/kwchang0831/svelte-QWER?style=for-the-badge" alt="License"></a>
-<a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 DEMO-Vercel-informational?style=for-the-badge" alt="Readme"></a>
-<a href="https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a"><img src="https://img.shields.io/badge/❓ Discussion-Q&A-informational?style=for-the-badge" alt="Q&A"></a></p>
+<p align="center"><img src="https://img.shields.io/github/languages/top/kwchang0831/svelte-QWER?color=%23ff3e00&logo=Svelte" alt="Language" />
+<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/kwchang0831/svelte-QWER" alt="License"></a>
+<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/CHANGELOG.md"><img src="https://img.shields.io/badge/CHANGELOG-svelte--QWER-lightgreen?logo=Keep a Changelog" alt="svelte-QWER"></a>
+<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/QWER/CHANGELOG.md"><img src="https://img.shields.io/badge/CHANGELOG-QWER-lightgreen?logo=Keep a Changelog" alt="QWER"></a></p>
 
-<p align="center"><a href="https://github.com/kwchang0831/svelte-QWER/blob/main/CHANGELOG.md"><img src="https://img.shields.io/badge/CHANGELOG-Svelt--QWER-lightgreen?style=for-the-badge&logo=Keep a Changelog" alt="svelte-QWER"></a>
-<a href="https://github.com/kwchang0831/svelte-QWER/blob/main/QWER/CHANGELOG.md"><img src="https://img.shields.io/badge/CHANGELOG-QWER-lightgreen?style=for-the-badge&logo=Keep a Changelog" alt="QWER"></a></p>
+<p align="center">
+<a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 DEMO-Vercel-informational?style=for-the-badge" alt="QWER DEMO"></a>
+<a href="https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a"><img src="https://img.shields.io/badge/💬 Discussion-Q&A-informational?style=for-the-badge" alt="QWER Q&A"></a>
+<a href="https://docs-svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/📝 Documentation-DOCS-informational?style=for-the-badge" alt="QWER DOCS"></a>
+</p>
 
 <p align="center"><img style="float:middle" width="auto" alt="PAGESPEED" src="https://raw.githubusercontent.com/gist/kwchang0831/acd18fa5e12de9be28a34617beffe5de/raw/metrics.pagespeed.svg"></p>
 
-## 🎉 Try it out
+## 🎉 Try [QWER](https://github.com/kwchang0831/svelte-QWER/) out
 
 ```bash
 npx degit kwchang0831/svelte-QWER my-blog
@@ -112,13 +115,11 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## 📚 Learn More
 
-Please read more at [Intro to QWER](https://svelte-qwer.vercel.app/intro-to-QWER) and [About QWER](https://svelte-qwer.vercel.app/about).
+Please read more at our [Documentation](https://docs-svelte-qwer.vercel.app/).
 
 ## 👷 Current State
 
 [QWER](https://github.com/kwchang0831/svelte-QWER) is at its' very early stage. Kindly expect frequent breaking changes.
-
-For now, if there are updates, and if you do wanna apply the upates.
 
 Just copy and paste your `user` folder to the latest release.
 

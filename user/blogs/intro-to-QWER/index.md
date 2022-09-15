@@ -1,9 +1,9 @@
 ---
 title: Intro to QWER
-description: Start using 🚀 QWER - Simply Awesome Blog Starter. Built using Svelte with ❤
+description: Start using QWER - Simply Awesome Blog Starter. Built using SvelteKit and Love.
 summary: 🎉 Let's start a brand new awesome blog...
 published: '2022-08-20T00:00:00.000+08:00'
-updated: '2022-09-11T12:00:00.000+08:00'
+updated: '2022-09-15T21:00:00.000+08:00'
 cover: ./cover.jpg
 coverCaption: Photo by <a href="https://unsplash.com/@joannakosinska?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joanna Kosinska</a> on <a href="https://unsplash.com/s/photos/study?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags:
