@@ -1,5 +1,5 @@
 export const UserConfig = {
-  DefaultDesktopShowTagFilter: true,
+  DefaultDesktopShowTagFilter: false,
   DefaultCoverStyle: 'IN',
   DefaultTagName: 'tags',
   DefaultPostLanguage: 'English',
@@ -8,8 +8,8 @@ export const UserConfig = {
   YearTagName: 'Year',
 
   BannerImage: {
-    width: 900,
-    height: 200,
+    width: 768,
+    height: 320,
     format: ['avif'],
   },
 

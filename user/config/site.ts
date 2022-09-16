@@ -22,7 +22,7 @@ export const siteConfig: Site.Config = {
   cover: SiteCover,
   author: {
     name: 'John Doe',
-    status: '❤️',
+    status: '🚀',
     statusTip:
       '<a href="https://github.com/kwchang0831/svelte-QWER" style="color:#0F0" onMouseOver="this.style.color=\'#0FF\'" onMouseOut="this.style.color=\'#0F0\'" >QWER</a> is Awesome !',
     avatar: Avatar,
@@ -34,7 +34,7 @@ export const siteConfig: Site.Config = {
     website: 'https://github.com/kwchang0831/svelte-QWER',
     github: 'https://github.com/kwchang0831',
     email: 'contact@kwchang0831.dev',
-    bio: `lorem ipsum! <br/> dolor sit amet!`,
+    bio: `Peace begins <br/> With a smile`,
   },
 };
 
@@ -95,29 +95,14 @@ export const giscusConfig: Giscus.Config = {
 
 export const navConfig: (DD.Nav | DD.Link)[] = [
   {
-    name: 'Get Started',
-    orientation: 2,
-    links: [
-      {
-        name: 'Hello World',
-        url: '/hello-world',
-        prefetch: true,
-      },
-      {
-        name: 'Example Post',
-        url: '/example',
-        prefetch: true,
-      },
-      {
-        name: 'Intro to QWER',
-        url: '/intro-to-QWER',
-        prefetch: true,
-      },
-    ],
-  },
-  {
     name: 'About',
     url: '/about',
+  },
+  {
+    name: 'See Docs 📄',
+    url: 'https://docs-svelte-qwer.vercel.app/',
+    target: '_blank',
+    rel: 'noreferrer noopener',
   },
   {
     name: 'Get QWER 🚀',
@@ -131,29 +116,14 @@ export const mobilenavConfig: DD.Nav = {
   orientation: 2,
   links: [
     {
-      name: 'Get Started',
-      orientation: 1,
-      links: [
-        {
-          name: 'Hello World',
-          url: '/hello-world',
-          prefetch: true,
-        },
-        {
-          name: 'Example Post',
-          url: '/example',
-          prefetch: true,
-        },
-        {
-          name: 'Intro to QWER',
-          url: '/intro-to-QWER',
-          prefetch: true,
-        },
-      ],
-    },
-    {
       name: 'About',
       url: '/about',
+    },
+    {
+      name: 'See Docs 📄',
+      url: 'https://docs-svelte-qwer.vercel.app/',
+      target: '_blank',
+      rel: 'noreferrer noopener',
     },
     {
       name: 'Get QWER 🚀',

@@ -92,7 +92,7 @@
         <div class:flex-col={['TOP', 'BOT'].indexOf(data.coverStyle) !== -1} class="flex md:border-none relative">
           <div
             class="overflow-hidden
-            {['TOP', 'BOT'].indexOf(data.coverStyle) !== -1 ? 'h-[16rem]' : ''}
+            {['TOP', 'BOT'].indexOf(data.coverStyle) !== -1 ? 'h-[20rem]' : ''}
             {['RIGHT', 'LEFT'].indexOf(data.coverStyle) !== -1 ? 'w-[9rem] md:(w-[12rem])' : ''}"
             class:order-first={data.coverStyle === 'TOP' || data.coverStyle === 'LEFT'}
             class:order-last={data.coverStyle === 'BOT' || data.coverStyle === 'RIGHT'}>
@@ -104,7 +104,7 @@
                 imgClass="op90 group-hover:scale-110 transition transform duration-300 ease-in-out object-cover w-full h-full" />
             </a>
           </div>
-          <div class="px8 pt4 pb6 flex flex-col gap2 flex-1">
+          <div class="px8 pt4 pb6 flex flex-col gap2 flex-1 bg-[#FAF9F6]/[0.75] dark:(bg-[#171717]/[0.75])">
             <time class="dt-published op80 group-hover:font-600" datetime={data.published} itemprop="datePublished">
               {postPublishedStr}
             </time>
