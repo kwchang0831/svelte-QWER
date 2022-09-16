@@ -15,7 +15,7 @@ export default function tooltip(node: HTMLElement, params: Partial<Props> = {}):
   const content = String(custom || title || label);
 
   // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
-  if (!label) return; //node.setAttribute('aria-label', content);
+  // if (!label) return; //node.setAttribute('aria-label', content);
 
   // node.title = '';
 
