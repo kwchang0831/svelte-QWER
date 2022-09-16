@@ -1,4 +1,4 @@
-<p align="right"><a href="README.md">English</a> | <strong>中文</strong></p>
+<p align="right"><a href="https://github.com/kwchang0831/svelte-QWER/blob/main/README.md">English</a> | <strong>中文</strong></p>
 
 <p align="center">
 <a href="https://svelte-qwer.vercel.app/" target="_blank"><img src=https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/avatar.png width=96 hieght=96 style="border-radius: 9999px; object-fit: cover;" /></a>
@@ -114,7 +114,7 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## 📚 了解更多
 
-請參考 [教學文件](https://docs-svelte-qwer.vercel.app/)。
+請參考我們的 [教學文件](https://docs-svelte-qwer.vercel.app/)。
 
 ## 👷 目前狀態
 
