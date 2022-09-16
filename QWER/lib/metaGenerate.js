@@ -1,4 +1,4 @@
-import { Config, ImageConfig } from '../../user/config/QWER.confitg.js';
+import { CoreConfig, ImageConfig, UserConfig } from '../../user/config/QWER.config.js';
 import fs from 'fs-extra';
 import { readSync, write } from 'to-vfile';
 import { exec } from 'child_process';
@@ -10,39 +10,39 @@ import { assets } from '../lib/assets.js';
 import { strReplaceMatchWith } from '../utli/fsHelper.js';
 
 export const genMetaFiles = () => {
-  fs.ensureDirSync(Config.GeneratedFolder);
+  fs.ensureDirSync(CoreConfig.GeneratedFolder);
 
   write({
-    path: Config.PostsJsonPath,
+    path: CoreConfig.PostsJsonPath,
     value: posts.json(),
   }).then(() => {
-    log('cyan', '[Generated] Meta File Updated', Config.PostsJsonPath);
+    log('cyan', '[Generated] Meta File Updated', CoreConfig.PostsJsonPath);
   });
 
   write({
-    path: Config.TagsJsonPath,
+    path: CoreConfig.TagsJsonPath,
     value: tags.json(),
   }).then(() => {
-    log('cyan', '[Generated] Meta File Updated', Config.TagsJsonPath);
+    log('cyan', '[Generated] Meta File Updated', CoreConfig.TagsJsonPath);
   });
 };
 
 export const genAssetTypeDefinition = () => {
-  fs.ensureDirSync(Config.GeneratedFolder);
+  fs.ensureDirSync(CoreConfig.GeneratedFolder);
 
   let type_data = '';
   if (ImageConfig.ExtraFormats) {
     type_data += 'extraFormats : string[];';
   }
 
-  type_data += `banner: ${ImageConfig.BannerImage.format.length > 1 ? 'string[]' : 'string'};\n`;
-  type_data += Object.entries(ImageConfig.ExtraResolutions)
+  type_data += `banner: ${UserConfig.BannerImage.format.length > 1 ? 'string[]' : 'string'};\n`;
+  type_data += Object.entries(UserConfig.ExtraResolutions)
     .map(([k, v]) => {
       return `${k}?: ${v.format.length > 1 ? 'string[]' : 'string'};`;
     })
     .join('\n');
 
-  const type_tempalte = readSync(join(Config.TemplateFolder, ImageConfig.AssetTypeTemplatePath), 'utf8');
+  const type_tempalte = readSync(join(CoreConfig.TemplateFolder, ImageConfig.AssetTypeTemplatePath), 'utf8');
   const type_tempalteMap = [
     {
       match: ImageConfig.PrefixImageTypeTemplate,
@@ -60,11 +60,11 @@ export const genAssetTypeDefinition = () => {
 };
 
 export const genAssetFile = () => {
-  fs.ensureDirSync(Config.GeneratedFolder);
+  fs.ensureDirSync(CoreConfig.GeneratedFolder);
 
   let store_data = assets.generate_store();
 
-  const store_tempalte = readSync(join(Config.TemplateFolder, Config.AssetStoreTemplatePath), 'utf8');
+  const store_tempalte = readSync(join(CoreConfig.TemplateFolder, CoreConfig.AssetStoreTemplatePath), 'utf8');
   const store_tempalteMap = [
     {
       match: ImageConfig.AssetTemplateStr_Import,
@@ -77,17 +77,17 @@ export const genAssetFile = () => {
   ];
 
   write({
-    path: Config.AssetsStorePath,
+    path: CoreConfig.AssetsStorePath,
     value: strReplaceMatchWith(String(store_tempalte), store_tempalteMap),
   }).then(() => {
-    exec(`prettier --write --plugin-search-dir=. "${Config.AssetsStorePath}"`);
-    log('cyan', '[Generated] Meta File Updated', Config.AssetsStorePath);
+    exec(`prettier --write --plugin-search-dir=. "${CoreConfig.AssetsStorePath}"`);
+    log('cyan', '[Generated] Meta File Updated', CoreConfig.AssetsStorePath);
   });
 
   write({
-    path: Config.AssetsJsonPath,
+    path: CoreConfig.AssetsJsonPath,
     value: assets.json(),
   }).then(() => {
-    log('cyan', '[Generated] Meta File Updated', Config.AssetsJsonPath);
+    log('cyan', '[Generated] Meta File Updated', CoreConfig.AssetsJsonPath);
   });
 };

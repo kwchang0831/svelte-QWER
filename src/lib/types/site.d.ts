@@ -48,9 +48,9 @@ export namespace Site {
   export type DateConfig = {
     toPublishedString: { locales: string; options: Intl.DateTimeFormatOptions };
     toUpdatedString: { locales: string; options: Intl.DateTimeFormatOptions };
-  }
+  };
 
-  declare module "*&imagetools" {
+  declare module '*&imagetools' {
     /**
      * Workaround found here
      * - issue https://github.com/JonasKruckenberg/imagetools/issues/160#issuecomment-1009292026
@@ -61,5 +61,4 @@ export namespace Site {
     const out;
     export default out;
   }
-
 }

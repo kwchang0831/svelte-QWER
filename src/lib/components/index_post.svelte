@@ -2,7 +2,7 @@
   import type { Post } from '$lib/types/post';
   import { fly } from 'svelte/transition';
   import { dateConfig } from '$config/site';
-  import { Config } from '$config/QWER.confitg';
+  import { UserConfig } from '$config/QWER.config';
   import { tagsCur } from '$stores/tags';
   import { postsShow } from '$stores/posts';
   import { browser } from '$app/environment';
@@ -55,8 +55,8 @@
       <div class="flex items-stretch gap-0 z2 border-b-3 border-amber-400">
         <div
           class="py2 bg-green-500 hover:(bg-amber-400) cursor-pointer"
-          on:click={() => handleClick({ name: data.series_tag ?? '', category: Config.SeriesTagName })}>
-          <div class="pl-4 pr-3 text-sm font-bold text-black"># {data.series_tag} {Config.SeriesTagName}</div>
+          on:click={() => handleClick({ name: data.series_tag ?? '', category: UserConfig.SeriesTagName })}>
+          <div class="pl-4 pr-3 text-sm font-bold text-black"># {data.series_tag} {UserConfig.SeriesTagName}</div>
         </div>
         <div class="flex-1 py-2 md:rounded-tr-2xl bg-[#FAF9F6] dark:(bg-[#171717])">
           <div

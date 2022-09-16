@@ -1,4 +1,4 @@
-import { Config } from '../../user/config/QWER.confitg.js';
+import { UserConfig } from '../../user/config/QWER.config.js';
 
 export const tags = (() => {
   let _tags = new Map();
@@ -8,11 +8,11 @@ export const tags = (() => {
 
     tags.forEach((tag) => {
       if (Array.isArray(tag)) {
-        if (!m.has(Config.DefaultTagName)) {
-          m.set(Config.DefaultTagName, new Map());
+        if (!m.has(UserConfig.DefaultTagName)) {
+          m.set(UserConfig.DefaultTagName, new Map());
         }
         tag.forEach((t) => {
-          const _k = m.get(Config.DefaultTagName);
+          const _k = m.get(UserConfig.DefaultTagName);
           _k.set(t, (_k.get(t) ?? 0) + 1);
         });
       } else if (typeof tag === 'object') {
@@ -30,10 +30,10 @@ export const tags = (() => {
           }
         });
       } else {
-        if (!m.has(Config.DefaultTagName)) {
-          m.set(Config.DefaultTagName, new Map());
+        if (!m.has(UserConfig.DefaultTagName)) {
+          m.set(UserConfig.DefaultTagName, new Map());
         }
-        const _k = m.get(Config.DefaultTagName);
+        const _k = m.get(UserConfig.DefaultTagName);
         _k.set(tag, (_k.get(tag) ?? 0) + 1);
       }
     });
@@ -45,7 +45,7 @@ export const tags = (() => {
     tags.forEach((tag) => {
       if (Array.isArray(tag)) {
         tag.forEach((t) => {
-          const _k = m.get(Config.DefaultTagName);
+          const _k = m.get(UserConfig.DefaultTagName);
           if (!_k.get(t)) throw 'Tags were not generated correctly.';
 
           if (_k.get(t) > 1) {
@@ -54,8 +54,8 @@ export const tags = (() => {
             _k.delete(t);
           }
         });
-        if (m.get(Config.DefaultTagName).size === 0) {
-          m.delete(Config.DefaultTagName);
+        if (m.get(UserConfig.DefaultTagName).size === 0) {
+          m.delete(UserConfig.DefaultTagName);
         }
       } else if (typeof tag === 'object') {
         Object.keys(tag).forEach((k) => {
@@ -91,7 +91,7 @@ export const tags = (() => {
           }
         });
       } else {
-        const _k = m.get(Config.DefaultTagName);
+        const _k = m.get(UserConfig.DefaultTagName);
         const _t = tag;
 
         if (!_k.get(_t)) throw 'Tags were not generated correctly.';
@@ -102,8 +102,8 @@ export const tags = (() => {
           _k.delete(_t);
         }
 
-        if (m.get(Config.DefaultTagName).size === 0) {
-          m.delete(Config.DefaultTagName);
+        if (m.get(UserConfig.DefaultTagName).size === 0) {
+          m.delete(UserConfig.DefaultTagName);
         }
       }
     });

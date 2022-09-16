@@ -1,7 +1,7 @@
 import chokidar from 'chokidar';
 import { cp } from 'node:fs';
 import { join, basename, sep } from 'node:path';
-import { Config } from '../user/config/QWER.confitg.js';
+import { CoreConfig } from '../user/config/QWER.config.js';
 import { log } from './utli/logger.js';
 import {
   addDataFolderFile,
@@ -18,7 +18,7 @@ import { rmFile, rmDir } from './utli/fsHelper.js';
 switch (process.argv[2]) {
   case 'watch':
     {
-      let dataFolderwatcher = chokidar.watch(Config.UserBlogsFolder, {
+      let dataFolderwatcher = chokidar.watch(CoreConfig.UserBlogsFolder, {
         ignored: (file) => basename(file).startsWith('.'),
         awaitWriteFinish: {
           stabilityThreshold: 1000,
@@ -65,7 +65,7 @@ switch (process.argv[2]) {
           // genAssetFile();
         });
 
-      const publicFolderwatcher = chokidar.watch(Config.UserPublicFolder, {
+      const publicFolderwatcher = chokidar.watch(CoreConfig.UserPublicFolder, {
         ignored: (file) => basename(file).startsWith('.'),
         awaitWriteFinish: {
           stabilityThreshold: 1000,
@@ -79,7 +79,7 @@ switch (process.argv[2]) {
           if (!publicFolderInited) return;
           log('cyan', '[Public] File Created', file);
           const [, ...destPath] = file.split(sep);
-          const _targetPath = join(Config.StaticFolder, destPath.join(sep));
+          const _targetPath = join(CoreConfig.StaticFolder, destPath.join(sep));
           cp(file, _targetPath, {}, () => {
             log('green', 'File Copied', _targetPath);
           });
@@ -88,7 +88,7 @@ switch (process.argv[2]) {
           if (!publicFolderInited) return;
           log('cyan', '[Public] File Updated', file);
           const [, ...destPath] = file.split(sep);
-          const _targetPath = join(Config.StaticFolder, destPath.join(sep));
+          const _targetPath = join(CoreConfig.StaticFolder, destPath.join(sep));
           cp(file, _targetPath, {}, () => {
             log('green', 'File Copied', _targetPath);
           });
@@ -97,7 +97,7 @@ switch (process.argv[2]) {
           if (!publicFolderInited) return;
           log('cyan', '[Public] File Unlinked', file);
           const [, ...destPath] = file.split(sep);
-          const _targetPath = join(Config.StaticFolder, destPath.join(sep));
+          const _targetPath = join(CoreConfig.StaticFolder, destPath.join(sep));
           rmFile(_targetPath);
         })
         .on('addDir', (dir) => {
@@ -108,7 +108,7 @@ switch (process.argv[2]) {
           if (!publicFolderInited) return;
           log('cyan', '[Public] Dir Unlinked', dir);
           const [, ...destPath] = dir.split(sep);
-          const _targetPath = join(Config.StaticFolder, destPath.join(sep));
+          const _targetPath = join(CoreConfig.StaticFolder, destPath.join(sep));
           rmDir(_targetPath);
         })
         .on('error', (error) => log('red', '[DATA] error', error))

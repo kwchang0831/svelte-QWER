@@ -1,4 +1,4 @@
-import { Config, ImageConfig } from '../../user/config/QWER.confitg.js';
+import { UserConfig, CoreConfig, ImageConfig } from '../../user/config/QWER.config.js';
 import path, { join, isAbsolute, basename, extname, sep, resolve, dirname, posix } from 'node:path';
 import { existsSync, statSync, cp } from 'node:fs';
 import { ensureDirSync } from 'fs-extra';
@@ -16,8 +16,8 @@ import { mdify } from '../mdify/index.js';
 import { convert } from 'html-to-text';
 
 export const processRmDir = (dir) => {
-  let _routeDir = dir.replace(Config.UserBlogsFolder, Config.RouteFolder);
-  let _resourceDir = dir.replace(Config.UserBlogsFolder, Config.StaticFolder);
+  let _routeDir = dir.replace(CoreConfig.UserBlogsFolder, CoreConfig.RouteFolder);
+  let _resourceDir = dir.replace(CoreConfig.UserBlogsFolder, CoreConfig.StaticFolder);
   if (existsSync(_routeDir)) {
     rmDir(_routeDir);
   }
@@ -41,7 +41,7 @@ export const processImagePath = (path, slug) => {
 
 export const convertPathToSlug = (file) => {
   const _ext = extname(file);
-  const _destPath = path.relative(Config.UserBlogsFolder, file).split(sep);
+  const _destPath = path.relative(CoreConfig.UserBlogsFolder, file).split(sep);
 
   let _slug;
   if (_ext === '.md') {
@@ -61,11 +61,11 @@ export const convertPathForInternalUse = (file) => {
   let _path;
 
   if (_ext === '.md') {
-    _path = resolve(Config.RouteFolder, _slug, '+page.svelte');
+    _path = resolve(CoreConfig.RouteFolder, _slug, '+page.svelte');
   } else if (ImageConfig.SupportedImageFormat.includes(_ext.substring(1))) {
-    _path = join(Config.AssetsFolder, _slug);
+    _path = join(CoreConfig.AssetsFolder, _slug);
   } else {
-    _path = resolve(Config.StaticFolder, _slug);
+    _path = resolve(CoreConfig.StaticFolder, _slug);
   }
 
   return _path;
@@ -78,7 +78,7 @@ const _processMD = (file, generateMeta) => {
 
   const _targetPath = convertPathForInternalUse(file);
 
-  if (Config.PreserveFilesInRoutes.includes(_targetPath)) {
+  if (UserConfig.PreserveFilesInRoutes.includes(_targetPath)) {
     log('yellow', 'Preserve File Not Processed', _targetPath);
     return true;
   }
@@ -106,14 +106,14 @@ const _processMD = (file, generateMeta) => {
       })
     : undefined;
 
-  const _layout = _meta.layout ?? Config.DefaultLayout;
+  const _layout = _meta.layout ?? CoreConfig.DefaultLayout;
   const _md = mdify(_content, _slug);
   const _html2text = _md.content ? convert(_md.content) : undefined;
 
   const _postData = {
     slug: _slug,
     title: _meta['title'],
-    language: _meta['language'] ?? Config.DefaultPostLanguage,
+    language: _meta['language'] ?? UserConfig.DefaultPostLanguage,
     description: _meta['description'],
     summary: _meta['summary'],
     content: _html2text ? LZString.compressToBase64(_html2text) : undefined,
@@ -123,7 +123,7 @@ const _processMD = (file, generateMeta) => {
     updated: _meta['updated'] ?? statSync(file).mtime,
     cover: processImagePath(_meta['cover'], _slug),
     coverCaption: _meta['coverCaption'],
-    coverStyle: _meta['coverStyle'] ?? Config.DefaultCoverStyle,
+    coverStyle: _meta['coverStyle'] ?? UserConfig.DefaultCoverStyle,
     options: _meta['options'],
     series_tag: _meta['series_tag'],
     series_title: _meta['series_title'],
@@ -133,28 +133,28 @@ const _processMD = (file, generateMeta) => {
 
   if (_postData['tags']) {
     if (_meta['series_tag']) {
-      const series = { [Config.SeriesTagName]: _meta['series_tag'] };
+      const series = { [UserConfig.SeriesTagName]: _meta['series_tag'] };
       _postData['tags'].push(series);
     }
 
-    const year = { [Config.YearTagName]: new Date(_postData['published']).getFullYear().toString() };
+    const year = { [UserConfig.YearTagName]: new Date(_postData['published']).getFullYear().toString() };
     _postData['tags'].push(year);
 
-    const language = { [Config.PostLanguageTagName]: _postData['language'] };
+    const language = { [UserConfig.PostLanguageTagName]: _postData['language'] };
     _postData['tags'].push(language);
   }
 
   posts.set(_postData['slug'], _postData);
   tags.set(_postData['tags']);
 
-  read(join(Config.TemplateFolder, _layout), 'utf8').then((_tempalte) => {
+  read(join(CoreConfig.TemplateFolder, _layout), 'utf8').then((_tempalte) => {
     const _tempalteMap = [
       {
-        match: Config.DefaultLayoutTemplateStr_Content,
+        match: CoreConfig.DefaultLayoutTemplateStr_Content,
         replace: _md.content,
       },
       {
-        match: Config.DefaultLayoutTemplateStr_Imports,
+        match: CoreConfig.DefaultLayoutTemplateStr_Imports,
         replace: (_md.imports && _md.imports.join('/n')) || '',
       },
     ];
@@ -181,7 +181,7 @@ const _processImageAssets = (file, generateMeta) => {
   const [_ext, _slug] = convertPathToSlug(file);
 
   if (ImageConfig.SupportedImageFormat.includes(_ext.substring(1))) {
-    const _targetPath = join(Config.AssetsFolder, _slug);
+    const _targetPath = join(CoreConfig.AssetsFolder, _slug);
     assets.set(_slug);
 
     cp(file, _targetPath, {}, () => {
@@ -210,20 +210,20 @@ export const addDataFolderFile = (file, generateMeta) => {
 };
 
 export const readMetaIntoMemory = () => {
-  if (existsSync(Config.PostsJsonPath)) {
-    read(Config.PostsJsonPath, 'utf8').then((_posts) => {
+  if (existsSync(CoreConfig.PostsJsonPath)) {
+    read(CoreConfig.PostsJsonPath, 'utf8').then((_posts) => {
       const _postsJson = JSON.parse(_posts);
       _postsJson.forEach((post) => {
         posts.set(post[0], post[1]);
         tags.set(post[1].tags);
       });
-      log('green', 'Meta File Loaded', Config.PostsJsonPath);
+      log('green', 'Meta File Loaded', CoreConfig.PostsJsonPath);
     });
   }
-  if (existsSync(Config.AssetsJsonPath)) {
-    read(Config.AssetsJsonPath, 'utf8').then((_assets) => {
+  if (existsSync(CoreConfig.AssetsJsonPath)) {
+    read(CoreConfig.AssetsJsonPath, 'utf8').then((_assets) => {
       assets.readFromJson(_assets);
-      log('green', 'Meta File Loaded', Config.AssetsJsonPath);
+      log('green', 'Meta File Loaded', CoreConfig.AssetsJsonPath);
     });
   }
 };
@@ -248,24 +248,24 @@ export const rmDataFolderFile = (file, generateMeta) => {
 };
 
 export const buildAll = (metaGenerate = true) => {
-  getAllFilesInDir(Config.UserPublicFolder).forEach((file) => {
-    const _destPath = path.relative(Config.UserPublicFolder, file);
-    const _targetPath = join(Config.StaticFolder, _destPath);
+  getAllFilesInDir(CoreConfig.UserPublicFolder).forEach((file) => {
+    const _destPath = path.relative(CoreConfig.UserPublicFolder, file);
+    const _targetPath = join(CoreConfig.StaticFolder, _destPath);
     cp(file, _targetPath, {}, () => {
       log('green', 'Public File Copied', _targetPath);
     });
   });
 
-  getAllFilesInDir(Config.UserAssetsFolder).forEach((file) => {
-    const _destPath = path.relative(Config.UserAssetsFolder, file);
-    const _targetPath = join(Config.AssetsFolder, _destPath);
+  getAllFilesInDir(CoreConfig.UserAssetsFolder).forEach((file) => {
+    const _destPath = path.relative(CoreConfig.UserAssetsFolder, file);
+    const _targetPath = join(CoreConfig.AssetsFolder, _destPath);
     assets.set(_destPath);
     cp(file, _targetPath, {}, () => {
       log('green', 'Assets File Copied', _targetPath);
     });
   });
 
-  getAllFilesInDir(Config.UserBlogsFolder).forEach((file) => {
+  getAllFilesInDir(CoreConfig.UserBlogsFolder).forEach((file) => {
     if (basename(file).startsWith('.')) return;
 
     addDataFolderFile(file);
@@ -279,14 +279,14 @@ export const buildAll = (metaGenerate = true) => {
 };
 
 export const cleanAll = () => {
-  getAllFilesInDir(Config.RouteFolder).map((f) => {
-    rmGeneratedFiles(f, Config.PrefixGeneratedFileTemplate);
+  getAllFilesInDir(CoreConfig.RouteFolder).map((f) => {
+    rmGeneratedFiles(f, CoreConfig.PrefixGeneratedFileTemplate);
   });
-  rmDir(Config.StaticFolder);
-  rmDir(Config.GeneratedFolder);
-  rmDir(Config.BuildFolder);
+  rmDir(CoreConfig.StaticFolder);
+  rmDir(CoreConfig.GeneratedFolder);
+  rmDir(CoreConfig.BuildFolder);
 };
 
 export const cleanEmptyFoldersInRoute = () => {
-  rmEmptyFolders(Config.RouteFolder);
+  rmEmptyFolders(CoreConfig.RouteFolder);
 };

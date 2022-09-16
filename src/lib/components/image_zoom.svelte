@@ -5,7 +5,7 @@
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   import { assets } from '$generated/assets';
-  import { ImageConfig } from '$config/QWER.confitg';
+  import { UserConfig } from '$config/QWER.config';
   import { dev } from '$app/environment';
   import { siteConfig } from '$config/site';
   import { fade } from 'svelte/transition';
@@ -27,7 +27,7 @@
   export let height: string | undefined = undefined;
 
   let asset: Asset.Image | undefined = $assets.get(src);
-  const resolutions: Array<[string, any]> = Object.entries(ImageConfig.ExtraResolutions)
+  const resolutions: Array<[string, any]> = Object.entries(UserConfig.ExtraResolutions)
     .filter((e) => asset && asset[e[0] as keyof Asset.Image])
     .sort((a, b) => {
       return +b[0] - +a[0];
@@ -66,8 +66,8 @@
           {/each}
         {/each}
       {/if}
-      {#if ImageConfig.ExtraFormats && ImageConfig.ExtraFormats.length}
-        {#each ImageConfig.ExtraFormats as format, index}
+      {#if UserConfig.ExtraFormats && UserConfig.ExtraFormats.length}
+        {#each UserConfig.ExtraFormats as format, index}
           <source
             type={`image/${format}`}
             srcset={dev

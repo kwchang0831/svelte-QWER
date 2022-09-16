@@ -1,4 +1,4 @@
-import { Config, ImageConfig } from '../../user/config/QWER.confitg.js';
+import { UserConfig, CoreConfig, ImageConfig } from '../../user/config/QWER.config.js';
 import path from 'node:path';
 import probe from 'probe-image-size';
 import { existsSync, readFileSync } from 'node:fs';
@@ -11,20 +11,20 @@ export const assets = (() => {
 
     Array.from(_assets).map((e) => {
       let original = `${ImageConfig.OriginalImageFolder}${e}`;
-      let banner = `${original}?w=${ImageConfig.BannerImage.width}${
-        ImageConfig.BannerImage.height ? `&h=${ImageConfig.BannerImage.height}` : ''
-      }&format=${ImageConfig.BannerImage.format.join(';')}`;
+      let banner = `${original}?w=${UserConfig.BannerImage.width}${
+        UserConfig.BannerImage.height ? `&h=${UserConfig.BannerImage.height}` : ''
+      }&format=${UserConfig.BannerImage.format.join(';')}`;
 
       let output = {
         original: original,
         banner: banner,
       };
 
-      if (ImageConfig.ExtraFormats && ImageConfig.ExtraFormats.length) {
-        output['extraFormats'] = `${ImageConfig.OriginalImageFolder}${e}?format=${ImageConfig.ExtraFormats.join(';')}`;
+      if (UserConfig.ExtraFormats && UserConfig.ExtraFormats.length) {
+        output['extraFormats'] = `${ImageConfig.OriginalImageFolder}${e}?format=${UserConfig.ExtraFormats.join(';')}`;
       }
 
-      Object.entries(ImageConfig.ExtraResolutions).map(([k, v]) => {
+      Object.entries(UserConfig.ExtraResolutions).map(([k, v]) => {
         output[k] = `${ImageConfig.OriginalImageFolder}${e}?w=${v.width}${
           v.height ? `&h=${v.height}` : ''
         }&format=${v.format.join(';')}`;
@@ -66,7 +66,7 @@ export const assets = (() => {
       output.forEach((e) => {
         mapData.push([e[0], {}]);
 
-        let imgPath = path.join(process.cwd(), path.join(Config.UserBlogsFolder, e[0]));
+        let imgPath = path.join(process.cwd(), path.join(CoreConfig.UserBlogsFolder, e[0]));
         let imgMeta;
         if (existsSync(imgPath)) {
           imgMeta = probe.sync(readFileSync(imgPath));

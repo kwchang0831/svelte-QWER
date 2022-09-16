@@ -3,6 +3,8 @@ import type { Tags } from '$lib/types/tags';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import tagsjson from '$generated/tags.json';
+import { UserConfig } from '$config/QWER.config';
+
 const tags = Object.entries(tagsjson)
   .map((e: [string, unknown]) => {
     return {
@@ -22,6 +24,8 @@ const tags = Object.entries(tagsjson)
   });
 
 export const tagsShowMobile = writable(false);
+export const tagsShowDesktop = writable(UserConfig.DefaultDesktopShowTagFilter);
+
 export const tagsAll = readable(tags);
 
 export const tagsCur = (() => {

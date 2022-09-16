@@ -2,7 +2,7 @@
   import IndexProfile from '$lib/components/index_profile.svelte';
   import IndexPosts from '$lib/components/index_posts.svelte';
   import Tags from '$lib/components/tags_root.svelte';
-  import { tagsCur, tagsShowMobile } from '$stores/tags';
+  import { tagsCur, tagsShowMobile, tagsShowDesktop } from '$stores/tags';
   import { postsShow } from '$stores/posts';
   import { siteConfig } from '$config/site';
 
@@ -57,7 +57,7 @@
   <div
     in:fly={{ x: -100, y: -100, duration: 300, delay: 300 }}
     out:fly={{ x: -100, y: -100, duration: 300 }}
-    class="mx6 my4 lg:hidden">
+    class="mx6 my4 xl:hidden">
     <Tags class="flex flex-col min-w-[12rem]" />
   </div>
 {:else}
@@ -67,7 +67,7 @@
     itemscope
     itemtype="https://schema.org/Blog"
     itemprop="blog"
-    class="flex flex-nowrap justify-center flex-col items-center xl:(flex-row items-stretch) lg:hidden">
+    class="flex flex-nowrap justify-center flex-col items-center xl:(flex-row items-stretch) xl:hidden">
     <div class="max-w-screen-md flex-1 relative ml6">
       <IndexProfile class="flex flex-col gap2 items-center text-center" />
     </div>
@@ -81,7 +81,7 @@
   itemscope
   itemtype="https://schema.org/Blog"
   itemprop="blog"
-  class="flex-nowrap justify-center flex-col items-center xl:(flex-row items-stretch) hidden lg:flex">
+  class="flex-nowrap justify-center flex-col items-center xl:(flex-row items-stretch) hidden xl:flex">
   <div
     in:fly={{ x: -100, y: -100, duration: 300, delay: 300 }}
     out:fly={{ x: -100, y: 100, duration: 300 }}
@@ -101,6 +101,8 @@
     in:fly={{ x: 100, y: -100, duration: 300, delay: 300 }}
     out:fly={{ x: 100, y: 100, duration: 300 }}
     class="max-w-screen-md flex-1 relative mr6">
-    <Tags class="hidden max-w-[20rem] xl:(flex flex-col min-w-[12rem] sticky top-[4rem])" />
+    {#if $tagsShowDesktop}
+      <Tags class="hidden max-w-[20rem] xl:(flex flex-col min-w-[12rem] sticky top-[4rem])" />
+    {/if}
   </div>
 </div>

@@ -6,7 +6,7 @@
   // @ts-ignore
   import { assets } from '$generated/assets';
   import { dev } from '$app/environment';
-  import { ImageConfig } from '$config/QWER.confitg';
+  import { UserConfig } from '$config/QWER.config';
   import { siteConfig } from '$config/site';
   import { fade } from 'svelte/transition';
 
@@ -34,16 +34,16 @@
     So, we add "/" in front to force it. Not sure if there's other side effects for now.
   -->
   <picture in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="select-none {pictureClass}">
-    {#if ImageConfig.BannerImage && ImageConfig.BannerImage['format']}
-      {#each ImageConfig.BannerImage['format'] as format, index}
+    {#if UserConfig.BannerImage && UserConfig.BannerImage['format']}
+      {#each UserConfig.BannerImage['format'] as format, index}
         <source
           srcset={dev
             ? `${Array.isArray(asset['banner']) ? asset['banner'][index] : asset['banner']}`
             : `${
                 new URL(Array.isArray(asset['banner']) ? asset['banner'][index] : asset['banner'], siteConfig.url).href
               }`}
-          width={ImageConfig.BannerImage.width}
-          height={ImageConfig.BannerImage.height}
+          width={UserConfig.BannerImage.width}
+          height={UserConfig.BannerImage.height}
           type={`image/${format}`} />
       {/each}
     {/if}

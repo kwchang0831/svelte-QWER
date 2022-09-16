@@ -5,7 +5,7 @@
   import { theme } from '$stores/themes';
   import { fly, fade } from 'svelte/transition';
   import Dropdown from '$lib/components/dd.svelte';
-  import { tagsCur, tagsShowMobile } from '$stores/tags';
+  import { tagsCur, tagsShowMobile, tagsShowDesktop } from '$stores/tags';
   import { postsShow } from '$stores/posts';
   import { navigating, page } from '$app/stores';
   import { postsAll } from '$stores/posts';
@@ -214,6 +214,19 @@
                 out:fade={{ duration: 300 }}
                 aria-label="Tags"
                 on:click={() => {
+                  $tagsShowDesktop = !$tagsShowDesktop;
+                }}
+                class="btn active:translate-y-2 duration-600 ease-out group hidden xl:inline-block">
+                <div
+                  class:i-mdi-tag-off={$tagsShowDesktop}
+                  class:i-mdi-tag={!$tagsShowDesktop}
+                  class="!w7 !h7 group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+              </button>
+              <button
+                in:fade={{ duration: 300, delay: 300 }}
+                out:fade={{ duration: 300 }}
+                aria-label="Tags"
+                on:click={() => {
                   $tagsShowMobile = !$tagsShowMobile;
                 }}
                 class="btn active:translate-y-2 duration-600 ease-out group xl:hidden">
@@ -242,7 +255,7 @@
       class="flex border-transparent backdrop-blur items-center py-2"
       in:fly={{ x: 50, duration: 300, delay: 300 }}
       out:fly={{ x: 50, duration: 300 }}>
-      <form on:submit|preventDefault={onSubmit} accept-charset="UTF-8" class="grow flex items-center" action="/search">
+      <form on:submit|preventDefault={onSubmit} class="grow flex items-center" action="/search">
         <input
           bind:this={searchbox}
           bind:value={input}

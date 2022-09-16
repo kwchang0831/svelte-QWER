@@ -16,7 +16,7 @@ import { highlight } from '../parser/highlight.js';
 
 import probe from 'probe-image-size';
 import { existsSync, readFileSync } from 'node:fs';
-import { Config, ImageConfig } from '../../../user/config/QWER.confitg.js';
+import { CoreConfig, ImageConfig } from '../../../user/config/QWER.config.js';
 import { renderKatexBlock, renderKatexInline } from './mathRenderer.js';
 
 export const default_renderer = (basePath) => {
@@ -328,7 +328,7 @@ export const default_renderer = (basePath) => {
           if (alt === '') alt = href;
 
           if (ImageConfig.SupportedImageFormat.includes(ext)) {
-            let imgPath = path.join(process.cwd(), path.join(Config.UserBlogsFolder, href));
+            let imgPath = path.join(process.cwd(), path.join(CoreConfig.UserBlogsFolder, href));
             let imgMeta;
             if (existsSync(imgPath)) {
               imgMeta = probe.sync(readFileSync(imgPath));

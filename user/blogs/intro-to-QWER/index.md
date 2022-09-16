@@ -36,7 +36,7 @@ tags:
   ]
 
   let configFolder = [
-    { name: 'QWER.confitg.js', icon: 'i-vscode-icons-file-type-typescript-official' },
+    { name: 'QWER.config.js', icon: 'i-vscode-icons-file-type-typescript-official' },
     { name: 'site.ts', icon: 'i-bxs-file-js' }
   ]
 
