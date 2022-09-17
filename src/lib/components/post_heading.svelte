@@ -21,7 +21,7 @@
         height="32px"
         class="inline-block !w-8 !h-8 mr-1 object-cover aspect-1 rounded-full hover:rotate-[360deg] transition-transform duration-1000 ease-in-out" />
       <span class="font-bold text-base">
-        <a use:tippy aria-label="Github Page" rel="author" href={siteConfig.author.github} class="u-url u-uid">
+        <a use:tippy aria-label="Github Page" rel="author external" href={siteConfig.author.github} class="u-url u-uid">
           <span class="p-name">{siteConfig.author.name}</span>
         </a>
       </span>

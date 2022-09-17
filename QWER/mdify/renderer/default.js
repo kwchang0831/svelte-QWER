@@ -299,8 +299,12 @@ export const default_renderer = (basePath) => {
         if (href === null) {
           return text;
         }
-
-        return `<a href="${escape(href)}" ${title ? `title="${title}"` : ''}>${text}</a>`;
+        // Does not detect if the link has the same domain as the host site
+        // Treat all full URLs as external link
+        const isLinkExternal = href.indexOf('://') > 0 || href.indexOf('//') === 0;
+        return `<a href="${escape(href)}" ${isLinkExternal ? `rel="external"` : ''} ${
+          title ? `title="${title}"` : ''
+        }>${text}</a>`;
       },
 
       image(href, title, alt) {

@@ -32,17 +32,32 @@
 
   <div class="flex">
     {#if siteConfig.author.email}
-      <a use:tippy href="mailto:{siteConfig.author.email}" class="btn btn-ghost" aria-label="Email">
+      <a
+        use:tippy
+        href="mailto:{siteConfig.author.email}"
+        rel="author external"
+        class="btn btn-ghost"
+        aria-label="Email">
         <div class="!w-[1.75rem] !h-[1.75rem]  i-ic-baseline-mail" />
       </a>
     {/if}
     {#if siteConfig.author.github}
-      <a use:tippy href={siteConfig.author.github} class="u-url u-uid btn btn-ghost" aria-label="Github">
+      <a
+        use:tippy
+        href={siteConfig.author.github}
+        rel="author external"
+        class="u-url u-uid btn btn-ghost"
+        aria-label="Github">
         <div class="!w-[1.75rem] !h-[1.75rem]  i-carbon-logo-github" />
       </a>
     {/if}
     {#if siteConfig.author.twitter}
-      <a use:tippy href={siteConfig.author.twitter} class="u-url u-uid btn btn-ghost" aria-label="Twitter">
+      <a
+        use:tippy
+        href={siteConfig.author.twitter}
+        rel="author external"
+        class="u-url u-uid btn btn-ghost"
+        aria-label="Twitter">
         <div class="!w-[1.75rem] !h-[1.75rem]  i-carbon-logo-twitter" />
       </a>
     {/if}

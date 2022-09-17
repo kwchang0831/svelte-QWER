@@ -24,7 +24,7 @@ export const siteConfig: Site.Config = {
     name: 'John Doe',
     status: '🚀',
     statusTip:
-      '<a href="https://github.com/kwchang0831/svelte-QWER" style="color:#0F0" onMouseOver="this.style.color=\'#0FF\'" onMouseOut="this.style.color=\'#0F0\'" >QWER</a> is Awesome !',
+      '<a href="https://github.com/kwchang0831/svelte-QWER" rel="external" style="color:#0F0" onMouseOver="this.style.color=\'#0FF\'" onMouseOut="this.style.color=\'#0F0\'" >QWER</a> is Awesome !',
     avatar: Avatar,
     avatar_128: Avatar_128,
     avatar_48_png: Avatar_48_PNG,
@@ -101,14 +101,12 @@ export const navConfig: (DD.Nav | DD.Link)[] = [
   {
     name: 'See Docs 📄',
     url: 'https://docs-svelte-qwer.vercel.app/',
-    target: '_blank',
-    rel: 'noreferrer noopener',
+    rel: 'external',
   },
   {
     name: 'Get QWER 🚀',
     url: 'https://github.com/kwchang0831/svelte-QWER',
-    target: '_blank',
-    rel: 'noreferrer noopener',
+    rel: 'external',
   },
 ];
 
@@ -122,14 +120,12 @@ export const mobilenavConfig: DD.Nav = {
     {
       name: 'See Docs 📄',
       url: 'https://docs-svelte-qwer.vercel.app/',
-      target: '_blank',
-      rel: 'noreferrer noopener',
+      rel: 'external',
     },
     {
       name: 'Get QWER 🚀',
       url: 'https://github.com/kwchang0831/svelte-QWER',
-      target: '_blank',
-      rel: 'noreferrer noopener',
+      rel: 'external',
     },
   ],
 };

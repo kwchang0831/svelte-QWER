@@ -40,7 +40,7 @@
         </div>
         <p itemprop="copyrightNotice">
           Copyright © <span itemprop="copyrightYear">{copyrightYear}</span>
-          <a href={siteConfig.author.github} rel="noopener external" class="hover:(text-sky-500)">
+          <a href={siteConfig.author.github} rel="external author" class="hover:(text-sky-500)">
             <span itemprop="copyrightHolder">{siteConfig.author.name}</span>
           </a>
         </p>
@@ -49,8 +49,7 @@
           <a
             use:tippy
             aria-label={$LL.QWER()}
-            rel="noreferrer noopener external"
-            target="_blank"
+            rel="external"
             href="https://github.com/kwchang0831/svelte-QWER"
             class="hover:(text-sky-500) font-900">
             QWER
