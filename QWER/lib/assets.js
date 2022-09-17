@@ -13,7 +13,7 @@ export const assets = (() => {
       let original = `${ImageConfig.OriginalImageFolder}${e}`;
       let banner = `${original}?w=${UserConfig.BannerImage.width}${
         UserConfig.BannerImage.height ? `&h=${UserConfig.BannerImage.height}` : ''
-      }&format=${UserConfig.BannerImage.format.join(';')}`;
+      }&format=${UserConfig.BannerImage.format.join(';')}&imagetools`;
 
       let output = {
         original: original,
@@ -21,13 +21,15 @@ export const assets = (() => {
       };
 
       if (UserConfig.ExtraFormats && UserConfig.ExtraFormats.length) {
-        output['extraFormats'] = `${ImageConfig.OriginalImageFolder}${e}?format=${UserConfig.ExtraFormats.join(';')}`;
+        output['extraFormats'] = `${ImageConfig.OriginalImageFolder}${e}?format=${UserConfig.ExtraFormats.join(
+          ';',
+        )}&imagetools`;
       }
 
       Object.entries(UserConfig.ExtraResolutions).map(([k, v]) => {
         output[k] = `${ImageConfig.OriginalImageFolder}${e}?w=${v.width}${
           v.height ? `&h=${v.height}` : ''
-        }&format=${v.format.join(';')}`;
+        }&format=${v.format.join(';')}&imagetools`;
       });
 
       m.set(e, output);
@@ -37,13 +39,13 @@ export const assets = (() => {
   };
   return {
     set: (slug) => {
-      _assets.add(path.resolve('/', slug));
+      _assets.add(`/${slug}`);
     },
     has: (slug) => {
       return _assets.has(slug);
     },
     delete: (slug) => {
-      _assets.delete(path.resolve('/', slug));
+      _assets.delete(`/${slug}`);
     },
     raw: () => {
       return _assets;
@@ -83,7 +85,7 @@ export const assets = (() => {
       });
 
       mapData = mapData.map((e) => {
-        return `['${e[0]}', ${JSON.stringify(e[1]).replace(/"/g, '')}]`;
+        return `['${e[0]}', ${JSON.stringify(e[1]).replace(/"/g, '')} as Asset.Image]`;
       });
 
       return { imports: imports.join('\n'), mapData: mapData.join(',\n') };
