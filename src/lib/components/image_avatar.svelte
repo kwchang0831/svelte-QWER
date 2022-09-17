@@ -18,8 +18,13 @@
 <figure class="select-none">
   {#if loaded && siteConfig.author.avatar && siteConfig.author.avatar_128}
     <picture in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="u-photo">
-      <source srcset={`${siteConfig.author.avatar_128[0]}`} type="image/avif" />
-      <source srcset={`${siteConfig.author.avatar_128[1]}`} type="image/webp" />
+      <!--
+        /@imagetools/... get transformed to ./_app/immutable/assets/...
+        while causes problem to page that is 2+ level of depth
+        DirtyFix: blindly remove leading dot
+      -->
+      <source srcset={`${siteConfig.author.avatar_128[0]}`.replace(/^\./, '')} type="image/avif" />
+      <source srcset={`${siteConfig.author.avatar_128[1]}`.replace(/^\./, '')} type="image/webp" />
       <img
         draggable="false"
         src={siteConfig.author.avatar}

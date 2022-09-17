@@ -48,9 +48,14 @@
       {#if resolutions}
         {#each resolutions as [res, meta]}
           {#each meta.format as format, index}
+            <!--
+              /@imagetools/... get transformed to ./_app/immutable/assets/...
+              while causes problem to page that is 2+ level of depth
+              DirtyFix: blindly remove leading dot
+            -->
             <source
               media={`(min-width: ${meta.minWidth})`}
-              srcset={`${Array.isArray(asset[res]) ? asset[res][index] : asset[res]}`}
+              srcset={`${Array.isArray(asset[res]) ? asset[res][index] : asset[res]}`.replace(/^\./, '')}
               width={meta.width}
               type={`image/${format}`} />
           {/each}
@@ -58,9 +63,16 @@
       {/if}
       {#if UserConfig.ExtraFormats && UserConfig.ExtraFormats.length}
         {#each UserConfig.ExtraFormats as format, index}
+          <!--
+            /@imagetools/... get transformed to ./_app/immutable/assets/...
+            while causes problem to page that is 2+ level of depth
+            DirtyFix: blindly remove leading dot
+          -->
           <source
             type={`image/${format}`}
-            srcset={`${Array.isArray(asset['extraFormats']) ? asset['extraFormats'][index] : asset['extraFormats']}`} />
+            srcset={`${
+              Array.isArray(asset['extraFormats']) ? asset['extraFormats'][index] : asset['extraFormats']
+            }`.replace(/^\./, '')} />
         {/each}
       {/if}
       <img

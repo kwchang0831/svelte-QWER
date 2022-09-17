@@ -31,8 +31,13 @@
     class="select-none {pictureClass ?? ''}">
     {#if UserConfig.BannerImage && UserConfig.BannerImage['format']}
       {#each UserConfig.BannerImage['format'] as format, index}
+        <!--
+          /@imagetools/... get transformed to ./_app/immutable/assets/...
+          while causes problem to page that is 2+ level of depth
+          DirtyFix: blindly remove leading dot
+        -->
         <source
-          srcset={`${Array.isArray(asset['banner']) ? asset['banner'][index] : asset['banner']}`}
+          srcset={`${Array.isArray(asset['banner']) ? asset['banner'][index] : asset['banner']}`.replace(/^\./, '')}
           width={UserConfig.BannerImage.width}
           height={UserConfig.BannerImage.height}
           type={`image/${format}`} />
