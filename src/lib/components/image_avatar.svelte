@@ -1,6 +1,5 @@
 <script lang="ts">
   import { siteConfig } from '$config/site';
-  import { dev } from '$app/environment';
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
 
@@ -18,32 +17,12 @@
 
 <figure class="select-none">
   {#if loaded && siteConfig.author.avatar && siteConfig.author.avatar_128}
-    <!--
-      DirtyFix: ASSET PATH INCORRECT TRANSFORMED
-      The image asset path is expected to transfrom to "/_app/immutable/assets/..."
-      But, instead transform to "./_app/immutable/assets/..."
-      So, we add "/" in front to force it. Not sure if there's other side effects for now.
-    -->
     <picture in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="u-photo">
-      <source
-        srcset={dev
-          ? `${siteConfig.author.avatar_128[0]}`
-          : `${new URL(siteConfig.author.avatar_128[0], siteConfig.url).href}`}
-        type="image/avif" />
-      <source
-        srcset={dev
-          ? `${siteConfig.author.avatar_128[1]}`
-          : `${new URL(siteConfig.author.avatar_128[1], siteConfig.url).href}`}
-        type="image/webp" />
+      <source srcset={`${siteConfig.author.avatar_128[0]}`} type="image/avif" />
+      <source srcset={`${siteConfig.author.avatar_128[1]}`} type="image/webp" />
       <img
         draggable="false"
-        src={dev
-          ? `${siteConfig.author.avatar}`
-          : `${
-              siteConfig.author.avatar.indexOf('://') > 0 || siteConfig.author.avatar.indexOf('//') === 0
-                ? siteConfig.author.avatar
-                : new URL(siteConfig.author.avatar, siteConfig.url).href
-            }`}
+        src={siteConfig.author.avatar}
         alt={siteConfig.author.avatar}
         {width}
         {height}

@@ -5,9 +5,7 @@
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   import { assets } from '$generated/assets';
-  import { dev } from '$app/environment';
   import { UserConfig } from '$config/QWER.config';
-  import { siteConfig } from '$config/site';
   import { fade } from 'svelte/transition';
 
   export let pictureClass: string | undefined = undefined;
@@ -17,8 +15,8 @@
   export let alt: string = src;
   export let loading: 'eager' | 'lazy' = 'eager';
   export let decoding: 'async' | 'sync' | 'auto' = 'async';
-  export let width: string | undefined = undefined;
-  export let height: string | undefined = undefined;
+  export let width: string | number | undefined = undefined;
+  export let height: string | number | undefined = undefined;
 
   let asset: Asset.Image | undefined = $assets.get(src);
 
@@ -27,21 +25,14 @@
 </script>
 
 {#if asset}
-  <!--
-    DirtyFix: ASSET PATH INCORRECT TRANSFORMED
-    The image asset path is expected to transfrom to "/_app/immutable/assets/..."
-    But, instead transform to "./_app/immutable/assets/..."
-    So, we add "/" in front to force it. Not sure if there's other side effects for now.
-  -->
-  <picture in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="select-none {pictureClass}">
+  <picture
+    in:fade={{ duration: 300, delay: 300 }}
+    out:fade={{ duration: 300 }}
+    class="select-none {pictureClass ?? ''}">
     {#if UserConfig.BannerImage && UserConfig.BannerImage['format']}
       {#each UserConfig.BannerImage['format'] as format, index}
         <source
-          srcset={dev
-            ? `${Array.isArray(asset['banner']) ? asset['banner'][index] : asset['banner']}`
-            : `${
-                new URL(Array.isArray(asset['banner']) ? asset['banner'][index] : asset['banner'], siteConfig.url).href
-              }`}
+          srcset={`${Array.isArray(asset['banner']) ? asset['banner'][index] : asset['banner']}`}
           width={UserConfig.BannerImage.width}
           height={UserConfig.BannerImage.height}
           type={`image/${format}`} />
