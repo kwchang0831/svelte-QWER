@@ -36,7 +36,7 @@ export const processImagePath = (path, slug) => {
   // Internally uses posix style backslashes
   path = path.split(sep).join(posix.sep);
 
-  return `/${path}`;
+  return path.startsWith('/') ? `${path}` : `/${path}`;
 };
 
 export const convertPathToSlug = (file) => {
