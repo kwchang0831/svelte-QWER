@@ -27,7 +27,7 @@ export const UserConfig = {
   },
 
   // For original image without reszing
-  ExtraFormats: ['avif'],
+  // ExtraFormats: ['avif'],
 
   PreserveFilesInRoutes: [
     'src/routes/+error.svelte',

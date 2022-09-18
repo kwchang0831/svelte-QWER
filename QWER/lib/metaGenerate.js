@@ -31,16 +31,18 @@ export const genAssetTypeDefinition = () => {
   fs.ensureDirSync(CoreConfig.GeneratedFolder);
 
   let type_data = '';
-  if (ImageConfig.ExtraFormats) {
-    type_data += 'extraFormats : string[];';
+
+  if (UserConfig.BannerImage) {
+    type_data += `banner: ${UserConfig.BannerImage.format.length > 1 ? 'string[]' : 'string'};\n`;
   }
 
-  type_data += `banner: ${UserConfig.BannerImage.format.length > 1 ? 'string[]' : 'string'};\n`;
-  type_data += Object.entries(UserConfig.ExtraResolutions)
-    .map(([k, v]) => {
-      return `${k}?: ${v.format.length > 1 ? 'string[]' : 'string'};`;
-    })
-    .join('\n');
+  if (UserConfig.ExtraResolutions) {
+    type_data += Object.entries(UserConfig.ExtraResolutions)
+      .map(([k, v]) => {
+        return `${k}?: ${v.format.length > 1 ? 'string[]' : 'string'};`;
+      })
+      .join('\n');
+  }
 
   const type_tempalte = readSync(join(CoreConfig.TemplateFolder, ImageConfig.AssetTypeTemplatePath), 'utf8');
   const type_tempalteMap = [

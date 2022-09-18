@@ -11,14 +11,21 @@ export const assets = (() => {
 
     Array.from(_assets).map((e) => {
       let original = `${ImageConfig.OriginalImageFolder}${e}`;
-      let banner = `${original}?w=${UserConfig.BannerImage.width}${
-        UserConfig.BannerImage.height ? `&h=${UserConfig.BannerImage.height}` : ''
-      }&format=${UserConfig.BannerImage.format.join(';')}&imagetools`;
+      let output;
 
-      let output = {
-        original: original,
-        banner: banner,
-      };
+      if (UserConfig.BannerImage) {
+        let banner = `${original}?w=${UserConfig.BannerImage.width}${
+          UserConfig.BannerImage.height ? `&h=${UserConfig.BannerImage.height}` : ''
+        }&format=${UserConfig.BannerImage.format.join(';')}&imagetools`;
+        output = {
+          original: original,
+          banner: banner,
+        };
+      } else {
+        output = {
+          original: original,
+        };
+      }
 
       if (UserConfig.ExtraFormats && UserConfig.ExtraFormats.length) {
         output['extraFormats'] = `${ImageConfig.OriginalImageFolder}${e}?format=${UserConfig.ExtraFormats.join(
@@ -26,11 +33,13 @@ export const assets = (() => {
         )}&imagetools`;
       }
 
-      Object.entries(UserConfig.ExtraResolutions).map(([k, v]) => {
-        output[k] = `${ImageConfig.OriginalImageFolder}${e}?w=${v.width}${
-          v.height ? `&h=${v.height}` : ''
-        }&format=${v.format.join(';')}&imagetools`;
-      });
+      if (UserConfig.ExtraResolutions) {
+        Object.entries(UserConfig.ExtraResolutions).map(([k, v]) => {
+          output[k] = `${ImageConfig.OriginalImageFolder}${e}?w=${v.width}${
+            v.height ? `&h=${v.height}` : ''
+          }&format=${v.format.join(';')}&imagetools`;
+        });
+      }
 
       m.set(e, output);
     });
@@ -67,9 +76,11 @@ export const assets = (() => {
 
       output.forEach((e) => {
         mapData.push([e[0], {}]);
-
-        let imgPath = path.join(process.cwd(), path.join(CoreConfig.UserBlogsFolder, e[0]));
+        let imgPath;
         let imgMeta;
+
+        imgPath = path.join(process.cwd(), path.join(CoreConfig.AssetsFolder, e[0]));
+
         if (existsSync(imgPath)) {
           imgMeta = probe.sync(readFileSync(imgPath));
           mapData[mapData.length - 1][1]['width'] = imgMeta.width;
