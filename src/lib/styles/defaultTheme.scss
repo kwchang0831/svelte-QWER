@@ -14,7 +14,7 @@
 
   #header {
     --qwer-bg-color: transparent;
-    --qwer-text-color: black;
+    --qwer-text-color: inherit;
 
     input:focus {
       --qwer-input-outline-color: black;
@@ -27,7 +27,7 @@
 
   #index-profile {
     --qwer-bg-color: transparent;
-    --qwer-text-color: black;
+    --qwer-text-color: inherit;
   }
 
   #status-tip {
@@ -36,7 +36,7 @@
 
   #index-tags {
     --qwer-bg-color: transparent;
-    --qwer-text-color: black;
+    --qwer-text-color: inherit;
 
     input::placeholder {
       --qwer-input-placeholder-text-color: rgba(25, 25, 25, 0.5);
@@ -51,14 +51,14 @@
 
   .index-post {
     --qwer-bg-color: #faf9f6;
-    --qwer-text-color: black;
-    --qwer-title-color: black;
+    --qwer-text-color: inherit;
+    --qwer-title-color: inherit;
     --qwer-title-hover-color: white;
     --qwer-series-border-color: rgba(251, 191, 36);
     --qwer-series-bg-color: rgb(34, 197, 94);
     --qwer-series-bg-hover-color: rgb(251, 191, 36);
-    --qwer-series-tag-text-color: black;
-    --qwer-series-title-text-color: black;
+    --qwer-series-tag-text-color: inherit;
+    --qwer-series-title-text-color: inherit;
     --qwer-border-mobile: 1px solid black;
     --qwer-border-desktop: 0px none transparent;
   }
@@ -127,7 +127,7 @@
 
   #header {
     --qwer-bg-color: transparent;
-    --qwer-text-color: white;
+    --qwer-text-color: inherit;
 
     input:focus {
       --qwer-input-outline-color: white;
@@ -164,8 +164,8 @@
 
   .index-post {
     --qwer-bg-color: #171717;
-    --qwer-text-color: white;
-    --qwer-title-color: white;
+    --qwer-text-color: inherit;
+    --qwer-title-color: inherit;
     --qwer-title-hover-color: black;
     --qwer-series-border-color: rgba(251, 191, 36);
     --qwer-series-bg-color: rgb(34, 197, 94);

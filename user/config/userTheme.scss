@@ -1,2 +1,8 @@
-// Copy and Past content of src/lib/styles/defaultTheme.scss
-// , and overwrite the variable with your preferences
+// Check out src/lib/styles/defaultTheme.scss
+// Overwrite the variable with your preferences
+// Don't forget the maintain level of structure for variables
+
+:root {
+  --qwer-bg-color: #e1e3dd;
+  --qwer-text-color: black;
+}
