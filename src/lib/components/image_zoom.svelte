@@ -25,11 +25,13 @@
   export let height: string | number | undefined = undefined;
 
   let asset: Asset.Image | undefined = $assets.get(src);
-  const resolutions: Array<[string, any]> = Object.entries(UserConfig.ExtraResolutions)
-    .filter((e) => asset && asset[e[0] as keyof Asset.Image])
-    .sort((a, b) => {
-      return +b[0] - +a[0];
-    });
+  const resolutions: Array<[string, any]> =
+    UserConfig['ExtraResolutions'] &&
+    Object.entries(UserConfig.ExtraResolutions)
+      .filter((e) => asset && asset[e[0] as keyof Asset.Image])
+      .sort((a, b) => {
+        return +b[0] - +a[0];
+      });
 
   $: width = asset?.width;
   $: height = asset?.height;
@@ -55,14 +57,14 @@
             -->
             <source
               media={`(min-width: ${meta.minWidth})`}
-              srcset={`${Array.isArray(asset[res]) ? asset[res][index] : asset[res]}`.replace(/^\./, '')}
+              srcset={`${asset[res] && Array.isArray(asset[res]) ? asset[res][index] : asset[res]}`.replace(/^\./, '')}
               width={meta.width}
               type={`image/${format}`} />
           {/each}
         {/each}
       {/if}
-      {#if UserConfig.ExtraFormats && UserConfig.ExtraFormats.length}
-        {#each UserConfig.ExtraFormats as format, index}
+      {#if UserConfig['ExtraResolutions'] && Object.keys(UserConfig['ExtraResolutions']).length}
+        {#each Object.entries(UserConfig['ExtraResolutions']) as format, index}
           <!--
             /@imagetools/... get transformed to ./_app/immutable/assets/...
             while causes problem to page that is 2+ level of depth

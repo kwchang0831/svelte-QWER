@@ -38,8 +38,8 @@
         -->
         <source
           srcset={`${Array.isArray(asset['banner']) ? asset['banner'][index] : asset['banner']}`.replace(/^\./, '')}
-          width={UserConfig.BannerImage.width}
-          height={UserConfig.BannerImage.height}
+          width={UserConfig.BannerImage['width']}
+          height={UserConfig.BannerImage['height']}
           type={`image/${format}`} />
       {/each}
     {/if}
