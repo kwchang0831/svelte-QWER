@@ -8,7 +8,7 @@ cover: ./cover.jpg
 coverStyle: 'TOP'
 coverCaption: Photo by <a href="https://unsplash.com/@nitishm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nitish Meena</a> on <a href="https://unsplash.com/s/photos/blur?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags:
-  - ['Hello World']
+  - ['Hello World', QWER]
 ---
 
 ## 👋 Hello World

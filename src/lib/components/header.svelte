@@ -123,7 +123,8 @@
   {#if !$searching}
     <nav
       id="header-nav"
-      class="backdrop-blur py-2 px-4 min-h-4rem max-h-16 {scrollY >= scrollThresholdStep ? 'shadow-lg' : ''}"
+      class:backdrop-blur={scrollY > scrollThresholdStep}
+      class="py-2 px-4 min-h-4rem max-h-16 {scrollY >= scrollThresholdStep ? 'shadow-lg' : ''}"
       in:fly={{ x: -50, duration: 300, delay: 300 }}
       out:fly={{ x: -50, duration: 300 }}>
       {#if curPost && scrollY > scrollThresholdStep}
@@ -353,11 +354,18 @@
 {/if}
 
 <style>
+  #header {
+    background-color: var(--qwer-bg-color);
+    color: var(--qwer-text-color);
+  }
+
   kbd {
-    --at-apply: 'border-1 px2 py1 rounded border-black dark:border-white';
+    --at-apply: 'border-1 px2 py1 rounded';
+    border-color: var(--qwer-text-color);
   }
 
   input:focus {
-    --at-apply: '!border-transparent !outline-black dark:(!border-transparent !outline-white)';
+    --at-apply: '!border-transparent';
+    outline-color: var(--qwer-input-outline-color) !important;
   }
 </style>

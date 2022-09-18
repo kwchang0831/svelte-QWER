@@ -15,7 +15,7 @@
   });
 </script>
 
-<figure class="select-none">
+<figure class="avatar select-none">
   {#if loaded && siteConfig.author.avatar && siteConfig.author.avatar_128}
     <picture in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="u-photo">
       <!--
@@ -38,3 +38,9 @@
     <div class="i-line-md-github-loop {className ?? '!h-32 !w-32'}" />
   {/if}
 </figure>
+
+<style lang="scss">
+  .avatar img {
+    background-color: var(--qwer-bg-color);
+  }
+</style>

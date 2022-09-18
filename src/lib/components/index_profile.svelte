@@ -7,7 +7,7 @@
   export { className as class };
 </script>
 
-<section id="index-profile" class="h-card p-author {className ?? ''}">
+<section id="index-profile" class="h-card p-author rounded-2xl py10 px12 my4 {className ?? ''}">
   <a href={siteConfig.url} class="hidden u-url u-uid">{siteConfig.title}</a>
   {#if siteConfig.author.email}
     <p class="hidden u-email">
@@ -18,9 +18,10 @@
   <div class="relative group">
     <AuthorAvatar />
     <div
+      id="status-tip"
       use:tippy={{ placement: 'right', interactive: true, allowHTML: true }}
       data-tippy-content={siteConfig.author.statusTip}
-      class="absolute rounded-full w-8 h-8 bottom-0 left-24 shadow-xl text-lg bg-white flex justify-center items-center animate-heart-beat dark:bg-[#212121]">
+      class="absolute rounded-full w-8 h-8 bottom-0 left-24 shadow-xl text-lg flex justify-center items-center animate-heart-beat">
       {siteConfig.author.status ?? ''}
     </div>
   </div>
@@ -64,7 +65,15 @@
   </div>
 </section>
 
-<style>
+<style lang="scss">
+  #index-profile {
+    background-color: var(--qwer-bg-color);
+    color: var(--qwer-text-color);
+  }
+  #status-tip {
+    background-color: var(--qwer-bg-color);
+  }
+
   .animate-heart-beat {
     animation: heartbeat 2s ease-in-out 2s infinite;
   }

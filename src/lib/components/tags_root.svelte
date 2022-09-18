@@ -90,3 +90,14 @@
     {/key}
   </aside>
 {/if}
+
+<style lang="scss">
+  #index-tags {
+    background-color: var(--qwer-bg-color);
+    color: var(--qwer-text-color);
+  }
+
+  input::placeholder {
+    color: var(--qwer-input-placeholder-text-color);
+  }
+</style>

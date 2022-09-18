@@ -74,10 +74,11 @@
   <div class="max-w-screen-md flex-1" />
 
   <article
+    id="post"
     itemscope
     itemtype="https://schema.org/BlogPosting"
     itemprop="blogPost"
-    class="h-entry flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-t-2xl) bg-[#F9FBFF] dark:bg-[#252525]">
+    class="h-entry flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-t-2xl)">
     {#if loaded}
       <div in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="max-w-[55rem]">
         <PostHeading data={thisPost} />
@@ -116,7 +117,7 @@
   <div in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="flex flex-nowrap justify-center">
     <div class="max-w-screen-md flex-1" />
 
-    <div class="flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-b-2xl) bg-[#F9FBFF] dark:bg-[#252525]">
+    <div id="post-bottom" class="flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-b-2xl)">
       <TagsSection tags={thisPost.tags} />
 
       <div class="divider" />
@@ -174,6 +175,14 @@
 {/if}
 
 <style lang="scss">
+  #post {
+    background-color: var(--qwer-bg-color);
+  }
+
+  #post-bottom {
+    background-color: var(--qwer-bg-color);
+  }
+
   @keyframes bounce-right {
     from,
     20%,

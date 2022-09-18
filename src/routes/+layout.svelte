@@ -2,6 +2,8 @@
   import '@unocss/reset/sanitize/sanitize.css';
   import '@unocss/reset/sanitize/assets.css';
   import '@unocss/reset/tailwind.css';
+  import '$lib/styles/defaultTheme.scss';
+  import '$config/userTheme.scss';
   import '$lib/styles/global.scss';
   import 'uno.css';
   import 'tippy.js/dist/tippy.css';
@@ -63,16 +65,3 @@
 {/key}
 
 <Footer />
-
-<style lang="scss">
-  :global(body) {
-    --at-apply: 'bg-[#E1E3DD]/[0.9] text-black';
-  }
-  :global(body.dark) {
-    --at-apply: 'bg-[#191919]/[0.9] text-white';
-  }
-
-  :global(.tippy-box) {
-    --at-apply: 'text-base text-center';
-  }
-</style>

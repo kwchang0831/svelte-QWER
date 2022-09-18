@@ -17,8 +17,8 @@
 <main
   id="index-posts"
   class="flex flex-col items-center py4 gap6 {className ?? ''}"
-  itemprop="mainEntityOfPage"
   itemscope
+  itemprop="mainEntityOfPage"
   itemtype="https://schema.org/Blog">
   {#if loaded}
     {#key $postsShow}

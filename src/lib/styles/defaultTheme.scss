@@ -1,0 +1,228 @@
+:root {
+  --qwer-bg-color: #e1e3dd;
+  --qwer-text-color: black;
+  --qwer-btn-hover-color: #8c8c8c;
+
+  --qwer-bg-img-light: none;
+  --qwer-bg-img-dark: none;
+
+  body::after {
+    --qwer-bg-repeat: repeat;
+    --qwer-bg-size: cover;
+    --qwer-bg-op: 0.5;
+  }
+
+  #header {
+    --qwer-bg-color: transparent;
+    --qwer-text-color: black;
+
+    input:focus {
+      --qwer-input-outline-color: black;
+    }
+  }
+
+  .avatar {
+    --qwer-bg-color: transparent;
+  }
+
+  #index-profile {
+    --qwer-bg-color: transparent;
+    --qwer-text-color: black;
+  }
+
+  #status-tip {
+    --qwer-bg-color: white;
+  }
+
+  #index-tags {
+    --qwer-bg-color: transparent;
+    --qwer-text-color: black;
+
+    input::placeholder {
+      --qwer-input-placeholder-text-color: rgba(25, 25, 25, 0.5);
+    }
+  }
+
+  #footer {
+    --qwer-bg-color: transparent;
+    --qwer-text-color: rgba(0, 0, 0, 0.75);
+    --qwer-border-top-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .index-post {
+    --qwer-bg-color: #faf9f6;
+    --qwer-text-color: black;
+    --qwer-title-color: black;
+    --qwer-title-hover-color: white;
+    --qwer-series-border-color: rgba(251, 191, 36);
+    --qwer-series-bg-color: rgb(34, 197, 94);
+    --qwer-series-bg-hover-color: rgb(251, 191, 36);
+    --qwer-series-tag-text-color: black;
+    --qwer-series-title-text-color: black;
+    --qwer-border-mobile: 1px solid black;
+    --qwer-border-desktop: 0px none transparent;
+  }
+
+  #post {
+    --qwer-bg-color: #f9fbff;
+  }
+
+  #post-bottom {
+    --qwer-bg-color: #f9fbff;
+  }
+
+  .prose {
+    --qwer-strong-font-weight: 900;
+    --qwer-strong-color: green;
+    --qwer-table-th-color: #00000030;
+    --qwer-table-tr-color-odd: #6a6a6a10;
+    --qwer-table-tr-color-even: #6a6a6a50;
+    --qwer-link-color: #0ea5e9;
+    --qwer-link-thickness: auto;
+    --qwer-link-hover-color: #0ea5e9;
+
+    .code-block {
+      --qwer-line-highlight-color: rgba(55, 65, 81, 0.2);
+      --qwer-line-highlight-linenumber-color: black;
+      --qwer-line-start-highlight-color: rgb(59, 130, 246);
+      --qwer-line-addition-color: rgba(16, 185, 129, 0.3);
+      --qwer-line-subtraction-color: rgba(239, 68, 68, 0.3);
+      --qwer-border-color: rgba(0, 0, 0, 0.5);
+      --qwer-codeline-hover-color: rgba(55, 65, 81, 0.5);
+      --qwer-linenumber-color: black;
+    }
+
+    .inline-code-block {
+      --qwer-bg-color: rgba(55, 65, 81, 0.25);
+      --qwer-hover-bg-color: rgba(55, 65, 81, 0.5);
+    }
+  }
+
+  --qwer-link-color: #0ea5e9;
+  --qwer-link-thickness: auto;
+  --qwer-link-hover-color: #0ea5e9;
+  --qwer-divider-margin: 2rem;
+  --qwer-divider-thickness: 2px;
+  --qwer-divider-color: rgba(0, 0, 0, 0.5);
+
+  #nprogress {
+    --qwer-bg-color: rgb(56, 221, 34);
+    --qwer-box-shadow-1: rgb(56, 221, 34);
+    --qwer-box-shadow-2: rgb(56, 221, 34);
+    --qwer-border-top-color: rgb(56, 221, 34);
+    --qwer-border-left-color: rgb(56, 221, 34);
+  }
+}
+
+.dark {
+  --qwer-bg-color: #202020;
+  --qwer-text-color: white;
+  --qwer-btn-hover-color: #e1e3dd90;
+
+  body::after {
+    --qwer-bg-repeat: repeat;
+    --qwer-bg-size: cover;
+    --qwer-bg-op: 0.5;
+  }
+
+  #header {
+    --qwer-bg-color: transparent;
+    --qwer-text-color: white;
+
+    input:focus {
+      --qwer-input-outline-color: white;
+    }
+  }
+
+  .avatar {
+    --qwer-bg-color: rgb(36, 36, 36);
+  }
+
+  #index-profile {
+    --qwer-bg-color: transparent;
+    --qwer-text-color: rbga(255, 255, 255, 0.8);
+  }
+
+  #status-tip {
+    --qwer-bg-color: rgb(100, 100, 100);
+  }
+
+  #index-tags {
+    --qwer-bg-color: transparent;
+    --qwer-text-color: rgba(255, 255, 255, 0.85);
+
+    input::placeholder {
+      --qwer-input-placeholder-text-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  #footer {
+    --qwer-bg-color: transparent;
+    --qwer-text-color: rgba(255, 255, 255, 0.75);
+    --qwer-border-top-color: rgba(255, 255, 255, 0.75);
+  }
+
+  .index-post {
+    --qwer-bg-color: #171717;
+    --qwer-text-color: white;
+    --qwer-title-color: white;
+    --qwer-title-hover-color: black;
+    --qwer-series-border-color: rgba(251, 191, 36);
+    --qwer-series-bg-color: rgb(34, 197, 94);
+    --qwer-series-bg-hover-color: rgb(251, 191, 36);
+    --qwer-series-tag-text-color: black;
+    --qwer-series-title-text-color: white;
+    --qwer-border-mobile: 1px solid white;
+    --qwer-border-desktop: 0px none transparent;
+  }
+
+  #post {
+    --qwer-bg-color: #171717;
+  }
+
+  #post-bottom {
+    --qwer-bg-color: #171717;
+  }
+
+  .prose {
+    --qwer-strong-font-weight: 900;
+    --qwer-strong-color: green;
+    --qwer-table-th-color: #00000030;
+    --qwer-table-tr-color-odd: #6a6a6a10;
+    --qwer-table-tr-color-even: #6a6a6a50;
+    --qwer-link-color: #0ea5e9;
+    --qwer-link-thickness: auto;
+    --qwer-link-hover-color: #0ea5e9;
+
+    .code-block {
+      --qwer-line-highlight-color: rgba(55, 65, 81, 0.2);
+      --qwer-line-highlight-linenumber-color: white;
+      --qwer-line-start-highlight-color: rgb(59, 130, 246);
+      --qwer-line-addition-color: rgba(16, 185, 129, 0.3);
+      --qwer-line-subtraction-color: rgba(239, 68, 68, 0.3);
+      --qwer-border-color: rgba(0, 0, 0, 0.5);
+      --qwer-codeline-hover-color: rgba(55, 65, 81, 0.5);
+      --qwer-linenumber-color: black;
+    }
+
+    .inline-code-block {
+      --qwer-bg-color: rgba(55, 65, 81, 0.25);
+      --qwer-hover-bg-color: rgba(55, 65, 81, 0.5);
+    }
+  }
+
+  --qwer-link-color: #0ea5e9;
+  --qwer-link-thickness: auto;
+  --qwer-link-hover-color: #0ea5e9;
+  --qwer-divider-margin: 2rem;
+  --qwer-divider-thickness: 2px;
+  --qwer-divider-color: #8a8a8a;
+
+  #nprogress {
+    --qwer-bg-color: rgb(56, 221, 34);
+    --qwer-box-shadow-1: rgb(56, 221, 34);
+    --qwer-box-shadow-2: rgb(56, 221, 34);
+    --qwer-border-top-color: rgb(56, 221, 34);
+    --qwer-border-left-color: rgb(56, 221, 34);
+  }
+}

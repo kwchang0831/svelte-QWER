@@ -85,24 +85,24 @@
   <div
     in:fly={{ x: -100, y: -100, duration: 300, delay: 300 }}
     out:fly={{ x: -100, y: 100, duration: 300 }}
-    class="max-w-screen-md flex-1 relative ml6">
+    class="min-w-12rem max-w-screen-md flex-1 relative">
     <IndexProfile
-      class="flex flex-col gap2 items-center text-center xl:(items-end text-right py4 sticky top-[4rem] min-w-[10rem])" />
+      class="flex flex-col gap2 ml-auto max-w-fit justify-end items-center text-center xl:(sticky top-[4rem] min-w-[10rem])" />
   </div>
 
   <div
     in:fly={{ y: 100, duration: 300, delay: 300 }}
     out:fly={{ y: -100, duration: 300 }}
-    class="h-feed min-h-50vh flex-none w-full md:(rounded-2xl w-[55rem])">
+    class="h-feed min-h-50vh flex-none w-full md:(rounded-2xl w-[50rem] mx2)">
     <IndexPosts />
   </div>
 
   <div
     in:fly={{ x: 100, y: -100, duration: 300, delay: 300 }}
     out:fly={{ x: 100, y: 100, duration: 300 }}
-    class="max-w-screen-md flex-1 relative mr6">
+    class="min-w-12rem max-w-screen-md flex-1 relative mr6">
     {#if $tagsShowDesktop}
-      <Tags class="hidden max-w-[20rem] xl:(flex flex-col min-w-[12rem] sticky top-[4rem])" />
+      <Tags class="hidden max-w-[20rem] my4 rounded-2xl p4 xl:(flex flex-col min-w-[12rem] sticky top-[4rem])" />
     {/if}
   </div>
 </div>
