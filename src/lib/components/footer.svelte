@@ -40,7 +40,7 @@
         </div>
         <p itemprop="copyrightNotice">
           Copyright © <span itemprop="copyrightYear">{copyrightYear}</span>
-          <a href={siteConfig.author.github} rel="external author" class="hover:(text-sky-500)">
+          <a href={siteConfig.author.github} rel="external author">
             <span itemprop="copyrightHolder">{siteConfig.author.name}</span>
           </a>
         </p>
@@ -51,7 +51,7 @@
             aria-label={$LL.QWER()}
             rel="external"
             href="https://github.com/kwchang0831/svelte-QWER"
-            class="hover:(text-sky-500) font-900">
+            class="font-900">
             QWER
           </a>
         </div>
@@ -61,8 +61,7 @@
           aria-label="Creative Commons License"
           target="_blank"
           rel="noreferrer noopener license"
-          style="display:inline-block;"
-          class="hover:(text-sky-500)">
+          style="display:inline-block;">
           CC BY-NC-SA 4.0
         </a>
       </main>
@@ -75,5 +74,10 @@
     background-color: var(--qwer-bg-color);
     color: var(--qwer-text-color);
     border-top-color: var(--qwer-border-top-color);
+  }
+  #footer a:not(.btn) {
+    &:hover {
+      color: var(--qwer-link-hover-color);
+    }
   }
 </style>

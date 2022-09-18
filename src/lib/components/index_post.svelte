@@ -50,7 +50,7 @@
     itemprop="blogPost"
     in:fly={{ x: index % 2 ? 100 : -100, duration: 300, delay: 300 }}
     out:fly={{ x: index % 2 ? -100 : 100, duration: 300 }}
-    class="index-post flex flex-col relative w-full overflow-hidden group shadow-xl hover:(shadow-2xl) transform transition duration-300 min-h-[12rem] md:(min-h-[9rem] w-3xl rounded-lg hover:(scale-105))  ">
+    class="index-post flex flex-col relative w-full overflow-hidden group shadow-xl hover:(shadow-2xl) transform transition duration-300 md:(w-3xl rounded-lg hover:(scale-105))  ">
     {#if data.series_tag && data.series_title}
       <div class="series flex items-stretch gap-0 z10">
         <div
@@ -74,7 +74,7 @@
           decoding={index < numberPostsEager ? 'auto' : 'async'}
           src={data.cover}
           imgClass="z1 blur-sm op80 absolute object-cover w-full h-full transition transform duration-300 ease-in-out group-hover:(scale-110 blur-none)" />
-        <div class="z2 px8 pt4 pb6 flex flex-col gap2 flex-1 bg-white/[0.25] dark:bg-black/[0.25]">
+        <div class="coverStyle-IN z2 px8 pt4 pb6 flex flex-col gap2 bg-white/[0.25] dark:bg-black/[0.25]">
           <time class="dt-published op80 group-hover:font-600" datetime={data.published} itemprop="datePublished">
             {postPublishedStr}
           </time>
@@ -91,9 +91,9 @@
       {:else}
         <div class:flex-col={['TOP', 'BOT'].indexOf(data.coverStyle) !== -1} class="flex md:border-none relative">
           <div
-            class="overflow-hidden
-            {['TOP', 'BOT'].indexOf(data.coverStyle) !== -1 ? 'h-[20rem]' : ''}
-            {['RIGHT', 'LEFT'].indexOf(data.coverStyle) !== -1 ? 'w-[9rem] md:(w-[12rem])' : ''}"
+            class="overflow-hidden 
+            {['TOP', 'BOT'].indexOf(data.coverStyle) !== -1 ? 'coverStyle-TOPnBOT' : ''}
+            {['RIGHT', 'LEFT'].indexOf(data.coverStyle) !== -1 ? 'coverStyle-RnL' : ''}"
             class:order-first={data.coverStyle === 'TOP' || data.coverStyle === 'LEFT'}
             class:order-last={data.coverStyle === 'BOT' || data.coverStyle === 'RIGHT'}>
             <a href={data.slug} alt={data.title} class="cursor-pointer" itemprop="url">
@@ -160,14 +160,36 @@
     }
   }
 
+  .coverStyle-TOPnBOT {
+    height: var(--qwer-cover-height-TOPnBOT-mobile);
+  }
+  .coverStyle-RnL {
+    width: var(--qwer-cover-width-RnL-mobile);
+  }
+
+  .coverStyle-IN {
+    height: var(--qwer-cover-height-IN-mobile);
+  }
+
   @media (min-width: 768px) {
     .index-post {
       border: var(--qwer-border-desktop);
+    }
+
+    .coverStyle-TOPnBOT {
+      height: var(--qwer-cover-height-TOPnBOT);
+    }
+    .coverStyle-RnL {
+      width: var(--qwer-cover-width-RnL);
+    }
+    .coverStyle-IN {
+      height: var(--qwer-cover-height-IN);
     }
   }
 
   .index-post-panel {
     background-color: var(--qwer-bg-color);
+    min-height: var(--qwer-min-height);
   }
 
   .series {

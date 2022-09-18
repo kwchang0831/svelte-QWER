@@ -47,6 +47,7 @@
     --qwer-bg-color: transparent;
     --qwer-text-color: rgba(0, 0, 0, 0.75);
     --qwer-border-top-color: rgba(0, 0, 0, 0.5);
+    --qwer-link-hover-color: rgb(14, 165, 233);
   }
 
   .index-post {
@@ -61,6 +62,14 @@
     --qwer-series-title-text-color: inherit;
     --qwer-border-mobile: 1px solid black;
     --qwer-border-desktop: 0px none transparent;
+
+    --qwer-min-height: fit-content;
+    --qwer-cover-height-IN: fit-content;
+    --qwer-cover-height-IN-mobile: fit-content;
+    --qwer-cover-height-TOPnBOT: 20rem;
+    --qwer-cover-height-TOPnBOT-mobile: 12rem;
+    --qwer-cover-width-RnL: 12rem;
+    --qwer-cover-width-RnL-mobile: 9rem;
   }
 
   #post {
