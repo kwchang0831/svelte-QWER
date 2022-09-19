@@ -15,7 +15,11 @@
 <a href="https://github.com/kwchang0831/svelte-QWER/blob/main/QWER/CHANGELOG.md"><img src="https://img.shields.io/badge/更新日誌-QWER-lightgreen?logo=Keep a Changelog" alt="QWER"></a></p>
 
 <p align="center">
-<a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 示範網站-Vercel-informational?style=for-the-badge" alt="QWER DEMO"></a>
+<a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 示範網站-Vercel-informational?style=for-the-badge" alt="QWER Vercel DEMO"></a>
+<a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 示範網站-Netlify-informational?style=for-the-badge" alt="QWER Netlify DEMO"></a>
+</p>
+
+<p align="center">
 <a href="https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a"><img src="https://img.shields.io/badge/💬 討論版-Q&A-informational?style=for-the-badge" alt="QWER Q&A"></a>
 <a href="https://docs-svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/📝 使用教學-DOCS-informational?style=for-the-badge" alt="QWER DOCS"></a>
 </p>
@@ -50,32 +54,6 @@ npx degit kwchang0831/svelte-QWER my-blog
 
    ```bash
    pnpm dev
-   ```
-
-1. 清除自動生成的檔案。 (記得不要提交這些檔案至 Git Repo 上)
-
-   ```bash
-   pnpm clean
-   ```
-
-## 🚀 部署至 Vercel
-
-1. 安裝 Vercel CLI。
-
-   ```bash
-   npm i -g vercel
-   ```
-
-1. 登入 Vercel 帳號。
-
-   ```bash
-   vercel login
-   ```
-
-1. 部署。
-
-   ```bash
-   vercel --prod
    ```
 
 ## ✨ 功能

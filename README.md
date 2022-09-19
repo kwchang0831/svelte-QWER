@@ -16,7 +16,10 @@ Simply Awesome <b>Blog Starter</b> built with <b>SvelteKit</b> and <b>❤</b>
 <a href="https://github.com/kwchang0831/svelte-QWER/blob/main/QWER/CHANGELOG.md"><img src="https://img.shields.io/badge/CHANGELOG-QWER-lightgreen?logo=Keep a Changelog" alt="QWER"></a></p>
 
 <p align="center">
-<a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 DEMO-Vercel-informational?style=for-the-badge" alt="QWER DEMO"></a>
+<a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 DEMO-Vercel-informational?style=for-the-badge" alt="QWER Vercel DEMO">
+</a><a href="https://svelte-qwer.netlify.app/"><img src="https://img.shields.io/badge/🚀 DEMO-Netlify-informational?style=for-the-badge" alt="QWER Netlify DEMO"></a>
+</p>
+<p align="center">
 <a href="https://github.com/kwchang0831/svelte-QWER/discussions/categories/q-a"><img src="https://img.shields.io/badge/💬 Discussion-Q&A-informational?style=for-the-badge" alt="QWER Q&A"></a>
 <a href="https://docs-svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/📝 Documentation-DOCS-informational?style=for-the-badge" alt="QWER DOCS"></a>
 </p>
@@ -51,33 +54,7 @@ npx degit kwchang0831/svelte-QWER my-blog
 
    ```bash
    pnpm dev
-   ```
-
-1. Clean auto-generated files. (Do not commit those files to the repo.)
-
-   ```bash
-   pnpm clean
-   ```
-
-## 🚀 Deploy on Vercel
-
-1. Install Vercel CLI.
-
-   ```bash
-   npm i -g vercel
-   ```
-
-1. Login.
-
-   ```bash
-   vercel login
-   ```
-
-1. Deploy.
-
-   ```bash
-   vercel --prod
-   ```
+   ````
 
 ## ✨ Features
 
