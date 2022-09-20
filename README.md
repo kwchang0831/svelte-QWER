@@ -54,7 +54,7 @@ npx degit kwchang0831/svelte-QWER my-blog
 
    ```bash
    pnpm dev
-   ````
+   ```
 
 ## ✨ Features
 
