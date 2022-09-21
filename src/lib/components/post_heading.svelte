@@ -71,7 +71,8 @@
       <ImgZoom
         src={data.cover}
         class="w-full h-auto aspect-auto object-cover md:(rounded-2xl shadow-xl)"
-        loading="eager">
+        loading="eager"
+        preload={true}>
         {#if data.coverCaption}
           {@html data.coverCaption}
         {/if}

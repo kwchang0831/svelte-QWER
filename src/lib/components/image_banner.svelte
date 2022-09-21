@@ -15,6 +15,7 @@
   export let alt: string = src;
   export let loading: 'eager' | 'lazy' = 'eager';
   export let decoding: 'async' | 'sync' | 'auto' = 'async';
+  export let preload: boolean = false;
   export let width: string | number | undefined = undefined;
   export let height: string | number | undefined = undefined;
 
@@ -23,6 +24,12 @@
   $: width = asset?.width;
   $: height = asset?.height;
 </script>
+
+<svelte:head>
+  {#if asset && preload}
+    <link rel="preload" as="image" href={asset.original} />
+  {/if}
+</svelte:head>
 
 {#if asset}
   <picture
