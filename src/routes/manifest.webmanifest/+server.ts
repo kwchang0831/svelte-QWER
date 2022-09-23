@@ -21,49 +21,65 @@ export const GET: RequestHandler = () =>
         theme_color: theme.get_color(),
         icons: [
           {
-            src: new URL(siteConfig.author.avatar_48_png, siteConfig.url).href,
+            src: import.meta.env.DEV
+              ? siteConfig.author.avatar_48_png
+              : new URL(siteConfig.author.avatar_48_png, siteConfig.url).href,
             sizes: '48x48',
             type: 'image/png',
             purpose: 'any',
           },
           {
-            src: new URL(siteConfig.author.avatar_48_png, siteConfig.url).href,
+            src: import.meta.env.DEV
+              ? siteConfig.author.avatar_48_png
+              : new URL(siteConfig.author.avatar_48_png, siteConfig.url).href,
             sizes: '48x48',
             type: 'image/png',
             purpose: 'maskable',
           },
           {
-            src: new URL(siteConfig.author.avatar_96_png, siteConfig.url).href,
+            src: import.meta.env.DEV
+              ? siteConfig.author.avatar_96_png
+              : new URL(siteConfig.author.avatar_96_png, siteConfig.url).href,
             sizes: '96x96',
             type: 'image/png',
             purpose: 'any',
           },
           {
-            src: new URL(siteConfig.author.avatar_96_png, siteConfig.url).href,
+            src: import.meta.env.DEV
+              ? siteConfig.author.avatar_96_png
+              : new URL(siteConfig.author.avatar_96_png, siteConfig.url).href,
             sizes: '96x96',
             type: 'image/png',
             purpose: 'maskable',
           },
           {
-            src: new URL(siteConfig.author.avatar_192_png, siteConfig.url).href,
+            src: import.meta.env.DEV
+              ? siteConfig.author.avatar_192_png
+              : new URL(siteConfig.author.avatar_192_png, siteConfig.url).href,
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any',
           },
           {
-            src: new URL(siteConfig.author.avatar_192_png, siteConfig.url).href,
+            src: import.meta.env.DEV
+              ? siteConfig.author.avatar_192_png
+              : new URL(siteConfig.author.avatar_192_png, siteConfig.url).href,
             sizes: '192x192',
             type: 'image/png',
             purpose: 'maskable',
           },
           {
-            src: new URL(siteConfig.author.avatar_512_png, siteConfig.url).href,
+            src: import.meta.env.DEV
+              ? siteConfig.author.avatar_512_png
+              : new URL(siteConfig.author.avatar_512_png, siteConfig.url).href,
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any',
           },
           {
-            src: new URL(siteConfig.author.avatar_512_png, siteConfig.url).href,
+            src: import.meta.env.DEV
+              ? siteConfig.author.avatar_512_png
+              : new URL(siteConfig.author.avatar_512_png, siteConfig.url).href,
             sizes: '512x512',
             type: 'image/png',
             purpose: 'maskable',
