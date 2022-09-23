@@ -1,3 +1,8 @@
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
 body {
   background-color: var(--qwer-bg-color);
   color: var(--qwer-text-color);
