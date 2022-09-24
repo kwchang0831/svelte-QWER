@@ -1,5 +1,76 @@
 # @kwchang0831/svelte-qwer
 
+## 0.4.0
+
+### Minor Changes
+
+- 15a9db0: feat: introduce css variable for customized theme
+  feat: added `user/config/userTheme.scss` for customized theme
+- 232d8c6: !changed: rename user/data folder -> user/blogs folder
+- a84ff38: feat: add partytown for plausible script
+- 63efeeb: !feat: add special routing rule PostsYearMonthDate
+
+  migrate: `QWER.config.js`
+
+  ```diff
+  export const UserConfig = {
+    ...
+
+  +  RoutingRules: {
+  +    PostsYearMonthDate: false,
+  +  },
+  };
+  ```
+
+- daf9a52: feat: add katex, mhchem support
+- 57f67af: !updated: change katex syntax for block and inline
+
+  - katex block : ```math block
+  - katex inline : `$...# @kwchang0831/svelte-qwer
+
+### Patch Changes
+
+- 2046ee0: fix: now correctly detect width/height of public assets.
+  fix: `BannerImage`, `ExtraResolutions`, `ExtraFormats` should be optional.
+- 0562d7b: updated: mark <a> link with correct rels
+- 809eb70: fix: image srcset href now will no longer appending after site.url
+- 6ddd084: updated: css change some of the text color to inherit
+- bb44ddb: feat: add show/hide tag in xl res
+- 6171e30: updated: katex block render as display mode instead
+
+  - updated: adjust katex related style
+
+- 7a96bf2: updated: add more languages support for highlighting
+- 57ca7a9: updated: add data-sveltekit-prefetch to body
+- b45afd7: doc: update katex related example
+- e97c39b: added: img preload in head
+- 176af94: fix: tippy not show
+- add65ee: fix: index style
+  added: more theme variables
+- bb44ddb: !config: reorganize QWER.config.js
+
+      + !config: required migration
+
+- d110a37: dpes: upgrade (\* @sveltejs/kit 1.0.0-next.481 ❯ 1.0.0-next.483)
+- 46556c9: fix: remove image url leading dot due to url transformed to ./\_app/immutable
+- bb44ddb: !fixed: typo user/config/QWER.confitg.js -> user/config/QWER.config.js
+
+      + !config: required migration
+
+- 0a7296b: fix: hide tag button in header when not in index page (mobile)
+- 42f50ac: fix: prevent scrollbar reposition page
+- 4ec3730: !updated: removed ts-nocheck from site.ts
+- 036869a: deps: upgrade (\*kit 1.0.0-next.480 -> 1.0.0-next.481)
+- dc98d14: fix: fix \_asset.d.ts type
+- 39e1ac4: fix: footer link data-sveltekit-prefetch error
+- 8474c86: fix: assets' url in dev mode
+- 6d3f27d: !updated: add origins and other settings to giscus
+
+      + !breaking: Required to migrate `/usr/config/site.ts`
+      + !breaking: Local dev will no longer loads giscus. Giscus will only load if the window.origin === site.url
+
+- 6f973f2: deps: upgrade (@sveltjs/kit 1.0.0-next.499 -> 1.0.0-next.502)
+
 ## 0.3.3
 
 ### Patch Changes
