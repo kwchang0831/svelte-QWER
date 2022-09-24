@@ -38,15 +38,127 @@
       handleInput();
     }, 500);
   };
+
+  let pos = { top: 0, left: 0, x: 0, y: 0 };
+
+  function mouseDownHandler(e: { clientX: number; clientY: number }) {
+    const elm = document.getElementById('index-tags');
+    if (elm) {
+      pos = {
+        left: elm.scrollLeft,
+        top: elm.scrollTop,
+        x: e.clientX,
+        y: e.clientY,
+      };
+    }
+
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
+  }
+
+  function touchStartHandler(e: TouchEvent) {
+    const elm = document.getElementById('index-tags');
+    if (elm) {
+      pos = {
+        left: elm.scrollLeft,
+        top: elm.scrollTop,
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY,
+      };
+    }
+
+    document.addEventListener('touchmove', touchMoveHandler);
+    document.addEventListener('touchend', touchEndHandler);
+  }
+
+  function mouseMoveHandler(e: { clientX: number; clientY: number }) {
+    const elm = document.getElementById('index-tags');
+    if (elm) {
+      const dx = e.clientX - pos.x;
+      const dy = e.clientY - pos.y;
+
+      elm.scrollTop = pos.top + dy;
+      elm.scrollLeft = pos.left - dx;
+    }
+  }
+
+  function touchMoveHandler(e: TouchEvent) {
+    const elm = document.getElementById('index-tags');
+    if (elm) {
+      const dx = e.touches[0].clientX - pos.x;
+      const dy = e.touches[0].clientY - pos.y;
+
+      elm.scrollTop = pos.top + dy;
+      elm.scrollLeft = pos.left - dx;
+    }
+  }
+
+  function mouseUpHandler() {
+    const elm = document.getElementById('index-tags');
+    if (elm) {
+      elm.style.cursor = 'grab';
+      elm.style.removeProperty('user-select');
+    }
+    document.removeEventListener('mousemove', mouseMoveHandler);
+    document.removeEventListener('mouseup', mouseUpHandler);
+  }
+
+  function touchEndHandler() {
+    const elm = document.getElementById('index-tags');
+    if (elm) {
+      elm.style.cursor = 'grab';
+      elm.style.removeProperty('user-select');
+    }
+    document.removeEventListener('touchmove', touchMoveHandler);
+    document.removeEventListener('touchend', touchEndHandler);
+  }
+
+  import { browser } from '$app/environment';
+  let box: Element;
+  let boxH: number;
+  let upMore: boolean = false;
+  let downMore: boolean = false;
+
+  $: if (browser && box) {
+    const top = 0;
+    const bot = box.scrollHeight - boxH;
+    upMore = box.scrollTop > top;
+    downMore = box.scrollTop < bot;
+  }
+
+  function handleScroll() {
+    const top = 0;
+    const bot = box.scrollHeight - boxH;
+    upMore = box.scrollTop > top;
+    downMore = box.scrollTop < bot;
+  }
+
+  function handleUpMore() {
+    if (upMore) {
+      const elm = document.getElementById('index-tags');
+      if (elm) {
+        elm.scrollBy({ top: -boxH, behavior: 'smooth' });
+      }
+    }
+  }
+
+  function handleDownMore() {
+    if (downMore) {
+      const elm = document.getElementById('index-tags');
+      if (elm) {
+        elm.scrollBy({ top: boxH, behavior: 'smooth' });
+      }
+    }
+  }
 </script>
 
 <svelte:window bind:scrollY />
-
 {#if $tagsAll.length}
   <aside
     in:fly={{ x: 100, duration: 300, delay: 300 }}
     out:fly={{ x: 100, duration: 300 }}
-    id="index-tags"
+    on:mousedown={mouseDownHandler}
+    on:touchstart|preventDefault={touchStartHandler}
     class={className ?? ''}>
     <div
       class="select-none flex justify-between items-center border-b-2 border-black dark:border-white cursor-pointer"
@@ -79,15 +191,33 @@
         </div>
       {/if}
     </form>
+    <div
+      on:click={handleUpMore}
+      on:touchend={handleUpMore}
+      class="hidden xl:(block py1) {upMore ? 'cursor-pointer  hover:bg-gray/[0.5]' : ''}">
+      <div class="i-bxs-chevrons-up w6 h6 m-auto {upMore ? 'op100' : 'op0'}" />
+    </div>
     {#key curTags}
       {#if expaned}
-        <div transition:slide={{ duration: 300 }} class="pt2 pb4 select-none">
+        <div
+          bind:this={box}
+          bind:clientHeight={boxH}
+          on:scroll={handleScroll}
+          id="index-tags"
+          transition:slide={{ duration: 300 }}
+          class="pb4 select-none pointer-grabbing xl:(max-h-70vh overflow-hidden)">
           {#each curTags as c}
             <TagsCategory data={c} expanded />
           {/each}
         </div>
       {/if}
     {/key}
+    <div
+      on:click={handleDownMore}
+      on:touchend={handleDownMore}
+      class="hidden xl:(block py1) {downMore ? 'cursor-pointer hover:bg-gray/[0.5]' : ''}">
+      <div class="i-bxs-chevrons-down w6 h6 m-auto {downMore ? 'op100 ' : 'op0'}" />
+    </div>
   </aside>
 {/if}
 

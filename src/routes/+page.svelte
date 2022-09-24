@@ -67,7 +67,7 @@
     itemscope
     itemtype="https://schema.org/Blog"
     itemprop="blog"
-    class="flex flex-nowrap justify-center flex-col items-center xl:(flex-row items-stretch) xl:hidden">
+    class="flex flex-nowrap justify-center flex-col items-center xl:hidden">
     <div class="max-w-screen-md flex-1 relative ml6">
       <IndexProfile class="flex flex-col gap2 items-center text-center" />
     </div>
@@ -81,7 +81,7 @@
   itemscope
   itemtype="https://schema.org/Blog"
   itemprop="blog"
-  class="flex-nowrap justify-center flex-col items-center xl:(flex-row items-stretch) hidden xl:flex">
+  class="flex-nowrap justify-center flex-col items-center hidden xl:(flex flex-row items-stretch) ">
   <div
     in:fly={{ x: -100, y: -100, duration: 300, delay: 300 }}
     out:fly={{ x: -100, y: 100, duration: 300 }}
