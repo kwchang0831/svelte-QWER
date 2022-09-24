@@ -47,6 +47,45 @@
     document.removeEventListener('mouseup', mouseUpHandler);
   }
 
+  function touchStartHandler(e: TouchEvent) {
+    const post_toc = document.getElementById('post-toc');
+    if (post_toc) {
+      post_toc.style.cursor = 'grabbing';
+      post_toc.style.userSelect = 'none';
+
+      pos = {
+        left: post_toc.scrollLeft,
+        top: post_toc.scrollTop,
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY,
+      };
+    }
+
+    document.addEventListener('touchmove', touchMoveHandler);
+    document.addEventListener('touchend', touchEndHandler);
+  }
+
+  function touchMoveHandler(e: TouchEvent) {
+    const post_toc = document.getElementById('post-toc');
+    if (post_toc) {
+      const dx = e.touches[0].clientX - pos.x;
+      const dy = e.touches[0].clientY - pos.y;
+
+      post_toc.scrollTop = pos.top + dy;
+      post_toc.scrollLeft = pos.left - dx;
+    }
+  }
+
+  function touchEndHandler() {
+    const post_toc = document.getElementById('post-toc');
+    if (post_toc) {
+      post_toc.style.cursor = 'grab';
+      post_toc.style.removeProperty('user-select');
+    }
+    document.removeEventListener('touchmove', touchMoveHandler);
+    document.removeEventListener('touchend', touchEndHandler);
+  }
+
   let box: Element;
   let boxH: number;
   let upMore: boolean = false;
@@ -114,7 +153,7 @@
 
 {#if toc && toc.length > 0}
   <aside aria-label="Table Of Content" class="sticky top-[4rem] hidden xl:block pb8">
-    <nav on:mousedown={mouseDownHandler} class="flex-col">
+    <nav on:mousedown={mouseDownHandler} on:touchstart|preventDefault={touchStartHandler} class="flex-col">
       <h2
         class="text-2xl font-bold px4 py2 text-center cursor-pointer"
         on:click={() => {
@@ -122,7 +161,10 @@
         }}>
         {$LL.TableOfContent()}
       </h2>
-      <div on:click={handleUpMore} class={upMore ? 'cursor-pointer  hover:bg-gray/[0.5]' : ''}>
+      <div
+        on:click={handleUpMore}
+        on:touchend={handleUpMore}
+        class={upMore ? 'cursor-pointer  hover:bg-gray/[0.5]' : ''}>
         <div class="i-bxs-chevrons-up w6 h6 m-auto {upMore ? 'op100' : 'op0'}" />
       </div>
       {#if toc && toc.length > 0}
@@ -137,7 +179,10 @@
           {/each}
         </ul>
       {/if}
-      <div on:click={handleDownMore} class={downMore ? 'cursor-pointer hover:bg-gray/[0.5]' : ''}>
+      <div
+        on:click={handleDownMore}
+        on:touchend={handleDownMore}
+        class={downMore ? 'cursor-pointer hover:bg-gray/[0.5]' : ''}>
         <div class="i-bxs-chevrons-down w6 h6 m-auto {downMore ? 'op100 ' : 'op0'}" />
       </div>
     </nav>

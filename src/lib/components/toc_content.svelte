@@ -6,18 +6,21 @@
   export let content: TOC.Heading;
   export let expanded = false;
   export let depth = 1;
+
+  function handleClick() {
+    const heading = document.getElementById(`${content.slug.substring(1)}`);
+    const header_nav = document.getElementById('header-nav');
+    if (heading && header_nav) {
+      const top = heading.offsetTop - header_nav.clientHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
 </script>
 
 <li id={content.slug}>
   <div
-    on:click={() => {
-      const heading = document.getElementById(`${content.slug.substring(1)}`);
-      const header_nav = document.getElementById('header-nav');
-      if (heading && header_nav) {
-        const top = heading.offsetTop - header_nav.clientHeight;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    }}
+    on:click={handleClick}
+    on:touchend={handleClick}
     data-toc-link
     class="z1 group flex items-center gap2 py2 {$tocCur.get(content.slug) ? 'border-[#0096FF]' : 'border-transparent'}"
     class:pl4={depth === 1}
