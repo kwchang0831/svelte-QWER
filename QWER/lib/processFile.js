@@ -14,6 +14,7 @@ import { assets } from '../lib/assets.js';
 import matter from 'gray-matter';
 import { mdify } from '../mdify/index.js';
 import { convert } from 'html-to-text';
+import { rule_PostsYearMonthDate } from './customRoutingRule.js';
 
 export const processRmDir = (dir) => {
   let _routeDir = dir.replace(CoreConfig.UserBlogsFolder, CoreConfig.RouteFolder);
@@ -53,6 +54,12 @@ export const convertPathToSlug = (file) => {
   }
   _slug = `${_destPath.join('/')}`;
 
+  if (UserConfig.RoutingRules) {
+    if (UserConfig.RoutingRules.PostsYearMonthDay) {
+      _slug = rule_PostsYearMonthDate(file, _slug);
+    }
+  }
+
   return [_ext, _slug];
 };
 
@@ -83,7 +90,7 @@ const _processMD = (file, generateMeta) => {
     return true;
   }
 
-  const _slug = convertPathToSlug(file)[1];
+  let _slug = convertPathToSlug(file)[1];
   const _matter = matter.read(file);
   const _content = _matter.content;
   const _meta = _matter.data;
@@ -105,7 +112,6 @@ const _processMD = (file, generateMeta) => {
         return e;
       })
     : undefined;
-
   const _layout = _meta.layout ?? CoreConfig.DefaultLayout;
   const _md = mdify(_content, _slug);
   const _html2text = _md.content ? convert(_md.content) : undefined;

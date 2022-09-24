@@ -39,6 +39,10 @@ export const UserConfig = {
     'src/routes/sitemap.xml/+server.ts',
     'src/routes/robots.txt/+server.ts',
   ],
+
+  RoutingRules: {
+    PostsYearMonthDate: false,
+  },
 };
 
 export const CoreConfig = {
