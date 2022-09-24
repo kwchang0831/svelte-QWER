@@ -21,7 +21,6 @@
   export let alt: string = src;
   export let loading: 'eager' | 'lazy' = 'lazy';
   export let decoding: 'async' | 'sync' | 'auto' = 'async';
-  export let preload: boolean = false;
   export let width: string | number | undefined = undefined;
   export let height: string | number | undefined = undefined;
 
@@ -44,12 +43,6 @@
     });
   });
 </script>
-
-<svelte:head>
-  {#if asset && preload}
-    <link rel="preload" as="image" href={asset.original} />
-  {/if}
-</svelte:head>
 
 <figure in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="my6 select-none">
   {#if asset}
