@@ -44,12 +44,21 @@ export const headConfig: Site.Head = {
   custom: ({ dev }) =>
     dev
       ? [
-          // For Development Enviroment
+          // For Development Environment
         ]
       : [
-          // For Production Enviroment
+          // For Production Environment
+          // Plausible
           '<link rel="preconnect" href="https://plausible.kwchang0831.dev" />',
           '<script defer type="text/partytown" data-domain="svelte-qwer.vercel.app" src="https://plausible.kwchang0831.dev/js/plausible.js"></script>',
+          // Google tag (gtag.js)
+          `<script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-LQ73GWF6XT"></script>`,
+          `<script type="text/partytown">
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-LQ73GWF6XT');
+          </script>`,
         ],
 };
 

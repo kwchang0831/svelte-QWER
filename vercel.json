@@ -33,11 +33,5 @@
         }
       ]
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/partytown/plausible",
-      "destination": "https://plausible.kwchang0831.dev/js/plausible.js"
-    }
   ]
 }

@@ -48,7 +48,7 @@
 <svelte:head>
   <script>
     partytown = {
-      forward: ['plausible'],
+      forward: ['plausible', 'dataLayer.push'],
     };
   </script>
   <script bind:this={scriptEl}></script>

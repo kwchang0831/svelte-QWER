@@ -28,7 +28,7 @@
 
   {#if headConfig.custom}
     {#each headConfig.custom({ dev }) as tag}
-      {@html tag}
+      {#if tag}{@html tag}{/if}
     {/each}
   {/if}
 </svelte:head>
