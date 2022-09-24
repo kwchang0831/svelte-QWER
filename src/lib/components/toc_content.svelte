@@ -18,7 +18,7 @@
         window.scrollTo({ top, behavior: 'smooth' });
       }
     }}
-    toc-link
+    data-toc-link
     class="z1 group flex items-center gap2 py2 {$tocCur.get(content.slug) ? 'border-[#0096FF]' : 'border-transparent'}"
     class:pl4={depth === 1}
     class:pl8={depth === 2}
@@ -55,7 +55,7 @@
 </li>
 
 <style>
-  [toc-link] {
+  [data-toc-link] {
     --at-apply: 'border-l-4 hover:bg-gray/[0.25] active:(bg-yellow) dark:(active:(text-black/[0.6]))';
   }
 </style>
