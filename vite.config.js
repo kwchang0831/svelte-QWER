@@ -63,7 +63,7 @@ const config = {
     imagetools(),
     sveltekit(),
     partytownVite({
-      dest: path.join(__dirname, 'static', '~partytown'),
+      dest: path.join(__dirname, '.vercel/output/static', '~partytown'),
     }),
   ],
   resolve: {
