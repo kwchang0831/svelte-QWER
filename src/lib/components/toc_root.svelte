@@ -47,6 +47,7 @@
     document.removeEventListener('mouseup', mouseUpHandler);
   }
 
+  let touchMoved = false;
   function touchStartHandler(e: TouchEvent) {
     const post_toc = document.getElementById('post-toc');
     if (post_toc) {
@@ -73,14 +74,21 @@
 
       post_toc.scrollTop = pos.top + dy;
       post_toc.scrollLeft = pos.left - dx;
+      touchMoved = true;
     }
   }
 
-  function touchEndHandler() {
+  function touchEndHandler(e: TouchEvent) {
     const post_toc = document.getElementById('post-toc');
     if (post_toc) {
       post_toc.style.cursor = 'grab';
       post_toc.style.removeProperty('user-select');
+
+      if (touchMoved) {
+        touchMoved = false;
+        e.preventDefault();
+        e.stopPropagation();
+      }
     }
     document.removeEventListener('touchmove', touchMoveHandler);
     document.removeEventListener('touchend', touchEndHandler);

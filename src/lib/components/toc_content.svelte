@@ -15,12 +15,29 @@
       window.scrollTo({ top, behavior: 'smooth' });
     }
   }
+
+  let touchMoved = false;
+  function touchStartHandler() {
+    document.addEventListener('touchmove', touchMoveHandler);
+  }
+  function touchMoveHandler() {
+    touchMoved = true;
+  }
+  function touchEndHandler() {
+    if (touchMoved) {
+      touchMoved = false;
+    } else {
+      handleClick();
+    }
+    document.removeEventListener('touchmove', touchMoveHandler);
+  }
 </script>
 
 <li id={content.slug}>
   <div
     on:click={handleClick}
-    on:touchend={handleClick}
+    on:touchstart={touchStartHandler}
+    on:touchend={touchEndHandler}
     data-toc-link
     class="z1 group flex items-center gap2 py2 {$tocCur.get(content.slug) ? 'border-[#0096FF]' : 'border-transparent'}"
     class:pl4={depth === 1}
