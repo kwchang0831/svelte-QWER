@@ -55,7 +55,7 @@ export const convertPathToSlug = (file) => {
   _slug = `${_destPath.join('/')}`;
 
   if (UserConfig.RoutingRules) {
-    if (UserConfig.RoutingRules.PostsYearMonthDay) {
+    if (UserConfig.RoutingRules.PostsYearMonthDate) {
       _slug = rule_PostsYearMonthDate(file, _slug);
     }
   }
