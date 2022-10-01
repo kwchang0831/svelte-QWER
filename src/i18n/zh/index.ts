@@ -16,6 +16,8 @@ const zh: Translation = {
   MinuteAgo: '{0} 分鐘前',
   HourAgo: '{0} 小時前',
   DayAgo: '{0} 天前',
+  MonthAgo: '{0} 個月前',
+  YearAgo: '{0} 年前',
   Page404NotFound: '此地無銀三百兩',
   Page404BackHome: '趕緊回首頁 !',
   IndexSearchBox: '搜尋',

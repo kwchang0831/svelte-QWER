@@ -16,6 +16,8 @@ const en: BaseTranslation = {
   MinuteAgo: '{0} minute{{s}} ago',
   HourAgo: '{0} hour{{s}} ago',
   DayAgo: '{0} day{{s}} ago',
+  MonthAgo: '{0} month{{s}} ago',
+  YearAgo: '{0} year{{s}} ago',
   Page404NotFound: 'Page Not Found',
   Page404BackHome: 'Go Back Home !',
   IndexSearchBox: 'Search',

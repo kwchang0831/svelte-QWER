@@ -24,8 +24,22 @@ export const lastUpdatedStr = (updatedTime: string) => {
   // In days
   lastUpdated = lastUpdated / 24;
   cur = Math.round(lastUpdated);
+  if (cur < 30) {
+    return get(LL).DayAgo(cur);
+  }
 
-  return get(LL).DayAgo(cur);
+  // In months
+  lastUpdated = lastUpdated / 30;
+  cur = Math.round(lastUpdated);
+  if (cur < 12) {
+    return get(LL).MonthAgo(cur);
+  }
+
+  // In years
+  lastUpdated = lastUpdated / 12;
+  cur = Math.round(lastUpdated);
+
+  return get(LL).YearAgo(cur);
 };
 
 export const defaultPublishedStr = (publishedTime: string) => {
