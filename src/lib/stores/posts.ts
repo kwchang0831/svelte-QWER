@@ -39,6 +39,7 @@ export const postsShow = (() => {
       if (category === 'tags') {
         v.forEach((searchTag) => {
           _data = _data.filter((e) => {
+            if (!e.tags) return false;
             return e.tags.find(
               (tagItem: string | string[] | { [key: string]: string } | { [key: string]: string[] }) => {
                 if (typeof tagItem === 'string') {
@@ -55,6 +56,7 @@ export const postsShow = (() => {
       } else {
         v.forEach((searchTag) => {
           _data = _data.filter((e) => {
+            if (!e.tags) return false;
             return e.tags.find((tagItem: { [key: string]: string } | { [key: string]: string[] }) => {
               if (typeof tagItem === 'object' && tagItem[category] !== undefined) {
                 if (Array.isArray(tagItem[category])) {
