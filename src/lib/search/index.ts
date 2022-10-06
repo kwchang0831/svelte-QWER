@@ -1,17 +1,18 @@
 import type { Post } from '$lib/types/post';
-import flexsearch from 'flexsearch';
+import Index from 'flexsearch/dist/module/index.js';
 import LZString from 'lz-string';
 
 export const search = (() => {
-  let _index: flexsearch.Index;
+  const _index = new Index({ tokenize: 'full' });
   let _inited = false;
 
   const _init = (posts: Post.Post[]) => {
     if (_inited) return;
-    _index = new flexsearch.Index({ tokenize: 'full' });
+
     for (const post of posts) {
       _index.add(post.slug, `${post.title};${post.summary};${LZString.decompressFromBase64(post.content ?? '')}`);
     }
+
     _inited = true;
   };
 
