@@ -1,7 +1,7 @@
 <p align="right"><a href="https://github.com/kwchang0831/svelte-QWER/blob/main/README.md">English</a> | <strong>中文</strong></p>
 
 <p align="center">
-<a href="https://svelte-qwer.vercel.app/" target="_blank"><img src=https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/avatar.png width=96 hieght=96 style="border-radius: 9999px; object-fit: cover;" /></a>
+<a href="https://svelte-qwer.vercel.app/"><img src=https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/avatar.png width=96 hieght=96 style="border-radius: 9999px; object-fit: cover;" /></a>
 </p>
 
 <h1 align="center">QWER</h1>
@@ -15,8 +15,8 @@
 <a href="https://github.com/kwchang0831/svelte-QWER/blob/main/QWER/CHANGELOG.md"><img src="https://img.shields.io/badge/更新日誌-QWER-lightgreen?logo=Keep a Changelog" alt="QWER"></a></p>
 
 <p align="center">
-<a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 示範網站-Vercel-informational?style=for-the-badge" alt="QWER Vercel DEMO"></a>
-<a href="https://svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/🚀 示範網站-Netlify-informational?style=for-the-badge" alt="QWER Netlify DEMO"></a>
+<a href="https://svelte-qwer.vercel.app"><img src="https://img.shields.io/badge/🚀 示範網站-Vercel-informational?style=for-the-badge" alt="QWER Vercel DEMO"></a>
+<a href="https://svelte-qwer.netlify.app"><img src="https://img.shields.io/badge/🚀 示範網站-Netlify-informational?style=for-the-badge" alt="QWER Netlify DEMO"></a>
 </p>
 
 <p align="center">
@@ -24,7 +24,7 @@
 <a href="https://docs-svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/📝 使用教學-DOCS-informational?style=for-the-badge" alt="QWER DOCS"></a>
 </p>
 
-<p align="center"><img style="float:middle" width="auto" alt="PAGESPEED" src="https://raw.githubusercontent.com/gist/kwchang0831/acd18fa5e12de9be28a34617beffe5de/raw/metrics.pagespeed.svg"></p>
+<p align="center"><a href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fsvelte-qwer.vercel.app%2F&form_factor=desktop"><img style="float:middle" width="auto" alt="PAGESPEED" src="https://raw.githubusercontent.com/gist/kwchang0831/acd18fa5e12de9be28a34617beffe5de/raw/metrics.pagespeed.svg"></a></p>
 
 ## 🎉 馬上嘗試看看 [QWER](https://github.com/kwchang0831/svelte-QWER/)
 
@@ -32,9 +32,9 @@
 npx degit kwchang0831/svelte-QWER my-blog
 ```
 
-<p align="center"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/preview.webp" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/preview.webp" /></p>
+<p align="center"><a href="https://svelte-qwer.vercel.app"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/preview.webp" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/preview.webp" /></a></p>
 <br/>
-<p align="center"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" /></p>
+<p align="center"><a href="https://svelte-qwer.vercel.app"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" /></a></p>
 
 ## ⚡️ 用法
 

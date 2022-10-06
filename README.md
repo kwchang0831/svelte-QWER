@@ -1,7 +1,7 @@
 <p align="right"><strong>English</strong> | <a href="https://github.com/kwchang0831/svelte-QWER/blob/main/README-zh.md">中文</a></p>
 
 <p align="center">
-<a href="https://svelte-qwer.vercel.app/" target="_blank"><img src=https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/avatar.png width=96 hieght=96 style="border-radius: 9999px; object-fit: cover;" /></a>
+<a href="https://svelte-qwer.vercel.app/"><img src=https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/avatar.png width=96 hieght=96 style="border-radius: 9999px; object-fit: cover;" /></a>
 </p>
 
 <h1 align="center">QWER</h1>
@@ -24,7 +24,7 @@ Simply Awesome <b>Blog Starter</b> built with <b>SvelteKit</b> and <b>❤</b>
 <a href="https://docs-svelte-qwer.vercel.app/"><img src="https://img.shields.io/badge/📝 Documentation-DOCS-informational?style=for-the-badge" alt="QWER DOCS"></a>
 </p>
 
-<p align="center"><img style="float:middle" width="auto" alt="PAGESPEED" src="https://raw.githubusercontent.com/gist/kwchang0831/acd18fa5e12de9be28a34617beffe5de/raw/metrics.pagespeed.svg"></p>
+<p align="center"><a href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fsvelte-qwer.vercel.app%2F&form_factor=desktop"><img style="float:middle" width="auto" alt="PAGESPEED" src="https://raw.githubusercontent.com/gist/kwchang0831/acd18fa5e12de9be28a34617beffe5de/raw/metrics.pagespeed.svg"></a></p>
 
 ## 🎉 Try [QWER](https://github.com/kwchang0831/svelte-QWER/) out
 
@@ -32,9 +32,9 @@ Simply Awesome <b>Blog Starter</b> built with <b>SvelteKit</b> and <b>❤</b>
 npx degit kwchang0831/svelte-QWER my-blog
 ```
 
-<p align="center"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/preview.webp" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" /></p>
+<p align="center"><a href="https://svelte-qwer.vercel.app"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/preview.webp" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" /></a></p>
 <br/>
-<p align="center"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" /></p>
+<p align="center"><a href="https://svelte-qwer.vercel.app"><img src="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" alt="https://raw.githubusercontent.com/kwchang0831/svelte-QWER/main/user/assets/mobile-preview.webp" /></a></p>
 
 ## ⚡️ Usage
 
