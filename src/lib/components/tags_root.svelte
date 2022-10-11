@@ -121,16 +121,14 @@
 
   $: if (browser && box) {
     const top = 0;
-    const bot = box.scrollHeight - boxH;
     upMore = box.scrollTop > top;
-    downMore = box.scrollTop < bot;
+    downMore = boxH !== 0 && box.scrollHeight > box.scrollTop + boxH;
   }
 
   function handleScroll() {
     const top = 0;
-    const bot = box.scrollHeight - boxH;
     upMore = box.scrollTop > top;
-    downMore = box.scrollTop < bot;
+    downMore = boxH !== 0 && box.scrollHeight > box.scrollTop + boxH;
   }
 
   function handleUpMore() {
@@ -162,18 +160,21 @@
     class={className ?? ''}>
     <div
       class="select-none flex justify-between items-center border-b-2 border-black dark:border-white cursor-pointer"
-      on:click={toggle}>
+      on:click={toggle}
+      on:keydown={(e) => {
+        if (e.key === 'Enter') toggle();
+      }}>
       <h2 class:expaned class="text-2xl my2">{$LL.Tags()}</h2>
 
       <div
         class="{expaned ? 'i-tabler-fold-down' : 'i-tabler-fold-up'} display-inline-block !w-[1.75rem] !h-[1.75rem]" />
     </div>
-    <form class="flex items-center relative">
+    <form on:submit|preventDefault class="flex items-center relative">
       <input
         bind:value={input}
         on:input={debounce}
         on:keydown={(e) => {
-          if (input && input.length > 0 && e.code === 'Escape') {
+          if (input && input.length > 0 && e.key === 'Escape') {
             input = '';
             handleInput();
           }
@@ -186,6 +187,12 @@
           on:click={() => {
             input = '';
             handleInput();
+          }}
+          on:keydown={(e) => {
+            if (e.key === 'Enter') {
+              input = '';
+              handleInput();
+            }
           }}>
           <div class="i-carbon-close-filled !w6 !h6" />
         </div>
@@ -194,6 +201,11 @@
     <div
       on:click={handleUpMore}
       on:touchend={handleUpMore}
+      on:keydown={(e) => {
+        if (e.key === 'Enter') {
+          handleUpMore();
+        }
+      }}
       class="hidden xl:(block py1) {upMore ? 'cursor-pointer  hover:bg-gray/[0.5]' : ''}">
       <div class="i-bxs-chevrons-up w6 h6 m-auto {upMore ? 'op100' : 'op0'}" />
     </div>
@@ -215,6 +227,11 @@
     <div
       on:click={handleDownMore}
       on:touchend={handleDownMore}
+      on:keydown={(e) => {
+        if (e.key === 'Enter') {
+          handleDownMore();
+        }
+      }}
       class="hidden xl:(block py1) {downMore ? 'cursor-pointer hover:bg-gray/[0.5]' : ''}">
       <div class="i-bxs-chevrons-down w6 h6 m-auto {downMore ? 'op100 ' : 'op0'}" />
     </div>

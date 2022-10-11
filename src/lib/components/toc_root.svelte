@@ -166,12 +166,22 @@
         class="text-2xl font-bold px4 py2 text-center cursor-pointer"
         on:click={() => {
           window.scrollTo(0, 0);
+        }}
+        on:keydown={(e) => {
+          if (e.key === 'Enter') {
+            window.scrollTo(0, 0);
+          }
         }}>
         {$LL.TableOfContent()}
       </h2>
       <div
         on:click={handleUpMore}
         on:touchend={handleUpMore}
+        on:keydown={(e) => {
+          if (e.key === 'Enter') {
+            handleUpMore();
+          }
+        }}
         class={upMore ? 'cursor-pointer  hover:bg-gray/[0.5]' : ''}>
         <div class="i-bxs-chevrons-up w6 h6 m-auto {upMore ? 'op100' : 'op0'}" />
       </div>
@@ -190,6 +200,11 @@
       <div
         on:click={handleDownMore}
         on:touchend={handleDownMore}
+        on:keydown={(e) => {
+          if (e.key === 'Enter') {
+            handleDownMore();
+          }
+        }}
         class={downMore ? 'cursor-pointer hover:bg-gray/[0.5]' : ''}>
         <div class="i-bxs-chevrons-down w6 h6 m-auto {downMore ? 'op100 ' : 'op0'}" />
       </div>

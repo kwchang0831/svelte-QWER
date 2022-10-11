@@ -55,7 +55,12 @@
       <div class="series flex items-stretch gap-0 z10">
         <div
           class="series-tag py2 cursor-pointer"
-          on:click={() => handleClick({ name: data.series_tag ?? '', category: UserConfig.SeriesTagName })}>
+          on:click={() => handleClick({ name: data.series_tag ?? '', category: UserConfig.SeriesTagName })}
+          on:keydown={(e) => {
+            if (e.key === 'Enter') {
+              handleClick({ name: data.series_tag ?? '', category: UserConfig.SeriesTagName });
+            }
+          }}>
           <div class="pl-4 pr-3 text-sm font-bold"># {data.series_tag} {UserConfig.SeriesTagName}</div>
         </div>
         <div class="series-title flex-1 py-2 md:rounded-tr-2xl">

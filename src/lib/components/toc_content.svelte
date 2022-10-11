@@ -38,6 +38,11 @@
     on:click={handleClick}
     on:touchstart={touchStartHandler}
     on:touchend={touchEndHandler}
+    on:keydown={(e) => {
+      if (e.key === 'Enter') {
+        handleClick();
+      }
+    }}
     data-toc-link
     class="z1 group flex items-center gap2 py2 {$tocCur.get(content.slug) ? 'border-[#0096FF]' : 'border-transparent'}"
     class:pl4={depth === 1}
@@ -49,6 +54,11 @@
       <span
         on:click|stopPropagation={() => {
           expanded = !expanded;
+        }}
+        on:keydown={(e) => {
+          if (e.key === 'Enter') {
+            expanded = !expanded;
+          }
         }}
         class="cursor-pointer z10 !w-[1.25rem] !h-[1.25rem] inline-block transition-transform duration-300 ease-out shrink-0 {expanded
           ? 'i-akar-icons-circle-chevron-up active:translate-y--1 hover:i-akar-icons-circle-chevron-up-fill'

@@ -119,6 +119,11 @@
                     on:click={() => {
                       if (link.url) hide();
                     }}
+                    on:keydown={(e) => {
+                      if (e.key === 'Enter') {
+                        if (link.url) hide();
+                      }
+                    }}
                     class="flex items-center cursor-pointer">
                     {link.name}
                   </a>
@@ -126,6 +131,11 @@
                   <span
                     on:click={() => {
                       if (link.url) hide();
+                    }}
+                    on:keydown={(e) => {
+                      if (e.key === 'Enter') {
+                        if (link.url) hide();
+                      }
                     }}
                     class="flex items-center cursor-pointer">
                     {link.name}

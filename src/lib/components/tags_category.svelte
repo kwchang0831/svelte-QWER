@@ -20,6 +20,11 @@
     ''}"
   on:click={() => {
     expanded = !expanded;
+  }}
+  on:keydown={(e) => {
+    if (e.key === 'Enter') {
+      expanded = !expanded;
+    }
   }}>
   {#if data.name !== 'tags'}
     <h3 class:expanded>
