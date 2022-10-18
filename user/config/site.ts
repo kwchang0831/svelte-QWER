@@ -48,6 +48,9 @@ export const headConfig: Site.Head = {
         ]
       : [
           // For Production Environment
+
+          // Replace the following with your own setting
+
           // Plausible
           '<link rel="preconnect" href="https://plausible.kwchang0831.dev" />',
           '<script defer type="text/partytown" data-domain="svelte-qwer.vercel.app" src="https://plausible.kwchang0831.dev/js/plausible.js"></script>',
@@ -85,14 +88,15 @@ export const dateConfig: Site.DateConfig = {
   },
 };
 
+// Replace with your own Giscus setting
+// See https://giscus.app/
 export const giscusConfig: Giscus.Config = {
-  // src: 'https://giscus.kwchang0831.dev/client.js',
   enable: true,
   id: 'giscus-comment',
-  repo: 'kwchang0831/svelte-QWER',
-  repoId: 'R_kgDOHiLP-g',
-  category: 'Comments',
-  categoryId: 'DIC_kwDOHiLP-s4CQgDm',
+  repo: import.meta.env.QWER_GISCUS_REPO,
+  repoId: import.meta.env.QWER_GISCUS_REPO_ID,
+  category: import.meta.env.QWER_GISCUS_CATEGORY,
+  categoryId: import.meta.env.QWER_GISCUS_CATEGORY_ID,
   mapping: 'pathname',
   reactionsEnabled: '1',
   emitMetadata: '0',
