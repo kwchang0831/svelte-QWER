@@ -1,5 +1,29 @@
 # @kwchang0831/svelte-qwer
 
+## 0.4.1
+
+### Patch Changes
+
+- 2e0a045: fixed: flexsearch module import causes TypeError in windows local dev env
+- 566a350: fix: touch scrolling and go to the heading should be exclusive
+- d2f521d: fixed: tag filter error when there is a post has no tags
+- 07b003e: dpes: upgrade (@sveltejs/kit 1.0.0-next.510 -> 1.0.0-next.511)
+- d5b811b: deps: upgrade (@sveltejs/kit 1.0.0-next.502 -> 1.0.0-next.503)
+- 0fb85fc: i18n: add ja; updated: post time format to include months, years ago;
+- 5a77895: deps: upgrade (@sveltejs/kit 1.0.0-next.511 -> 1.0.0-next.513)
+- 48477af: dpes: upgrade (@sveltejs/kit 1.0.0-next.503 -> 1.0.0-next.504)
+- 74782fe: fix: vercel partytown dest
+- 4970787: fix: A11y: visible, non-interactive elements with an on:click event must be accompanied by an on:keydown, on:keyup, or on:keypress event.
+- 4970787: fix: tag filter down button correctly shown
+- 2da867a: fix: toc on mobile react to touch
+- 4970787: deps: upgrade (@sveltejs/kit 1.0.0-next.511 -> 1.0.0-next.513;svelte 3.50.1 -> 3.51.0)
+- 175b6af: added: ga4
+- 1dfb41f: fix: add scrolling to tags filter
+- 4f7be8f: revert: remove preload in img components since it doesn't make much differences
+- ba85a7f: fix: partytown dist based on host platform
+- 2b9cae9: fix: valid html attribute (toc-link -> data-toc-link)
+- 2d5603c: deps: upgrade (svelte 3.51.0 -> 3.52.0)
+
 ## 0.4.0
 
 ### Minor Changes
