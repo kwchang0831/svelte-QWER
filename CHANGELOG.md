@@ -4,9 +4,9 @@
 
 ### Patch Changes
 
-- 2e0a045: fixed: flexsearch module import causes TypeError in windows local dev env
+- 2e0a045: fix: flexsearch module import causes TypeError in windows local dev env
 - 566a350: fix: touch scrolling and go to the heading should be exclusive
-- d2f521d: fixed: tag filter error when there is a post has no tags
+- d2f521d: fix: tag filter error when there is a post has no tags
 - 07b003e: dpes: upgrade (@sveltejs/kit 1.0.0-next.510 -> 1.0.0-next.511)
 - d5b811b: deps: upgrade (@sveltejs/kit 1.0.0-next.502 -> 1.0.0-next.503)
 - 0fb85fc: i18n: add ja; updated: post time format to include months, years ago;
@@ -77,7 +77,7 @@
 
 - d110a37: dpes: upgrade (\* @sveltejs/kit 1.0.0-next.481 ❯ 1.0.0-next.483)
 - 46556c9: fix: remove image url leading dot due to url transformed to ./\_app/immutable
-- bb44ddb: !fixed: typo user/config/QWER.confitg.js -> user/config/QWER.config.js
+- bb44ddb: !fix: typo user/config/QWER.confitg.js -> user/config/QWER.config.js
 
       + !config: required migration
 
