@@ -1,7 +1,7 @@
 <script lang="ts">
   import LL from '$i18n/i18n-svelte';
   import { onMount } from 'svelte';
-  import { giscusConfig, siteConfig } from '$config/site';
+  import { giscusConfig } from '$config/site';
 
   export let theme: string;
 
@@ -11,7 +11,6 @@
     const giscus = document.createElement('script');
     Object.entries({
       src: giscusConfig.src ?? 'https://giscus.app/client.js',
-      origins: siteConfig.url,
       'data-repo': giscusConfig.repo,
       'data-repo-id': giscusConfig.repoId,
       'data-category': giscusConfig.category ?? '',
