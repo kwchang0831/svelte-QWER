@@ -165,11 +165,11 @@
       <h2
         class="text-2xl font-bold px4 py2 text-center cursor-pointer"
         on:click={() => {
-          window.scrollTo(0, 0);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
         on:keydown={(e) => {
           if (e.key === 'Enter') {
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
           }
         }}>
         {$LL.TableOfContent()}

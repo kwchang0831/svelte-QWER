@@ -27,7 +27,7 @@
   let curPost: Post.Post | undefined;
   let lastUpdated: string;
 
-  $: curPost = $postsAll.get($page.routeId ?? '');
+  $: curPost = $postsAll.get($page.routeId?.substring(1) ?? '');
   $: lastUpdated = lastUpdatedStr(curPost?.updated ?? '');
   $: if (searchbox) searchbox.focus();
 
@@ -136,7 +136,7 @@
             <button
               class="m1 link text-left w-full"
               on:click={() => {
-                window.scrollTo(0, 0);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
               }}>
               <p class="mx2 text-xl font-semibold normal-case truncate text-ellipsis">
                 {curPost.title}

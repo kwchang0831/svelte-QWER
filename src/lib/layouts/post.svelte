@@ -20,7 +20,7 @@
   import { fade, fly } from 'svelte/transition';
   import LL from '$i18n/i18n-svelte';
 
-  const thisPost = $postsAll.get($page.routeId ?? '') as Post.Post;
+  const thisPost = $postsAll.get($page.routeId?.substring(1) ?? '') as Post.Post;
   const prevPost = thisPost?.prev ? $postsAll.get(thisPost.prev) : undefined;
   const nextPost = thisPost?.next ? $postsAll.get(thisPost.next) : undefined;
   let observer: IntersectionObserver;
@@ -68,7 +68,9 @@
   });
 </script>
 
-<SEO post={thisPost} />
+{#if thisPost}
+  <SEO post={thisPost} />
+{/if}
 
 <main in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="flex flex-nowrap justify-center">
   <div class="max-w-screen-md flex-1" />
@@ -81,7 +83,9 @@
     class="h-entry flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-t-2xl)">
     {#if loaded}
       <div in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="max-w-[55rem]">
-        <PostHeading data={thisPost} />
+        {#if thisPost}
+          <PostHeading data={thisPost} />
+        {/if}
       </div>
 
       <div
@@ -118,7 +122,9 @@
     <div class="max-w-screen-md flex-1" />
 
     <div id="post-bottom" class="flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-b-2xl)">
-      <TagsSection tags={thisPost.tags} />
+      {#if thisPost}
+        <TagsSection tags={thisPost.tags} />
+      {/if}
 
       <div class="divider" />
 
