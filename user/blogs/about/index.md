@@ -50,7 +50,6 @@ options:
 
 - 🚀 Deploy the blog **Free** on [Vercel](https://vercel.com/) or [Netlify](https://Netlify.com/).
 
-
 ## 📚 Learn More
 
 Please read more at our [Documentation](https://docs-svelte-qwer.vercel.app/).
