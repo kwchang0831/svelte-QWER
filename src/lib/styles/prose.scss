@@ -1,31 +1,73 @@
-:root {
-  html {
-    scroll-behavior: smooth;
-  }
+html {
+  scroll-behavior: smooth;
+}
 
-  :target:before {
-    content: '';
-    display: block;
-    height: 4em;
-    margin: -4em 0 0;
-  }
+:target:before {
+  content: '';
+  display: block;
+  height: 4em;
+  margin: -4em 0 0;
+}
 
-  :target {
-    scroll-margin-top: 10vh;
-  }
+:target {
+  scroll-margin-top: 10vh;
+}
 
-  .link {
+.link {
+  position: relative;
+  text-decoration: underline;
+  text-decoration-color: var(--qwer-link-color);
+  text-decoration-thickness: var(--qwer-link-thickness);
+  text-underline-offset: 1px;
+}
+
+.link::before {
+  position: absolute;
+  text-decoration-color: var(--qwer-link-color);
+  text-underline-offset: 1px;
+  content: '';
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.link:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.divider {
+  margin: var(--qwer-divider-margin);
+  border-bottom: var(--qwer-divider-thickness) solid var(--qwer-divider-color);
+}
+
+h2[toc-heading],
+h3[toc-heading],
+h4[toc-heading],
+h5[toc-heading],
+h6[toc-heading] {
+  scroll-margin-top: 4em;
+}
+
+figure figcaption {
+  a {
     position: relative;
     text-decoration: underline;
     text-decoration-color: var(--qwer-link-color);
     text-decoration-thickness: var(--qwer-link-thickness);
     text-underline-offset: 1px;
+    font-weight: 600;
   }
 
-  .link::before {
+  a::before {
     position: absolute;
-    text-decoration-color: var(--qwer-link-color);
     text-underline-offset: 1px;
+    background-color: var(--qwer-link-hover-color);
     content: '';
     width: 100%;
     height: 3px;
@@ -37,263 +79,219 @@
     transition: transform 0.3s ease-in-out;
   }
 
-  .link:hover::before {
+  a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+}
+
+.spoiler {
+  --at-apply: 'blur-sm hover:blur-none active:blur-none transition-all select-all';
+}
+
+.prose {
+  --at-apply: 'px8';
+
+  h1 {
+    --at-apply: 'text-4xl';
+  }
+
+  h2 {
+    --at-apply: 'text-3xl';
+  }
+
+  h3 {
+    --at-apply: 'text-3xl';
+  }
+
+  h4 {
+    --at-apply: 'text-xl';
+  }
+
+  h5 {
+    --at-apply: 'text-lg';
+  }
+
+  h6 {
+    --at-apply: 'text-lg';
+  }
+
+  strong {
+    color: var(--qwer-strong-color);
+    font-weight: var(--qwer-strong-font-weight);
+  }
+
+  h2:not(.code-title),
+  h3:not(.code-title),
+  h4:not(.code-title),
+  h5:not(.code-title),
+  h6:not(.code-title) {
+    a {
+      --at-apply: 'no-underline after:(content-[#] px2 op10 hover:op100)';
+    }
+  }
+
+  pre {
+    --at-apply: 'overflow-hidden scrollbar scrollbar-track-color-gray-800 scrollbar-thumb-color-teal-700 scrollbar-rounded scrollbar-h-0.25rem';
+  }
+
+  table {
+    --at-apply: 'table w-full';
+
+    th {
+      background-color: var(--qwer-table-th-color);
+    }
+
+    tbody {
+      tr:nth-child(odd) {
+        background-color: var(--qwer-table-tr-color-odd);
+      }
+      tr:nth-child(even) {
+        background-color: var(--qwer-table-tr-color-even);
+      }
+    }
+  }
+
+  sup {
+    --at-apply: 'inline-block';
+  }
+
+  a {
+    position: relative;
+    text-decoration: underline;
+    text-decoration-color: var(--qwer-link-color);
+    text-decoration-thickness: var(--qwer-link-thickness);
+  }
+
+  a::before {
+    position: absolute;
+    text-underline-offset: 1px;
+    background-color: var(--qwer-link-hover-color);
+    content: '';
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  a:hover::before {
     transform-origin: left;
     transform: scaleX(1);
   }
 
-  .divider {
-    margin: var(--qwer-divider-margin);
-    border-bottom: var(--qwer-divider-thickness) solid var(--qwer-divider-color);
+  .katex-inline {
+    --at-apply: 'inline-block mx1 text-lg overflow-hidden scrollbar scrollbar-track-color-gray-800 scrollbar-thumb-color-teal-700 scrollbar-rounded scrollbar-h-0.25rem';
   }
 
-  h2[toc-heading],
-  h3[toc-heading],
-  h4[toc-heading],
-  h5[toc-heading],
-  h6[toc-heading] {
-    scroll-margin-top: 4em;
+  .katex-block {
+    --at-apply: 'py1 text-xl overflow-hidden scrollbar scrollbar-track-color-gray-800 scrollbar-thumb-color-teal-700 scrollbar-rounded scrollbar-h-0.25rem';
   }
 
-  figure figcaption {
-    a {
-      position: relative;
-      text-decoration: underline;
-      text-decoration-color: var(--qwer-link-color);
-      text-decoration-thickness: var(--qwer-link-thickness);
-      text-underline-offset: 1px;
-      font-weight: 600;
-    }
-
-    a::before {
-      position: absolute;
-      text-underline-offset: 1px;
-      background-color: var(--qwer-link-hover-color);
-      content: '';
-      width: 100%;
-      height: 3px;
-      border-radius: 3px;
-      bottom: 0;
-      left: 0;
-      transform-origin: right;
-      transform: scaleX(0);
-      transition: transform 0.3s ease-in-out;
-    }
-
-    a:hover::before {
-      transform-origin: left;
-      transform: scaleX(1);
-    }
-  }
-
-  .spoiler {
-    --at-apply: 'blur-sm hover:blur-none active:blur-none transition-all select-all';
-  }
-
-  .prose {
-    --at-apply: 'px8';
-
-    h1 {
-      --at-apply: 'text-4xl';
-    }
+  .code-block {
+    --at-apply: 'relative my4 mx--8 flex flex-col border-y-1 md:(rounded-lg border-1 mx0) shadow-2xl';
+    border-color: var(--qwer-border-color);
 
     h2 {
-      --at-apply: 'text-3xl';
+      --at-apply: '!text-xl !m0';
     }
 
-    h3 {
-      --at-apply: 'text-3xl';
+    code {
+      --at-apply: 'flex flex-col py4 min-w-min';
     }
 
-    h4 {
-      --at-apply: 'text-xl';
-    }
-
-    h5 {
-      --at-apply: 'text-lg';
-    }
-
-    h6 {
-      --at-apply: 'text-lg';
-    }
-
-    strong {
-      color: var(--qwer-strong-color);
-      font-weight: var(--qwer-strong-font-weight);
-    }
-
-    h2:not(.code-title),
-    h3:not(.code-title),
-    h4:not(.code-title),
-    h5:not(.code-title),
-    h6:not(.code-title) {
-      a {
-        --at-apply: 'no-underline after:(content-[#] px2 op10 hover:op100)';
-      }
-    }
-
-    pre {
-      --at-apply: 'overflow-hidden scrollbar scrollbar-track-color-gray-800 scrollbar-thumb-color-teal-700 scrollbar-rounded scrollbar-h-0.25rem';
-    }
-
-    table {
-      --at-apply: 'table w-full';
-
-      th {
-        background-color: var(--qwer-table-th-color);
-      }
-
-      tbody {
-        tr:nth-child(odd) {
-          background-color: var(--qwer-table-tr-color-odd);
-        }
-        tr:nth-child(even) {
-          background-color: var(--qwer-table-tr-color-even);
-        }
-      }
-    }
-
-    sup {
-      --at-apply: 'inline-block';
-    }
-
-    a {
-      position: relative;
-      text-decoration: underline;
-      text-decoration-color: var(--qwer-link-color);
-      text-decoration-thickness: var(--qwer-link-thickness);
-    }
-
-    a::before {
-      position: absolute;
-      text-underline-offset: 1px;
-      background-color: var(--qwer-link-hover-color);
-      content: '';
-      width: 100%;
-      height: 3px;
-      border-radius: 3px;
-      bottom: 0;
-      left: 0;
-      transform-origin: right;
-      transform: scaleX(0);
-      transition: transform 0.3s ease-in-out;
-    }
-
-    a:hover::before {
-      transform-origin: left;
-      transform: scaleX(1);
-    }
-
-    .katex-inline {
-      --at-apply: 'inline-block mx1 text-lg overflow-hidden scrollbar scrollbar-track-color-gray-800 scrollbar-thumb-color-teal-700 scrollbar-rounded scrollbar-h-0.25rem';
-    }
-
-    .katex-block {
-      --at-apply: 'py1 text-xl overflow-hidden scrollbar scrollbar-track-color-gray-800 scrollbar-thumb-color-teal-700 scrollbar-rounded scrollbar-h-0.25rem';
-    }
-
-    .code-block {
-      --at-apply: 'relative my4 mx--8 flex flex-col border-y-1 md:(rounded-lg border-1 mx0) shadow-2xl';
+    .code-title {
+      --at-apply: 'text-md font-semibold pl4 py2 border-b-1';
       border-color: var(--qwer-border-color);
-
-      h2 {
-        --at-apply: '!text-xl !m0';
-      }
-
-      code {
-        --at-apply: 'flex flex-col py4 min-w-min';
-      }
-
-      .code-title {
-        --at-apply: 'text-md font-semibold pl4 py2 border-b-1';
-        border-color: var(--qwer-border-color);
-      }
-
-      .code-line {
-        --at-apply: 'flex min-w-min overflow-visable leading-[1.5rem]';
-
-        &:hover {
-          background-color: var(--qwer-codeline-hover-color);
-        }
-
-        &.line-highlight {
-          background-color: var(--qwer-line-highlight-color);
-
-          .line-number,
-          .no-line-number {
-            border-left-color: var(--qwer-line-start-highlight-color);
-          }
-        }
-
-        &.line-addition {
-          background-color: var(--qwer-line-addition-color);
-        }
-
-        &.line-subtraction {
-          background-color: var(--qwer-line-subtraction-color);
-        }
-
-        .code-linenotation {
-          --at-apply: 'flex';
-        }
-
-        &.line-highlight {
-          .line-number,
-          .no-line-number {
-            border-left-width: 4px;
-            color: var(--qwer-line-highlight-linenumber-color);
-          }
-        }
-
-        .code-content {
-          --at-apply: 'flex-1 grow pr4';
-        }
-
-        .code-content:empty::before {
-          content: '\200b';
-        }
-      }
-
-      .line-number {
-        color: --var(--qwer-linenumber-color);
-        --at-apply: 'text-right px2 h-full w10 inline-block border-l-4 border-l-transparent border-r-1 border-r-black dark:border-r-white select-none';
-      }
-
-      .no-line-number {
-        --at-apply: 'px2 h-full w2 inline-block select-none';
-      }
-
-      .line-diff {
-        --at-apply: 'px2 h-full w6 inline-block select-none';
-      }
-
-      .no-line-diff {
-        --at-apply: 'px2 h-full w2 inline-block select-none';
-      }
     }
 
-    li .code-block {
-      --at-apply: 'ml--14 md:(mx0)';
-    }
+    .code-line {
+      --at-apply: 'flex min-w-min overflow-visable leading-[1.5rem]';
 
-    .inline-code-block {
-      --at-apply: 'mx1 px2 py1 rounded-lg whitespace-normal';
-      background-color: var(--qwer-bg-color);
       &:hover {
-        background-color: var(--qwer-hover-bg-color);
+        background-color: var(--qwer-codeline-hover-color);
+      }
+
+      &.line-highlight {
+        background-color: var(--qwer-line-highlight-color);
+
+        .line-number,
+        .no-line-number {
+          border-left-color: var(--qwer-line-start-highlight-color);
+        }
+      }
+
+      &.line-addition {
+        background-color: var(--qwer-line-addition-color);
+      }
+
+      &.line-subtraction {
+        background-color: var(--qwer-line-subtraction-color);
+      }
+
+      .code-linenotation {
+        --at-apply: 'flex';
+      }
+
+      &.line-highlight {
+        .line-number,
+        .no-line-number {
+          border-left-width: 4px;
+          color: var(--qwer-line-highlight-linenumber-color);
+        }
+      }
+
+      .code-content {
+        --at-apply: 'flex-1 grow pr4';
+      }
+
+      .code-content:empty::before {
+        content: '\200b';
       }
     }
 
-    .infobox {
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      p {
-        --at-apply: 'my2';
-      }
+    .line-number {
+      color: --var(--qwer-linenumber-color);
+      --at-apply: 'text-right px2 h-full w10 inline-block border-l-4 border-l-transparent border-r-1 border-r-black dark:border-r-white select-none';
+    }
+
+    .no-line-number {
+      --at-apply: 'px2 h-full w2 inline-block select-none';
+    }
+
+    .line-diff {
+      --at-apply: 'px2 h-full w6 inline-block select-none';
+    }
+
+    .no-line-diff {
+      --at-apply: 'px2 h-full w2 inline-block select-none';
+    }
+  }
+
+  li .code-block {
+    --at-apply: 'ml--14 md:(mx0)';
+  }
+
+  .inline-code-block {
+    --at-apply: 'mx1 px2 py1 rounded-lg whitespace-normal';
+    background-color: var(--qwer-bg-color);
+    &:hover {
+      background-color: var(--qwer-hover-bg-color);
+    }
+  }
+
+  .infobox {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      --at-apply: 'my2';
     }
   }
 }
