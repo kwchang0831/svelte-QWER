@@ -188,7 +188,7 @@
           </div>
 
           <div class="ml-auto flex">
-            {#if $page.routeId === ''}
+            {#if $page.routeId === '/'}
               {#key $page}
                 <button
                   id="search"
@@ -209,7 +209,7 @@
                 </button>
               {/key}
             {/if}
-            {#if $page.routeId === ''}
+            {#if $page.routeId === '/'}
               <button
                 in:fade={{ duration: 300, delay: 300 }}
                 out:fade={{ duration: 300 }}
