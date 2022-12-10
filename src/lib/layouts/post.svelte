@@ -20,7 +20,7 @@
   import { fade, fly } from 'svelte/transition';
   import LL from '$i18n/i18n-svelte';
 
-  const thisPost = $postsAll.get($page.routeId?.substring(1) ?? '') as Post.Post;
+  const thisPost = $postsAll.get($page.route.id?.substring(1) ?? '') as Post.Post;
   const prevPost = thisPost?.prev ? $postsAll.get(thisPost.prev) : undefined;
   const nextPost = thisPost?.next ? $postsAll.get(thisPost.next) : undefined;
   let observer: IntersectionObserver;
