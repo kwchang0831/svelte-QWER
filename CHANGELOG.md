@@ -1,5 +1,24 @@
 # @kwchang0831/svelte-qwer
 
+## 0.5.0
+
+### Minor Changes
+
+- 6d332b1: deps: upgrade (kit->581, vite->4.0)
+
+  selected mention:
+
+  - @sveltejs/kit 1.0.0-next.532 -> 1.0.0-next.581
+  - svelte 3.52.0 -> 3.54.0
+  - vite 3.2.2 -> 4.0.0
+
+### Patch Changes
+
+- d4feeeb: deps: upgrade (@sveltejs/kit 1.0.0-next.516 -> 1.0.0-next.520)
+- fcc798d: deps: upgrade (@sveltejs/kit 1.0.0-next.525 -> 1.0.0-next.532)
+- dd37629: fix: kit breaking upgrade relates to routeId prefix `/`
+- dd37629: deps: upgrade (@sveltejs/kit 1.0.0-next.520 -> 1.0.0-next.525)
+
 ## 0.4.1
 
 ### Patch Changes
