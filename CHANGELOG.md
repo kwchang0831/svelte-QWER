@@ -1,5 +1,11 @@
 # @kwchang0831/svelte-qwer
 
+## 0.5.2
+
+### Patch Changes
+
+- faec438: fix: vercel disable trailing slash
+
 ## 0.5.1
 
 ### Patch Changes
