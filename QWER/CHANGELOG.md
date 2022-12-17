@@ -1,5 +1,11 @@
 # @kwchang0831/qwer
 
+## 0.3.1
+
+### Patch Changes
+
+- 2d5d207: deps: upgrade non svelte related
+
 ## 0.3.0
 
 ### Minor Changes
