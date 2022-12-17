@@ -12,7 +12,7 @@
    */
   import { page } from '$app/stores';
 
-  let className: string = '';
+  let className = '';
   export { className as class };
 
   import { slide } from 'svelte/transition';
@@ -112,7 +112,7 @@
                   : ''}">
                 {#if link.url}
                   <a
-                    data-sveltekit-prefetch={link.prefetch ? '' : 'off'}
+                    data-sveltekit-preload-data={link.prefetch ? '' : 'off'}
                     href={link.url}
                     target={nav.target}
                     rel={nav.rel}

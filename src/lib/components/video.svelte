@@ -2,8 +2,8 @@
   let className: string | undefined = undefined;
   export { className as class };
 
-  export let autoplay: boolean = true;
-  export let loop: boolean = true;
+  export let autoplay = true;
+  export let loop = true;
   export let poster: string | undefined = undefined;
   export let width: string | undefined = undefined;
   export let height: string | undefined = undefined;

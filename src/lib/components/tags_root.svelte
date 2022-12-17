@@ -3,7 +3,7 @@
   import { slide, fly } from 'svelte/transition';
   import TagsCategory from '$lib/components/tags_category.svelte';
   let scrollY = 0;
-  let className: any = undefined;
+  let className: string | undefined = undefined;
   export { className as class };
 
   export let expaned = true;
@@ -15,7 +15,7 @@
 
   let curTags = $tagsAll;
   let originalTags = JSON.stringify($tagsAll);
-  let timer: string | number | NodeJS.Timeout | undefined;
+  let timer: number | undefined;
   let input: string;
   function handleInput() {
     curTags = JSON.parse(originalTags);
@@ -33,8 +33,8 @@
     });
   }
   const debounce = () => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
+    window.clearTimeout(timer);
+    timer = window.setTimeout(() => {
       handleInput();
     }, 500);
   };
@@ -116,8 +116,8 @@
   import { browser } from '$app/environment';
   let box: Element;
   let boxH: number;
-  let upMore: boolean = false;
-  let downMore: boolean = false;
+  let upMore = false;
+  let downMore = false;
 
   $: if (browser && box) {
     const top = 0;

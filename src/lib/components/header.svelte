@@ -32,12 +32,12 @@
   $: if (searchbox) searchbox.focus();
 
   let scrollY: number;
-  let lastY: number = 0;
+  let lastY = 0;
   let innerHeight: number;
   let scrollHeight: number;
   let scrollPercent: number;
   let pageEndTopBound: number;
-  let scrollingUp: boolean = false;
+  let scrollingUp = false;
   let scrollThresholdStep: number;
   const topPercent = 0.025;
   const botPercent = 0.975;
@@ -56,7 +56,7 @@
     scrollHeight = document.documentElement.scrollHeight;
   });
 
-  let timer: string | number | NodeJS.Timeout | undefined;
+  let timer: number | undefined;
   let input: string;
 
   function handleInput() {
@@ -88,8 +88,8 @@
   }
 
   const debounce = () => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
+    window.clearTimeout(timer);
+    timer = window.setTimeout(() => {
       handleInput();
     }, 500);
   };

@@ -2,8 +2,8 @@
   import { dev } from '$app/environment';
   import { fly, fade } from 'svelte/transition';
 
-  let hovered: boolean = false;
-  let copied: boolean = false;
+  let hovered = false;
+  let copied = false;
   let codeblock: HTMLElement;
 
   function handleEnter() {

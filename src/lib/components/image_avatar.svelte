@@ -6,8 +6,8 @@
   let className: string | undefined = undefined;
   export { className as class };
 
-  export let width: string = '128px';
-  export let height: string = '128px';
+  export let width = '128px';
+  export let height = '128px';
 
   let loaded = false;
   onMount(() => {

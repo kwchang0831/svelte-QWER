@@ -3,7 +3,7 @@
   import AuthorAvatar from '$lib/components/image_avatar.svelte';
   import tippy from '$lib/actions/tippy';
 
-  let className: any = undefined;
+  let className: string | undefined = undefined;
   export { className as class };
 </script>
 

@@ -5,7 +5,7 @@
   import { postsShow } from '$stores/posts';
   import { onMount } from 'svelte';
 
-  let className: any = undefined;
+  let className: string | undefined = undefined;
   export { className as class };
 
   let loaded = false;

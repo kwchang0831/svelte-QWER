@@ -3,7 +3,7 @@
   import Tag from '$lib/components/tag.svelte';
   import type { Tags } from '$lib/types/tags';
 
-  let className: any = undefined;
+  let className: string | undefined = undefined;
   export { className as class };
 
   export let expanded = false;

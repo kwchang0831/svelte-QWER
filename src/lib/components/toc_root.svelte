@@ -96,8 +96,8 @@
 
   let box: Element;
   let boxH: number;
-  let upMore: boolean = false;
-  let downMore: boolean = false;
+  let upMore = false;
+  let downMore = false;
 
   $: if (browser && box) {
     const top = 0;
@@ -132,8 +132,8 @@
   }
 
   let scrollY: number;
-  let lastY: number = 0;
-  let scrollingUp: boolean = false;
+  let lastY = 0;
+  let scrollingUp = false;
 
   $: if (browser) {
     scrollingUp = lastY - scrollY > 0;
