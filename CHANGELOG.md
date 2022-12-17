@@ -1,5 +1,17 @@
 # @kwchang0831/svelte-qwer
 
+## 0.6.0
+
+### Minor Changes
+
+- e98c731: deps: migrate to sveltekit 1.0, fix all lint errors
+
+### Patch Changes
+
+- 2d5d207: deps: upgrade non svelte related
+- fb8da06: dpes: upgrade svelte kit related to the latest before 1.0
+- 9942af9: deps: upgrade svelte
+
 ## 0.5.2
 
 ### Patch Changes
