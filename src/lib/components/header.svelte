@@ -27,7 +27,7 @@
   let curPost: Post.Post | undefined;
   let lastUpdated: string;
 
-  $: curPost = $postsAll.get($page.route.id?.substring(1) ?? '');
+  $: curPost = $postsAll.get($page.route?.id?.substring(1) ?? '');
   $: lastUpdated = lastUpdatedStr(curPost?.updated ?? '');
   $: if (searchbox) searchbox.focus();
 
@@ -188,7 +188,7 @@
           </div>
 
           <div class="ml-auto flex">
-            {#if $page.route.id === '/'}
+            {#if $page.route?.id && $page.route.id === '/'}
               {#key $page}
                 <button
                   id="search"
@@ -209,7 +209,7 @@
                 </button>
               {/key}
             {/if}
-            {#if $page.route.id === '/'}
+            {#if $page.route?.id && $page.route.id === '/'}
               <button
                 in:fade={{ duration: 300, delay: 300 }}
                 out:fade={{ duration: 300 }}
