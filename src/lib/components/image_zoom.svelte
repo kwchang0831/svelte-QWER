@@ -33,6 +33,18 @@
         return +b[0] - +a[0];
       });
 
+  const getSrcset = function (res: string, index: number) {
+    if (!asset) return;
+
+    let _srcset = asset[res];
+
+    if (_srcset && Array.isArray(_srcset)) {
+      return _srcset[index];
+    } else {
+      return _srcset;
+    }
+  };
+
   $: width = asset?.width;
   $: height = asset?.height;
 
@@ -57,7 +69,7 @@
             -->
             <source
               media={`(min-width: ${meta.minWidth})`}
-              srcset={`${asset[res] && Array.isArray(asset[res]) ? asset[res][index] : asset[res]}`.replace(/^\./, '')}
+              srcset={`${getSrcset(res, index)}`.replace(/^\./, '')}
               width={meta.width}
               type={`image/${format}`} />
           {/each}
