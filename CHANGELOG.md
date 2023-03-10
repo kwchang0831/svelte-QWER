@@ -1,5 +1,12 @@
 # @kwchang0831/svelte-qwer
 
+## 0.7.1
+
+### Patch Changes
+
+- 8cf97cd: fix: issue#50
+- 7141051: fix: giscus width issue, take out data-theme
+
 ## 0.7.0
 
 ### Minor Changes
