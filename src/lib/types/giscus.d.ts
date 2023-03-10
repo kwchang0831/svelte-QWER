@@ -16,6 +16,8 @@ export namespace Giscus {
     reactionsEnabled?: '1' | '0';
     /** discussion metadata will be sent periodically to the parent window (the embedding page). */
     emitMetadata?: '1' | '0';
+    /** choose a theme that matches your website. */
+    theme?: string;
     /** choose the language giscus will be displayed in. */
     lang?: string;
     loading?: 'lazy';
