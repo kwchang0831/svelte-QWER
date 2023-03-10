@@ -1,5 +1,11 @@
 # @kwchang0831/qwer
 
+## 0.4.0
+
+### Minor Changes
+
+- dc4531d: deps upgrade
+
 ## 0.3.1
 
 ### Patch Changes
