@@ -101,7 +101,7 @@
             {['RIGHT', 'LEFT'].indexOf(data.coverStyle) !== -1 ? 'coverStyle-RnL' : ''}"
             class:order-first={data.coverStyle === 'TOP' || data.coverStyle === 'LEFT'}
             class:order-last={data.coverStyle === 'BOT' || data.coverStyle === 'RIGHT'}>
-            <a href={data.slug} alt={data.title} class="cursor-pointer" itemprop="url">
+            <a href={data.slug} class="cursor-pointer" itemprop="url">
               <ImgBanner
                 src={data.cover}
                 loading={index < numberPostsEager ? 'eager' : 'lazy'}
@@ -117,7 +117,7 @@
               {postUpdatedStr}
             </time>
             <h2 class="text-2xl font-bold line-clamp-2 text-ellipsis group-hover:font-900" itemprop="name headline">
-              <a href={data.slug} alt={data.title} class="u-url title-link-orange-500-orange-500" itemprop="url">
+              <a href={data.slug} class="u-url title-link-orange-500-orange-500" itemprop="url">
                 {data.title}
               </a>
             </h2>

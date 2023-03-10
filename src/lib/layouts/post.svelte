@@ -137,7 +137,6 @@
               <a
                 rel="next"
                 href="/{nextPost.slug}"
-                alt="/{nextPost.slug}"
                 class="absolute text-2xl font-bold z-10 !decoration-none !underline-none title-link-orange-500-orange-500 top-[3rem] left-[1rem] mr8">
                 {nextPost.title}
               </a>
@@ -153,7 +152,6 @@
               <a
                 rel="prev"
                 href="/{prevPost.slug}"
-                alt="/{prevPost.slug}"
                 class="absolute text-2xl font-bold z-10 !decoration-none !underline-none title-link-orange-500-orange-500 top-[3rem] right-[1rem] ml8">
                 {prevPost.title}
               </a>
