@@ -1,5 +1,11 @@
 # @kwchang0831/svelte-qwer
 
+## 0.7.2
+
+### Patch Changes
+
+- 4ff2b0a: fix: giscus iframe css
+
 ## 0.7.1
 
 ### Patch Changes
