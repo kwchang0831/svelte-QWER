@@ -1,5 +1,11 @@
 # @kwchang0831/qwer
 
+## 0.5.0
+
+### Minor Changes
+
+- 19bde79: fix: incorrect character codes for HTML when parsing
+
 ## 0.4.0
 
 ### Minor Changes
