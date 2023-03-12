@@ -1,5 +1,11 @@
 # @kwchang0831/qwer
 
+## 0.5.1
+
+### Patch Changes
+
+- ecac1a1: fix: cannot add tags when tags is not provided
+
 ## 0.5.0
 
 ### Minor Changes
