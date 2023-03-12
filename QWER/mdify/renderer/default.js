@@ -319,10 +319,10 @@ export const default_renderer = (basePath) => {
         // The Rest
         const escapeTest = /[{|}|(|)]/g;
         const toEscape = {
-          '{': '&lcub',
-          '}': '&rcub',
-          '(': '&lpar',
-          ')': '&rpar',
+          '{': '&lcub;',
+          '}': '&rcub;',
+          '(': '&lpar;',
+          ')': '&rpar;',
         };
         text = text.replace(escapeTest, (c) => toEscape[c]);
 
