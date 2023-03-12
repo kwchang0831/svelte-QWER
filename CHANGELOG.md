@@ -1,5 +1,11 @@
 # @kwchang0831/svelte-qwer
 
+## 0.8.0
+
+### Minor Changes
+
+- 202a6f4: deps: upgrade
+
 ## 0.7.2
 
 ### Patch Changes
