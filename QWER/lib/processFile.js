@@ -133,22 +133,20 @@ const _processMD = (file, generateMeta) => {
     options: _meta['options'],
     series_tag: _meta['series_tag'],
     series_title: _meta['series_title'],
-    tags: _tags,
+    tags: _tags ?? [],
     toc: _md.toc,
   };
 
-  if (_postData['tags']) {
-    if (_meta['series_tag']) {
-      const series = { [UserConfig.SeriesTagName]: _meta['series_tag'] };
-      _postData['tags'].push(series);
-    }
-
-    const year = { [UserConfig.YearTagName]: new Date(_postData['published']).getFullYear().toString() };
-    _postData['tags'].push(year);
-
-    const language = { [UserConfig.PostLanguageTagName]: _postData['language'] };
-    _postData['tags'].push(language);
+  if (_meta['series_tag']) {
+    const series = { [UserConfig.SeriesTagName]: _meta['series_tag'] };
+    _postData['tags'].push(series);
   }
+
+  const year = { [UserConfig.YearTagName]: new Date(_postData['published']).getFullYear().toString() };
+  _postData['tags'].push(year);
+
+  const language = { [UserConfig.PostLanguageTagName]: _postData['language'] };
+  _postData['tags'].push(language);
 
   posts.set(_postData['slug'], _postData);
   tags.set(_postData['tags']);
