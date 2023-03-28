@@ -81,7 +81,7 @@
   itemscope
   itemtype="https://schema.org/Blog"
   itemprop="blog"
-  class="flex-nowrap justify-center flex-col items-center hidden xl:(flex flex-row items-stretch) ">
+  class="flex-nowrap justify-center flex-col items-center hidden xl:(flex flex-row items-stretch)">
   <div
     in:fly={{ x: -100, y: -100, duration: 300, delay: 300 }}
     out:fly={{ x: -100, y: 100, duration: 300 }}

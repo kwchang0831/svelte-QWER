@@ -64,7 +64,7 @@
           ? 'i-akar-icons-circle-chevron-up active:translate-y--1 hover:i-akar-icons-circle-chevron-up-fill'
           : 'i-akar-icons-circle-chevron-down active:translate-y-1 hover:i-akar-icons-circle-chevron-down-fill'}" />
     {:else}
-      <span class="!w-[1.25rem] !h-[1.25rem]  i-akar-icons-circle inline-block shrink-0" />
+      <span class="!w-[1.25rem] !h-[1.25rem] i-akar-icons-circle inline-block shrink-0" />
     {/if}
     <span
       class="{$tocCur.get(content.slug)
