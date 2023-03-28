@@ -1,5 +1,16 @@
 # @kwchang0831/svelte-qwer
 
+## 0.9.0
+
+### Minor Changes
+
+- 59878fb: deps: upgrade svelte related deps
+
+### Patch Changes
+
+- 63cbb54: deps: upgrade (non svelte related deps)
+- 4607137: config: remove pnpm version restriction
+
 ## 0.8.0
 
 ### Minor Changes

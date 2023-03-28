@@ -1,5 +1,13 @@
 # @kwchang0831/qwer
 
+## 0.5.2
+
+### Patch Changes
+
+- 7532a12: fix: try fix issue#58
+- 63cbb54: deps: upgrade (non svelte related deps)
+- 4607137: config: remove pnpm version restriction
+
 ## 0.5.1
 
 ### Patch Changes
