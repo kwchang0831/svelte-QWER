@@ -12,10 +12,6 @@
     "url": "https://github.com/kwchang0831/svelte-qwer/issues"
   },
   "author": "kwchang0831",
-  "packageManager": "pnpm@7.9.3",
-  "engines": {
-    "pnpm": "^7.0.0"
-  },
   "workspaces": [
     "./",
     "./QWER"
