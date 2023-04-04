@@ -1,8 +1,9 @@
 import chokidar from 'chokidar';
 import { cp } from 'node:fs';
 import { join, basename, sep } from 'node:path';
-import { CoreConfig } from '../user/config/QWER.config.js';
+import { CoreConfig, UserConfig } from '../user/config/QWER.config.js';
 import { log } from './utli/logger.js';
+import { initialize } from './lib/initialize.js';
 import {
   addDataFolderFile,
   rmDataFolderFile,
@@ -14,6 +15,8 @@ import {
   readMetaIntoMemory,
 } from './lib/processFile.js';
 import { rmFile, rmDir } from './utli/fsHelper.js';
+
+await initialize();
 
 switch (process.argv[2]) {
   case 'watch':
