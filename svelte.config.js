@@ -6,7 +6,7 @@ import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  preprocess: preprocess({ preserve: ['partytown'] }),
+  preprocess: preprocess(), //({ preserve: ['partytown'] }),
   kit: {
     adapter: Object.keys(process.env).some((key) => key.includes('VERCEL'))
       ? adapterVercel()

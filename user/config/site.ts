@@ -53,10 +53,11 @@ export const headConfig: Site.Head = {
 
           // Plausible
           '<link rel="preconnect" href="https://plausible.kwchang0831.dev" />',
-          '<script defer type="text/partytown" data-domain="svelte-qwer.vercel.app" src="https://plausible.kwchang0831.dev/js/plausible.js"></script>',
+          '<script defer data-domain="svelte-qwer.vercel.app" src="https://plausible.kwchang0831.dev/js/plausible.js"></script>',
+
           // Google tag (gtag.js)
-          `<script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-LQ73GWF6XT"></script>`,
-          `<script type="text/partytown">
+          `<script src="https://www.googletagmanager.com/gtag/js?id=G-LQ73GWF6XT"></script>`,
+          `<script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
