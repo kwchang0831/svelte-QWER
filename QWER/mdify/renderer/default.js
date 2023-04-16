@@ -1,33 +1,4 @@
 import PrismJS from 'prismjs';
-import 'prismjs/components/prism-bash.min.js';
-import 'prismjs/components/prism-cmake.min.js';
-import 'prismjs/components/prism-c.min.js';
-import 'prismjs/components/prism-clike.min.js';
-import 'prismjs/components/prism-cpp.min.js';
-import 'prismjs/components/prism-css.min.js';
-import 'prismjs/components/prism-csharp.min.js';
-import 'prismjs/components/prism-elixir.min.js';
-import 'prismjs/components/prism-erlang.min.js';
-import 'prismjs/components/prism-go.min.js';
-import 'prismjs/components/prism-java.min.js';
-import 'prismjs/components/prism-javascript.min.js';
-import 'prismjs/components/prism-lua.min.js';
-import 'prismjs/components/prism-markdown.min.js';
-import 'prismjs/components/prism-makefile.min.js';
-import 'prismjs/components/prism-matlab.min.js';
-import 'prismjs/components/prism-powershell.min.js';
-import 'prismjs/components/prism-python.min.js';
-import 'prismjs/components/prism-ruby.min.js';
-import 'prismjs/components/prism-rust.min.js';
-import 'prismjs/components/prism-sql.min.js';
-import 'prismjs/components/prism-sass.min.js';
-import 'prismjs/components/prism-scss.min.js';
-import 'prismjs/components/prism-solidity.min.js';
-import 'prismjs/components/prism-swift.min.js';
-import 'prismjs/components/prism-typescript.min.js';
-import 'prismjs/components/prism-wasm.min.js';
-import 'prismjs/components/prism-yaml.min.js';
-import 'prism-svelte';
 
 import slug from 'limax';
 import path from 'node:path';
@@ -37,52 +8,13 @@ import { highlight } from '../parser/highlight.js';
 
 import probe from 'probe-image-size';
 import { existsSync, readFileSync } from 'node:fs';
-import { CoreConfig, ImageConfig } from '../../../user/config/QWER.config.js';
+import { CoreConfig, ImageConfig, UserConfig } from '../../../user/config/QWER.config.js';
 import { renderKatexBlock, renderKatexInline } from './mathRenderer.js';
 
 export const default_renderer = (basePath) => {
   let _toc = [];
   let _imports = [];
   let _basePath = basePath;
-
-  const languages = {
-    bash: 'bash',
-    diff: 'diff',
-    cmake: 'cmake',
-    css: 'css',
-    csharp: 'csharp',
-    c: 'c',
-    cpp: 'cpp',
-    clike: 'clike',
-    env: 'bash',
-    elixir: 'elixir',
-    erlang: 'erlang',
-    go: 'go',
-    html: 'markup',
-    js: 'javascript',
-    java: 'java',
-    lua: 'lua',
-    md: 'markdown',
-    matlab: 'matlab',
-    makefile: 'makefile',
-    powershell: 'powershell',
-    py: 'python',
-    python: 'python',
-    ts: 'typescript',
-    ruby: 'ruby',
-    rust: 'rust',
-    svelte: 'svelte',
-    sh: 'bash',
-    shell: 'bash',
-    sass: 'sass',
-    scss: 'scss',
-    solidity: 'solidity',
-    sql: 'sql',
-    swift: 'swift',
-    wasm: 'wasm',
-    yaml: 'yaml',
-    '': '',
-  };
 
   const scriptBlockTest = /^<script.*>[\n]*([\S\s]*)<\/script>/i;
   const escapeTest = /[&<>"']/;
@@ -193,7 +125,7 @@ export const default_renderer = (basePath) => {
 
         lines = lines.join('\n');
 
-        const plang = languages[language];
+        const plang = UserConfig.languageConfig[language];
         lines = plang
           ? PrismJS.highlight(lines, PrismJS.languages[plang], language)
           : lines.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
