@@ -2,12 +2,12 @@ html {
   scroll-behavior: smooth;
 }
 
-:target:before {
-  content: '';
-  display: block;
-  height: 4em;
-  margin: -4em 0 0;
-}
+// :target:before {
+//   content: '';
+//   display: block;
+//   height: 4em;
+//   margin: -4em 0 0;
+// }
 
 :target {
   scroll-margin-top: 10vh;

@@ -63,8 +63,20 @@
     }
   }
 
+  function scrollToHash(hash: string) {
+    const heading = document.getElementById(`${hash.substring(1)}`);
+    const header_nav = document.getElementById('header-nav');
+    if (heading && header_nav) {
+      const top = heading.offsetTop - header_nav.clientHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
   onMount(() => {
     loaded = true;
+    setTimeout(() => {
+      scrollToHash(window.location.hash);
+    }, 1000);
   });
 </script>
 
