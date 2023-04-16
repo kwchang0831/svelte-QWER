@@ -37,22 +37,7 @@
     loadLocale(baseLocale);
     setLocale(baseLocale);
   }
-
-  // import { onMount } from 'svelte';
-  // import { partytownSnippet } from '@builder.io/partytown/integration';
-
-  // let scriptEl: any;
-  // onMount(() => scriptEl && (scriptEl.textContent = partytownSnippet()));
 </script>
-
-<!-- <svelte:head>
-  <script>
-    partytown = {
-      forward: ['plausible', 'dataLayer.push'],
-    };
-  </script>
-  <script bind:this={scriptEl}></script>
-</svelte:head> -->
 
 <Head />
 

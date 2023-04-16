@@ -8,7 +8,6 @@ import transformerVariantGroup from '@unocss/transformer-variant-group';
 import transformerCompileClass from '@unocss/transformer-compile-class';
 import { imagetools } from 'vite-imagetools';
 import path from 'node:path';
-// import { partytownVite } from '@builder.io/partytown/utils';
 
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
@@ -18,12 +17,6 @@ const pathQWERPkg = fileURLToPath(new URL('QWER/package.json', import.meta.url))
 const jsonQWERPkg = readFileSync(pathQWERPkg, 'utf8');
 const mainPkg = JSON.parse(jsonMainPkg);
 const qwerPkg = JSON.parse(jsonQWERPkg);
-
-const outputFolderPath = Object.keys(process.env).some((key) => key.includes('VERCEL'))
-  ? '.vercel/output/static'
-  : Object.keys(process.env).some((key) => key.includes('NETLIFY'))
-  ? 'build'
-  : 'static';
 
 /** @type {import('vite').UserConfig} */
 const config = {
@@ -68,9 +61,6 @@ const config = {
     }),
     imagetools(),
     sveltekit(),
-    // partytownVite({
-    //   dest: path.join(process.cwd(), outputFolderPath, '~partytown'),
-    // }),
   ],
   resolve: {
     alias: {

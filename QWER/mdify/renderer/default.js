@@ -301,7 +301,7 @@ export const default_renderer = (basePath) => {
           }
         } catch (_) {
           if (!path.isAbsolute(href)) {
-            href = path.join(_basePath, href);
+            href = path.join('/', _basePath, href);
           }
           if (alt === '') alt = href;
 
