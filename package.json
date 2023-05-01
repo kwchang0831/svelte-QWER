@@ -111,6 +111,7 @@
     "vite-imagetools": "^4.0.19"
   },
   "peerDependencies": {
-    "imagetools-core": "^3.2.3"
+    "imagetools-core": "^3.2.3",
+    "sharp": "^0.31.3"
   }
 }
