@@ -2,7 +2,7 @@
   "useTabs": false,
   "tabWidth": 2,
   "singleQuote": true,
-  "endOfLine": "lf",
+  "endOfLine": "auto",
   "trailingComma": "all",
   "printWidth": 120,
   "htmlWhitespaceSensitivity": "ignore",
