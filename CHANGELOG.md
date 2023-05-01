@@ -1,5 +1,24 @@
 # @kwchang0831/svelte-qwer
 
+## 0.10.0
+
+### Minor Changes
+
+- c862ea7: !deps: upgrade, remove partytown
+
+  !upgrade: unocss
+  https://github.com/unocss/unocss/pull/2368
+  now in saperate package: @unocss/extractor-svelte
+
+### Patch Changes
+
+- 06f0f72: fix: local image path add leading slash & clean up
+- d735aad: dpes: add peerDep sharp@0.31.3
+- aa3e076: dpes: upgrade (vite related)
+- ca34620: deps: upgrade (sveltejs, unocss...)
+- bf88971: fix: url hash scroll after 1sec
+- 4710532: feat: add languageConfig in UserConifg and dynamic import prismjs components
+
 ## 0.9.0
 
 ### Minor Changes

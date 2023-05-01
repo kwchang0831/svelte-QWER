@@ -1,5 +1,12 @@
 # @kwchang0831/qwer
 
+## 0.5.3
+
+### Patch Changes
+
+- 06f0f72: fix: local image path add leading slash & clean up
+- 4710532: feat: add languageConfig in UserConifg and dynamic import prismjs components
+
 ## 0.5.2
 
 ### Patch Changes
