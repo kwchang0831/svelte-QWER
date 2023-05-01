@@ -107,8 +107,8 @@
     "typescript": "^5.0.4",
     "unocss": "^0.51.8",
     "unocss-preset-scrollbar": "^0.2.1",
-    "vite": "^4.1.4",
-    "vite-imagetools": "^4.0.18"
+    "vite": "^4.3.3",
+    "vite-imagetools": "^4.0.19"
   },
   "peerDependencies": {
     "imagetools-core": "^3.2.3"
