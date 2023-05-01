@@ -48,6 +48,8 @@ export const assets = (() => {
   };
   return {
     set: (slug) => {
+      // Slug will always use backslashes only
+      slug = slug.replace(/\\/g, '/');
       _assets.add(`/${slug}`);
     },
     has: (slug) => {
