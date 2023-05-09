@@ -22,11 +22,12 @@
     "dev:QWER": "node --no-warnings QWER watch",
     "dev:watch": "npm-run-all -p -r dev:QWER dev:i18n dev:sveltekit ",
     "dev": "npm-run-all -s build:QWER dev:watch",
+    "build:partytown": "partytown copylib static/~partytown",
     "build:i18n": "npx typesafe-i18n --no-watch",
     "build:sveltekit": "vite build",
     "build:QWER_Without_Meta": "node --no-warnings QWER buildWithoutMeta",
     "build:QWER": "node --no-warnings QWER build",
-    "build": "npm-run-all -s build:QWER build:i18n build:sveltekit",
+    "build": "npm-run-all -s build:QWER build:i18n build:partytown build:sveltekit",
     "preview": "vite preview",
     "clean:husky": "rimraf .husky",
     "clean:sveltekit": "rimraf .svelte-kit",
@@ -51,6 +52,7 @@
     "*.{html,scss,css,svelte,ts,js}": "prettier --write --plugin-search-dir=."
   },
   "devDependencies": {
+    "@builder.io/partytown": "^0.8.0",
     "@changesets/cli": "^2.26.1",
     "@iconify-json/akar-icons": "^1.1.16",
     "@iconify-json/bxs": "^1.1.6",
