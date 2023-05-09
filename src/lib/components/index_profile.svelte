@@ -19,6 +19,7 @@
     <AuthorAvatar />
     <div
       id="status-tip"
+      role="tooltip"
       use:tippy={{ placement: 'right', interactive: true, allowHTML: true }}
       data-tippy-content={siteConfig.author.statusTip}
       class="absolute rounded-full w-8 h-8 bottom-0 left-24 shadow-xl text-lg flex justify-center items-center animate-heart-beat">
