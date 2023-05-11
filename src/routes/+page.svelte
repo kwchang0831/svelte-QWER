@@ -9,7 +9,6 @@
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
   import { fly } from 'svelte/transition';
-  import { query } from '$lib/search/stores';
 
   onMount(() => {
     tagsCur.init();
@@ -24,8 +23,6 @@
         });
       }
     });
-
-    query.set($page.url.searchParams.get('query') ?? '');
   });
 </script>
 

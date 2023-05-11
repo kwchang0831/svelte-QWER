@@ -96,6 +96,8 @@
 
   onMount(() => {
     query.init();
+    query.set($page.url.searchParams.get('query') ?? '');
+    input = $query;
   });
 
   $: if ($navigating) {
