@@ -1,5 +1,16 @@
 # @kwchang0831/qwer
 
+## 0.6.0
+
+### Minor Changes
+
+- 175323d: fix: slug will only use backslashes
+- c47759b: deps: upgrade (vite, svelte, kit, unocss, marked...)
+
+### Patch Changes
+
+- a8c72c9: deps: upgrade (katex)
+
 ## 0.5.3
 
 ### Patch Changes
