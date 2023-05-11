@@ -1,5 +1,23 @@
 # @kwchang0831/svelte-qwer
 
+## 0.11.0
+
+### Minor Changes
+
+- c47759b: deps: upgrade (vite, svelte, kit, unocss, marked...)
+
+### Patch Changes
+
+- ff3f374: doc: update example post
+- a8c72c9: deps: upgrade (katex)
+- b1bab79: fix: sync url query parameter with search input
+- bdf216d: fix: aria accessibility issue
+- 51d4520: fix: dirty fix for partytown not copying lib
+
+  - check out https://github.com/BuilderIO/partytown/issues/367
+
+- 16d3580: deps: upgrade (kit)
+
 ## 0.10.0
 
 ### Minor Changes
