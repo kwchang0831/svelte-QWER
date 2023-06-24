@@ -39,6 +39,8 @@
 
   {#if post_cover && post_cover.original}
     <meta property="og:image" content={new URL(post_cover.original, siteConfig.url).href} />
+    <meta property="og:image:width" content={'' + post_cover.width} />
+    <meta property="og:image:height" content={'' + post_cover.height} />
     <meta name="twitter:image" content={new URL(post_cover.original, siteConfig.url).href} />
   {:else}
     <meta property="og:image" content={new URL(siteConfig.cover, siteConfig.url).href} />
