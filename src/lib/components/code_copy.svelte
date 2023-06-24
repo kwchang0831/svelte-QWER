@@ -33,7 +33,13 @@
   }
 </script>
 
-<div bind:this={codeblock} on:mouseenter={handleEnter} on:mouseleave={handleLeave} class="relative overflow-hidden">
+<div
+  bind:this={codeblock}
+  on:mouseenter={handleEnter}
+  on:mouseleave={handleLeave}
+  class="relative overflow-hidden"
+  role="button"
+  tabindex="0">
   {#if hovered}
     <button
       aria-label="Copy all codes"

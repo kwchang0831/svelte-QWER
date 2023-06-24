@@ -152,13 +152,17 @@
 
 <svelte:window bind:scrollY />
 {#if $tagsAll.length}
-  <aside
+  <div
+    role="button"
+    tabindex="0"
     in:fly={{ x: 100, duration: 300, delay: 300 }}
     out:fly={{ x: 100, duration: 300 }}
     on:mousedown={mouseDownHandler}
     on:touchstart|preventDefault={touchStartHandler}
     class={className ?? ''}>
     <div
+      role="button"
+      tabindex="0"
       class="select-none flex justify-between items-center border-b-2 border-black dark:border-white cursor-pointer"
       on:click={toggle}
       on:keydown={(e) => {
@@ -183,6 +187,8 @@
         class="my2 px2 py1 bg-transparent border-2 border-x-2 border-black/[0.5] dark:border-white/[0.5] rounded flex-1" />
       {#if input && input.length > 0}
         <div
+          role="button"
+          tabindex="0"
           class="absolute right-0 cursor-pointer w10 h8 rounded flex items-center justify-center"
           on:click={() => {
             input = '';
@@ -199,6 +205,8 @@
       {/if}
     </form>
     <div
+      role="button"
+      tabindex="0"
       on:click={handleUpMore}
       on:touchend={handleUpMore}
       on:keydown={(e) => {
@@ -225,6 +233,8 @@
       {/if}
     {/key}
     <div
+      role="button"
+      tabindex="0"
       on:click={handleDownMore}
       on:touchend={handleDownMore}
       on:keydown={(e) => {
@@ -235,7 +245,7 @@
       class="hidden xl:(block py1) {downMore ? 'cursor-pointer hover:bg-gray/[0.5]' : ''}">
       <div class="i-bxs-chevrons-down w6 h6 m-auto {downMore ? 'op100 ' : 'op0'}" />
     </div>
-  </aside>
+  </div>
 {/if}
 
 <style lang="scss">

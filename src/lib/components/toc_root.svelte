@@ -161,8 +161,15 @@
 
 {#if toc && toc.length > 0}
   <aside aria-label="Table Of Content" class="sticky top-[4rem] hidden xl:block pb8">
-    <nav on:mousedown={mouseDownHandler} on:touchstart|preventDefault={touchStartHandler} class="flex-col">
-      <h2
+    <div
+      role="button"
+      tabindex="0"
+      on:mousedown={mouseDownHandler}
+      on:touchstart|preventDefault={touchStartHandler}
+      class="flex-col">
+      <span
+        role="button"
+        tabindex="0"
         class="text-2xl font-bold px4 py2 text-center cursor-pointer"
         on:click={() => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -173,8 +180,10 @@
           }
         }}>
         {$LL.TableOfContent()}
-      </h2>
+      </span>
       <div
+        role="button"
+        tabindex="0"
         on:click={handleUpMore}
         on:touchend={handleUpMore}
         on:keydown={(e) => {
@@ -198,6 +207,8 @@
         </ul>
       {/if}
       <div
+        role="button"
+        tabindex="0"
         on:click={handleDownMore}
         on:touchend={handleDownMore}
         on:keydown={(e) => {
@@ -208,6 +219,6 @@
         class={downMore ? 'cursor-pointer hover:bg-gray/[0.5]' : ''}>
         <div class="i-bxs-chevrons-down w6 h6 m-auto {downMore ? 'op100 ' : 'op0'}" />
       </div>
-    </nav>
+    </div>
   </aside>
 {/if}

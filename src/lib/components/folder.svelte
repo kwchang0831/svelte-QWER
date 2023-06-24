@@ -12,6 +12,8 @@
 </script>
 
 <div
+  role="button"
+  tabindex="0"
   class="flex justify-start items-center cursor-pointer"
   on:click={toggle}
   on:keydown={(e) => {

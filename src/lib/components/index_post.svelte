@@ -54,6 +54,8 @@
     {#if data.series_tag && data.series_title}
       <div class="series flex items-stretch gap-0 z10">
         <div
+          role="button"
+          tabindex="0"
           class="series-tag py2 cursor-pointer"
           on:click={() => handleClick({ name: data.series_tag ?? '', category: UserConfig.SeriesTagName })}
           on:keydown={(e) => {
