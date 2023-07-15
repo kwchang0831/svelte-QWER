@@ -56,7 +56,7 @@
   });
 </script>
 
-<figure in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="my6 select-none">
+<figure in:fade|global={{ duration: 300, delay: 300 }} out:fade|global={{ duration: 300 }} class="my6 select-none">
   {#if asset}
     <picture>
       {#if resolutions}

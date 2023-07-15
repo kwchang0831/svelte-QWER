@@ -44,16 +44,16 @@
     <button
       aria-label="Copy all codes"
       type="button"
-      in:fly={{ y: -25, duration: 300, delay: 300 }}
-      out:fly={{ y: -25, duration: 300 }}
+      in:fly|global={{ y: -25, duration: 300, delay: 300 }}
+      out:fly|global={{ y: -25, duration: 300 }}
       on:click={handleCopy}
       class="group absolute z-40 right-2 top-2 p2 h-10 w-10 rounded-xl border-2 bg-gray-700 dark:bg-gray-800 {copied
         ? 'border-green-400 focus:border-green-500 focus:outline-none'
         : 'border-gray-300 hover:border-sky-500'}">
       {#key copied}
         <div
-          in:fade={{ duration: 300, delay: 300 }}
-          out:fade={{ duration: 300 }}
+          in:fade|global={{ duration: 300, delay: 300 }}
+          out:fade|global={{ duration: 300 }}
           class:i-carbon-document-blank={!copied}
           class:i-carbon-document-tasks={copied}
           class="!w5 !h5 color-white m-auto" />

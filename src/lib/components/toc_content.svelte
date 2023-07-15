@@ -79,7 +79,7 @@
   </div>
   {#if content.child && content.child.length > 0}
     {#if expanded}
-      <ul transition:slide={{ duration: 300 }} class="flex flex-col">
+      <ul transition:slide|global={{ duration: 300 }} class="flex flex-col">
         {#each content.child as c}
           <svelte:self content={c} depth={depth + 1} expanded />
         {/each}

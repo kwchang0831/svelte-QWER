@@ -26,8 +26,8 @@
 
 {#if asset}
   <picture
-    in:fade={{ duration: 300, delay: 300 }}
-    out:fade={{ duration: 300 }}
+    in:fade|global={{ duration: 300, delay: 300 }}
+    out:fade|global={{ duration: 300 }}
     class="select-none {pictureClass ?? ''}">
     {#if UserConfig.BannerImage && UserConfig.BannerImage['format']}
       {#each UserConfig.BannerImage['format'] as format, index}
