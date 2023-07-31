@@ -128,7 +128,7 @@ export const default_renderer = (basePath) => {
         const plang = UserConfig.languageConfig[language];
         lines = plang
           ? PrismJS.highlight(lines, PrismJS.languages[plang], language)
-          : lines.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+          : lines.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
 
         lines = lines.split(/\n/);
 

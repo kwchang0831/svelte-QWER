@@ -1,4 +1,6 @@
 import { marked } from 'marked';
+import { mangle } from 'marked-mangle';
+import { gfmHeadingId } from 'marked-gfm-heading-id';
 import { default_renderer } from './renderer/default.js';
 import { multiLineCurlyBracket } from './tokenizer/multiLineCurlyBracket.js';
 import { infoBlock } from './tokenizer/infoBlock.js';
@@ -7,7 +9,9 @@ export const mdify = (data, basePath) => {
   let defaultRenderer = default_renderer(basePath);
 
   marked.use({
-    extensions: [multiLineCurlyBracket, infoBlock],
+    mangle: false,
+    headerIds: false,
+    extensions: [mangle, gfmHeadingId, multiLineCurlyBracket, infoBlock],
     renderer: {
       ...defaultRenderer.renderer,
     },
