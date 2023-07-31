@@ -22,7 +22,9 @@
   right: 0px;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px var(--qwer-box-shadow-1), 0 0 5px var(--qwer-box-shadow-2);
+  box-shadow:
+    0 0 10px var(--qwer-box-shadow-1),
+    0 0 5px var(--qwer-box-shadow-2);
   opacity: 1;
 
   -webkit-transform: rotate(3deg) translate(0px, -4px);
