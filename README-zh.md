@@ -38,6 +38,8 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## ⚡️ 用法
 
+1. 安裝 [npm v18.x](https://nodejs.org/en/blog/release/v18.17.0)
+
 1. 安裝 [pnpm](https://github.com/pnpm/pnpm)。
 
    ```bash

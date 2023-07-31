@@ -123,8 +123,8 @@ importers:
         specifier: ^8.0.3
         version: 8.0.3
       imagetools-core:
-        specifier: ^4.0.4
-        version: 4.0.4
+        specifier: ^4.0.5
+        version: 4.0.5
       katex:
         specifier: ^0.16.8
         version: 0.16.8
@@ -155,6 +155,9 @@ importers:
       sass:
         specifier: ^1.64.1
         version: 1.64.1
+      sharp:
+        specifier: ^0.32.4
+        version: 0.32.4
       svelte:
         specifier: ^4.1.2
         version: 4.1.2
@@ -186,8 +189,8 @@ importers:
         specifier: ^4.4.7
         version: 4.4.7(sass@1.64.1)
       vite-imagetools:
-        specifier: ^5.0.6
-        version: 5.0.6
+        specifier: ^5.0.7
+        version: 5.0.7
 
   QWER:
     devDependencies:
@@ -3296,7 +3299,7 @@ packages:
     dev: true
 
   /github-from-package@0.0.0:
-    resolution: {integrity: sha1-l/tdlr/eiXMxPyDoKI75oWf6ZM4=}
+    resolution: {integrity: sha512-SyHy3T1v2NUXn29OsWdxmK6RwHD+vkj3v8en8AOBZ1wBQ/hCAQ5bAQTD02kW4W9tUp/3Qh6J8r9EvntiyCmOOw==}
     dev: true
 
   /github-slugger@2.0.0:
@@ -3645,8 +3648,8 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
-  /imagetools-core@4.0.4:
-    resolution: {integrity: sha512-6P+PylCVfcfHHoymSheexiRDpOanmB3CF6/vD/3rzMG/1tF5xnkCDTAs4k9i8ETaOTSmMk6dOfxfnniaLSo8WA==}
+  /imagetools-core@4.0.5:
+    resolution: {integrity: sha512-sNRVfUwkUcsVWNn5inTHDXWzpPRWPWbSgGkuQmlsFCWXAR2+K5R5vG5tC3Qs4LeJaMugKB8hGVm6rvZjFHQrUw==}
     engines: {node: '>=12.0.0'}
     dependencies:
       sharp: 0.32.4
@@ -6748,12 +6751,12 @@ packages:
       vfile-message: 4.0.2
     dev: true
 
-  /vite-imagetools@5.0.6:
-    resolution: {integrity: sha512-KGR8CYTjvazzVlSlnRnQN1EfW4iUfvpPIzyDW9XwUsfdAafketTVZ85w9ulZ0DCsuhFz54FPlXsnUguENbxYww==}
+  /vite-imagetools@5.0.7:
+    resolution: {integrity: sha512-8g7RU+liA4uWuujSe3hdMTCNWimMJsdLIU5uB+/SUBQ+j0TcaMKnQZ6n4LCBF2w30ml1X8WNFGOcTblquWrgGQ==}
     engines: {node: '>=12.0.0'}
     dependencies:
       '@rollup/pluginutils': 5.0.2(rollup@3.27.0)
-      imagetools-core: 4.0.4
+      imagetools-core: 4.0.5
     transitivePeerDependencies:
       - rollup
     dev: true

@@ -38,6 +38,8 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 ## ⚡️ Usage
 
+1. Get [npm v18.x](https://nodejs.org/en/blog/release/v18.17.0)
+
 1. Get [pnpm](https://github.com/pnpm/pnpm).
 
    ```bash

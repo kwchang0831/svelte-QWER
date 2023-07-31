@@ -1,9 +1,6 @@
 {
   "name": "@kwchang0831/svelte-qwer",
   "version": "0.11.0",
-  "engines": {
-    "node": ">=16.0.0"
-  },
   "type": "module",
   "license": "MIT",
   "homepage": "https://github.com/kwchang0831/svelte-qwer",
@@ -93,7 +90,7 @@
     "flexsearch": "^0.7.31",
     "gitmoji-cli": "^8.4.0",
     "husky": "^8.0.3",
-    "imagetools-core": "^4.0.4",
+    "imagetools-core": "^4.0.5",
     "katex": "^0.16.8",
     "lint-staged": "^13.2.3",
     "lz-string": "^1.5.0",
@@ -104,6 +101,7 @@
     "prettier-plugin-svelte": "^3.0.3",
     "rimraf": "^5.0.1",
     "sass": "^1.64.1",
+    "sharp": "^0.32.4",
     "svelte": "^4.1.2",
     "svelte-check": "^3.4.6",
     "svelte-preprocess": "^5.0.4",
@@ -114,6 +112,6 @@
     "unocss": "^0.54.1",
     "unocss-preset-scrollbar": "^0.2.1",
     "vite": "^4.4.7",
-    "vite-imagetools": "^5.0.6"
+    "vite-imagetools": "^5.0.7"
   }
 }
