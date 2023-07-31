@@ -8,5 +8,6 @@
   "htmlWhitespaceSensitivity": "ignore",
   "bracketSameLine": true,
   "bracketSpacing": true,
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "plugins": ["prettier-plugin-svelte"]
 }
