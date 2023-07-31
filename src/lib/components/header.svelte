@@ -127,13 +127,13 @@
       id="header-nav"
       class:backdrop-blur={scrollY > scrollThresholdStep}
       class="py-2 px-4 min-h-4rem max-h-16 {scrollY >= scrollThresholdStep ? 'shadow-lg' : ''}"
-      in:fly={{ x: -50, duration: 300, delay: 300 }}
-      out:fly={{ x: -50, duration: 300 }}>
+      in:fly|global={{ x: -50, duration: 300, delay: 300 }}
+      out:fly|global={{ x: -50, duration: 300 }}>
       {#if curPost && scrollY > scrollThresholdStep}
         <div
           class="flex items-center justify-items-center justify-between"
-          in:fly={{ y: -50, duration: 300, delay: 300 }}
-          out:fly={{ y: -50, duration: 300 }}>
+          in:fly|global={{ y: -50, duration: 300, delay: 300 }}
+          out:fly|global={{ y: -50, duration: 300 }}>
           <div class="flex flex-col items-start overflow-hidden">
             <button
               class="m1 link text-left w-full"
@@ -169,8 +169,8 @@
       {:else}
         <div
           class="flex items-center justify-items-center"
-          in:fly={{ x: -50, duration: 300, delay: 300 }}
-          out:fly={{ x: -50, duration: 300 }}>
+          in:fly|global={{ x: -50, duration: 300, delay: 300 }}
+          out:fly|global={{ x: -50, duration: 300 }}>
           <div class="lg:hidden rounded-lg btn btn-ghost !p0">
             <Dropdown nav={mobilenavConfig} class="text-sm p2 ">
               <button aria-label="nav menu" class="flex items-center">
@@ -199,8 +199,8 @@
                   on:click={() => {
                     $searching = true;
                   }}
-                  in:fade={{ duration: 300, delay: 300 }}
-                  out:fade={{ duration: 300 }}
+                  in:fade|global={{ duration: 300, delay: 300 }}
+                  out:fade|global={{ duration: 300 }}
                   class="mx2 btn active:translate-y-2 duration-600 ease-out group flex items-center gap2 md:(border-1 border-black/[0.25] dark:border-white/[0.25])">
                   <div
                     class="!w7 !h7 i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
@@ -213,8 +213,8 @@
             {/if}
             {#if $page.route?.id && $page.route.id === '/'}
               <button
-                in:fade={{ duration: 300, delay: 300 }}
-                out:fade={{ duration: 300 }}
+                in:fade|global={{ duration: 300, delay: 300 }}
+                out:fade|global={{ duration: 300 }}
                 aria-label="Tags"
                 on:click={() => {
                   $tagsShowDesktop = !$tagsShowDesktop;
@@ -226,8 +226,8 @@
                   class="!w7 !h7 group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
               </button>
               <button
-                in:fade={{ duration: 300, delay: 300 }}
-                out:fade={{ duration: 300 }}
+                in:fade|global={{ duration: 300, delay: 300 }}
+                out:fade|global={{ duration: 300 }}
                 aria-label="Tags"
                 on:click={() => {
                   $tagsShowMobile = !$tagsShowMobile;
@@ -256,8 +256,8 @@
     <nav
       id="header-nav"
       class="flex border-transparent backdrop-blur items-center py-2"
-      in:fly={{ x: 50, duration: 300, delay: 300 }}
-      out:fly={{ x: 50, duration: 300 }}>
+      in:fly|global={{ x: 50, duration: 300, delay: 300 }}
+      out:fly|global={{ x: 50, duration: 300 }}>
       <form on:submit|preventDefault={onSubmit} class="grow flex items-center" action="/search">
         <input
           bind:this={searchbox}
@@ -300,8 +300,8 @@
       scrollY = 0;
     }}
     aria-label="scroll to top"
-    in:fly={{ y: 50, duration: 300, delay: 300 }}
-    out:fly={{ y: 50, duration: 300 }}
+    in:fly|global={{ y: 50, duration: 300, delay: 300 }}
+    out:fly|global={{ y: 50, duration: 300 }}
     class="fixed grid group border-none bottom-2 right-2 z-50 duration-600 delay-300 ease-in-out rounded-full bg-transparent">
     <div
       class="backdrop-blur rounded-full col-start-1 row-start-1 transition-all duration-600 ease-in-out scale-70 relative bg-transparent">
@@ -331,8 +331,8 @@
       scrollY = scrollHeight;
     }}
     aria-label="scroll to bottom"
-    in:fly={{ y: 50, duration: 300, delay: 300 }}
-    out:fly={{ y: 50, duration: 300 }}
+    in:fly|global={{ y: 50, duration: 300, delay: 300 }}
+    out:fly|global={{ y: 50, duration: 300 }}
     class="fixed grid group border-none bottom-2 right-2 z-50 duration-600 delay-300 ease-in-out rounded-full bg-transparent">
     <div
       class="backdrop-blur rounded-full col-start-1 row-start-1 transition-all duration-600 ease-in-out scale-70 relative bg-transparent">

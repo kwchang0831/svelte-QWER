@@ -84,7 +84,7 @@
   <SEO post={thisPost} />
 {/if}
 
-<main in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="flex flex-nowrap justify-center">
+<main in:fade|global={{ duration: 300, delay: 300 }} out:fade|global={{ duration: 300 }} class="flex flex-nowrap justify-center">
   <div class="max-w-screen-md flex-1" />
 
   <article
@@ -94,15 +94,15 @@
     itemprop="blogPost"
     class="h-entry flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-t-2xl)">
     {#if loaded}
-      <div in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="max-w-[55rem]">
+      <div in:fade|global={{ duration: 300, delay: 300 }} out:fade|global={{ duration: 300 }} class="max-w-[55rem]">
         {#if thisPost}
           <PostHeading data={thisPost} />
         {/if}
       </div>
 
       <div
-        in:fade={{ duration: 300, delay: 300 }}
-        out:fade={{ duration: 300 }}
+        in:fade|global={{ duration: 300, delay: 300 }}
+        out:fade|global={{ duration: 300 }}
         bind:this={postElement}
         itemprop="articleBody"
         class="e-content prose prose-slate dark:prose-invert max-w-[55rem]">
@@ -111,8 +111,8 @@
     {:else}
       <div
         class="h-[20rem] flex flex-col items-center justify-center gap4"
-        in:fade={{ duration: 300, delay: 300 }}
-        out:fade={{ duration: 300 }}>
+        in:fade|global={{ duration: 300, delay: 300 }}
+        out:fade|global={{ duration: 300 }}>
         <h2 class="text-3xl">{$LL.LoadingPost()}</h2>
         <div class="i-line-md-loading-twotone-loop !h-16 !w-16" />
       </div>
@@ -120,8 +120,8 @@
   </article>
 
   <div
-    in:fly={{ x: 100, y: -100, duration: 300, delay: 300 }}
-    out:fly={{ x: 100, y: 100, duration: 300 }}
+    in:fly|global={{ x: 100, y: -100, duration: 300, delay: 300 }}
+    out:fly|global={{ x: 100, y: 100, duration: 300 }}
     class="max-w-screen-md flex-1 relative">
     {#if thisPost && thisPost.toc}
       <PostToc toc={thisPost.toc} />
@@ -130,7 +130,7 @@
 </main>
 
 {#if loaded}
-  <div in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }} class="flex flex-nowrap justify-center">
+  <div in:fade|global={{ duration: 300, delay: 300 }} out:fade|global={{ duration: 300 }} class="flex flex-nowrap justify-center">
     <div class="max-w-screen-md flex-1" />
 
     <div id="post-bottom" class="flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-b-2xl)">

@@ -155,8 +155,8 @@
   <div
     role="button"
     tabindex="0"
-    in:fly={{ x: 100, duration: 300, delay: 300 }}
-    out:fly={{ x: 100, duration: 300 }}
+    in:fly|global={{ x: 100, duration: 300, delay: 300 }}
+    out:fly|global={{ x: 100, duration: 300 }}
     on:mousedown={mouseDownHandler}
     on:touchstart|preventDefault={touchStartHandler}
     class={className ?? ''}>
@@ -224,7 +224,7 @@
           bind:clientHeight={boxH}
           on:scroll={handleScroll}
           id="index-tags"
-          transition:slide={{ duration: 300 }}
+          transition:slide|global={{ duration: 300 }}
           class="pb4 select-none pointer-grabbing xl:(max-h-70vh overflow-hidden)">
           {#each curTags as c}
             <TagsCategory data={c} expanded />

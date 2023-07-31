@@ -23,8 +23,8 @@
   {#key $postsShow}
     <footer
       id="footer"
-      in:fly={{ y: 100, duration: 1200, delay: 900 }}
-      out:fly={{ y: 100, duration: 300 }}
+      in:fly|global={{ y: 100, duration: 1200, delay: 900 }}
+      out:fly|global={{ y: 100, duration: 300 }}
       class="flex flex-col justify-center items-center flex-none w-full mx-auto xl:mx-0 {className ?? ''}">
       <main class="rounded-b-2xl pb6 my4 gap1 flex flex-col justify-center items-center md:(border-t-2 w-3xl mt-8)">
         <div class="hidden">

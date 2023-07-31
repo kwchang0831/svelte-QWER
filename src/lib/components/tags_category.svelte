@@ -42,14 +42,14 @@
 </div>
 
 {#if expanded && tags}
-  <div transition:slide={{ duration: 300 }} class="flex flex-row flex-wrap my-2">
+  <div transition:slide|global={{ duration: 300 }} class="flex flex-row flex-wrap my-2">
     {#each tags as t}
       <Tag data={t} />
     {/each}
   </div>
 {/if}
 <!-- {:else if tags}
-  <div transition:slide={{ duration: 300 }} class="flex flex-row flex-wrap">
+  <div transition:slide|global={{ duration: 300 }} class="flex flex-row flex-wrap">
     {#each tags as t}
       <Tag data={t} />
     {/each}
