@@ -47,6 +47,9 @@ importers:
       '@kwchang0831/svelte-qwer':
         specifier: 'link:'
         version: 'link:'
+      '@sveltejs/adapter-cloudflare':
+        specifier: ^2.3.2
+        version: 2.3.2(@sveltejs/kit@1.22.4)
       '@sveltejs/adapter-netlify':
         specifier: 2.0.8
         version: 2.0.8(@sveltejs/kit@1.22.4)
@@ -481,6 +484,10 @@ packages:
       fs-extra: 7.0.1
       human-id: 1.0.2
       prettier: 2.8.8
+    dev: true
+
+  /@cloudflare/workers-types@4.20230814.0:
+    resolution: {integrity: sha512-+jHiGjZg2UpULZSSHmHLqUG45TLg1s+uppSMlGvMn0u/xyFsRX9HX6b8Ydg/oHSp3jfSuPtX05GSvtgRAmrWTg==}
     dev: true
 
   /@esbuild/android-arm64@0.18.17:
@@ -1053,6 +1060,17 @@ packages:
   /@sindresorhus/is@5.6.0:
     resolution: {integrity: sha512-TV7t8GKYaJWsn00tFDqBw8+Uqmr8A0fRU1tvTQhyZzGv0sJCGRQL3JGMI3ucuKo3XIZdUP+Lx7/gh2t3lewy7g==}
     engines: {node: '>=14.16'}
+    dev: true
+
+  /@sveltejs/adapter-cloudflare@2.3.2(@sveltejs/kit@1.22.4):
+    resolution: {integrity: sha512-BpgFmVJInF2D0Uo41gJtvYyTiZ6P/xkfrQSqPHQOGYsjvFeW+1AjX/8MPIJ3VJyvbVgyRaVKMBsXWHADbAYatQ==}
+    peerDependencies:
+      '@sveltejs/kit': ^1.0.0
+    dependencies:
+      '@cloudflare/workers-types': 4.20230814.0
+      '@sveltejs/kit': 1.22.4(svelte@4.1.2)(vite@4.4.7)
+      esbuild: 0.18.17
+      worktop: 0.8.0-next.15
     dev: true
 
   /@sveltejs/adapter-netlify@2.0.8(@sveltejs/kit@1.22.4):
@@ -5546,6 +5564,11 @@ packages:
       functions-have-names: 1.2.3
     dev: true
 
+  /regexparam@2.0.1:
+    resolution: {integrity: sha512-zRgSaYemnNYxUv+/5SeoHI0eJIgTL/A2pUtXUPLHQxUldagouJ9p+K6IbIZ/JiQuCEv2E2B1O11SjVQy3aMCkw==}
+    engines: {node: '>=8'}
+    dev: true
+
   /registry-auth-token@5.0.2:
     resolution: {integrity: sha512-o/3ikDxtXaA59BmZuZrJZDJv8NMDGSj+6j6XaeBmHw8eY1i1qd9+6H+LjVvQXx3HN6aRCGa1cUdJ9RaJZUugnQ==}
     engines: {node: '>=14'}
@@ -6908,6 +6931,14 @@ packages:
   /word-wrap@1.2.5:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /worktop@0.8.0-next.15:
+    resolution: {integrity: sha512-0ycNO52P6nVwsjr1y20zuf0nqJatAb8L7MODBfQIxbxndHV5O4s50oZZMHWhJG1RLpHwbK0Epq8aaQK4E2GlgQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      mrmime: 1.0.1
+      regexparam: 2.0.1
     dev: true
 
   /wrap-ansi@6.2.0:
