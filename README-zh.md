@@ -90,7 +90,7 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - 🌐 多國語系 i18n 透過 [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n)。
 
-- 🚀 免費架設部落格於 [Vercel](https://vercel.com/) 或 [Netlify](https://Netlify.com/) 上。
+- 🚀 免費架設部落格於 [Vercel](https://vercel.com/), 或 [Netlify](https://Netlify.com/), 或 [Cloudflare Pages](https://pages.cloudflare.com/) 上。
 
 ## 📚 了解更多
 
