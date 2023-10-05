@@ -27,8 +27,14 @@ export const processRmDir = (dir) => {
   }
 };
 
+const isRemotePath = (path) => {
+  return path.startsWith('http://') || path.startsWith('https://');
+};
+
 export const processImagePath = (path, slug) => {
   if (!path || !slug) return;
+
+  if (isRemotePath(path)) return path;
 
   if (!isAbsolute(path)) {
     path = join(slug, path);
