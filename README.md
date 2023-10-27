@@ -58,6 +58,13 @@ npx degit kwchang0831/svelte-QWER my-blog
    pnpm dev
    ```
 
+1. Create an article folder (For Windows users, make sure to use a terminal that supports Bash scripts, such as Git Bash).
+
+   ```bash
+   pnpm run createblog YOURDIRNAME
+
+   ```
+
 ## ✨ Features
 
 - ⚡ Super fast site performance. Near **Perfect** [PageSpeed](https://pagespeed.web.dev/) score.
