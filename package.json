@@ -46,7 +46,8 @@
     "husky": "husky install && npx husky set .husky/pre-commit \"npx lint-staged\" && gitmoji -i",
     "typesafe-i18n": "typesafe-i18n",
     "changeset:add": "pnpm changeset add",
-    "deploy:vercel-local-build": "vercel build --prod && vercel deploy --prebuilt --prod"
+    "deploy:vercel-local-build": "vercel build --prod && vercel deploy --prebuilt --prod",
+    "createblog": "bash create-blog.sh"
   },
   "lint-staged": {
     "*.{html,scss,css,svelte,ts,js}": "prettier --write ."

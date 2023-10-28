@@ -58,6 +58,12 @@ npx degit kwchang0831/svelte-QWER my-blog
    pnpm dev
    ```
 
+1. 創建文章資料夾（如果您是 Windows 用戶，請確保使用一個支援 Bash 腳本的終端機，例如 Git Bash）。
+
+   ```bash
+   pnpm run createblog YOURDIRNAME
+   ```
+
 ## ✨ 功能
 
 - ⚡ 超快的網站速度。接近完美的 [PageSpeed](https://pagespeed.web.dev/) 跑分。
