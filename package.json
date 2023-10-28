@@ -47,7 +47,7 @@
     "typesafe-i18n": "typesafe-i18n",
     "changeset:add": "pnpm changeset add",
     "deploy:vercel-local-build": "vercel build --prod && vercel deploy --prebuilt --prod",
-    "createblog": "bash create-blog.sh"
+    "createblog": "bash utils/create-blog.sh"
   },
   "lint-staged": {
     "*.{html,scss,css,svelte,ts,js}": "prettier --write ."
