@@ -8,6 +8,11 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
+# Get the current date in ISO 8601 format with timezone
+CURRENT_DATE=$(date "+%Y-%m-%dT%H:%M:%S.000")
+TIMEZONE_FORMATTED=$(date "+%z" | sed 's/\([0-9][0-9]\)\([0-9][0-9]\)/\1:\2/')
+
+
 # Every time you enter pnpm run createblog YourDirName, 
 # a folder will be created for you based on the following configuration, 
 # along with a default content for index.md. 
@@ -18,13 +23,15 @@ MD_TEMPLATE="---
 title: 
 description: 
 summary: 
+published: '$CURRENT_DATE$TIMEZONE_FORMATTED'
+updated: '$CURRENT_DATE$TIMEZONE_FORMATTED'
 cover: ./cover.jpg
 coverCaption: Photo by
 coverStyle: 'IN'
 series_tag:
 series_title:
 tag:
-  - [JavaSript]
+  - [svelte-QWER]
 ---"
 
 # Ensure base path exists
