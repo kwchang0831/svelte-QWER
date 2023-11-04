@@ -1,5 +1,37 @@
 # @kwchang0831/svelte-qwer
 
+## 0.12.0
+
+### Minor Changes
+
+- 59989c3: ✨ Feat: Cloudflare Pages support
+- b47cc8e: deps: upgrade (svelte -> 4.0)
+
+  run the following if needed:
+
+  ```sh
+  pnpm i && pnpm clean && pnpm format
+  ```
+
+- c91a291: ✨ feat: Added a script for streamlined creation of a blog folder and its corresponding index.md file.
+- dfdc753: deps: upgrade
+- d6814ba: deps: upgrade
+
+### Patch Changes
+
+- 9a74335: deps: upgrade; update: readme
+- 4af1ef9: deps: upgrade
+- f3631ce: refactor: Globalization of Transitions - @Nich87
+- c743568: deps: upgrade
+- 821245a: deps: upgrade
+- 49aae38: cfg: remove plausible
+- ec65ead: add: include og:imge:width/height
+- 81c004a: 🛠️ chore: Format current date and timezone in shell script
+- 946a38f: fix: pnpm-lock
+- f083980: chore: organize \*.sh files to utils folder
+- 1c98e89: deps: upgrade
+- d1d40d8: fix: prettier svelte plugin
+
 ## 0.11.0
 
 ### Minor Changes
