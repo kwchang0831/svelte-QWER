@@ -12,7 +12,7 @@ tags:
 
 ## ✨ Intro
 
-[QWER](https://www.github.com/kwchang0831/svelte-QWER) is simply an Awesoem blog starter and static site generator. Built using [SvelteKit](https://kit.svelte.dev/) and Love ❤.
+[QWER](https://www.github.com/kwchang0831/svelte-QWER) is simply an Awesome blog starter and static site generator. Built using [SvelteKit](https://kit.svelte.dev/) and Love ❤.
 
 ## 🎉 Try out QWER
 
