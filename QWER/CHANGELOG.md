@@ -1,5 +1,24 @@
 # @kwchang0831/qwer
 
+## 0.7.0
+
+### Minor Changes
+
+- b47cc8e: deps: upgrade (svelte -> 4.0)
+
+  run the following if needed:
+
+  ```sh
+  pnpm i && pnpm clean && pnpm format
+  ```
+
+- dfdc753: deps: upgrade
+- 0b46086: fix processImagePath to detect remote path
+
+### Patch Changes
+
+- c743568: deps: upgrade
+
 ## 0.6.0
 
 ### Minor Changes
