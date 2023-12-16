@@ -30,7 +30,7 @@ coverCaption: Photo by
 coverStyle: 'IN'
 series_tag:
 series_title:
-tag:
+tags:
   - [svelte-QWER]
 ---"
 
