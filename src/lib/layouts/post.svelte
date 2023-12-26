@@ -84,7 +84,10 @@
   <SEO post={thisPost} />
 {/if}
 
-<main in:fade|global={{ duration: 300, delay: 300 }} out:fade|global={{ duration: 300 }} class="flex flex-nowrap justify-center">
+<main
+  in:fade|global={{ duration: 300, delay: 300 }}
+  out:fade|global={{ duration: 300 }}
+  class="flex flex-nowrap justify-center">
   <div class="max-w-screen-md flex-1" />
 
   <article
@@ -130,7 +133,10 @@
 </main>
 
 {#if loaded}
-  <div in:fade|global={{ duration: 300, delay: 300 }} out:fade|global={{ duration: 300 }} class="flex flex-nowrap justify-center">
+  <div
+    in:fade|global={{ duration: 300, delay: 300 }}
+    out:fade|global={{ duration: 300 }}
+    class="flex flex-nowrap justify-center">
     <div class="max-w-screen-md flex-1" />
 
     <div id="post-bottom" class="flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-b-2xl)">
@@ -142,36 +148,36 @@
 
       {#if nextPost || prevPost}
         <nav class="flex flex-col h-[20rem] md:(flex-row h-[12rem]) my8">
-          {#if nextPost}
-            <div id="next-post" class="relative flex-1 group overflow-hidden bg-white/[0.5] dark:bg-black/[0.5]">
+          {#if prevPost}
+            <div id="prev-post" class="relative flex-1 group overflow-hidden bg-white/[0.5] dark:bg-black/[0.5]">
               <div
-                class="absolute z-10 i-mdi-chevron-left !w-[1.5rem] !h-[1.5rem] top-[1.25rem] left-[0.75rem] animate-bounce-left" />
+                class="absolute z-10 i-mdi-chevron-left !w-[1.5rem] !h-[1.5rem] top-[6rem] left-[0.75rem] animate-bounce-left" />
               <a
-                rel="next"
-                href="/{nextPost.slug}"
-                class="absolute text-2xl font-bold z-10 !decoration-none !underline-none title-link-orange-500-orange-500 top-[3rem] left-[1rem] mr8">
-                {nextPost.title}
+                rel="prev"
+                href="/{prevPost.slug}"
+                class="absolute text-2xl font-bold z-10 !decoration-none !underline-none title-link-orange-500-orange-500 top-[3rem] left-[1rem] ml8">
+                {prevPost.title}
               </a>
-              {#if nextPost.cover}
+              {#if prevPost.cover}
                 <ImgBanner
-                  src={nextPost.cover}
+                  src={prevPost.cover}
                   imgClass="absolute z-1 w-full h-full object-cover op70 group-hover:(scale-110) transition-transform duration-300 ease-in-out" />
               {/if}
             </div>
           {/if}
-          {#if prevPost}
-            <div id="prev-post" class="relative flex-1 group overflow-hidden bg-white/[0.5] dark:bg-black/[0.5]">
+          {#if nextPost}
+            <div id="next-post" class="relative flex-1 group overflow-hidden bg-white/[0.5] dark:bg-black/[0.5]">
               <a
-                rel="prev"
-                href="/{prevPost.slug}"
-                class="absolute text-2xl font-bold z-10 !decoration-none !underline-none title-link-orange-500-orange-500 top-[3rem] right-[1rem] ml8">
-                {prevPost.title}
+                rel="next"
+                href="/{nextPost.slug}"
+                class="absolute text-2xl font-bold z-10 !decoration-none !underline-none title-link-orange-500-orange-500 top-[3rem] right-[1rem] mr8">
+                {nextPost.title}
               </a>
               <div
-                class="absolute z-10 i-mdi-chevron-right !w-[1.5rem] !h-[1.5rem] top-[6rem] right-[0.75rem] animate-bounce-right" />
-              {#if prevPost.cover}
+                class="absolute z-10 i-mdi-chevron-right !w-[1.5rem] !h-[1.5rem] top-[1.25rem] right-[0.75rem] animate-bounce-right" />
+              {#if nextPost.cover}
                 <ImgBanner
-                  src={prevPost.cover}
+                  src={nextPost.cover}
                   imgClass="absolute z-1 w-full h-full object-cover op70 group-hover:(scale-110) transition-transform duration-300 ease-in-out" />
               {/if}
             </div>
