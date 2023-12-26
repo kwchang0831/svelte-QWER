@@ -48,7 +48,7 @@ options:
 
 - 🌐 i18n via [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n).
 
-- 🚀 Deploy the blog **Free** on [Vercel](https://vercel.com/) or [Netlify](https://Netlify.com/).
+- 🚀 Deploy the blog **Free** on [Vercel](https://vercel.com/), [Netlify](https://Netlify.com/) or [Github Pages](https://pages.github.com/).
 
 ## 📚 Learn More
 
