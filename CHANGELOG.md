@@ -1,5 +1,15 @@
 # @kwchang0831/svelte-qwer
 
+## 1.0.0
+
+### Major Changes
+
+- dd13f4d: Fix post_SEO for remote image url
+
+### Minor Changes
+
+- 3083a37: deps: upgrade
+
 ## 0.12.0
 
 ### Minor Changes
