@@ -55,7 +55,9 @@
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
       headline: post.title,
-      image: post_cover ? [new URL(post_cover.original, siteConfig.url).href] : [],
+      image: post_cover
+        ? [new URL(typeof post_cover === 'string' ? post_cover : post_cover.original, siteConfig.url).href]
+        : [],
       datePublished: post.published,
       dateModified: post.updated,
       author: [

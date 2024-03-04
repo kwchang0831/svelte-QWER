@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Post } from '$lib/types/post';
   import { browser } from '$app/environment';
+  import { replaceState } from '$app/navigation';
   import { siteConfig, navConfig, mobilenavConfig } from '$config/site';
   import { theme } from '$stores/themes';
   import { fly, fade } from 'svelte/transition';
@@ -19,7 +20,7 @@
     tagsCur.init();
     postsShow.init();
     if (browser) {
-      window.history.replaceState({}, '', '/');
+      replaceState('', '/');
     }
   }
 
@@ -73,7 +74,7 @@
     }
 
     const params = $page.url.searchParams.toString();
-    window.history.replaceState({}, '', params.length > 0 ? `?${params}` : '/');
+    replaceState('', params.length > 0 ? `?${params}` : '/');
 
     $searching = false;
   }
@@ -84,7 +85,7 @@
     $searching = false;
     $page.url.searchParams.delete('query');
     const params = $page.url.searchParams.toString();
-    window.history.replaceState({}, '', params.length > 0 ? `?${params}` : '/');
+    replaceState('', params.length > 0 ? `?${params}` : '/');
   }
 
   const debounce = () => {

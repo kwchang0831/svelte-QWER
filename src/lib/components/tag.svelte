@@ -6,6 +6,7 @@
   import { postsShow } from '$stores/posts';
   import { browser } from '$app/environment';
   import { page } from '$app/stores';
+  import { replaceState } from '$app/navigation';
 
   function handleClick() {
     let category = data.category === 'tags' ? data.category : `tags-${encodeURI(data.category)}`;
@@ -19,7 +20,7 @@
     }
     const params = $page.url.searchParams.toString();
     if (browser) {
-      window.history.replaceState({}, '', params.length > 0 ? `?${params}` : '/');
+      replaceState('', params.length > 0 ? `?${params}` : '/');
     }
     postsShow.filter();
   }

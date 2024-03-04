@@ -3,14 +3,25 @@ import adapterStatic from '@sveltejs/adapter-static';
 import adapterVercel from '@sveltejs/adapter-vercel';
 import adapterNetlify from '@sveltejs/adapter-netlify';
 import adapterCloudflare from '@sveltejs/adapter-cloudflare';
-import preprocess from 'svelte-preprocess';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  preprocess: preprocess({ preserve: ['partytown'] }),
+  preprocess: vitePreprocess(),
   kit: {
     adapter: getAdapter(),
     csp: { mode: 'auto' },
+    alias: {
+      $QWER: './QWER',
+      $lib: './src/lib',
+      $generated: './src/generated',
+      $stores: './src/lib/stores',
+      $config: './user/config',
+      $assets: './user/assets',
+      $custom: './user/custom',
+      $static: './static',
+      $i18n: './src/i18n',
+    },
   },
 };
 
@@ -27,7 +38,7 @@ function getAdapter() {
       : adapterStatic({
           pages: 'build',
           assets: 'build',
-          fallback: null,
+          fallback: undefined,
         });
   }
 }
