@@ -154,6 +154,7 @@
 {#if $tagsAll.length}
   <div
     role="button"
+    aria-label="tagMenuScroll"
     tabindex="0"
     in:fly|global={{ x: 100, duration: 300, delay: 300 }}
     out:fly|global={{ x: 100, duration: 300 }}
@@ -162,6 +163,7 @@
     class={className ?? ''}>
     <div
       role="button"
+      aria-label="tagCategoryToggle"
       tabindex="0"
       class="select-none flex justify-between items-center border-b-2 border-black dark:border-white cursor-pointer"
       on:click={toggle}
@@ -206,6 +208,7 @@
     </form>
     <div
       role="button"
+      aria-label="tagMenuScrollUp"
       tabindex="0"
       on:click={handleUpMore}
       on:touchend={handleUpMore}
@@ -234,6 +237,7 @@
     {/key}
     <div
       role="button"
+      aria-label="tagMenuScrollDown"
       tabindex="0"
       on:click={handleDownMore}
       on:touchend={handleDownMore}
