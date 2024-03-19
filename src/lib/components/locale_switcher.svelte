@@ -40,15 +40,15 @@
 	}
 </script>
 
-<select onchange="window.location.assign(this.value);" style="background-color: var(--qwer-bg-color);">
+<select onChange="window.location.assign(this.value);" style="background-color: var(--qwer-bg-color);">
 	{#each locales as l}
 		{#if l === $locale}
-			<option value={replaceLocaleInUrl($page.url, l)} selected>
+			<option value={l} selected>
 			{l}
 			</option>
 		{:else}
-			<option value={replaceLocaleInUrl($page.url, l)}>
-				{l}
+			<option value={l}>
+			{l}
 			</option>
 		{/if}
 	{/each}
