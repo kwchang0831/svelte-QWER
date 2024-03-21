@@ -30,7 +30,18 @@
   import { siteConfig } from '$config/site';
   import { locales, baseLocale } from '$i18n/i18n-util';
 
-  if (locales.includes(siteConfig.lang)) {
+  import type { Locales } from '$i18n/i18n-types.js'
+
+  import { page } from '$app/stores';
+  let lang = $page.url.pathname.split('/')[1];
+  let specifyLang: Locales = lang as Locales;
+
+  if (locales.includes(specifyLang)) {
+    loadLocale(specifyLang);
+    setLocale(specifyLang);
+    siteConfig.lang = specifyLang;
+  }
+  else if (locales.includes(siteConfig.lang)) {
     loadLocale(siteConfig.lang);
     setLocale(siteConfig.lang);
   } else {
