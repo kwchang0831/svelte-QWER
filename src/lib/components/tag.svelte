@@ -30,7 +30,8 @@
   <button
     class:btn_active={tagsCur.has(data)}
     class="text-sm m-1 normal-case border-2 border-dotted btn hover:(border-[#007300] border-solid) border-black/[0.5] dark:(border-white/[0.5]) active:(scale-80 transition-transform duration-250 ease-in-out)"
-    on:click={handleClick}>
+    on:click={handleClick}
+    on:touchstart={handleClick}>
     {data.name}
   </button>
 {/key}

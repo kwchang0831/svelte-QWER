@@ -167,6 +167,7 @@
       tabindex="0"
       class="select-none flex justify-between items-center border-b-2 border-black dark:border-white cursor-pointer"
       on:click={toggle}
+      on:touchstart={toggle}
       on:keydown={(e) => {
         if (e.key === 'Enter') toggle();
       }}>
@@ -193,6 +194,10 @@
           tabindex="0"
           class="absolute right-0 cursor-pointer w10 h8 rounded flex items-center justify-center"
           on:click={() => {
+            input = '';
+            handleInput();
+          }}
+          on:touchstart={() => {
             input = '';
             handleInput();
           }}

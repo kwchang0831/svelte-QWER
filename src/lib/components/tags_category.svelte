@@ -23,6 +23,9 @@
   on:click={() => {
     expanded = !expanded;
   }}
+  on:touchstart={() => {
+    expanded = !expanded;
+  }}
   on:keydown={(e) => {
     if (e.key === 'Enter') {
       expanded = !expanded;

@@ -10,9 +10,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "types": [
-      "vite/client"
-    ],
+    "types": ["vite/client"]
   },
   "include": [
     "./types/**/$types.d.ts",
@@ -26,10 +24,5 @@
     "./tests/**/*.ts",
     "./tests/**/*.svelte"
   ],
-  "exclude": [
-    "node_modules",
-    "build/**/*",
-    "src/lib/template/**/*",
-    "src/generated/**/*"
-  ]
+  "exclude": ["node_modules", "build/**/*", "src/lib/template/**/*", "src/generated/**/*"]
 }

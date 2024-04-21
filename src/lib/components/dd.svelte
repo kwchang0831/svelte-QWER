@@ -96,6 +96,9 @@
                     on:click={() => {
                       if (link.url) hide();
                     }}
+                    on:touchstart={() => {
+                      if (link.url) hide();
+                    }}
                     class="p4 flex items-center cursor-pointer {$page.url.pathname === link.url ? 'font-bold' : ''}">
                     {link.name}
                     {#if link.links}
@@ -125,6 +128,9 @@
                     on:click={() => {
                       if (link.url) hide();
                     }}
+                    on:touchstart={() => {
+                      if (link.url) hide();
+                    }}
                     on:keydown={(e) => {
                       if (e.key === 'Enter') {
                         if (link.url) hide();
@@ -138,6 +144,9 @@
                     role="button"
                     tabindex="0"
                     on:click={() => {
+                      if (link.url) hide();
+                    }}
+                    on:touchstart={() => {
                       if (link.url) hide();
                     }}
                     on:keydown={(e) => {
