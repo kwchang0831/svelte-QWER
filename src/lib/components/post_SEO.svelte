@@ -9,7 +9,7 @@
   import { siteConfig } from '$config/site';
 
   export let post: Post.Post;
-  let post_cover: Asset.Image | undefined = $assets.get(post.cover ?? '');
+  let post_cover: Asset.Image | undefined | string = $assets.get(post.cover ?? '') || post.cover;
 </script>
 
 <svelte:head>
@@ -37,11 +37,14 @@
 
   <meta name="twitter:card" content="summary_large_image" />
 
-  {#if post_cover && post_cover.original}
+  {#if post_cover && typeof post_cover !== 'string' && post_cover.original}
     <meta property="og:image" content={new URL(post_cover.original, siteConfig.url).href} />
     <meta property="og:image:width" content={'' + post_cover.width} />
     <meta property="og:image:height" content={'' + post_cover.height} />
     <meta name="twitter:image" content={new URL(post_cover.original, siteConfig.url).href} />
+  {:else if typeof post_cover === 'string'}
+    <meta property="og:image" content={post_cover} />
+    <meta name="twitter:image" content={post_cover} />
   {:else}
     <meta property="og:image" content={new URL(siteConfig.cover, siteConfig.url).href} />
     <meta name="twitter:image" content={new URL(siteConfig.cover, siteConfig.url).href} />
@@ -52,7 +55,9 @@
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
       headline: post.title,
-      image: post_cover ? [new URL(post_cover.original, siteConfig.url).href] : [],
+      image: post_cover
+        ? [new URL(typeof post_cover === 'string' ? post_cover : post_cover.original, siteConfig.url).href]
+        : [],
       datePublished: post.published,
       dateModified: post.updated,
       author: [

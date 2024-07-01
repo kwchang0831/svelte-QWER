@@ -58,7 +58,10 @@
 <Header />
 
 {#key data.props.path}
-  <div in:fly|global={{ y: 100, duration: 300, delay: 300 }} out:fly|global={{ y: -100, duration: 300 }} class="pt-[4rem] min-h-75vh">
+  <div
+    in:fly|global={{ y: 100, duration: 300, delay: 300 }}
+    out:fly|global={{ y: -100, duration: 300 }}
+    class="pt-[4rem] min-h-75vh">
     <slot />
   </div>
 {/key}

@@ -6,6 +6,7 @@
   import { tagsCur } from '$stores/tags';
   import { postsShow } from '$stores/posts';
   import { browser } from '$app/environment';
+  import { replaceState } from '$app/navigation';
   import { page } from '$app/stores';
   import type { Tags } from '$lib/types/tags';
 
@@ -37,8 +38,11 @@
         output.append(k === 'tags' ? k : `tags-${encodeURI(k)}`, Array.from(v).join(','));
       });
       const params = output.toString();
-      if (params) window.history.replaceState({}, '', `?${params}`);
-      else window.history.replaceState({}, '', '/');
+      if (params) {
+        replaceState('', `?${params}`);
+      } else {
+        replaceState('', '/');
+      }
     }
   }
 </script>

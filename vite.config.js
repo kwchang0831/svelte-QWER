@@ -7,10 +7,11 @@ import transformerDirective from '@unocss/transformer-directives';
 import transformerVariantGroup from '@unocss/transformer-variant-group';
 import transformerCompileClass from '@unocss/transformer-compile-class';
 import { imagetools } from 'vite-imagetools';
-import path from 'node:path';
+import path from 'path';
 import { partytownVite } from '@builder.io/partytown/utils';
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
+import { defineConfig } from 'vite';
 const pathMainPkg = fileURLToPath(new URL('package.json', import.meta.url));
 const jsonMainPkg = readFileSync(pathMainPkg, 'utf8');
 const pathQWERPkg = fileURLToPath(new URL('QWER/package.json', import.meta.url));
@@ -21,11 +22,11 @@ const qwerPkg = JSON.parse(jsonQWERPkg);
 const outputFolderPath = Object.keys(process.env).some((key) => key.includes('VERCEL'))
   ? '.vercel/output/static'
   : Object.keys(process.env).some((key) => key.includes('NETLIFY'))
-  ? 'build'
-  : 'static';
+    ? 'build'
+    : 'static';
 
 /** @type {import('vite').UserConfig} */
-const config = {
+export default defineConfig({
   mode: process.env.MODE || 'production',
   envPrefix: 'QWER_',
   define: {
@@ -88,6 +89,4 @@ const config = {
       allow: ['..'],
     },
   },
-};
-
-export default config;
+});

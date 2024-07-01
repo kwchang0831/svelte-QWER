@@ -11,6 +11,7 @@
    * //TODO: Mobile: scroll away to hide
    */
   import { page } from '$app/stores';
+  import { goto } from '$app/navigation';
 
   let className = '';
   export { className as class };
@@ -33,8 +34,26 @@
       ddActive: false,
     });
   }
+
   function handleMessage(event: { ddActive: boolean }) {
     active = event.ddActive;
+  }
+
+  function isInternalLink(url: string) {
+    if (!url) return false;
+    const domain = window.location.origin;
+    return url.startsWith('/') || url.startsWith(domain);
+  }
+
+  function handleNavigation(link: string | undefined) {
+    if (link) {
+      if (isInternalLink(link)) {
+        goto(link);
+      } else {
+        window.location.href = link;
+      }
+      hide();
+    }
   }
 </script>
 
@@ -94,7 +113,10 @@
                     target={nav.target}
                     rel={nav.rel}
                     on:click={() => {
-                      if (link.url) hide();
+                      handleNavigation(link.url);
+                    }}
+                    on:touchstart={() => {
+                      handleNavigation(link.url);
                     }}
                     class="p4 flex items-center cursor-pointer {$page.url.pathname === link.url ? 'font-bold' : ''}">
                     {link.name}
@@ -123,11 +145,14 @@
                     target={nav.target}
                     rel={nav.rel}
                     on:click={() => {
-                      if (link.url) hide();
+                      handleNavigation(link.url);
+                    }}
+                    on:touchstart={() => {
+                      handleNavigation(link.url);
                     }}
                     on:keydown={(e) => {
                       if (e.key === 'Enter') {
-                        if (link.url) hide();
+                        handleNavigation(link.url);
                       }
                     }}
                     class="flex items-center cursor-pointer">
@@ -138,11 +163,14 @@
                     role="button"
                     tabindex="0"
                     on:click={() => {
-                      if (link.url) hide();
+                      handleNavigation(link.url);
+                    }}
+                    on:touchstart={() => {
+                      handleNavigation(link.url);
                     }}
                     on:keydown={(e) => {
                       if (e.key === 'Enter') {
-                        if (link.url) hide();
+                        handleNavigation(link.url);
                       }
                     }}
                     class="flex items-center cursor-pointer">

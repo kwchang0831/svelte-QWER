@@ -84,7 +84,10 @@
   <SEO post={thisPost} />
 {/if}
 
-<main in:fade|global={{ duration: 300, delay: 300 }} out:fade|global={{ duration: 300 }} class="flex flex-nowrap justify-center">
+<main
+  in:fade|global={{ duration: 300, delay: 300 }}
+  out:fade|global={{ duration: 300 }}
+  class="flex flex-nowrap justify-center">
   <div class="max-w-screen-md flex-1" />
 
   <article
@@ -130,7 +133,10 @@
 </main>
 
 {#if loaded}
-  <div in:fade|global={{ duration: 300, delay: 300 }} out:fade|global={{ duration: 300 }} class="flex flex-nowrap justify-center">
+  <div
+    in:fade|global={{ duration: 300, delay: 300 }}
+    out:fade|global={{ duration: 300 }}
+    class="flex flex-nowrap justify-center">
     <div class="max-w-screen-md flex-1" />
 
     <div id="post-bottom" class="flex-none flex flex-col max-w-[55rem] w-full xl:(rounded-b-2xl)">

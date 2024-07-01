@@ -1,5 +1,11 @@
 # @kwchang0831/qwer
 
+## 0.8.0
+
+### Minor Changes
+
+- 3083a37: deps: upgrade
+
 ## 0.7.0
 
 ### Minor Changes
