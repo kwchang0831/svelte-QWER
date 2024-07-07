@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const katex = require('katex');
 require('katex/contrib/mhchem');
 
