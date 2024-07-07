@@ -1,5 +1,15 @@
 # @kwchang0831/svelte-qwer
 
+## 1.1.0
+
+### Minor Changes
+
+- c53dbdc: fix: upgrade deps, fix mobile device btn not working, update husky related setup
+
+### Patch Changes
+
+- 4ab2304: fix: Fixed image scaling issues in Safari and mobile Chrome
+
 ## 1.0.0
 
 ### Major Changes
