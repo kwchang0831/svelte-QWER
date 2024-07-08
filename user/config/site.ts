@@ -106,29 +106,30 @@ export const giscusConfig: Giscus.Config = {
   'data-strict': '0',
 };
 
-export const navConfig: (DD.Nav | DD.Link)[] = [
-  {
-    name: 'About',
-    url: '/about',
-  },
-  {
-    name: 'See Docs 📄',
-    url: 'https://docs-svelte-qwer.vercel.app/',
-    rel: 'external',
-  },
-  {
-    name: 'Get QWER 🚀',
-    url: 'https://github.com/kwchang0831/svelte-QWER',
-    rel: 'external',
-  },
-];
+type NavConfigType = {
+  [key: string]: (DD.Nav | DD.Link)[];
+};
 
-export const mobilenavConfig: DD.Nav = {
-  orientation: 2,
-  links: [
+// export const navConfig: (DD.Nav | DD.Link)[] =
+export const navConfig: NavConfigType =
+  {
+    en: [
     {
       name: 'About',
       url: '/about',
+    },
+    {
+      name: 'Menu',
+      links: [
+        {
+          name: 'first',
+          url: '/first-page'
+        },
+        {
+          name: 'test',
+          url: '/test-page'
+        }
+      ]
     },
     {
       name: 'See Docs 📄',
@@ -141,4 +142,57 @@ export const mobilenavConfig: DD.Nav = {
       rel: 'external',
     },
   ],
+  zh: [
+    {
+      name: '關於',
+      url: '/about',
+    },
+    {
+      name: '查看文件 📄',
+      url: 'https://docs-svelte-qwer.vercel.app/',
+      rel: 'external',
+    }
+  ]
+}
+;
+
+type MobileNavConfigType = {
+  [key: string]: DD.Nav;
+};
+
+// export const mobilenavConfig: DD.Nav = {
+export const mobilenavConfig: MobileNavConfigType = {
+  en: {
+    orientation: 2,
+    links: [
+      {
+        name: 'About',
+        url: '/about',
+      },
+      {
+        name: 'See Docs 📄',
+        url: 'https://docs-svelte-qwer.vercel.app/',
+        rel: 'external',
+      },
+      {
+        name: 'Get QWER 🚀',
+        url: 'https://github.com/kwchang0831/svelte-QWER',
+        rel: 'external',
+      },
+    ],
+  },
+  zh: {
+    orientation: 2,
+    links: [
+      {
+        name: '關於',
+        url: '/about',
+      },
+      {
+        name: '查看文件 📄',
+        url: 'https://docs-svelte-qwer.vercel.app/',
+        rel: 'external',
+      }
+    ],
+  }
 };
