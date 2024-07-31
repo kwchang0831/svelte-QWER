@@ -11,7 +11,7 @@
   import { navigating, page } from '$app/stores';
   import { postsAll } from '$stores/posts';
   import AuthorAvatar from '$lib/components/image_avatar.svelte';
-  import { lastUpdatedStr } from '$lib/utli/timeFormat';
+  import { lastUpdatedStr } from '$lib/utils/timeFormat';
   import { afterUpdate, onMount } from 'svelte';
   import { query, result, searching } from '$lib/search/stores';
   import { LL } from '$i18n/i18n-svelte';
