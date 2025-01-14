@@ -134,6 +134,7 @@ const _processMD = (file, generateMeta) => {
     published: _meta['published'] ?? statSync(file).birthtime,
     updated: _meta['updated'] ?? statSync(file).mtime,
     cover: processImagePath(_meta['cover'], _slug),
+    coverInPost: _meta['coverInPost'],
     coverCaption: _meta['coverCaption'],
     coverStyle: _meta['coverStyle'] ?? UserConfig.DefaultCoverStyle,
     options: _meta['options'],
