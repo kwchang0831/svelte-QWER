@@ -3,7 +3,7 @@
   import { dateConfig, siteConfig } from '$config/site';
   import ImgZoom from '$lib/components/image_zoom.svelte';
   import tippy from '$lib/actions/tippy';
-  import { lastUpdatedStr, defaultPublishedStr, defaultUpdatedStr } from '$lib/utli/timeFormat';
+  import { lastUpdatedStr, defaultPublishedStr, defaultUpdatedStr } from '$lib/utils/timeFormat';
   import AuthorAvatar from '$lib/components/image_avatar.svelte';
   import LL from '$i18n/i18n-svelte';
 
