@@ -8,6 +8,8 @@
   import LL from '$i18n/i18n-svelte';
 
   export let data: Post.Post;
+  // Show the coverInPost by default
+  const showCoverInPost = data.coverInPost ?? true;
 </script>
 
 <div class="flex flex-col pt8 mx8">
@@ -67,7 +69,7 @@
   <h1 itemprop="name headline" class="p-name text-4xl my4 mx--4 md:mx0">{data.title}</h1>
 
   <div class="mx--8 md:mx0">
-    {#if data.cover}
+    {#if data.cover && showCoverInPost}
       <ImgZoom
         src={data.cover}
         class="w-full h-auto aspect-auto object-cover md:(rounded-2xl shadow-xl)"
