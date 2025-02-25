@@ -1,4 +1,6 @@
 import PrismJS from 'prismjs';
+import 'prismjs/components/prism-c.js';
+import 'prismjs/components/prism-cpp.js';
 
 import slug from 'limax';
 import path from 'node:path';
