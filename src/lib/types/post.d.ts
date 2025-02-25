@@ -2,7 +2,7 @@ import type { TOC } from '$lib/types/toc';
 export namespace Post {
   export type Post = {
     slug: string;
-    title: stinrg;
+    title: string;
     language: string;
     description: string;
     summary?: string;
