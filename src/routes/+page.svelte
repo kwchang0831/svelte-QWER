@@ -65,7 +65,7 @@
     itemtype="https://schema.org/Blog"
     itemprop="blog"
     class="flex flex-nowrap justify-center flex-col items-center xl:hidden">
-    <div class="max-w-screen-md flex-1 relative ml6">
+    <div class="max-w-screen-md flex-1 relative">
       <IndexProfile class="flex flex-col gap2 items-center text-center" />
     </div>
     <div class="h-feed min-h-50vh flex-none w-full">
