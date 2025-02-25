@@ -1,52 +1,31 @@
-name: Release
+name: Release Tag
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
+  workflow_dispatch:
 
-concurrency: ${{ github.workflow }}-${{ github.ref }}
+permissions:
+  id-token: write
+  contents: write
 
 jobs:
-  release:
-    if: github.repository == 'kwchang0831/svelte-QWER'
-    name: Release
+  publish-release:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repo
+      - name: 📥 Checkout code
         uses: actions/checkout@v4
-
-      - uses: pnpm/action-setup@v4
         with:
-          version: 9
-          run_install: false
+          fetch-depth: 0
 
-      - name: Setup Node.js
+      - name: 🔨 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: lts/*
-          cache: pnpm
+          node-version: '20'
 
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Create Release Pull Request
-        uses: changesets/action@v1
-        with:
-          commit: '🔖 version: package'
-          title: '🔖 Version Package'
+      - name: 📝 Generate Changelog
+        run: npx changelogithub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
